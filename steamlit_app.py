@@ -1,14 +1,16 @@
 import streamlit as st
-import asyncio
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+import pandas as pd
+import matplotlib.pyplot as plt
 
-@st.cache
-def data():
-    return pd.read_csv('data.csv')
+st.title("Line Chart Example")
 
-@st.write
-def display_data():
-    data_df = data()
-    st.write(data_df)
+# load data
+data = pd.DataFrame({
+  'Year': [2015, 2016, 2017, 2018, 2019, 2020],
+  'Sales': [200, 250, 300, 340, 380, 400]
+})
 
-#display_data()
+# plot line chart
+plt.plot(data['Year'], data['Sales'])
+
+st.pyplot()
