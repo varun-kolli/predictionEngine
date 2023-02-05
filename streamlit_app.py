@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 st.title("Line Chart Example")
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # load data
 data = pd.DataFrame({
