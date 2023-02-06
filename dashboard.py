@@ -68,6 +68,9 @@ def main():
         options = df[header].unique()
         ask(header, options)
 
+
+    answers.insert(0, "1207979")
+    answers.insert(2, "Trauma-related")
     st.write(answers)
 
 def backend():
@@ -82,8 +85,6 @@ def backend():
 
 if __name__ == '__main__':
     main()
-
-
 
 """
 
