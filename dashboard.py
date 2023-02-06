@@ -22,36 +22,6 @@ from sklearn.tree import DecisionTreeClassifier
 import warnings
 warnings.filterwarnings('ignore')
 
-def getAge():
-    options = ['18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-    selected_option = st.radio("Select Age Range:", options)
-    st.write(f"You selected: {selected_option}")
-
-def getEduc():
-    options = ['9 to 11', '12 or GED', '0 to 8', '12+ ', 'Special Ed']
-    selected_option = st.radio("Select Education Level:", options)
-    st.write(f"You selected: {selected_option}")
-
-def getEthnic():
-    options = ['Not of Hispanic or Latino origin', 'Other Hispanic or Latino origin', 'Mexican', 'Puerto Rican']
-    selected_option = st.radio("Select Ethnicity:", options)
-    st.write(f"You selected: {selected_option}")
-
-def getRace():
-    options = ['White', 'Other/Mutliple', 'Black or African American', 'Native', 'Asian','Pacific Islander']
-    selected_option = st.radio("Select Race:", options)
-    st.write(f"You selected: {selected_option}")
-
-def getGender():
-    options = ['Male', 'Female']
-    selected_option = st.radio("Select Gender:", options)
-    st.write(f"You selected: {selected_option}")
-
-def getMarital():
-    options = ['Never married', 'Now married', 'Divorced, widowed', 'Seperated']
-    selected_option = st.radio("Select Marital Status:", options)
-    st.write(f"You selected: {selected_option}")
-
 def getPrediction(df, model, input):
     cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     df.iloc[0] = input
@@ -115,28 +85,20 @@ def main():
 
 def backend(df, answers):
     df_copy = df.copy()
-    st.write(len(answers), answers)
+    #st.write(len(answers), answers)
 
     #model = " "
     #model = getModel(df)
     input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
     st.write(len(input), input)
 
-    #prediction = getPrediction(df_copy, model, input)
-    #st.header(prediction)
+    prediction = getPrediction(df_copy, model, input)
+    st.header(prediction)
     #return prediction
 
 if __name__ == '__main__':
     main()
 
-"""
-
-#clean input to a row
-#feed row and get prediction
-#streamlit input
-#output: score, prediction
-#how each input demographic is in comparison to the rest of the datasets for the Prediction
- """
 
 
 
