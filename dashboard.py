@@ -5,13 +5,6 @@ import matplotlib.pyplot as plt
 import DecisionTreeClassifier
 import numpy as np
 
-fileName = "data.csv"
-df = pd.read_csv(fileName).dropna()
-df_copy = df.copy()
-#model = " "
-model = DecisionTreeClassifier.getModel(df)
-input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
-prediction = DecisionTreeClassifier.getPrediction(df_copy, model, input)
 
 def main():
     st.title("14 Question Web App")
@@ -22,6 +15,16 @@ def main():
         answers.append(answer)
     result = process_answers(answers)
     st.write("Result: ", result)
+
+def backend():
+    fileName = "data.csv"
+    df = pd.read_csv(fileName).dropna()
+    df_copy = df.copy()
+    #model = " "
+    model = DecisionTreeClassifier.getModel(df)
+    input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
+    prediction = DecisionTreeClassifier.getPrediction(df_copy, model, input)
+    return prediction
 
 if __name__ == '__main__':
     main()
