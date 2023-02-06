@@ -88,7 +88,7 @@ def backend(df, answers):
     #st.write(len(answers), answers)
 
     #model = " "
-    #model = getModel(df)
+    model = getModel(df)
     input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
     st.write(len(input), input)
 
