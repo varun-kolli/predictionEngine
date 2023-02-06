@@ -24,8 +24,15 @@ warnings.filterwarnings('ignore')
 
 def getAge():
     options = ['18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-    selected_option = st.slider("Select Age Range:", min_value=0, max_value=len(options)-1, value=0, step=1, format=None)
+
+    def custom_slider(options):
+        value = st.slider("Select Age Range:", min_value=0, max_value=len(options)-1, value=0, step=1, format=None)
+        st.write("\n".join([f"{i}: {options[i]}" for i in range(len(options))]), format=None)
+        return value
+
+    selected_option = custom_slider(options)
     selected_age_range = options[selected_option]
+
     st.write(f"You selected: {selected_age_range}")
 
 def main():
