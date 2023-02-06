@@ -14,7 +14,7 @@ from sklearn.model_selection import GridSearchCV       # To implement GridSearch
 from sklearn.model_selection import RandomizedSearchCV # To implement Randomized Search CV
 from sklearn.linear_model import Lasso, Ridge          # To implement Lasso and Ridge Regression
 from sklearn.metrics import classification_report
-from sklearn.metrics import plot_confusion_matrix
+#from sklearn.metrics import plot_confusion_matrix
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.tree import DecisionTreeClassifier
