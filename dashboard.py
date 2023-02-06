@@ -95,8 +95,8 @@ def backend(df, answers):
     prediction = getPrediction(df, model, answers)
     print(prediction)
     st.header(prediction)
-    st.write('Improved score: ', model_clf.best_score_)
-    st.write('Improved parameters: ', model_clf.best_params_)
+    st.write('Improved score: ', model.best_score_)
+    st.write('Improved parameters: ', model.best_params_)
     #return prediction
 
 if __name__ == '__main__':
