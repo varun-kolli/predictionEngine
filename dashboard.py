@@ -85,14 +85,14 @@ def main():
 
 def backend(df, answers):
     df_copy = df.copy()
-    #st.write(len(answers), answers)
+    st.write(len(answers), answers)
 
     #model = " "
     model = getModel(df)
     input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
-    st.write(len(input), input)
+    #st.write(len(input), input)
 
-    prediction = getPrediction(df_copy, model, input)
+    prediction = getPrediction(df_copy, model, answers)
     st.header(prediction)
     #return prediction
 
