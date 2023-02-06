@@ -2,28 +2,40 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import DecisionTreeClassifier
+import numpy as np
 
-st.title("Mental Health Disorders by Age, Education, Ethnicity, Race, and Gender")
+fileName = "data.csv"
+df = pd.read_csv(fileName).dropna()
+df_copy = df.copy()
+#model = " "
+model = DecisionTreeClassifier.getModel(df)
+input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
+prediction = DecisionTreeClassifier.getPrediction(df_copy, model, input)
 
-df = pd.read_csv("data.csv")
-df.set_index("AGE", inplace=True)
+def main():
+    st.title("14 Question Web App")
+    answers = []
+    for i in range(14):
+        question = "Question {}".format(i + 1)
+        answer = st.text_input(question, "Enter your answer here")
+        answers.append(answer)
+    result = process_answers(answers)
+    st.write("Result: ", result)
 
-# Show a histogram of the number of mental health disorders per age cohort
-st.bar_chart(df["MH1"].groupby(df.index).count())
+if __name__ == '__main__':
+    main()
 
-# Show a bar chart of the number of mental health disorders per education level
-st.bar_chart(df["EDUC"].value_counts())
+"""
 
-# Show a countplot of the number of mental health disorders per ethnicity
-st.write(sns.countplot(x="ETHNIC", data=df))
+#clean input to a row
+#feed row and get prediction
+#streamlit input
+#output: score, prediction
+#how each input demographic is in comparison to the rest of the datasets for the Prediction
+ """
 
-# Show a countplot of the number of mental health disorders per race
-st.write(sns.countplot(x="RACE", data=df))
 
-# Show a countplot of the number of mental health disorders per gender
-st.write(sns.countplot(x="GENDER", data=df))
 
-# Show a heatmap of the correlation between the different mental health disorders
-plt.figure(figsize=(10,10))
-sns.heatmap(df.corr(), annot=True)
-st.pyplot()
+
+
