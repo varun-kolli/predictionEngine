@@ -24,10 +24,12 @@ warnings.filterwarnings('ignore')
 
 def getAge():
     options = ['18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-    ticks = list(range(len(options)))
-    selected_option = st.slider("Select Age Range:", min_value=0, max_value=len(options)-1, value=0, step=1, format=None, key=None, handle_color=None, disabled=False, dynamic_slider_value=False, slider_color=None, label_width=None, min_step=None, max_step=None, interval=None, get_interval=None, marks=dict(zip(ticks, options)), class_name=None, persistence=True, persistence_type='local', reset_button=False)
+    selected_option = st.sidebar.slider("Select Age Range:", min_value=0, max_value=len(options)-1, value=0, step=1, key=None, format=None)
     selected_age_range = options[selected_option]
 
+    st.write("Options:")
+    for i, option in enumerate(options):
+        st.write(f"{i}: {option}")
     st.write(f"You selected: {selected_age_range}")
 
 
