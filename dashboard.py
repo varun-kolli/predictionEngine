@@ -24,8 +24,11 @@ warnings.filterwarnings('ignore')
 
 def getPrediction(df, model, input):
     cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+    input.insert(0, "1207979")
+    input.insert(2, "Trauma-related")
     df.iloc[0] = input
     df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
+    print(df_dummies.columns)
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
     prediction = model.predict(queryRow)
     #print('Score: ', model.best_score_)
@@ -65,35 +68,35 @@ def getModel(df):
 def main():
     fileName = "data.csv"
     df = pd.read_csv(fileName).dropna()
+    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
     st.title("Predicting Mental Health Disorder from Demographic Information")
     userInput =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     answers = []
     def ask(header, options):
-        selected_option = st.radio("Select" + header + " :", options)
+        selected_option = st.radio("Select" + header + ":", options)
         #st.write(f"You selected: {selected_option}")
-        answers.append(selected_option)
+        answers.append(str(selected_option).strip())
 
     for i in range(len(userInput)):
         header = userInput[i]
         options = df[header].unique()
         ask(header, options)
 
-
-    answers.insert(0, "1207979")
-    answers.insert(2, "Trauma-related")
+    #answers.insert(0, "1207979")
+    #answers.insert(2, "Trauma-related")
     backend(df, answers)
 
 def backend(df, answers):
     df_copy = df.copy()
-    st.write(len(answers), answers)
-
-    #model = " "
-    model = getModel(df)
-    input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
-    #st.write(len(input), input)
-
-    prediction = getPrediction(df_copy, model, answers)
+    print(len(answers), answers)
+    #input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
+    #print(len(input), input)
+    model = getModel(df_copy)
+    prediction = getPrediction(df, model, answers)
+    print(prediction)
     st.header(prediction)
+    st.write('Improved score: ', model_clf.best_score_)
+    st.write('Improved parameters: ', model_clf.best_params_)
     #return prediction
 
 if __name__ == '__main__':
