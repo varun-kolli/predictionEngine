@@ -52,49 +52,6 @@ def getMarital():
     selected_option = st.radio("Select Marital Status:", options)
     st.write(f"You selected: {selected_option}")
 
-def main():
-    fileName = "data.csv"
-    df = pd.read_csv(fileName).dropna()
-    st.title("Predicting Mental Health Disorder from Demographic Information")
-    userInput =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
-    answers = []
-    def ask(header, options):
-        selected_option = st.radio("Select" + header + " :", options)
-        #st.write(f"You selected: {selected_option}")
-        answers.append(selected_option)
-
-    for i in range(len(userInput)):
-        header = userInput[i]
-        options = df[header].unique()
-        ask(header, options)
-
-
-    answers.insert(0, "1207979")
-    answers.insert(2, "Trauma-related")
-    st.write(answers)
-
-def backend():
-    fileName = "data.csv"
-    df = pd.read_csv(fileName).dropna()
-    df_copy = df.copy()
-    #model = " "
-    model = getModel(df)
-    input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
-    prediction = getPrediction(df_copy, model, input)
-    return prediction
-
-if __name__ == '__main__':
-    main()
-
-"""
-
-#clean input to a row
-#feed row and get prediction
-#streamlit input
-#output: score, prediction
-#how each input demographic is in comparison to the rest of the datasets for the Prediction
- """
-
 def getPrediction(df, model, input):
     cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     df.iloc[0] = input
@@ -134,6 +91,53 @@ def getModel(df):
     return model_clf
     #print('Improved score: ', model_clf.best_score_)
     #print('Improved parameters: ', model_clf.best_params_)
+
+def main():
+    fileName = "data.csv"
+    df = pd.read_csv(fileName).dropna()
+    st.title("Predicting Mental Health Disorder from Demographic Information")
+    userInput =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+    answers = []
+    def ask(header, options):
+        selected_option = st.radio("Select" + header + " :", options)
+        #st.write(f"You selected: {selected_option}")
+        answers.append(selected_option)
+
+    for i in range(len(userInput)):
+        header = userInput[i]
+        options = df[header].unique()
+        ask(header, options)
+
+
+    answers.insert(0, "1207979")
+    answers.insert(2, "Trauma-related")
+    backend(df, answers)
+
+def backend(df, answers):
+    df_copy = df.copy()
+    st.write(len(answers), answers)
+
+    #model = " "
+    #model = getModel(df)
+    input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
+    st.write(len(input), input)
+
+    #prediction = getPrediction(df_copy, model, input)
+    #st.header(prediction)
+    #return prediction
+
+if __name__ == '__main__':
+    main()
+
+"""
+
+#clean input to a row
+#feed row and get prediction
+#streamlit input
+#output: score, prediction
+#how each input demographic is in comparison to the rest of the datasets for the Prediction
+ """
+
 
 
 
