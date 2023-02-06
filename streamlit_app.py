@@ -1,17 +1,8 @@
-import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import streamlit as st
 
-st.title("Line Chart Example")
-st.set_option('deprecation.showPyplotGlobalUse', False)
+# Read in the CSV file
+df = pd.read_csv("data.csv")
 
-# load data
-data = pd.DataFrame({
-  'Year': [2015, 2016, 2017, 2018, 2019, 2020],
-  'Sales': [200, 250, 300, 340, 380, 400]
-})
-
-# plot line chart
-plt.plot(data['Year'], data['Sales'])
-
-st.pyplot()
+# Write out the first 10 rows of the DataFrame
+st.write("First 10 rows:", df.head(10))
