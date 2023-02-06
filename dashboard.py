@@ -27,19 +27,48 @@ def getAge():
     selected_option = st.radio("Select Age Range:", options)
     st.write(f"You selected: {selected_option}")
 
+def getEduc():
+    options = ['9 to 11', '12 or GED', '0 to 8', '12+ ', 'Special Ed']
+    selected_option = st.radio("Select Education Level:", options)
+    st.write(f"You selected: {selected_option}")
+
+def getEthnic():
+    options = ['Not of Hispanic or Latino origin', 'Other Hispanic or Latino origin', 'Mexican', 'Puerto Rican']
+    selected_option = st.radio("Select Ethnicity:", options)
+    st.write(f"You selected: {selected_option}")
+
+def getRace():
+    options = ['White', 'Other/Mutliple', 'Black or African American', 'Native', 'Asian','Pacific Islander']
+    selected_option = st.radio("Select Race:", options)
+    st.write(f"You selected: {selected_option}")
+
+def getGender():
+    options = ['Male', 'Female']
+    selected_option = st.radio("Select Gender:", options)
+    st.write(f"You selected: {selected_option}")
+
+def getMarital():
+    options = ['Never married', 'Now married', 'Divorced, widowed', 'Seperated']
+    selected_option = st.radio("Select Marital Status:", options)
+    st.write(f"You selected: {selected_option}")
 
 def main():
+    fileName = "data.csv"
+    df = pd.read_csv(fileName).dropna()
     st.title("Predicting Mental Health Disorder from Demographic Information")
-    getAge()
-    """
+    userInput =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     answers = []
-    for i in range(14):
-        question = "Question {}".format(i + 1)
-        answer = st.text_input(question, "Enter your answer here")
-        answers.append(answer)
-    result = ""
-    st.write("Result: ", result)
-    """
+    def ask(header, options):
+        selected_option = st.radio("Select" + header + " :", options)
+        #st.write(f"You selected: {selected_option}")
+        answers.append(selected_option)
+
+    for i in range(len(userInput)):
+        header = userInput[i]
+        options = df[header].unique()
+        ask(header, options)
+
+    st.write(answers)
 
 def backend():
     fileName = "data.csv"
@@ -54,10 +83,7 @@ def backend():
 if __name__ == '__main__':
     main()
 
-def getUnique():
-    fileName = "data.csv"
-    df = pd.read_csv(fileName).dropna()
-    print(df["AGE"].unique())
+
 
 """
 
