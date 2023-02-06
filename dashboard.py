@@ -13,7 +13,7 @@ def main():
         question = "Question {}".format(i + 1)
         answer = st.text_input(question, "Enter your answer here")
         answers.append(answer)
-    result = process_answers(answers)
+    result = ""
     st.write("Result: ", result)
 
 def backend():
