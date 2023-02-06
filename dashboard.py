@@ -22,9 +22,16 @@ from sklearn.tree import DecisionTreeClassifier
 import warnings
 warnings.filterwarnings('ignore')
 
+def getAge():
+    options = ['18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
+    selected_option = st.slider("Select Age Range:", min_value=0, max_value=len(options)-1, value=0, step=1)
+    selected_age_range = options[selected_option]
+    st.write(f"You selected: {selected_age_range}")
 
 def main():
-    st.title("14 Question Web App")
+    st.title("Predicting Mental Health Disorder from Demographic Information")
+    getAge()
+    """
     answers = []
     for i in range(14):
         question = "Question {}".format(i + 1)
@@ -32,6 +39,7 @@ def main():
         answers.append(answer)
     result = ""
     st.write("Result: ", result)
+    """
 
 def backend():
     fileName = "data.csv"
@@ -45,6 +53,11 @@ def backend():
 
 if __name__ == '__main__':
     main()
+
+def getUnique():
+    fileName = "data.csv"
+    df = pd.read_csv(fileName).dropna()
+    print(df["AGE"].unique())
 
 """
 
