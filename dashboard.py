@@ -71,7 +71,7 @@ def main():
         if header == "STATEFIP":
             selected_option = st.selectbox('Please select a State:', options)
         elif header == "AGE":
-            selected_option = st.selectbox('Please select aN Age group:', options)
+            selected_option = st.selectbox('Please select an Age group:', options)
         else:
             selected_option = st.radio("Select" + header + ":", options)
         answers.append(str(selected_option).strip())
@@ -86,7 +86,7 @@ def backend(df, answers):
     df_copy = df.copy()
     print(len(answers), answers)
     model = getModel(df_copy)
-    prediction = getPrediction(df, model, answers)
+    prediction = getPrediction(df, model, answers)[0]
     print(prediction)
     st.header(prediction)
     st.write('Improved score: ', model.best_score_)
