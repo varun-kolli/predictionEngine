@@ -69,7 +69,9 @@ def main():
     answers = []
     def ask(header, options):
         if header == "STATEFIP":
-            selected_option = st.selectbox('Please select an option:', options)
+            selected_option = st.selectbox('Please select a State:', options)
+        elif header == "AGE":
+            selected_option = st.selectbox('Please select aN Age group:', options)
         else:
             selected_option = st.radio("Select" + header + ":", options)
         answers.append(str(selected_option).strip())
