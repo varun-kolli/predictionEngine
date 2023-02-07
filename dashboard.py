@@ -28,11 +28,8 @@ def getPrediction(df, model, input):
     input.insert(2, "Trauma-related")
     df.iloc[0] = input
     df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
-    print(df_dummies.columns)
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
     prediction = model.predict(queryRow)
-    #print('Score: ', model.best_score_)
-    #print('Parameters: ', model.best_params_)
     return prediction
 
 def getModel(df):
@@ -62,8 +59,6 @@ def getModel(df):
     input = np.array(test_x.iloc[10]).reshape(1, -1)
 
     return model_clf
-    #print('Improved score: ', model_clf.best_score_)
-    #print('Improved parameters: ', model_clf.best_params_)
 
 def main():
     fileName = "data.csv"
@@ -73,24 +68,21 @@ def main():
     userInput =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     answers = []
     def ask(header, options):
-        selected_option = st.radio("Select" + header + ":", options)
-        #st.write(f"You selected: {selected_option}")
+        if header == "STATEFIP":
+            selected_option = st.selectbox('Please select an option:', options)
+        else:
+            selected_option = st.radio("Select" + header + ":", options)
         answers.append(str(selected_option).strip())
 
     for i in range(len(userInput)):
         header = userInput[i]
         options = df[header].unique()
         ask(header, options)
-
-    #answers.insert(0, "1207979")
-    #answers.insert(2, "Trauma-related")
     backend(df, answers)
 
 def backend(df, answers):
     df_copy = df.copy()
     print(len(answers), answers)
-    #input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
-    #print(len(input), input)
     model = getModel(df_copy)
     prediction = getPrediction(df, model, answers)
     print(prediction)
