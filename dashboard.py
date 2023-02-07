@@ -14,7 +14,7 @@ from sklearn.model_selection import GridSearchCV       # To implement GridSearch
 from sklearn.model_selection import RandomizedSearchCV # To implement Randomized Search CV
 from sklearn.linear_model import Lasso, Ridge          # To implement Lasso and Ridge Regression
 from sklearn.metrics import classification_report
-from sklearn.metrics import plot_confusion_matrix
+#from sklearn.metrics import plot_confusion_matrix
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.tree import DecisionTreeClassifier
@@ -22,43 +22,13 @@ from sklearn.tree import DecisionTreeClassifier
 import warnings
 warnings.filterwarnings('ignore')
 
-
-def main():
-    st.title("14 Question Web App")
-    answers = []
-    for i in range(14):
-        question = "Question {}".format(i + 1)
-        answer = st.text_input(question, "Enter your answer here")
-        answers.append(answer)
-    result = ""
-    st.write("Result: ", result)
-
-def backend():
-    fileName = "data.csv"
-    df = pd.read_csv(fileName).dropna()
-    df_copy = df.copy()
-    #model = " "
-    model = getModel(df)
-    input = ['1207979', "60-64", "Trauma-related" , "12+", "Not of Hispanic or Latino origin", "White","Male", "Now married", "No", "Unemployed", "Private residence", "1", "CD"]
-    prediction = getPrediction(df_copy, model, input)
-    return prediction
-
-if __name__ == '__main__':
-    main()
-
-"""
-
-#clean input to a row
-#feed row and get prediction
-#streamlit input
-#output: score, prediction
-#how each input demographic is in comparison to the rest of the datasets for the Prediction
- """
-
 def getPrediction(df, model, input):
     cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+    input.insert(0, "1207979")
+    input.insert(2, "Trauma-related")
     df.iloc[0] = input
     df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
+    print(df_dummies.columns)
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
     prediction = model.predict(queryRow)
     #print('Score: ', model.best_score_)
@@ -94,6 +64,45 @@ def getModel(df):
     return model_clf
     #print('Improved score: ', model_clf.best_score_)
     #print('Improved parameters: ', model_clf.best_params_)
+
+def main():
+    fileName = "data.csv"
+    df = pd.read_csv(fileName).dropna()
+    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+    st.title("Predicting Mental Health Disorder from Demographic Information")
+    userInput =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+    answers = []
+    def ask(header, options):
+        selected_option = st.radio("Select" + header + ":", options)
+        #st.write(f"You selected: {selected_option}")
+        answers.append(str(selected_option).strip())
+
+    for i in range(len(userInput)):
+        header = userInput[i]
+        options = df[header].unique()
+        ask(header, options)
+
+    #answers.insert(0, "1207979")
+    #answers.insert(2, "Trauma-related")
+    backend(df, answers)
+
+def backend(df, answers):
+    df_copy = df.copy()
+    print(len(answers), answers)
+    #input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
+    #print(len(input), input)
+    model = getModel(df_copy)
+    prediction = getPrediction(df, model, answers)
+    print(prediction)
+    st.header(prediction)
+    st.write('Improved score: ', model.best_score_)
+    st.write('Improved parameters: ', model.best_params_)
+    #return prediction
+
+if __name__ == '__main__':
+    main()
+
+
 
 
 
