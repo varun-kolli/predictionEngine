@@ -68,9 +68,9 @@ def sideBar():
 
     # Show the selected tab content based on the selection
     if tab_selector == "Tab 1":
-        st.sidebar.markdown(tab1_content)
+        v1()
     elif tab_selector == "Tab 2":
-        st.sidebar.markdown(tab2_content)
+        v2()
     elif tab_selector == "Tab 3":
         st.sidebar.markdown(tab3_content)
 
@@ -104,7 +104,7 @@ def codeBooks():
 
 
 def main():
-    v2()
+    sideBar()
 
 if __name__ == '__main__':
     main()
