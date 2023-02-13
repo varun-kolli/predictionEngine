@@ -38,7 +38,7 @@ def v2():
         data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
         df = pd.DataFrame(data, columns=["Method", "F1 Score"])
         df = df.reset_index(drop=True)
-        st.bar_chart(df, use_container_width=True)
+        st.bar_chart(df, x = 'Method', y = "F1 Score", use_container_width=True)
 
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
