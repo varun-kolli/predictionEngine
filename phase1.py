@@ -54,21 +54,38 @@ def sideBar():
         st.sidebar.markdown(tab3_content)
 
 def codeBooks():
-    csv_files = [f for f in csv_files if not f.endswith("_key.csv")]
-    csv_files_paths = [os.path.join(folder_path, f) for f in csv_files]
-    st.write(csv_files)
-    st.write(csv_files_paths)
-
-def tabs():
-    tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12, tab13, tab14 =
+        st.tabs(["Age", "Disorders", "Education", "Employment",
+        "Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States", "Veteran"])
 
     with tab1:
-       st.dataframe(pd.read_csv("CSV_files/age_key.csv"))
+        st.dataframe(pd.read_csv("CSV_files/age_key.csv"))
     with tab2:
-       st.dataframe(pd.read_csv("CSV_files/age_key.csv"))
-    with tab3:
-       st.header("An owl")
-       st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+        st.dataframe(pd.read_csv("CSV_files/Disorders_Key.csv"))
+    with tab4:
+        st.dataframe(pd.read_csv("CSV_files/educ_key.csv"))
+    with tab5:
+        st.dataframe(pd.read_csv("CSV_files/employ_key.csv"))
+    with tab6:
+        st.dataframe(pd.read_csv("CSV_files/ethnic_key.csv"))
+    with tab7:
+        st.dataframe(pd.read_csv("CSV_files/gender_key.csv"))
+    with tab8:
+        st.dataframe(pd.read_csv("CSV_files/livarag_key.csv"))
+    with tab9:
+        st.dataframe(pd.read_csv("CSV_files/marstat_key.csv"))
+    with tab10:
+        st.dataframe(pd.read_csv("CSV_files/race_key.csv"))
+    with tab11:
+        st.dataframe(pd.read_csv("CSV_files/sap_key.csv"))
+    with tab12:
+        st.dataframe(pd.read_csv("CSV_files/marstat_key.csv"))
+    with tab13:
+        st.dataframe(pd.read_csv("CSV_files/States_ID.csv"))
+    with tab14:
+        st.dataframe(pd.read_csv("CSV_files/veteran_key.csv"))
+
+
 
 def main():
     codeBooks()
