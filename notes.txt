@@ -1,0 +1,26 @@
+SAMDHA Mental Health Client Level Data
+- client level information containing patient demographic and diagnoses from 2004 - 2020
+
+Version 1: Basic Decision Tree
+- Imported data and attempted a basic decision tree model
+  Excluded unnecessary or skewing data columns
+  Subset of 100,000 rows, year 2013, only three most common disorders
+
+F1 weighted score of around 0.3
+
+Version 2: Data cleaning + More Decision Trees
+- Due to lack of categorical variables, null values, and overlapping rows, more cleanup needed to happen to improve performance
+- Combined DETNLF and EMPLOY columns
+  Made all relevant columns categorical
+  Removed null values by three different methods;
+  Replace null values with the mode of each column
+  Replace null values with the distribution of that column
+  Remove all rows with null values
+  Ran three separate models (scores in powerpoint from last week)
+  All years, three most common disorders, subset of 200,000
+  Very good at predicting depression, very low at everything else
+
+Version 3: revisions to models
+Used SMOTE to balance the dataset
+Used balanced dataset as training set, unbalanced for testing set
+Slightly improved performance
