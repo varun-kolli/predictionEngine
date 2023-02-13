@@ -36,7 +36,21 @@ def v3():
     st.markdown("Slightly improved performance")
 
 def main():
-    v2()
+    # Define the tabs
+    tab1_content = "Tab 1 Content"
+    tab2_content = "Tab 2 Content"
+    tab3_content = "Tab 3 Content"
+
+    # Create a selection widget for the tabs
+    tab_selector = st.sidebar.selectbox("Select a Tab", ["Tab 1", "Tab 2", "Tab 3"])
+
+    # Show the selected tab content based on the selection
+    if tab_selector == "Tab 1":
+        st.sidebar.markdown(tab1_content)
+    elif tab_selector == "Tab 2":
+        st.sidebar.markdown(tab2_content)
+    elif tab_selector == "Tab 3":
+        st.sidebar.markdown(tab3_content)
 
 
 if __name__ == '__main__':
