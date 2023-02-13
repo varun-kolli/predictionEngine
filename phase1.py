@@ -53,7 +53,7 @@ def sideBar():
         st.sidebar.markdown(tab3_content)
 
 def codeBooks():
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12, tab13, tab14 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States", "Veteran"])
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab13, tab14 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States", "Veteran"])
     with tab1:
         st.dataframe(pd.read_csv("CSV_files/age_key.csv"))
     with tab2:
@@ -74,8 +74,6 @@ def codeBooks():
         st.dataframe(pd.read_csv("CSV_files/race_key.csv"))
     with tab11:
         st.dataframe(pd.read_csv("CSV_files/sap_key.csv"))
-    with tab12:
-        st.dataframe(pd.read_csv("CSV_files/marstat_key.csv"))
     with tab13:
         st.dataframe(pd.read_csv("CSV_files/States_ID.csv"))
     with tab14:
