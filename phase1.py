@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 from PIL import Image
 
 st.title("SAMDHA Mental Health Client Level Data")
@@ -35,7 +36,7 @@ def v3():
     st.markdown("Used balanced dataset as training set, unbalanced for testing set")
     st.markdown("Slightly improved performance")
 
-def main():
+def sideBar():
     # Define the tabs
     tab1_content = "Tab 1 Content"
     tab2_content = "Tab 2 Content"
@@ -51,6 +52,26 @@ def main():
         st.sidebar.markdown(tab2_content)
     elif tab_selector == "Tab 3":
         st.sidebar.markdown(tab3_content)
+
+def codeBooks():
+    csv_files = [f for f in csv_files if not f.endswith("_key.csv")]
+    csv_files_paths = [os.path.join(folder_path, f) for f in csv_files]
+    st.write(csv_files)
+    st.write(csv_files_paths)
+
+def tabs():
+    tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+
+    with tab1:
+       st.dataframe(pd.read_csv("CSV_files/age_key.csv"))
+    with tab2:
+       st.dataframe(pd.read_csv("CSV_files/age_key.csv"))
+    with tab3:
+       st.header("An owl")
+       st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+
+def main():
+    codeBooks()
 
 
 if __name__ == '__main__':
