@@ -4,8 +4,9 @@ from PIL import Image
 
 st.title("SAMDHA Mental Health Client Level Data")
 st.markdown("Client level information containing patient demographic and diagnoses from 2004 - 2020")
-image = Image.open('images/dataNumerical.png')
-st.image(image, use_column_width=True)
+with st.expander("View Dataframe"):
+    image = Image.open('images/dataNumerical.png')
+    st.image(image, use_column_width=True)
 
 def v1():
     st.header("Version 1: Basic Decision Tree")
@@ -17,12 +18,15 @@ def v1():
 def v2():
     st.header("Version 2: Data cleaning + More Decision Trees")
     st.markdown("Due to lack of categorical variables, null values, and overlapping rows, more cleanup needed to happen to improve performance")
-    image = Image.open('images/dataNumerical2.png')
-    st.image(image, use_column_width=True)
+
+    with st.expander("View Dataframe"):
+        image = Image.open('images/dataNumerical2.png')
+        st.image(image, use_column_width=True)
 
     st.markdown("Combined DETNLF and EMPLOY columns")
     st.markdown("Converted all relevant columns to categorical variables")
     codeBooks()
+
     st.markdown("Removed null values by three different methods;")
     st.markdown("Replace null values with the mode of each column")
     st.markdown("Replace null values with the distribution of that column")
