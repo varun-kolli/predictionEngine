@@ -3,6 +3,8 @@ from PIL import Image
 
 st.title("SAMDHA Mental Health Client Level Data")
 st.markdown("Client level information containing patient demographic and diagnoses from 2004 - 2020")
+image = Image.open('images/dataNumerical.png')
+    st.image(image, use_column_width=True)
 
 def v1():
     st.header("Version 1: Basic Decision Tree")
