@@ -37,7 +37,8 @@ def v2():
     with st.container():
         data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
         df = pd.DataFrame(data, columns=["Method", "F1 Score"])
-        st.dataframe(df)
+        df = df.reset_index(drop=True)
+        st.bar_chart(df)
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
