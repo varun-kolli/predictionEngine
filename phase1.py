@@ -21,7 +21,8 @@ def v2():
     st.image(image, use_column_width=True)
 
     st.markdown("Combined DETNLF and EMPLOY columns")
-    st.markdown("Made all relevant columns categorical")
+    st.markdown("Converted all relevant columns to categorical variables")
+    codeBooks()
     st.markdown("Removed null values by three different methods;")
     st.markdown("Replace null values with the mode of each column")
     st.markdown("Replace null values with the distribution of that column")
@@ -83,8 +84,7 @@ def codeBooks():
 
 
 def main():
-    codeBooks()
-
+    v2()
 
 if __name__ == '__main__':
     main()
