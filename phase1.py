@@ -39,11 +39,11 @@ def v2():
         df = pd.DataFrame(data, columns=["Method", "F1 Score"])
         df = df.reset_index(drop=True)
         chart = alt.Chart(df).mark_bar().encode(
-            x=alt.X('Method', axis=alt.Axis(title=None, labelAngle=0, labelLimit=200)),
+            x=alt.X('Method', axis=alt.Axis(title=None, labelAngle=0, labelLimit=1000)),
             y=alt.Y('F1 Score', axis=alt.Axis(title='F1 Score'))
         ).properties(
-            height=300,
-            width=400
+            height=900,
+            width=1200
         ).configure_scale(
             bandPaddingInner=0.1
         )
