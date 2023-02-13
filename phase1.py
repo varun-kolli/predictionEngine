@@ -40,7 +40,12 @@ def v2():
         df = df.reset_index(drop=True)
         chart = alt.Chart(df).mark_bar().encode(
             x=alt.X('Method', axis=alt.Axis(title=None, labelAngle=0, labelLimit=200)),
-            y=alt.Y('F1 Score', axis=alt.Axis(title='F1 Score', scale=alt.Scale(domain=(0, 0.6)))),
+            y=alt.Y('F1 Score', axis=alt.Axis(title='F1 Score'))
+        ).properties(
+            height=300,
+            width=400
+        ).configure_scale(
+            bandPaddingInner=0.1
         )
 
         st.altair_chart(chart)
