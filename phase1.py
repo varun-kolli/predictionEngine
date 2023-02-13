@@ -51,7 +51,7 @@ def v2():
         col1, col2, col3 = st.columns(3)
         col1.metric("Removed Null Values", "0.469", "-0.33")
         col2.metric("Mode Replacing Nulls", "0.503")
-        col3.metric("Humidity", "0.502", "-0.01")
+        col3.metric("Distribution Replacing Nulls", "0.502", "-0.01")
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
