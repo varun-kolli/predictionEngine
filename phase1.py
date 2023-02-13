@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 st.title("SAMDHA Mental Health Client Level Data")
 st.markdown("Client level information containing patient demographic and diagnoses from 2004 - 2020")
