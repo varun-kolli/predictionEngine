@@ -60,17 +60,16 @@ def v3():
 
 def sideBar():
     tabs = ["Introduction", "Phase 1", "Phase 2", "Phase 3"]
-    #tab_selector = st.sidebar.selectbox("Select a Tab", ["Introduction", "Phase 1", "Phase 2", "Phase 3"])
-    with st.sidebar:
-        st.tabs
-        if tab_selector == "Introduction":
-            introduction()
-        elif tab_selector == "Phase 1":
-            v1()
-        elif tab_selector == "Phase 2":
-            v2()
-        elif tab_selector == "Phase 3":
-            v3()
+    tab_selector = st.sidebar.selectbox("Select a Tab", ["Introduction", "Phase 1", "Phase 2", "Phase 3"])
+
+    if tab_selector == "Introduction":
+        introduction()
+    elif tab_selector == "Phase 1":
+        v1()
+    elif tab_selector == "Phase 2":
+        v2()
+    elif tab_selector == "Phase 3":
+        v3()
 
 def codeBooks():
     tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab13, tab14 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States", "Veteran"])
