@@ -45,7 +45,7 @@ def v2():
             color = alt.Color("Method", legend=None)
         )
 
-        st.altair_chart(bar, width = 300)
+        st.altair_chart(bar, use_container_width=True)
 
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
