@@ -18,6 +18,7 @@ def v1():
     st.markdown("Subset of 100,000 rows, year 2013, only three most common disorders")
     st.markdown("F1 weighted score of around 0.3")
 
+
 def v2():
     st.header("Version 2: Data cleaning + More Decision Trees")
     st.markdown("Due to lack of categorical variables, null values, and overlapping rows, more cleanup needed to happen to improve performance")
@@ -47,6 +48,10 @@ def v2():
 
         st.altair_chart(bar, use_container_width=True)
 
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Removed Null Values", "0.469", "-0.33")
+        col2.metric("Mode Replacing Nulls", "0.503")
+        col3.metric("Humidity", "0.502", "-0.01")
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
@@ -60,7 +65,7 @@ def v3():
 
 def sideBar():
     tabs = ["Introduction", "Phase 1", "Phase 2", "Phase 3"]
-    tab_selector = st.sidebar.selectbox("Select a Tab", ["Introduction", "Phase 1", "Phase 2", "Phase 3"])
+    tab_selector = st.sidebar.selectbox("Navigate", ["Introduction", "Phase 1", "Phase 2", "Phase 3"])
 
     if tab_selector == "Introduction":
         introduction()
