@@ -38,7 +38,12 @@ def v2():
         data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
         df = pd.DataFrame(data, columns=["Method", "F1 Score"])
         df = df.reset_index(drop=True)
-        st.bar_chart(df)
+        chart = alt.Chart(df).mark_bar().encode(
+            x='Method',
+            y='F1 Score',
+        )
+
+        st.altair_chart(chart)
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
