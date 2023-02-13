@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
+import altair as alt
+
 
 st.title("SAMDHA Mental Health Client Level Data")
 st.markdown("Client level information containing patient demographic and diagnoses from 2004 - 2020")
@@ -31,6 +33,18 @@ def v2():
     st.markdown("Replace null values with the mode of each column")
     st.markdown("Replace null values with the distribution of that column")
     st.markdown("Remove all rows with null values")
+
+
+    data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
+    df = pd.DataFrame(data, columns=["Method", "F1 Score"])
+
+    chart = alt.Chart(df).mark_bar().encode(
+        x="Method",
+        y="F1 Score",
+    )
+
+    st.altair_chart(chart)
+
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
     st.markdown("Very good at predicting depression, very low at everything else")
