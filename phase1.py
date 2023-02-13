@@ -39,11 +39,12 @@ def v2():
     df = pd.DataFrame(data, columns=["Method", "F1 Score"])
 
     chart = alt.Chart(df).mark_bar().encode(
-        x="Method",
-        y="F1 Score",
+        x=alt.X("Method", axis=alt.Axis(title=None, labelAngle=-45)),
+        y=alt.Y("F1 Score", axis=alt.Axis(title="F1 Score")),
     )
 
-    st.altair_chart(chart)
+    with st.container():
+        st.altair_chart(chart)
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
