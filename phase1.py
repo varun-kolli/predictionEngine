@@ -34,7 +34,7 @@ def v3():
     st.markdown("Slightly improved performance")
 
 def main():
-    v3()
+    v2()
 
 
 if __name__ == '__main__':
