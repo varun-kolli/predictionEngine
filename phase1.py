@@ -34,16 +34,15 @@ def v2():
     st.markdown("Replace null values with the distribution of that column")
     st.markdown("Remove all rows with null values")
 
-
-    data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
-    df = pd.DataFrame(data, columns=["Method", "F1 Score"])
-
-    chart = alt.Chart(df).mark_bar().encode(
-        x=alt.X("Method", axis=alt.Axis(title=None, labelAngle=-45)),
-        y=alt.Y("F1 Score", axis=alt.Axis(title="F1 Score")),
-    )
-
     with st.container():
+        data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
+        df = pd.DataFrame(data, columns=["Method", "F1 Score"])
+
+        chart = alt.Chart(df).mark_bar().encode(
+            x=alt.X("Method", axis=alt.Axis(title=None, labelAngle=-45)),
+            y=alt.Y("F1 Score", axis=alt.Axis(title="F1 Score")),
+        )
+
         st.altair_chart(chart)
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
