@@ -14,7 +14,7 @@ def v1():
 def v2():
     st.header("Version 2: Data cleaning + More Decision Trees")
     st.markdown("Due to lack of categorical variables, null values, and overlapping rows, more cleanup needed to happen to improve performance")
-    image = Image.open('images/dataNumerical.png')
+    image = Image.open('images/dataNumerical2.png')
     st.image(image, use_column_width=True)
 
     st.markdown("Combined DETNLF and EMPLOY columns")
