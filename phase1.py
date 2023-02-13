@@ -4,11 +4,12 @@ from PIL import Image
 import altair as alt
 
 
-st.title("SAMDHA Mental Health Client Level Data")
-st.markdown("Client level information containing patient demographic and diagnoses from 2004 - 2020")
-with st.expander("View Dataframe"):
-    image = Image.open('images/dataNumerical.png')
-    st.image(image, use_column_width=True)
+def introduction():
+    st.title("SAMDHA Mental Health Client Level Data")
+    st.markdown("Client level information containing patient demographic and diagnoses from 2004 - 2020")
+    with st.expander("View Dataframe"):
+        image = Image.open('images/dataNumerical.png')
+        st.image(image, use_column_width=True)
 
 def v1():
     st.header("Version 1: Basic Decision Tree")
@@ -58,21 +59,18 @@ def v3():
     st.markdown("Slightly improved performance")
 
 def sideBar():
-    # Define the tabs
-    tab1_content = "Tab 1 Content"
-    tab2_content = "Tab 2 Content"
-    tab3_content = "Tab 3 Content"
-
-    # Create a selection widget for the tabs
-    tab_selector = st.sidebar.selectbox("Select a Tab", ["Tab 1", "Tab 2", "Tab 3"])
-
-    # Show the selected tab content based on the selection
-    if tab_selector == "Tab 1":
-        v1()
-    elif tab_selector == "Tab 2":
-        v2()
-    elif tab_selector == "Tab 3":
-        st.sidebar.markdown(tab3_content)
+    tabs = ["Introduction", "Phase 1", "Phase 2", "Phase 3"]
+    #tab_selector = st.sidebar.selectbox("Select a Tab", ["Introduction", "Phase 1", "Phase 2", "Phase 3"])
+    with st.sidebar:
+        st.tabs
+        if tab_selector == "Introduction":
+            introduction()
+        elif tab_selector == "Phase 1":
+            v1()
+        elif tab_selector == "Phase 2":
+            v2()
+        elif tab_selector == "Phase 3":
+            v3()
 
 def codeBooks():
     tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab13, tab14 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States", "Veteran"])
