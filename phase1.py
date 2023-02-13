@@ -39,8 +39,8 @@ def v2():
         df = pd.DataFrame(data, columns=["Method", "F1 Score"])
         df = df.reset_index(drop=True)
         chart = alt.Chart(df).mark_bar().encode(
-            x='Method',
-            y='F1 Score',
+            x=alt.X('Method', axis=alt.Axis(title=None, labelAngle=0, labelLimit=200)),
+            y=alt.Y('F1 Score', axis=alt.Axis(title='F1 Score', scale=alt.Scale(domain=(0, 0.6)))),
         )
 
         st.altair_chart(chart)
