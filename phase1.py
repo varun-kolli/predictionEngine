@@ -38,17 +38,8 @@ def v2():
         data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
         df = pd.DataFrame(data, columns=["Method", "F1 Score"])
         df = df.reset_index(drop=True)
-        chart = alt.Chart(df).mark_bar().encode(
-            x=alt.X('Method', axis=alt.Axis(title=None, labelAngle=0, labelLimit=1000)),
-            y=alt.Y('F1 Score', axis=alt.Axis(title='F1 Score'))
-        ).properties(
-            height=900,
-            width=1200
-        ).configure_scale(
-            bandPaddingInner=0.1
-        )
+        st.bar_chart(df, use_container_width=True)
 
-        st.altair_chart(chart)
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
