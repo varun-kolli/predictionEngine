@@ -79,7 +79,7 @@ def v2():
         image = Image.open('images/dataNumerical2.png')
         st.image(image, use_column_width=True)
 
-
+    st.text("3. Handling Missing Values")
 
 
     st.markdown("Removed null values by three different methods;")
@@ -91,13 +91,18 @@ def v2():
         data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
         df = pd.DataFrame(data, columns=["Method", "F1 Score"])
         df = df.reset_index(drop=True)
-        bar = alt.Chart(df).mark_bar().encode(
-            x = alt.X("Method:O", title = None, sort = alt.SortField(field = "F1 Score", order = "descending")),
-            y = alt.Y("F1 Score:Q", title = "F1 Score"),
-            color = alt.Color("Method", legend=None)
+        bar = alt.Chart(df).mark_bar(size=15).encode(
+            x=alt.X("Method:O", title=None, sort=alt.SortField(field="F1 Score", order="descending")),
+            y=alt.Y("F1 Score:Q", title="F1 Score", axis=alt.Axis(grid=False)),
+            color=alt.Color("Method", legend=None),
+            opacity=alt.value(0.7),
+        ).properties(
+            width=alt.Step(50),
+            height=alt.Step(80),
         )
 
         st.altair_chart(bar, use_container_width=True)
+
 
         col1, col2, col3 = st.columns(3)
         col1.metric("Removed Null Values", "0.469", "-0.33")
