@@ -153,8 +153,8 @@ def codeBooks():
 
 
 def main():
-    with open('my_custom_theme.css') as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html = True)
+    #with open('my_custom_theme.css') as f:
+        #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html = True)
 
     sideBar()
 
