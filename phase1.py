@@ -31,7 +31,6 @@ def introduction():
 
 
 def v1():
-    st.title('Version 1: Decision Tree Model Hyperparameter Tuning Report')
     data = {
        'Hyperparameters': ['Initial', 'Improved'],
        'F1-Score Weighted': [0.493, 0.493],
