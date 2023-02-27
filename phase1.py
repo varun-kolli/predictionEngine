@@ -80,26 +80,11 @@ def v2():
         st.image(image, use_column_width=True)
 
     st.text("3. Handling Missing Values")
-
-
-    st.markdown("Removed null values by three different methods;")
-    st.markdown("Replace null values with the mode of each column")
-    st.markdown("Replace null values with the distribution of that column")
-    st.markdown("Remove all rows with null values")
+    st.text("   a. Replacing with Mode")
+    st.text("   b. Replacing with Distribution")
+    st.text("   c. Remove rows with null values")
 
     with st.container():
-        data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
-        df = pd.DataFrame(data, columns=["Method", "F1 Score"])
-        df = df.reset_index(drop=True)
-        bar = alt.Chart(df).mark_bar(size=25).encode(
-            x = alt.X("Method:O", title = None, sort = alt.SortField(field = "F1 Score", order = "descending")),
-            y = alt.Y("F1 Score:Q", title = "F1 Score"),
-            color = alt.Color("Method", legend=None)
-        )
-
-        st.altair_chart(bar, use_container_width=True)
-
-
         col1, col2, col3 = st.columns(3)
         col1.metric("Removed Null Values", "0.469", "-0.33")
         col2.metric("Mode Replacing Nulls", "0.503")
