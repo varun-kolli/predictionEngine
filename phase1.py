@@ -67,7 +67,7 @@ def v1():
 
 
 def v2():
-    st.title("Version 2: Data Cleaning")
+    st.title("Data Cleaning and Improvements")
 
     st.subheader("Focusing on 3 most common disorders")
     st.write("  a. Bipolar")
@@ -106,10 +106,24 @@ def v2():
 
 
 def v3():
-    st.header("Version 3: revisions to models")
-    st.markdown("Used SMOTE to balance the dataset")
-    st.markdown("Used balanced dataset as training set, unbalanced for testing set")
-    st.markdown("Slightly improved performance")
+    st.header("Balancing Using Dataset")
+    st.subheader("SMOTE")
+    st.markdown(" - balanced dataset as training set,")
+    st.markdown(" - unbalanced for testing set")
+    col1= st.columns(1)
+    col1.metric("F1 Score", "0.55", "+0.47")
+
+    with st.container():
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image("images/smoteMatrix.jpg", use_column_width=True)
+
+        with col2:
+            st.image("images/smoteClassification.jpg", use_column_width=True)
+
+    st.subheader("Prototype Correlation Matrix")
+    st.image("images/smoteCorr.jpg", use_column_width=True)
+
 
 def sideBar():
     tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Phase 3"]
