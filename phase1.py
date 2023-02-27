@@ -69,6 +69,10 @@ def v1():
 def v2():
     st.header("Version 2: Data cleaning")
 
+    st.subheader("Methodology")
+
+    st.text("1. Convert Relevant Columns to Categorical Variables")
+
     st.markdown("Due to lack of categorical variables, null values, and overlapping rows, more cleanup needed to happen to improve performance")
 
     with st.expander("View Dataframe"):
