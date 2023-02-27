@@ -90,15 +90,19 @@ def v2():
     st.write("a. Removing Null Values")
     st.markdown(":red[F1 score: 0.469]")
     image = Image.open('images/nullsRemoved.jpg')
-    st.text("Decision Matrix and Feature Importance")
-    st.image(image, caption='Rows with Null Values Removed')
+    st.image(image, caption='Decision Matrix and Feature Importance')
 
-    data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
-    df = pd.DataFrame(data, columns=["Method", "F1 Score"])
-    df = df.set_index("Method")
+    st.write("")
+    st.write("b. Replacing with Distribution Values")
+    st.markdown(":red[F1 score: 0.502]")
+    image = Image.open('images/nullsDistribution.jpg')
+    st.image(image, caption='Decision Matrix and Feature Importance')
 
-    with st.container():
-        st.table(df)
+    st.write("")
+    st.write("c. Replacing with Mode Values")
+    st.markdown(":green[F1 score: 0.503]")
+    image = Image.open('images/nullsMode.jpg')
+    st.image(image, caption='Decision Matrix and Feature Importance')
 
 
 def v3():
