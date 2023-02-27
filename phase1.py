@@ -153,8 +153,9 @@ def codeBooks():
 
 def set_custom_css():
 
-    html = f'<style>{css_string}</style>'
-    st.markdown(html, unsafe_allow_html=True)
+    #html = f'<style>{css_string}</style>'
+    #st.markdown(html, unsafe_allow_html=True)
+    pass
 
 def main():
     set_custom_css()
