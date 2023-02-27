@@ -89,15 +89,12 @@ def v2():
         st.table(df)
 
     st.subheader("Focusing on 3 most common disorders")
-    st.text("a. Bipolar")
-    st.text("b. Trauma")
-    st.text("c. Depression")
+    st.write("a. Bipolar")
+    st.write("b. Trauma")
+    st.write("c. Depression")
+    st.caption("Very good at predicting depression obly")
 
 
-
-    st.markdown("Ran three separate models (scores in powerpoint from last week)")
-    st.markdown("All years, three most common disorders, subset of 200,000")
-    st.markdown("Very good at predicting depression, very low at everything else")
 
 def v3():
     st.header("Version 3: revisions to models")
