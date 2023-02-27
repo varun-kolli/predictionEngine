@@ -3,6 +3,7 @@ import pandas as pd
 from PIL import Image
 import altair as alt
 from streamlit import set_page_config
+from streamlit import HTML
 
 
 def introduction():
@@ -154,7 +155,6 @@ def codeBooks():
 
 
 def main():
-    set_page_config(page_title="My Streamlit App", page_icon=":guardsman:", layout="wide", theme="my_custom_theme.css")
     sideBar()
 
 if __name__ == '__main__':
