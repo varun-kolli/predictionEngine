@@ -90,7 +90,6 @@ def v2():
     st.write("a. Removing Null Values")
     st.markdown(":red[F1 score: 0.469]")
     image = Image.open('images/nullsRemoved.jpg')
-    st.text()
     st.text("Decision Matrix and Feature Importance")
     st.image(image, caption='Rows with Null Values Removed')
 
@@ -100,9 +99,6 @@ def v2():
 
     with st.container():
         st.table(df)
-
-
-
 
 
 def v3():
