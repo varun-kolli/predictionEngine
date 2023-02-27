@@ -5,6 +5,8 @@ import altair as alt
 
 
 def introduction():
+    st.title("Predictive Analytics Framework for Mental Health Diagnoses")
+
     st.header('Project Goal')
     st.write('Develop a predictive analytics framework using data mining, statistical models, and machine learning that can identify risk factors in diagnosing mental health conditions and facilitate early detection of mental health issues.')
 
@@ -26,15 +28,6 @@ def introduction():
     # Expected Outcomes
     st.header('Expected Outcomes')
     st.write('The resulting framework will implement a data-driven approach in utilizing temporal and spatial data analytics as well as machine learning techniques to identify risk factors as well as visualize the problem in the United States. Using Streamlit functions and code such as st.header, st.write statements display this in a clean interface.')
-"""
-    #st.title("SAMDHA Mental Health Client Level Data")
-    st.title("Project Goal")
-
-    st.markdown("Client level information containing patient demographic and diagnoses from 2004 - 2020")
-    with st.expander("View Dataframe"):
-        image = Image.open('images/dataNumerical.png')
-        st.image(image, use_column_width=True)
-"""
 
 
 def v1():
