@@ -50,7 +50,7 @@ def v1():
     fits_text = f'{total_fits} fits'
 
     # Define container width for table and text
-    container_width = st.container().get_builder().get_row_width()
+    container_width = st.container().width
 
     # Display information
     st.title('Decision Tree Model Hyperparameter Tuning Report')
