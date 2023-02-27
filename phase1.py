@@ -153,7 +153,7 @@ def codeBooks():
 
 
 def main():
-    css_string='body {background-color: green;}'
+    css_string='body {background-color: green !important;}'
     st.markdown(f'<style>{css_string}</style>', unsafe_allow_html=True)
 
     sideBar()
