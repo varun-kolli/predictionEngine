@@ -37,7 +37,7 @@ def v1():
        'F1-Score Weighted': [0.493, 0.493],
        'Max Depth': [60, 45],
        'Min Samples Leaf': [45, 56],
-       'Min Samples Split': [10, 2]
+       'Min Samples Split': [10, 2],
        'Fits': [135, 500]
     }
 
