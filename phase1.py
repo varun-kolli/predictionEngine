@@ -32,9 +32,6 @@ def introduction():
 
 def v1():
     st.title('Version 1: Decision Tree Model Hyperparameter Tuning Report')
-    st.header('Introduction')
-    st.write('In this section, we explore the hyperparameter tuning process for a decision tree model using the GridSearchCV function from scikit-learn library. The data used in this report contains information about mental health diagnoses from multiple years, and we filter the data to create a subset of interest. We then split the data into training and testing sets, and proceed with hyperparameter tuning using the GridSearchCV function.')
-    st.subheader('Model Performance')
     data = {
        'Hyperparameters': ['Initial', 'Grid Search 1', 'Grid Search 2'],
        'F1-Score Weighted': [0.493, 0.493, 0.493],
@@ -43,12 +40,33 @@ def v1():
        'Min Samples Split': [None, 10, 2]
     }
 
-    # Create the DataFrame
+    # Create DataFrame
     df = pd.DataFrame(data)
 
-    # Set the index to the Hyperparameters column
-    df.set_index('Hyperparameters', inplace=True)
-    st.table(df)
+    # Define cross-validation information
+    n_folds = 5
+    total_fits = 135 + 500
+    folds_text = f'{n_folds}-fold cross-validation'
+    fits_text = f'{total_fits} fits'
+
+    # Define container width for table and text
+    container_width = st.container().get_builder().get_row_width()
+
+    # Display information
+    st.title('Decision Tree Model Hyperparameter Tuning Report')
+    with st.container():
+        col1, col2 = st.columns(2)
+        with col1:
+            st.header('Introduction')
+            st.write('In this section, we explore the hyperparameter tuning process for a decision tree model using the GridSearchCV function from scikit-learn library. The data used in this report contains information about mental health diagnoses from multiple years, and we filter the data to create a subset of interest.')
+            st.write(f'The hyperparameters we tune are the maximum depth of the tree, the minimum number of samples required to split an internal node, and the minimum number of samples required to be at a leaf node. We use {folds_text} and the F1-score weighted metric for evaluation.')
+            st.write(f'We perform a coarse grid search by specifying a range of values for each hyperparameter, and run a total of 135 fits using this approach. We then perform a finer grid search using a narrower range of values for each hyperparameter, and run a total of 500 fits using this approach ({fits_text}).')
+        with col2:
+            st.header('Model Performance')
+            st.write(df)
+
+        st.write('Training and testing sets were split using a 70/30 split.')
+
 
 def v2():
     st.header("Version 2: Data cleaning + More Decision Trees")
