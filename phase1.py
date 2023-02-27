@@ -92,8 +92,8 @@ def v2():
         df = pd.DataFrame(data, columns=["Method", "F1 Score"])
         df = df.reset_index(drop=True)
         bar = alt.Chart(df).mark_bar(size=15).encode(
-            x=alt.X("Method:O", title=None, sort=alt.SortField(field="F1 Score", order="descending")),
-            y=alt.Y("F1 Score:Q", title="F1 Score", axis=alt.Axis(grid=False)),
+            x=alt.X("Method:O", title=None, sort=alt.SortField(field="F1 Score", order="descending"), axis=alt.Axis(labelAngle=90)),
+            y=alt.Y("F1 Score:Q", title="F1 Score", scale=alt.Scale(domain=[0.4, 0.5]), axis=alt.Axis(grid=False)),
             color=alt.Color("Method", legend=None),
             opacity=alt.value(0.7),
         ).properties(
