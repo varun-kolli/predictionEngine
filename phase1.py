@@ -70,10 +70,10 @@ def v2():
     st.title("Version 2: Data Cleaning")
 
     st.subheader("Focusing on 3 most common disorders")
-        st.write("a. Bipolar")
-        st.write("b. Trauma")
-        st.write("c. Depression")
-        st.caption("Very good at predicting depression only")
+    st.write("  a. Bipolar")
+    st.write("  b. Trauma")
+    st.write("  c. Depression")
+    st.caption("Very good at predicting depression only")
 
     st.header("Methodology")
 
