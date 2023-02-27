@@ -68,7 +68,8 @@ def v1():
 
 
 def v2():
-    st.header("Version 2: Data cleaning + More Decision Trees")
+    st.header("Version 2: Data cleaning")
+
     st.markdown("Due to lack of categorical variables, null values, and overlapping rows, more cleanup needed to happen to improve performance")
 
     with st.expander("View Dataframe"):
@@ -112,14 +113,14 @@ def v3():
     st.markdown("Slightly improved performance")
 
 def sideBar():
-    tabs = ["Introduction", "Phase 1", "Phase 2", "Phase 3"]
+    tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Phase 3"]
     tab_selector = st.sidebar.selectbox("Navigate", ["Introduction", "Phase 1", "Phase 2", "Phase 3"])
 
     if tab_selector == "Introduction":
         introduction()
-    elif tab_selector == "Phase 1":
+    elif tab_selector == "Initial Modelling":
         v1()
-    elif tab_selector == "Phase 2":
+    elif tab_selector == "Decision Tree Improvements":
         v2()
     elif tab_selector == "Phase 3":
         v3()
