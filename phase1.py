@@ -69,6 +69,12 @@ def v1():
 def v2():
     st.title("Version 2: Data Cleaning")
 
+    st.subheader("Focusing on 3 most common disorders")
+        st.write("a. Bipolar")
+        st.write("b. Trauma")
+        st.write("c. Depression")
+        st.caption("Very good at predicting depression only")
+
     st.header("Methodology")
 
     st.subheader("1. Convert Relevant Columns to Categorical Variables")
@@ -83,6 +89,10 @@ def v2():
     st.write("")
     st.write("a. Removing Null Values")
     st.markdown(":red[F1 score: 0.469]")
+    image = Image.open('images/nullsRemoved.jpg')
+    st.text()
+    st.text("Decision Matrix and Feature Importance")
+    st.image(image, caption='Rows with Null Values Removed')
 
     data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
     df = pd.DataFrame(data, columns=["Method", "F1 Score"])
@@ -91,11 +101,7 @@ def v2():
     with st.container():
         st.table(df)
 
-    st.subheader("Focusing on 3 most common disorders")
-    st.write("a. Bipolar")
-    st.write("b. Trauma")
-    st.write("c. Depression")
-    st.caption("Very good at predicting depression only")
+
 
 
 
