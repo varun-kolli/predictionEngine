@@ -125,9 +125,12 @@ def v3():
     st.subheader("Prototype Correlation Matrix")
     st.image("images/smoteCorr.jpg", use_column_width=True)
 
+def v4():
+    st.title("Random Forest")
+
 
 def sideBar():
-    tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Phase 3"]
+    tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
     tab_selector = st.sidebar.selectbox("Navigate", tabs)
 
     if tab_selector == "Introduction":
@@ -136,7 +139,9 @@ def sideBar():
         v1()
     elif tab_selector == "Decision Tree Improvements":
         v2()
-    elif tab_selector == "Phase 3":
+    elif tab_selector == "Data Balancing":
+        v3()
+    elif tab_selector == "Random Forest":
         v3()
 
 def codeBooks():
