@@ -67,25 +67,33 @@ def v1():
 
 
 def v2():
-    st.header("Version 2: Data cleaning")
+    st.title("Version 2: Data Cleaning")
 
-    st.subheader("Methodology")
+    st.header("Methodology")
 
-    st.text("1. Convert Relevant Columns to Categorical Variables")
+    st.subheader("1. Convert Relevant Columns to Categorical Variables")
     codeBooks()
-    st.text("2. Combined DETNLF and EMPLOY columns")
+    st.subheader("2. Combined DETNLF and EMPLOY columns")
 
     with st.expander("Resultant Dataframe"):
         image = Image.open('images/dataNumerical2.png')
         st.image(image, use_column_width=True)
 
-    st.text("3. Handling Missing Values")
+    st.subheader("3. Handling Missing Values")
 
     data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
     df = pd.DataFrame(data, columns=["Method", "F1 Score"])
+    df = df.set_index("Method")
 
     with st.container():
         st.table(df)
+
+    st.subheader("Focusing on 3 most common disorders")
+    st.text("a. Bipolar")
+    st.text("b. Trauma")
+    st.text("c. Depression")
+
+
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
