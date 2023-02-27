@@ -93,7 +93,7 @@ def v2():
         df = df.reset_index(drop=True)
         bar = alt.Chart(df).mark_bar(size=25).encode(
             x = alt.X("Method:O", title = None, sort = alt.SortField(field = "F1 Score", order = "descending")),
-            y = alt.Y("F1 Score:Q", title = "F1 Score", scale=alt.Scale(domain=[0.4, 0.5]), axis=alt.Axis(grid=False)),
+            y = alt.Y("F1 Score:Q", title = "F1 Score"),
             color = alt.Color("Method", legend=None)
         )
 
