@@ -31,34 +31,19 @@ def introduction():
 
 
 def v1():
-    # Set page title
     st.title('Version 1: Decision Tree Model Hyperparameter Tuning Report')
-
-    # Introduction
     st.header('Introduction')
     st.write('In this section, we explore the hyperparameter tuning process for a decision tree model using the GridSearchCV function from scikit-learn library. The data used in this report contains information about mental health diagnoses from multiple years, and we filter the data to create a subset of interest. We then split the data into training and testing sets, and proceed with hyperparameter tuning using the GridSearchCV function.')
-
-    # Results
-    st.header('Results')
-
-    # Initial model performance
     st.subheader('Initial Model Performance')
     st.write('Our initial model using default hyperparameters had an F1-score weighted of 0.493.')
-
-    # Coarse grid search results
-    st.subheader('Inital Grid Search Results')
+    st.subheader('Iniital Grid Search Results')
     st.write('After performing the coarse grid search, we found that the best hyperparameters were {"max_depth": 60, "min_samples_leaf": 45, "min_samples_split": 10}, which resulted in an F1-score weighted of 0.493.')
-
-    # Finer grid search results
     st.subheader('Improved Grid Search Results')
     st.write('After performing the finer grid search, we found that the best hyperparameters were {"max_depth": 45, "min_samples_leaf": 56, "min_samples_split": 2}, which resulted in an F1-score weighted of 0.493.')
-
-    # Visualize hyperparameter tuning results
     st.subheader('Hyperparameter Tuning Results')
     data = {'Hyperparameters': ['Initial', 'Grid Search 1', 'Grid Search 2'], 'F1-Score Weighted': [0.493, 0.493, 0.493]}
     df = pd.DataFrame(data)
-    chart = alt.Chart(df).mark_bar().encode(x='Hyperparameters', y='F1-Score Weighted').properties(title='Hyperparameter Tuning Results')
-    st.altair_chart(chart, use_container_width=True)
+    st.table(df)
 
 def v2():
     st.header("Version 2: Data cleaning + More Decision Trees")
