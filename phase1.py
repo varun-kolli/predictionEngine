@@ -151,9 +151,14 @@ def codeBooks():
     with tab14:
         st.dataframe(pd.read_csv("CSV_files/veteran_key.csv"))
 
+def set_custom_css():
 
+    html = f'<style>{css_string}</style>'
+    st.markdown(html, unsafe_allow_html=True)
 
 def main():
+    set_custom_css()
+    st.set_config_file(config_file='config.toml')
     sideBar()
 
 if __name__ == '__main__':
