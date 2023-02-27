@@ -82,7 +82,7 @@ def v2():
     st.subheader("3. Handling Missing Values")
     st.write("")
     st.write("a. Removing Null Values")
-    st.markdown(” :red[F1 score: 0.469]”)
+    st.markdown(":red[F1 score: 0.469]”)
 
     data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
     df = pd.DataFrame(data, columns=["Method", "F1 Score"])
