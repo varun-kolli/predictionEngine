@@ -80,6 +80,9 @@ def v2():
         st.image(image, use_column_width=True)
 
     st.subheader("3. Handling Missing Values")
+    st.write("")
+    st.write("a. Removing Null Values")
+    st.markdown(” :red[F1 score: 0.469]”)
 
     data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
     df = pd.DataFrame(data, columns=["Method", "F1 Score"])
@@ -92,7 +95,7 @@ def v2():
     st.write("a. Bipolar")
     st.write("b. Trauma")
     st.write("c. Depression")
-    st.caption("Very good at predicting depression obly")
+    st.caption("Very good at predicting depression only")
 
 
 
