@@ -110,8 +110,7 @@ def v3():
     st.subheader("SMOTE")
     st.markdown(" - balanced dataset as training set,")
     st.markdown(" - unbalanced for testing set")
-    col1= st.columns(1)
-    col1.metric("F1 Score", "0.55", "+0.47")
+    st.metric(label="F1 score", value="0.55", delta="0.047")
 
     with st.container():
         col1, col2 = st.columns(2)
