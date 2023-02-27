@@ -114,7 +114,7 @@ def v3():
 
 def sideBar():
     tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Phase 3"]
-    tab_selector = st.sidebar.selectbox("Navigate", ["Introduction", "Phase 1", "Phase 2", "Phase 3"])
+    tab_selector = st.sidebar.selectbox("Navigate", tabs)
 
     if tab_selector == "Introduction":
         introduction()
