@@ -81,14 +81,11 @@ def v2():
 
     st.text("3. Handling Missing Values")
 
+    data = [("Removed Null Values", 0.469), ("Mode Replacing Nulls", 0.503), ("Distribution Replacing Nulls", 0.502)]
+    df = pd.DataFrame(data, columns=["Method", "F1 Score"])
+
     with st.container():
-        col1, col2, col3 = st.columns(3)
-        st.write("   a. Remove rows with null values")
-        col1.metric("", "0.469", "-0.33")
-        st.text("   b. Replacing with Mode")
-        col2.metric("", "0.503")
-        st.text("   c. Replacing with Distribution")
-        col3.metric("", "0.502", "-0.01")
+        st.table(df)
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
