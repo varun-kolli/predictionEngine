@@ -83,7 +83,7 @@ def v2():
 
     with st.container():
         col1, col2, col3 = st.columns(3)
-        st.text("   a. Remove rows with null values")
+        st.write("   a. Remove rows with null values")
         col1.metric("", "0.469", "-0.33")
         st.text("   b. Replacing with Mode")
         col2.metric("", "0.503")
