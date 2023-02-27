@@ -80,15 +80,15 @@ def v2():
         st.image(image, use_column_width=True)
 
     st.text("3. Handling Missing Values")
-    st.text("   a. Replacing with Mode")
-    st.text("   b. Replacing with Distribution")
-    st.text("   c. Remove rows with null values")
 
     with st.container():
         col1, col2, col3 = st.columns(3)
-        col1.metric("Removed Null Values", "0.469", "-0.33")
-        col2.metric("Mode Replacing Nulls", "0.503")
-        col3.metric("Distribution Replacing Nulls", "0.502", "-0.01")
+        st.text("   a. Remove rows with null values")
+        col1.metric("", "0.469", "-0.33")
+        st.text("   b. Replacing with Mode")
+        col2.metric("", "0.503")
+        st.text("   c. Replacing with Distribution")
+        col3.metric("", "0.502", "-0.01")
 
     st.markdown("Ran three separate models (scores in powerpoint from last week)")
     st.markdown("All years, three most common disorders, subset of 200,000")
