@@ -58,7 +58,6 @@ def v1():
         st.header('Methodology')
         st.write('In this section, we explore the hyperparameter tuning process for a decision tree model using the GridSearchCV function from scikit-learn library. The data used in this report contains information about mental health diagnoses from multiple years, and we filter the data to create a subset of interest.')
         st.write(f'The hyperparameters we tune are the maximum depth of the tree, the minimum number of samples required to split an internal node, and the minimum number of samples required to be at a leaf node. We use {folds_text} and the F1-score weighted metric for evaluation.')
-        st.write(f'We perform a coarse grid search by specifying a range of values for each hyperparameter, and run a total of 135 fits using this approach. We then perform a finer grid search using a narrower range of values for each hyperparameter, and run a total of 500 fits using this approach ({fits_text}).')
         st.subheader('Grid Search Cross Validation Model Performance')
         st.write(df)
         col1, col2 = st.columns(2)
