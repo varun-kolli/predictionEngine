@@ -95,10 +95,7 @@ def v2():
             x = alt.X("Method:O", title = None, sort = alt.SortField(field = "F1 Score", order = "descending")),
             y = alt.Y("F1 Score:Q", title = "F1 Score", scale=alt.Scale(domain=[0.4, 0.5]), axis=alt.Axis(grid=False)),
             color = alt.Color("Method", legend=None)
-        ).properties(
-                 width=alt.Step(50),
-                 height=alt.Step(80),
-             )
+        )
 
         st.altair_chart(bar, use_container_width=True)
 
