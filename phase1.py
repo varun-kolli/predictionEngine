@@ -108,9 +108,11 @@ def v2():
 def v3():
     st.header("Balancing Using Dataset")
     st.subheader("SMOTE")
-    st.markdown(" - balanced dataset as training set,")
-    st.markdown(" - unbalanced for testing set")
+    st.markdown(" - Balanced dataset as training set")
+    st.markdown(" - Unbalanced for testing set")
     st.metric(label="F1 score", value="0.55", delta="0.047")
+
+    st.subheader("Decision Matrix and Classification Report")
 
     with st.container():
         col1, col2 = st.columns(2)
