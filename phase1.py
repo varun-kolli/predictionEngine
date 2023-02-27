@@ -3,7 +3,6 @@ import pandas as pd
 from PIL import Image
 import altair as alt
 from streamlit import set_page_config
-from streamlit import HTML
 
 
 def introduction():
