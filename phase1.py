@@ -72,16 +72,15 @@ def v2():
     st.subheader("Methodology")
 
     st.text("1. Convert Relevant Columns to Categorical Variables")
+    codeBooks()
+    st.text("2. Combined DETNLF and EMPLOY columns")
 
-    st.markdown("Due to lack of categorical variables, null values, and overlapping rows, more cleanup needed to happen to improve performance")
-
-    with st.expander("View Dataframe"):
+    with st.expander("Resultant Dataframe"):
         image = Image.open('images/dataNumerical2.png')
         st.image(image, use_column_width=True)
 
-    st.markdown("Combined DETNLF and EMPLOY columns")
-    st.markdown("Converted all relevant columns to categorical variables")
-    codeBooks()
+
+
 
     st.markdown("Removed null values by three different methods;")
     st.markdown("Replace null values with the mode of each column")
