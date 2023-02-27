@@ -62,6 +62,9 @@ def v1():
         st.header('Model Performance')
         st.write(df)
         st.write('Training and testing sets were split using a 70/30 split.')
+        col1 = st.columns(2)
+                col1.metric("Training Size", "70%")
+                col2.metric("Testing Size", "30%")
 
 
 def v2():
