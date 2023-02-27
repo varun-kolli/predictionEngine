@@ -34,16 +34,21 @@ def v1():
     st.title('Version 1: Decision Tree Model Hyperparameter Tuning Report')
     st.header('Introduction')
     st.write('In this section, we explore the hyperparameter tuning process for a decision tree model using the GridSearchCV function from scikit-learn library. The data used in this report contains information about mental health diagnoses from multiple years, and we filter the data to create a subset of interest. We then split the data into training and testing sets, and proceed with hyperparameter tuning using the GridSearchCV function.')
-    st.subheader('Initial Model Performance')
-    st.write('Our initial model using default hyperparameters had an F1-score weighted of 0.493.')
-    st.subheader('Iniital Grid Search Results')
-    st.write('After performing the coarse grid search, we found that the best hyperparameters were {"max_depth": 60, "min_samples_leaf": 45, "min_samples_split": 10}, which resulted in an F1-score weighted of 0.493.')
-    st.subheader('Improved Grid Search Results')
-    st.write('After performing the finer grid search, we found that the best hyperparameters were {"max_depth": 45, "min_samples_leaf": 56, "min_samples_split": 2}, which resulted in an F1-score weighted of 0.493.')
-    st.subheader('Hyperparameter Tuning Results')
-    data = {'Hyperparameters': ['Initial', 'Grid Search 1', 'Grid Search 2'], 'F1-Score Weighted': [0.493, 0.493, 0.493]}
-    df = pd.DataFrame(data)
-    st.table(df)
+    st.subheader('Model Performance')
+       data = {
+           'Hyperparameters': ['Initial', 'Grid Search 1', 'Grid Search 2'],
+           'F1-Score Weighted': [0.493, 0.493, 0.493],
+           'Max Depth': [None, 60, 45],
+           'Min Samples Leaf': [None, 45, 56],
+           'Min Samples Split': [None, 10, 2]
+       }
+
+       # Create the DataFrame
+       df = pd.DataFrame(data)
+
+       # Set the index to the Hyperparameters column
+       df.set_index('Hyperparameters', inplace=True)
+       st.table(df)
 
 def v2():
     st.header("Version 2: Data cleaning + More Decision Trees")
