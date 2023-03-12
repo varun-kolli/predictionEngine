@@ -5,6 +5,18 @@ from phase1 import introduction
 tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
 
 # Create a sidebar with buttons
+m = st.markdown("""
+<style>
+div.stButton > button:first-child {
+    background-color: #0099ff;
+    color:#ffffff;
+}
+div.stButton > button:hover {
+    background-color: #00ff00;
+    color:#ff0000;
+    }
+</style>""", unsafe_allow_html=True)
+
 st.sidebar.markdown("# Tab Selector")
 if st.sidebar.button(tabs[0]):
     selection = tabs[0]
