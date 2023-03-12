@@ -4,11 +4,18 @@ from phase1 import introduction
 
 tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
 
-# Create a sidebar with buttons without the button box
+# Create a sidebar with buttons
 st.sidebar.markdown("# Tab Selector")
-for tab in tabs:
-    if st.sidebar.button(tab, key=tab, help=tab, type='default', css=".streamlit-button button {border:none}"):
-        selection = tab
+if st.sidebar.button(tabs[0]):
+    selection = tabs[0]
+if st.sidebar.button(tabs[1]):
+    selection = tabs[1]
+if st.sidebar.button(tabs[2]):
+    selection = tabs[2]
+if st.sidebar.button(tabs[3]):
+    selection = tabs[3]
+if st.sidebar.button(tabs[4]):
+    selection = tabs[4]
 
 # Depending on which tab is selected, show the appropriate content
 if selection == "Introduction":
