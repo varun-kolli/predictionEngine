@@ -8,13 +8,17 @@ tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data
 m = st.markdown("""
 <style>
 div.stButton > button:first-child {
-    background-color: #0099ff;
-    color:#ffffff;
+    background-color: #007bff;
+    color: #ffffff;
 }
 div.stButton > button:hover {
-    background-color: #00ff00;
-    color:#ff0000;
-    }
+    background-color: #0069d9;
+    color: #ffffff;
+}
+div.stButton > button:focus {
+    background-color: #0056b3;
+    color: #ffffff;
+}
 </style>""", unsafe_allow_html=True)
 
 tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
