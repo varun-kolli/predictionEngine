@@ -17,17 +17,13 @@ div.stButton > button:hover {
     }
 </style>""", unsafe_allow_html=True)
 
+tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
+
+# Create a sidebar with buttons without the button box
 st.sidebar.markdown("# Tab Selector")
-if st.sidebar.button(tabs[0]):
-    selection = tabs[0]
-if st.sidebar.button(tabs[1]):
-    selection = tabs[1]
-if st.sidebar.button(tabs[2]):
-    selection = tabs[2]
-if st.sidebar.button(tabs[3]):
-    selection = tabs[3]
-if st.sidebar.button(tabs[4]):
-    selection = tabs[4]
+for tab in tabs:
+    if st.sidebar.button(tab, key=tab):
+        selection = tab
 
 # Depending on which tab is selected, show the appropriate content
 if selection == "Introduction":
