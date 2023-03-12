@@ -19,25 +19,25 @@ div.stButton > button:hover {
 
 tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
 
-# Create a sidebar with buttons without the button box
+# Create a sidebar with buttons for each tab
 st.sidebar.markdown("# Tab Selector")
-for tab in tabs:
-    if st.sidebar.button(tab, key=tab):
-        selection = tab
+selection = st.sidebar.button(tabs[0], key=tabs[0], help=tabs[0], type='default')
+for tab in tabs[1:]:
+    selection |= st.sidebar.button(tab, key=tab, help=tab, type='default')
 
 # Depending on which tab is selected, show the appropriate content
-if selection == "Introduction":
+if "Introduction" in selection:
     st.header("Introduction")
     st.write("This is the introduction tab.")
-elif selection == "Initial Modelling":
+if "Initial Modelling" in selection:
     st.header("Initial Modelling")
     st.write("This is the initial modelling tab.")
-elif selection == "Decision Tree Improvements":
+if "Decision Tree Improvements" in selection:
     st.header("Decision Tree Improvements")
     st.write("This is the decision tree improvements tab.")
-elif selection == "Data Balancing":
+if "Data Balancing" in selection:
     st.header("Data Balancing")
     st.write("This is the data balancing tab.")
-elif selection == "Random Forest":
+if "Random Forest" in selection:
     st.header("Random Forest")
     st.write("This is the random forest tab.")
