@@ -4,8 +4,9 @@ from phase1 import introduction
 
 tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
 
-# Create a sidebar with tabs
-selection = st.sidebar.radio("Go to", tabs)
+# Create a sidebar with tabs using markdown
+st.sidebar.markdown("# Tab Selector")
+selection = st.sidebar.selectbox("", tabs)
 
 # Depending on which tab is selected, show the appropriate content
 if selection == "Introduction":
