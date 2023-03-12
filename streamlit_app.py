@@ -3,4 +3,6 @@ import streamlit as st
 from phase1 import introduction
 from sidebar import sideBar
 
-sideBar()
+selection = sideBar()
+
+st.write(selection)

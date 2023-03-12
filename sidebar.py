@@ -26,7 +26,9 @@ def sideBar():
     # Create a sidebar with buttons for each tab
     st.sidebar.markdown("Navigation")
     selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs]
+    return selection
 
+"""
     # Depending on which tab is selected, show the appropriate content
     if selection[0]:
         st.header("Introduction")
@@ -43,3 +45,4 @@ def sideBar():
     if selection[4]:
         st.header("Random Forest")
         st.write("This is the random forest tab.")
+"""
