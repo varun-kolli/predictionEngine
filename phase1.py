@@ -131,18 +131,46 @@ def v4():
 
 def sideBar():
     tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
-    tab_selector = st.sidebar.selectbox("Navigate", tabs)
 
-    if tab_selector == "Introduction":
-        introduction()
-    elif tab_selector == "Initial Modelling":
-        v1()
-    elif tab_selector == "Decision Tree Improvements":
-        v2()
-    elif tab_selector == "Data Balancing":
-        v3()
-    elif tab_selector == "Random Forest":
-        v3()
+    # Create a sidebar with buttons
+    m = st.markdown("""
+    <style>
+    div.stButton > button:first-child {
+        background-color: #007bff;
+        color: #ffffff;
+    }
+    div.stButton > button:hover {
+        background-color: #0069d9;
+        color: #ffffff;
+    }
+    div.stButton > button:focus {
+        background-color: #0056b3;
+        color: #ffffff;
+    }
+    </style>""", unsafe_allow_html=True)
+
+    tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
+
+    # Create a sidebar with buttons for each tab
+    st.sidebar.markdown("Navigation")
+    selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs]
+
+    # Depending on which tab is selected, show the appropriate content
+    if selection[0]:
+        st.header("Introduction")
+        st.write("This is the introduction tab.")
+    if selection[1]:
+        st.header("Initial Modelling")
+        st.write("This is the initial modelling tab.")
+    if selection[2]:
+        st.header("Decision Tree Improvements")
+        st.write("This is the decision tree improvements tab.")
+    if selection[3]:
+        st.header("Data Balancing")
+        st.write("This is the data balancing tab.")
+    if selection[4]:
+        st.header("Random Forest")
+        st.write("This is the random forest tab.")
 
 def codeBooks():
     tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab13, tab14 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States", "Veteran"])
