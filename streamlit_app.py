@@ -7,7 +7,7 @@ tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data
 # Create a sidebar with buttons without the button box
 st.sidebar.markdown("# Tab Selector")
 for tab in tabs:
-    if st.sidebar.button(tab, key=tab, help=tab, value=tab, type='default', style="border: none;"):
+    if st.sidebar.button(tab, key=tab, help=tab, type='default', style="border: none;"):
         selection = tab
 
 # Depending on which tab is selected, show the appropriate content
