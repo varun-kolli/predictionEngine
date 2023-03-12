@@ -21,23 +21,21 @@ tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data
 
 # Create a sidebar with buttons for each tab
 st.sidebar.markdown("# Tab Selector")
-selection = st.sidebar.button(tabs[0], key=tabs[0], help=tabs[0], type='primary')
-for tab in tabs[1:]:
-    selection |= st.sidebar.button(tab, key=tab, type = 'primary')
+selection = [st.sidebar.button(tab, key=tab, help=tab, type='default') for tab in tabs]
 
 # Depending on which tab is selected, show the appropriate content
-if "Introduction" in selection:
+if selection[0]:
     st.header("Introduction")
     st.write("This is the introduction tab.")
-if "Initial Modelling" in selection:
+if selection[1]:
     st.header("Initial Modelling")
     st.write("This is the initial modelling tab.")
-if "Decision Tree Improvements" in selection:
+if selection[2]:
     st.header("Decision Tree Improvements")
     st.write("This is the decision tree improvements tab.")
-if "Data Balancing" in selection:
+if selection[3]:
     st.header("Data Balancing")
     st.write("This is the data balancing tab.")
-if "Random Forest" in selection:
+if selection[4]:
     st.header("Random Forest")
     st.write("This is the random forest tab.")
