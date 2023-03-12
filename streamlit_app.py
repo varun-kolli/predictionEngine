@@ -20,7 +20,7 @@ div.stButton > button:hover {
 tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
 
 # Create a sidebar with buttons for each tab
-st.sidebar.markdown("# Tab Selector")
+st.sidebar.markdown("Navigation")
 selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs]
 
 # Depending on which tab is selected, show the appropriate content
