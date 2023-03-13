@@ -50,11 +50,14 @@ def prompt():
         ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
         ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
         genderInput = st.radio("Select your gender", options=["Male", "Female"])
+        marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
+        marStatInput = st.selectbox('Select your marital status:', options=marital_status_options)
         housing_situations = ["Homeless", "Private residence", "Other"]
         livArangInput = st.selectbox("Select your living arrangement", housing_situations)
         racial_groups = ["Native", "Asian", "Black or African American", "Pacific Islander", "White", "Other/Multiple"]
         raceInput = st.selectbox("Select your racial group", racial_groups)
-        genderInput = st.radio("SAP", options=["Yes", "No"])
+        sapInput = st.radio("SAP", options=["Yes", "No"])
+
         stateInput = st.selectbox("Select a state",
                                       ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
                                        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
@@ -64,30 +67,25 @@ def prompt():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
 
         submit_button = st.form_submit_button(label='Submit')
+            cols =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'VETERAN', 'STATEFIP']
+
         if submit_button:
-            user_input = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput, veteranInput]
+            user_input = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput]
             st.session_state.user.append(user_input)
 
     if st.session_state.user:
             st.write("User inputs:")
-            for user_input in st.session_state.user:
-                display_inputs(user_input)
+            display_user_input(user_input)
 
     st.session_state.user = []
     return st.session_state.user
 
+    def display_user_input(user_input):
+        variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'Socioeconomic Status', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
+        df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
+        st.table(df)
 
-def display_inputs(inputs):
-    st.write("Age:", inputs[0])
-    st.write("Education level:", inputs[1])
-    st.write("Employment status:", inputs[2])
-    st.write("Ethnicity:", inputs[3])
-    st.write("Gender:", inputs[4])
-    st.write("Living arrangement:", inputs[5])
-    st.write("Racial group:", inputs[6])
-    st.write("SAP:", inputs[7])
-    st.write("State:", inputs[8])
-    st.write("Veteran:", inputs[9])
+
 
 def interface():
     st.title("Backend Interface")
