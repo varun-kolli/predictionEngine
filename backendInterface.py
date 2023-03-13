@@ -67,11 +67,12 @@ def prompt():
         if submit_button:
             user_input = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput, veteranInput]
             st.session_state.user.append(user_input)
-
+"""
     if st.session_state.user:
             st.write("User inputs:")
             for user_input in st.session_state.user:
                 display_inputs(user_input)
+"""
 
     return st.session_state.user
 
@@ -90,5 +91,11 @@ def display_inputs(inputs):
 
 def interface():
     st.title("Backend Interface")
-    userInput = prompt()
+    seshUser = prompt()
+    if st.session_state.user:
+        st.write("User inputs:")
+        for user_input in st.session_state.user:
+            display_inputs(user_input)
+        st.session_state.user = []
+
 
