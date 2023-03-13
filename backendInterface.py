@@ -75,7 +75,13 @@ def prompt():
     def display_user_input(user_input):
             variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'Socioeconomic Status', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
             df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
-            st.table(df)
+            st.write('')
+            page_size = 3
+            page_number = st.slider('Select a page number', min_value=1, max_value=(len(variable_names)-1)//page_size+1)
+            start_index = (page_number - 1) * page_size
+            end_index = min(start_index + page_size, len(variable_names))
+            paginated_df = df.iloc[start_index:end_index]
+            st.table(paginated_df)
 
     if st.session_state.user:
             st.write("User inputs:")
