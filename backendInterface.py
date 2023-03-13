@@ -66,7 +66,7 @@ def prompt():
                                        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
 
-        submit_button = st.form_submit_button(label='Submit')
+        submit_button = st.form_submit_button(label='Run')
 
         if submit_button:
             user_input = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput]
