@@ -1,6 +1,11 @@
 import pandas as pd
 import streamlit as st
 
+from streamlit.state.session_state import SessionState
+
+def initialize_session():
+    return SessionState.get(age='', educ='', employ='', ethnicity='', gender='', liv_arang='', race='', sap='', state='', veteran='')
+
 
 #input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
 def convertAge(age):
@@ -35,33 +40,53 @@ def convertAge(age):
 
     return age_group_str
 
+def display_user_input(state):
+    st.write(f"Age: {state.age}")
+    st.write(f"Education Level: {state.educ}")
+    st.write(f"Employment Status: {state.employ}")
+    st.write(f"Ethnicity: {state.ethnicity}")
+    st.write(f"Gender: {state.gender}")
+    st.write(f"Living Arrangement: {state.liv_arang}")
+    st.write(f"Racial Group: {state.race}")
+    st.write(f"SAP: {state.sap}")
+    st.write(f"State: {state.state}")
+    st.write(f"Veteran: {state.veteran}")
+
+def get_user_input(state):
+    age = st.number_input(label='Enter Age')
+    educ_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
+    educ = st.selectbox("Select your education level", educ_levels)
+    employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
+    employ = st.selectbox("Select your employment status", employment_statuses)
+    ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
+    ethnicity = st.selectbox("Select your Ethnicity", ethnicities)
+    gender = st.radio("Select your gender", options=["Male", "Female"])
+    housing_situations = ["Homeless", "Private residence", "Other"]
+    liv_arang = st.selectbox("Select your living arrangement", housing_situations)
+    racial_groups = ["Native", "Asian", "Black or African American", "Pacific Islander", "White", "Other/Multiple"]
+    race = st.selectbox("Select your racial group", racial_groups)
+    sap = st.radio("SAP", options=["Yes", "No"])
+    states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+              "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+              "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+              "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+              "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+    state = st.selectbox("Select a state", states)
+    veteran = st.radio("Veteran", options=["Yes", "No"])
+
+    state.age = convertAge(int(age))
+    state.educ = educ
+    state.employ = employ
+    state.ethnicity = ethnicity
+    state.gender = gender
+    state.liv_arang = liv_arang
+    state.race = race
+    state.sap = sap
+    state.state = state
+    state.veteran = veteran
 
 def interface():
     st.title("Backend Interface")
-    with st.form(key='my_form'):
-        user = []
-        age = st.number_input(label='Enter Age')
-        ageInput = convertAge(age)
-        education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
-        educInput = st.selectbox("Select your education level", education_levels)
-        employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
-        employInput = st.selectbox("Select your employment status", employment_statuses)
-        ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
-        ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
-        genderInput = st.radio("Select your gender", options=["Male", "Female"])
-        housing_situations = ["Homeless", "Private residence", "Other"]
-        livArangInput = st.selectbox("Select your living arrangement", housing_situations)
-        racial_groups = ["Native", "Asian", "Black or African American", "Pacific Islander", "White", "Other/Multiple"]
-        raceInput = st.selectbox("Select your racial group", racial_groups)
-        genderInput = st.radio("SAP", options=["Yes", "No"])
-        stateInput = st.selectbox("Select a state",
-                                      ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-                                       "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-                                       "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-                                       "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-                                       "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
-        veteranInput = st.radio("Veteran", options=["Yes", "No"])
-
-        user = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput]
-        print(user)
-        submit_button = st.form_submit_button(label='Submit')
+    state = initialize_session()
+    get_user_input(state)
+    display_user_input(state)
