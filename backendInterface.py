@@ -15,6 +15,7 @@ from sklearn.metrics import classification_report
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.tree import DecisionTreeClassifier
+import numpy as np
 
 
 #input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
@@ -97,7 +98,7 @@ def testRun(input):
 def display_user_input(user_input):
         variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
         df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
-        st.table(df)
+        st.table(df.transpose()
         user_input.insert(0, "1207979")
         user_input.insert(2, "Trauma-related")
         testRun(user_input)
