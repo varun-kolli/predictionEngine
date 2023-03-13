@@ -35,7 +35,7 @@ def sideBar():
     st.sidebar.markdown("Navigation")
     selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs1]
     st.sidebar.markdown("Backend Interface")
-    selection += [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs2]
+    selection += [st.sidebar.button(tab, key=tab, help=tab, type='custom1') for tab in tabs2]
 
     return selection
 
