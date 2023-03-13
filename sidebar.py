@@ -6,36 +6,12 @@ def sideBar():
     # Create a sidebar with buttons
     m = st.markdown("""
     <style>
-    div.stButton > button.scheme1 {
+    div.stButton > button.primary {
         background-color: #007bff;
         color: #ffffff;
     }
-    div.stButton > button.scheme2 {
+    div.stButton > button.secondary {
         background-color: #6c757d;
-        color: #ffffff;
-    }
-    div.stButton > button.scheme3 {
-        background-color: #28a745;
-        color: #ffffff;
-    }
-    div.stButton > button.scheme4 {
-        background-color: #dc3545;
-        color: #ffffff;
-    }
-    div.stButton > button.scheme5 {
-        background-color: #ffc107;
-        color: #ffffff;
-    }
-    div.stButton > button.scheme6 {
-        background-color: #17a2b8;
-        color: #ffffff;
-    }
-    div.stButton > button.scheme7 {
-        background-color: #6c757d;
-        color: #ffffff;
-    }
-    div.stButton > button.scheme8 {
-        background-color: #343a40;
         color: #ffffff;
     }
     </style>""", unsafe_allow_html=True)
@@ -45,11 +21,11 @@ def sideBar():
 
     # Create a sidebar with buttons for each tab
     st.sidebar.markdown("Navigation")
-    selection = [st.sidebar.button(tab, key=tab, help=tab, type=f'scheme{i+1}') for i, tab in enumerate(tabs1)]
-    st.sidebar.markdown("Backend Interface")
-    selection += [st.sidebar.button(tab, key=tab, help=tab, type=f'scheme{i+6}') for i, tab in enumerate(tabs2)]
+    selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs1]
+    selection += [st.sidebar.button(tab, key=tab, help=tab, type='secondary') for tab in tabs2]
 
     return selection
+
 
 """
     # Depending on which tab is selected, show the appropriate content
