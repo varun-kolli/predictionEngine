@@ -19,6 +19,14 @@ def initializeSideBar():
         v3()
     if selection[4]:
         v4()
+    if selection[5]:
+        st.write("5")
+    if selection[6]:
+        st.write("6")
+    if selection[7]:
+        st.write("7")
+    if selection[8]:
+        st.write("8")
 
 def main():
     initializeSideBar()

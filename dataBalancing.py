@@ -8,7 +8,7 @@ def v4():
     st.write("Findings: ")
     st.markdown(" - Balanced dataset as training set")
     st.markdown(" - Unbalanced for testing set")
-    st.write("F1 score: **0.55**")
+    st.write("Improved F1 score: **0.55**")
 
     st.subheader("Decision Matrix and Classification Report")
 

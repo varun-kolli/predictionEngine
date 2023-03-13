@@ -6,25 +6,37 @@ def sideBar():
     # Create a sidebar with buttons
     m = st.markdown("""
     <style>
-    div.stButton > button:first-child {
+    div.stButton > button.primary {
         background-color: #007bff;
         color: #ffffff;
     }
-    div.stButton > button:hover {
-        background-color: #0069d9;
+    div.stButton > button.default {
+        background-color: #6c757d;
         color: #ffffff;
     }
-    div.stButton > button:focus {
-        background-color: #0056b3;
+    div.stButton > button.custom1 {
+        background-color: #28a745;
+        color: #ffffff;
+    }
+    div.stButton > button.custom2 {
+        background-color: #dc3545;
+        color: #ffffff;
+    }
+    div.stButton > button.custom3 {
+        background-color: #ffc107;
         color: #ffffff;
     }
     </style>""", unsafe_allow_html=True)
 
-    tabs = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balacning"]
+    tabs1 = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balancing"]
+    tabs2 = ["Tab 1", "Tab 2", "Tab 3", "Tab 4"]
 
     # Create a sidebar with buttons for each tab
     st.sidebar.markdown("Navigation")
-    selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs]
+    selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs1]
+    st.sidebar.markdown("BREAK")
+    selection += [st.sidebar.button(tab, key=tab, help=tab, type='custom1') for tab in tabs2]
+
     return selection
 
 """
