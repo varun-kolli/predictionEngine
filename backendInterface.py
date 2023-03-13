@@ -62,7 +62,7 @@ def prompt():
 
         user = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput]
         return user
-        #submit_button = st.form_submit_button(label='Submit')
+        ##submit_button = st.form_submit_button(label='Submit')
 
 def interface():
     st.title("Backend Interface")
