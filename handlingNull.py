@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from PIL import Image
 
 def v3():
     st.subheader("3. Handling Missing Values")
