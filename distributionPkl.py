@@ -15,7 +15,7 @@ def loadModel():
     model = joblib.load('pkl_files/dt_dist.sav')
     return model
 
-def getTestData(file, model):
+def getTestData(model):
     X = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
     y_pred = model.predict(X)
 
@@ -26,7 +26,7 @@ def dist():
     model = loadModel()
     df = loadFile()
     st.write(df)
-    getTestData(file, model)
+    getTestData(model)
 
 
 
