@@ -25,6 +25,8 @@ def getPrediction(df, model, input):
     cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     input.insert(0, "1207979")
     input.insert(2, "Trauma-related")
+    st.write(len(input))
+    st.write(len(df.columns))
     df.iloc[0] = input
     df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
     print(df_dummies.columns)
