@@ -1,8 +1,23 @@
 import pandas as pd
 import streamlit as st
-from phase1 import introduction
+from phase1 import *
 from sidebar import sideBar
 
-selection = sideBar()
+def initializeSideBar():
+    selection = sideBar()
+    if selection[0]:
+        introduction()
+    if selection[1]:
+        v1()
+    if selection[2]:
+        v2()
+    if selection[3]:
+        v3()
+    if selection[4]:
+        v4()
 
-st.write(selection)
+def main():
+    initializeSideBar()
+
+if __name__ == '__main__':
+    main()
