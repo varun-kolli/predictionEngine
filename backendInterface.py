@@ -38,7 +38,6 @@ def convertAge(age):
 
 def interface():
     st.title("Backend Interface")
-    age = 0
-    age = st.text_input("Enter your name:")
-    ageInput = convertAge(int(age))
-    st.write(ageInput)
+    with st.form(key='my_form'):
+        ageInput = st.number_input(label='Enter Age')
+        submit_button = st.form_submit_button(label='Submit')
