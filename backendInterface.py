@@ -65,7 +65,7 @@ def prompt():
 
         submit_button = st.form_submit_button(label='Submit')
         if submit_button:
-            user_input = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, veteranInput]
+            user_input = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput, veteranInput]
             st.session_state.user.append(user_input)
 
     if st.session_state.user:
