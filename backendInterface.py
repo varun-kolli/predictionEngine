@@ -72,19 +72,17 @@ def prompt():
             user_input = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput]
             st.session_state.user.append(user_input)
 
+    def display_user_input(user_input):
+            variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'Socioeconomic Status', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
+            df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
+            st.table(df)
+
     if st.session_state.user:
             st.write("User inputs:")
             display_user_input(user_input)
 
     st.session_state.user = []
     return st.session_state.user
-
-    def display_user_input(user_input):
-        variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'Socioeconomic Status', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
-        df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
-        st.table(df)
-
-
 
 def interface():
     st.title("Backend Interface")
