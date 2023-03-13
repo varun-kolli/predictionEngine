@@ -21,7 +21,7 @@ def sideBar():
     }
     </style>""", unsafe_allow_html=True)
 
-    tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
+    tabs = ["Introduction", "Initial Modelling", "Data Cleaning", "Data Balancing", "Random Forest"]
 
     # Create a sidebar with buttons for each tab
     st.sidebar.markdown("Navigation")
