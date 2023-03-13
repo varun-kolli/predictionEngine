@@ -6,6 +6,9 @@ def v2():
     st.title("Data Cleaning")
     st.header("Methodology")
 
+    smt = pd.read_csv("CSV_files/age_key.csv")
+    st.write(smt["age"].unique())
+
     st.subheader("1. Filtering")
     st.write("Focusing on 3 most common disorders: **Bipolar, Trauma, Depression**")
 
@@ -19,8 +22,8 @@ def v2():
 def codeBooks():
     tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab13, tab14 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States", "Veteran"])
     with tab1:
-        st.dataframe(pd.read_csv("CSV_files/age_key.csv"))
-        st.write(pd.read_csv("CSV_files/age_key.csv")["age"].unique())
+        smt = pd.read_csv("CSV_files/age_key.csv")
+        st.dataframe(smt)
     with tab2:
         st.dataframe(pd.read_csv("CSV_files/Disorders_Key.csv"))
     with tab4:
