@@ -11,7 +11,7 @@ def v2():
     # loop over all columns in the dataframe and get their unique values
     for column in smt.columns:
         unique_values = smt[column].unique()
-        print(f"Unique values in column '{column}': {unique_values}")
+        st.write(f"Unique values in column '{column}': {unique_values}")
 
 
     st.subheader("1. Filtering")
