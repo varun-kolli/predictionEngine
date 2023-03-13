@@ -18,7 +18,8 @@ def loadModel():
 def dist():
     st.write("Distribution Null Model")
     model = loadModel()
-    file = loadFile()
+    df = loadFile()
+    st.write(df)
 
 
 
