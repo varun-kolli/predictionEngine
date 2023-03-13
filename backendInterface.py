@@ -61,8 +61,11 @@ def prompt():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
 
         user = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput]
+        submit_button = st.form_submit_button(label='Submit')
+        if submit_button:
+                display_inputs(user)
+
         return user
-        ##submit_button = st.form_submit_button(label='Submit')
 
 def display_inputs(inputs):
     st.write("Age:", inputs[0])
@@ -78,8 +81,4 @@ def display_inputs(inputs):
 
 def interface():
     st.title("Backend Interface")
-    with st.form(key='my_form'):
-        userInput = prompt()
-        submit_button = st.form_submit_button(label='Submit')
-        if submit_button:
-            display_inputs(userInput)
+    userInput = prompt()
