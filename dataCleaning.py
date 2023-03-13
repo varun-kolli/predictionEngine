@@ -2,9 +2,8 @@ import pandas as pd
 import streamlit as st
 
 
-def v2()
+def v2():
     st.title("Data Cleaning")
-
     st.header("Methodology")
 
     st.subheader("1. Filtering")
