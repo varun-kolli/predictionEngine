@@ -98,7 +98,7 @@ def testRun(input):
 def display_user_input(user_input):
         variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
         df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
-        st.table(df.transpose()
+        st.table(df.transpose())
         user_input.insert(0, "1207979")
         user_input.insert(2, "Trauma-related")
         testRun(user_input)
