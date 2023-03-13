@@ -7,7 +7,7 @@ def v2():
     st.header("Methodology")
 
     smt = pd.read_csv("CSV_files/age_key.csv")
-    st.write(smt["age"].unique())
+    st.write(list()smt["age"].unique()))
 
     st.subheader("1. Filtering")
     st.write("Focusing on 3 most common disorders: **Bipolar, Trauma, Depression**")
