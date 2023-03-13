@@ -90,5 +90,5 @@ def display_inputs(inputs):
 
 def interface():
     st.title("Backend Interface")
-    #userInput = prompt()
+    userInput = prompt()
 
