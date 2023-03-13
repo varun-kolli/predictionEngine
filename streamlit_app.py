@@ -7,6 +7,7 @@ from dataCleaning import v2
 from handlingNull import v3
 from dataBalancing import v4
 from distributionPkl import dist
+from backendInterface import interface
 
 def initializeSideBar():
     selection = sideBar()
@@ -21,13 +22,8 @@ def initializeSideBar():
     if selection[4]:
         v4()
     if selection[5]:
-        dist()
-    if selection[6]:
-        st.write("6")
-    if selection[7]:
-        st.write("7")
-    if selection[8]:
-        st.write("8")
+        interface()
+
 
 def main():
     initializeSideBar()
