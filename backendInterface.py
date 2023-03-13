@@ -63,5 +63,5 @@ def interface():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
 
         user = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput]
-        st.write(user)
+        print(user)
         submit_button = st.form_submit_button(label='Submit')
