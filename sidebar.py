@@ -12,7 +12,7 @@ def sideBar():
     }
     div.stButton > button.secondary {
         background-color: #6c757d;
-        color: #FAF0E6;
+        color: #4682B4;
     }
     </style>""", unsafe_allow_html=True)
 
@@ -22,6 +22,7 @@ def sideBar():
     # Create a sidebar with buttons for each tab
     st.sidebar.markdown("Navigation")
     selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs1]
+    st.sidebar.markdown("Backend Interface")
     selection += [st.sidebar.button(tab, key=tab, help=tab, type='secondary') for tab in tabs2]
 
     return selection
