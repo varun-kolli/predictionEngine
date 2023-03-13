@@ -33,7 +33,8 @@ def convertAge(age):
     # store the age group as a string variable
     age_group_str = age_group.replace(' ', '')  # remove any spaces
 
-    print(age_group_str)   # output: '30-34'
+    return age_group_str
+
 
 def interface():
     st.title("Backend Interface")
