@@ -6,10 +6,12 @@ def v2():
     st.title("Data Cleaning")
     st.header("Methodology")
 
-    unique_age_values = smt['age'].unique()
+    smt = pd.read_csv("CSV_files/age_key.csv")
 
-    # print the unique age values
-    print(unique_age_values)
+    # loop over all columns in the dataframe and get their unique values
+    for column in smt.columns:
+        unique_values = smt[column].unique()
+        print(f"Unique values in column '{column}': {unique_values}")
 
 
     st.subheader("1. Filtering")
