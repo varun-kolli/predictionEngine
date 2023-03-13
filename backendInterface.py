@@ -39,5 +39,14 @@ def convertAge(age):
 def interface():
     st.title("Backend Interface")
     with st.form(key='my_form'):
-        ageInput = st.number_input(label='Enter Age')
+        age = st.number_input(label='Enter Age')
+        ageInput = convertAge(age)
+        education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
+        educInput = st.selectbox("Select your education level", education_levels)
+        employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
+        employInput = st.selectbox("Select your employment status", employment_statuses)
+        ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
+        ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
+
+
         submit_button = st.form_submit_button(label='Submit')
