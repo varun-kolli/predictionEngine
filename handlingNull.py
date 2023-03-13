@@ -3,8 +3,10 @@ import streamlit as st
 from PIL import Image
 
 def v3():
-    st.subheader("3. Handling Missing Values")
+    st.header("Handling Missing Values")
     st.write("")
+    st.write("To improve our F1 score, we decided to train 3 models that handle null values in different ways:")
+
     st.write("a. Removing Null Values")
     st.markdown(":red[F1 score: 0.469]")
     image = Image.open('images/nullsRemoved.jpg')
