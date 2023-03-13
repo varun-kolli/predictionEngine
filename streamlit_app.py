@@ -5,6 +5,7 @@ from sidebar import sideBar
 
 def initializeSideBar():
     selection = sideBar()
+    st.write(selection)
     if selection[0]:
         introduction()
     if selection[1]:
@@ -17,7 +18,6 @@ def initializeSideBar():
         v4()
 
 def main():
-    introduction()
     initializeSideBar()
 
 
