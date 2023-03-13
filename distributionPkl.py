@@ -21,17 +21,27 @@ def getTestData(model):
 
     st.write(y_pred)
 
+def getPrediction(df, model, input):
+    cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+    input.insert(0, "1207979")
+    input.insert(2, "Trauma-related")
+    df.iloc[0] = input
+    df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
+    print(df_dummies.columns)
+    queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
+    prediction = model.predict(queryRow)
+    #print('Score: ', model.best_score_)
+    #print('Parameters: ', model.best_params_)
+    return prediction
+
 def dist():
     st.write("Distribution Null Model")
     model = loadModel()
     df = loadFile()
     st.write(df)
-    getTestData(model)
-
-
-
-
+    input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
+    y_pred = getPrediction(df, model, input)
+    st.write(y_pred)
 
     return df
 
-    st.write(df)
