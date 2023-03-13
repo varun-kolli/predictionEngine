@@ -6,8 +6,11 @@ def v2():
     st.title("Data Cleaning")
     st.header("Methodology")
 
-    smt = pd.read_csv("CSV_files/age_key.csv")
-    st.write(list()smt["age"].unique()))
+    unique_age_values = smt['age'].unique()
+
+    # print the unique age values
+    print(unique_age_values)
+
 
     st.subheader("1. Filtering")
     st.write("Focusing on 3 most common disorders: **Bipolar, Trauma, Depression**")
