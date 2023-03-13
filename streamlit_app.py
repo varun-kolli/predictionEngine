@@ -4,17 +4,18 @@ from phase1 import *
 from sidebar import sideBar
 
 def initializeSideBar():
-    selection = sideBar()
-    if selection[0]:
-        introduction()
-    if selection[1]:
-        v1()
-    if selection[2]:
-        v2()
-    if selection[3]:
-        v3()
-    if selection[4]:
-        v4()
+    while True:
+        selection = sideBar()
+        if selection[0]:
+            introduction()
+        if selection[1]:
+            v1()
+        if selection[2]:
+            v2()
+        if selection[3]:
+            v3()
+        if selection[4]:
+            v4()
 
 def main():
     initializeSideBar()
