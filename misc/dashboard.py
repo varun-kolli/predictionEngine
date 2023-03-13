@@ -84,6 +84,8 @@ def main():
 
     #answers.insert(0, "1207979")
     #answers.insert(2, "Trauma-related")
+    st.header(len(answers))
+    st.write(answers)
     backend(df, answers)
 
 def backend(df, answers):

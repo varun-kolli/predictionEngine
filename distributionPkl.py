@@ -15,11 +15,20 @@ def loadModel():
     model = joblib.load('pkl_files/dt_dist.sav')
     return model
 
+def getTestData(file, model):
+    X = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
+    y_pred = model.predict(X)
+
+    st.write(y_pred)
+
 def dist():
     st.write("Distribution Null Model")
     model = loadModel()
     df = loadFile()
     st.write(df)
+    getTestData(file, model)
+
+
 
 
 
