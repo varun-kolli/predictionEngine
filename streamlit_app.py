@@ -10,7 +10,7 @@ from backendInterface import interface
 
 def initializeSideBar():
     selection = sideBar()
-    if selection[0] or all(value == False for value in selection):
+    if selection[0]:
         introduction()
     if selection[1]:
         v1()
