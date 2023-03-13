@@ -65,7 +65,7 @@ def getModel(df):
     return model_clf
 
 def testRun(user_input):
-    fileName = "data.csv"
+    fileName = "CSV_files/data.csv"
     df = pd.read_csv(fileName).dropna()
     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
     df_copy = df.copy()
