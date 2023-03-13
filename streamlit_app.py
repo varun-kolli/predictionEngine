@@ -22,7 +22,7 @@ def initializeSideBar():
     if selection[4]:
         v4()
     if selection[5]:
-        v1()#interface()
+        interface()
 
 
 def main():
