@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-
+from PIL import Image
 
 def v2():
     st.title("Data Cleaning")
