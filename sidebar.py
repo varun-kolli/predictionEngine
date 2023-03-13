@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 def sideBar():
-    tabs = ["Introduction", "Initial Modelling", "Decision Tree Improvements", "Data Balancing", "Random Forest"]
+    tabs = ["Introduction", "Initial Modelling", "Data Cleaning", "Data Balancing", "Random Forest"]
 
     # Create a sidebar with buttons
     m = st.markdown("""

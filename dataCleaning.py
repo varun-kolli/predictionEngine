@@ -8,5 +8,5 @@ def v2():
 
     st.subheader("1. Filtering")
 
-    st.write("Focusing on 3 most common disorders: Bipolar, Trauma, Depression")
+    st.write("Focusing on 3 most common disorders: <b>Bipolar, Trauma, Depression</b>")
 
