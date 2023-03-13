@@ -36,13 +36,13 @@ def convertAge(age):
     return age_group_str
 
 def display_user_input(user_input):
-        variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'Socioeconomic Status', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
+        variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
         df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
         st.table(df)
 
-        print(user_input)
+        st.write(user_input)
         input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
-        print(input)
+        st.write(input)
 
 def prompt():
     if "user" not in st.session_state:
