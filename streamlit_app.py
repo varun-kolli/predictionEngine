@@ -5,7 +5,6 @@ from sidebar import sideBar
 
 def initializeSideBar():
     selection = sideBar()
-
     if selection[0] or all(value == False for value in selection):
         introduction()
     if selection[1]:
@@ -16,7 +15,6 @@ def initializeSideBar():
         v3()
     if selection[4]:
         v4()
-
 
 def main():
     initializeSideBar()
