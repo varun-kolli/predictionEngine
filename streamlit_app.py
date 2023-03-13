@@ -20,7 +20,7 @@ def initializeSideBar():
         v3()
     if selection[4]:
         v4()
-    if selection[5]:
+    if selection[5] or all(value == False for value in selection) :
         interface()
 
 

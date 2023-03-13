@@ -36,6 +36,9 @@ def convertAge(age):
     return age_group_str
 
 def prompt():
+    if "user" not in st.session_state:
+            st.session_state.user = []
+
     with st.form(key='my_form'):
         user = []
         age = st.number_input(label='Enter Age')
@@ -60,12 +63,18 @@ def prompt():
                                        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
 
-        user = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput]
         submit_button = st.form_submit_button(label='Submit')
-        if submit_button:
-                display_inputs(user)
+            if submit_button:
+                user_input = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, veteranInput]
+                st.session_state.user.append(user_input)
 
-        return user
+    if st.session_state.user:
+            st.write("User inputs:")
+            for user_input in st.session_state.user:
+                display_inputs(user_input)
+
+    return st.session_state.user
+
 
 def display_inputs(inputs):
     st.write("Age:", inputs[0])
@@ -82,26 +91,4 @@ def display_inputs(inputs):
 def interface():
     st.title("Backend Interface")
     #userInput = prompt()
-    def show():
-        st.write(
-            """
-            ## 💯 Counter
 
-            The most basic example: Store a count in `st.session_state` and increment when
-            clicked.
-            """
-        )
-        if "counter" not in st.session_state:
-            st.session_state.counter = 0
-
-        def increment():
-            st.session_state.counter += 1
-
-        st.write("Counter:", st.session_state.counter)
-        st.button("Plus one!", on_click=increment)
-
-        if st.session_state.counter >= 50:
-            st.success("King of counting there! Your trophy for reaching 50: 🏆")
-        elif st.session_state.counter >= 10:
-            st.warning("You made it to 10! Keep going to win a prize 🎈")
-    show()
