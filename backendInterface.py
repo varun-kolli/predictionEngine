@@ -91,14 +91,16 @@ def testRun(input):
     df.iloc[0] = input
     df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
     print(df_dummies.columns)
+
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
+    print(queryRow)
     prediction = model.predict(queryRow)
     st.write(prediction)
 
 def display_user_input(user_input):
     variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
     df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
-    st.table(df.transpose())
+    st.table(df.transpose().rename_axis(None, axis=0))
     user_input.insert(0, "1207979")
     user_input.insert(2, "Trauma-related")
     testRun(user_input)
