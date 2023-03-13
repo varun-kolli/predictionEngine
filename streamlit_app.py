@@ -6,6 +6,7 @@ from initialModelling import v1
 from dataCleaning import v2
 from handlingNull import v3
 from dataBalancing import v4
+from distributionPkl import dist
 
 def initializeSideBar():
     selection = sideBar()
@@ -20,7 +21,7 @@ def initializeSideBar():
     if selection[4]:
         v4()
     if selection[5]:
-        st.write("5")
+        dist()
     if selection[6]:
         st.write("6")
     if selection[7]:

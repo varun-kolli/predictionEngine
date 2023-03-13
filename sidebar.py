@@ -17,7 +17,7 @@ def sideBar():
     </style>""", unsafe_allow_html=True)
 
     tabs1 = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balancing"]
-    tabs2 = ["Tab 1", "Tab 2", "Tab 3", "Tab 4"]
+    tabs2 = ["Distribution Null Model", "Tab 2", "Tab 3", "Tab 4"]
 
     # Create a sidebar with buttons for each tab
     st.sidebar.markdown("Navigation")
