@@ -12,6 +12,10 @@ def v2():
     st.subheader("2. Convert Relevant Columns to Categorical Variables")
     codeBooks()
 
+    st.subheader("3. Combined DETNLF and EMPLOY columns")
+    image = Image.open('images/dataNumerical2.png')
+    st.image(image, use_column_width=True)
+
 def codeBooks():
     tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab13, tab14 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States", "Veteran"])
     with tab1:
