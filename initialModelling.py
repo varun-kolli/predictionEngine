@@ -12,7 +12,7 @@ def v1():
     }
 
     # Create DataFrame
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data).reset_index(drop=True, inplace=True)
 
     # Define cross-validation information
     n_folds = 5
