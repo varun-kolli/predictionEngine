@@ -39,6 +39,7 @@ def convertAge(age):
 def interface():
     st.title("Backend Interface")
     with st.form(key='my_form'):
+       user = []
         age = st.number_input(label='Enter Age')
         ageInput = convertAge(age)
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
@@ -60,4 +61,7 @@ def interface():
                                        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
                                        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
+
+        user = [ageInput, educInput, employInput, ethnicityInput, genderInput, livArangInput, raceInput, genderInput, stateInput]
+        st.write(user)
         submit_button = st.form_submit_button(label='Submit')
