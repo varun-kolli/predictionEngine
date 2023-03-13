@@ -67,32 +67,32 @@ def prompt():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
 
         submit_button = st.form_submit_button(label='Run')
-
+        user_input = []
         if submit_button:
             user_input = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput]
             st.session_state.user.append(user_input)
 
     def display_user_input(user_input):
-            variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'Socioeconomic Status', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
-            df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
+        variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'Socioeconomic Status', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
+        df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
+        st.write('')
+        page_size = 3
+        current_page = 0
+        num_pages = (len(variable_names) - 1) // page_size + 1
+        while True:
+            start_index = current_page * page_size
+            end_index = min(start_index + page_size, len(variable_names))
+            paginated_df = df.iloc[start_index:end_index]
+            st.table(paginated_df)
             st.write('')
-            page_size = 3
-            current_page = 0
-            num_pages = (len(variable_names) - 1) // page_size + 1
-            while True:
-                start_index = current_page * page_size
-                end_index = min(start_index + page_size, len(variable_names))
-                paginated_df = df.iloc[start_index:end_index]
-                st.table(paginated_df)
-                st.write('')
-                if current_page > 0:
-                    if st.button('← Previous Page'):
-                        current_page -= 1
-                if current_page < num_pages - 1:
-                    if st.button('Next Page →'):
-                        current_page += 1
-                if current_page == num_pages - 1:
-                    break
+            if current_page > 0:
+                if st.button('← Previous Page'):
+                    current_page -= 1
+            if current_page < num_pages - 1:
+                if st.button('Next Page →'):
+                    current_page += 1
+            if current_page == num_pages - 1:
+                break
 
     if st.session_state.user:
             st.write("User inputs:")
