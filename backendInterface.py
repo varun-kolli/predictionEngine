@@ -39,7 +39,7 @@ def convertAge(age):
 def interface():
     st.title("Backend Interface")
 
-    age = st.number_input("Please enter your age:", min_value=0, max_value=120, step=1)
-    ageInput = convertAge(age)
+    age = input("Please enter your age: ")
+    ageInput = convertAge(int(age))
     st.write(ageInput)
     pass
