@@ -64,12 +64,19 @@ def getModel(df):
 
     return model_clf
 
-def testRun(user_input):
+def testRun(input):
     fileName = "CSV_files/data.csv"
     df = pd.read_csv(fileName).dropna()
     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
     df_copy = df.copy()
     model = getModel(df_copy)
+
+    cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+    df.iloc[0] = input
+    df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
+    print(df_dummies.columns)
+    queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
+    prediction = model.predict(queryRow)
 
 def display_user_input(user_input):
         variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
