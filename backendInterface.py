@@ -39,7 +39,7 @@ def convertAge(age):
 def interface():
     st.title("Backend Interface")
     with st.form(key='my_form'):
-       user = []
+        user = []
         age = st.number_input(label='Enter Age')
         ageInput = convertAge(age)
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
