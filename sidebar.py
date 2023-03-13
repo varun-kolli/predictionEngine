@@ -11,7 +11,7 @@ def sideBar():
             color: #ffffff;
         }
         div.stButton > button.secondary {
-            background-color: #87CEFA;
+            background-color: #6495ED;
             color: #ffffff;
         }
         </style>""", unsafe_allow_html=True)
