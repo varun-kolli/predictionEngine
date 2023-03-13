@@ -64,6 +64,22 @@ def prompt():
         return user
         ##submit_button = st.form_submit_button(label='Submit')
 
+def display_inputs(inputs):
+    st.write("Age:", inputs[0])
+    st.write("Education level:", inputs[1])
+    st.write("Employment status:", inputs[2])
+    st.write("Ethnicity:", inputs[3])
+    st.write("Gender:", inputs[4])
+    st.write("Living arrangement:", inputs[5])
+    st.write("Racial group:", inputs[6])
+    st.write("SAP:", inputs[7])
+    st.write("State:", inputs[8])
+    st.write("Veteran:", inputs[9])
+
 def interface():
     st.title("Backend Interface")
-    userInput = prompt()
+    with st.form(key='my_form'):
+        userInput = prompt()
+        submit_button = st.form_submit_button(label='Submit')
+        if submit_button:
+            display_inputs(userInput)
