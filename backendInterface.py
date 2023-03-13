@@ -47,6 +47,17 @@ def interface():
         employInput = st.selectbox("Select your employment status", employment_statuses)
         ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
         ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
-
-
+        genderInput = st.radio("Select your gender", options=["Male", "Female"])
+        housing_situations = ["Homeless", "Private residence", "Other"]
+        livArangInput = st.selectbox("Select your living arrangement", housing_situations)
+        racial_groups = ["Native", "Asian", "Black or African American", "Pacific Islander", "White", "Other/Multiple"]
+        raceInput = st.selectbox("Select your racial group", racial_groups)
+        genderInput = st.radio("SAP", options=["Yes", "No"])
+        stateInput = st.selectbox("Select a state",
+                                      ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+                                       "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+                                       "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+                                       "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+                                       "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
+        veteranInput = st.radio("Veteran", options=["Yes", "No"])
         submit_button = st.form_submit_button(label='Submit')
