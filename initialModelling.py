@@ -12,7 +12,8 @@ def v1():
     }
 
     # Create DataFrame
-    df = pd.DataFrame(data).reset_index(drop=True, inplace=True)
+    df = pd.DataFrame(data)
+    df=df.droplevel(0, axis=0)
 
     # Define cross-validation information
     n_folds = 5
