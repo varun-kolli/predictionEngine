@@ -4,11 +4,11 @@ import streamlit as st
 
 def v4():
     st.title("Data Balancing")
-    st.header("Balancing Using Dataset")
-    st.subheader("SMOTE")
+    st.subheader("SMOTE Balancing Using Dataset")
+    st.write("Findings: ")
     st.markdown(" - Balanced dataset as training set")
     st.markdown(" - Unbalanced for testing set")
-    st.metric(label="F1 score", value="0.55", delta="0.047")
+    st.write("F1 score: **0.55**")
 
     st.subheader("Decision Matrix and Classification Report")
 
