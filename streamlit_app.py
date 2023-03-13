@@ -1,7 +1,8 @@
 import pandas as pd
 import streamlit as st
-from phase1 import introduction, v1, v2, v3, v4
+from phase1 import introduction, v2, v3, v4
 from sidebar import sideBar
+from initialModelling import v1
 
 def initializeSideBar():
     selection = sideBar()
