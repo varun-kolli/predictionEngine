@@ -3,16 +3,14 @@ import streamlit as st
 import joblib
 import numpy as np
 
-@st.cache_data
 def loadFile():
     fileName = "CSV_files/data.csv"
     df = pd.read_csv(fileName).dropna()
     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
     return df
 
-@st.cache_data
 def loadModel():
-    model = joblib.load('pkl_files/dt_dist.sav')
+    model = joblib.load('pkl_files/dt_modes.sav')
     return model
 
 def getTestData(model):
@@ -23,10 +21,6 @@ def getTestData(model):
 
 def getPrediction(df, model, input):
     cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
-    #input.insert(0, "1207979")
-    #input.insert(2, "Trauma-related")
-    st.write(len(input))
-    st.write(len(df.columns))
     df.iloc[0] = input
     df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
     print(df_dummies.columns)
