@@ -7,7 +7,7 @@ def dist():
     st.write("Distribution Null Model")
     model = joblib.load('pkl_files/dt_dist.sav')
 
-    fileName = "data.csv"
+    fileName = "CSV_files/data.csv"
     df = pd.read_csv(fileName).dropna()
     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 
