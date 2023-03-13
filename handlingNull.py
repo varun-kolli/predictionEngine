@@ -5,6 +5,7 @@ from PIL import Image
 def v3():
     st.header("Handling Missing Values")
     st.write("")
+    st.write("Current F1 Score: **0.493**")
     st.write("To improve our F1 score, we decided to train 3 models that handle null values in different ways:")
 
     st.write("a. Removing Null Values")
