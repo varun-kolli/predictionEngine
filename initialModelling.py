@@ -12,7 +12,7 @@ def v1():
     }
 
     # Create DataFrame
-    df = pd.DataFrame(data).set_index('Hyperparameters', inplace = True)
+    df = pd.DataFrame(data)
 
     # Define cross-validation information
     n_folds = 5
