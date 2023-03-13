@@ -31,5 +31,5 @@ def v1():
         st.write(f'The hyperparameters we tune are the maximum depth of the tree, the minimum number of samples required to split an internal node, and the minimum number of samples required to be at a leaf node. We use {folds_text} and the F1-score weighted metric for evaluation.')
         st.subheader('Grid Search Cross Validation Model Performance')
         st.write(df)
-        st.caption("Training Size", "70%")
-        st.caption("Testing Size", "30%")
+        st.caption("Training Size: 70%")
+        st.caption("Testing  Size: 30%")
