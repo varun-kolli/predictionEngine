@@ -75,7 +75,6 @@ def getModel(df):
                             n_jobs = -1) # Will utilize all available CPUs
 
     model_clf.fit(train_x, train_y)
-    input = np.array(test_x.iloc[10]).reshape(1, -1)
 
     return model_clf
 
@@ -91,7 +90,7 @@ def testRun(input):
     cols =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     df.iloc[0] = input
     df_dummies = pd.get_dummies(df, drop_first = True)
-    queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
+    queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)[:, :-3]
     model1Name = "Initial Model"
     initialModelPrediction = initialModel.predict(queryRow)[0]
 
