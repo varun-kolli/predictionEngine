@@ -93,8 +93,11 @@ def testRun(input):
     print(df_dummies.columns)
 
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
-    prediction = initialModel.predict(queryRow)[0]
-    st.write(prediction)
+    model1Name = "Initial Model"
+    initialModelPrediction = initialModel.predict(queryRow)[0]
+
+    df_res = pd.DataFrame({'Model': ['Initial Model'], 'Prediction': [initialModelPrediction], 'Score': [initialModel.best_score_], "Parameters": [initialModel.best_params_]})
+
 
 def display_user_input(user_input):
     variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
