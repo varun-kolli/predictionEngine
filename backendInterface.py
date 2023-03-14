@@ -94,7 +94,7 @@ def testRun(input):
     model1Name = "Initial Model"
     initialModelPrediction = initialModel.predict(queryRow)[0]
 
-    df_res = pd.DataFrame({'Model': ['Initial Model'], 'Prediction': [initialModelPrediction]})#}, 'Score': [initialModel.best_score_], "Parameters": [initialModel.best_params_]})
+    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Mode Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, -9, -9, -9]})#}, 'Score': [initialModel.best_score_], "Parameters": [initialModel.best_params_]})
     st.dataframe(df_res)
 
 def display_user_input(user_input):
