@@ -86,10 +86,10 @@ def testRun(input):
     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
     df_copy = df.copy()
     initialModel = getModel(df_copy)
-
-    cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+    df = df.drop(columns = ['MH1', 'Unnamed: 0'])
+    cols =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     df.iloc[0] = input
-    df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
+    df_dummies = pd.get_dummies(df, drop_first = True)
 
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
     model1Name = "Initial Model"
