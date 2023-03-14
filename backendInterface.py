@@ -87,6 +87,8 @@ def testRun(input):
     df_copy = df.copy()
     initialModel = getModel(df_copy)
     df = df.drop(columns = ['MH1', 'Unnamed: 0'])
+    print(len(input))
+    print(len(df.columns))
     cols =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     df.iloc[0] = input
     df_dummies = pd.get_dummies(df, drop_first = True)
@@ -102,8 +104,7 @@ def display_user_input(user_input):
     variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
     df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
     st.dataframe(df)
-    user_input.insert(0, "1207979")
-    user_input.insert(2, "Trauma-related")
+
     testRun(user_input)
 
 def prompt():
