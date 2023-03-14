@@ -85,7 +85,7 @@ def testRun(input):
     df = pd.read_csv(fileName).dropna()
     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
     df_copy = df.copy()
-    model = getModel(df_copy)
+    initialModel = getModel(df_copy)
 
     cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     df.iloc[0] = input
@@ -93,7 +93,7 @@ def testRun(input):
     print(df_dummies.columns)
 
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
-    prediction = model.predict(queryRow).iloc[0, 0]
+    prediction = initialModel.predict(queryRow).iloc[0, 0]
     st.write(prediction)
 
 def display_user_input(user_input):
