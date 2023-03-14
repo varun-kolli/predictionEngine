@@ -89,7 +89,7 @@ def testRun(input):
 
     cols =  ["Unnamed: 0", 'AGE', 'MH1', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
     df.iloc[0] = input
-    df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
+    df_dummies = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0', 'SAP']), drop_first = True)
     print(df_dummies.columns)
 
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
