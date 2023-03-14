@@ -55,7 +55,7 @@ def convertAge(age):
 def getModel(df):
     input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
     df.iloc[0] = input
-    x = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
+    x = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0', 'SAP']), drop_first = True)
     y = df['MH1']
     train_x, test_x, train_y, test_y = train_test_split(x, y, test_size = 0.4, random_state = 1)
     folds = KFold(n_splits = 5, shuffle = True, random_state = 1)
