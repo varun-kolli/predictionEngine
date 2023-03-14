@@ -93,9 +93,8 @@ def testRun(input):
     print(df_dummies.columns)
 
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)
-    st.write(queryRow)
-    #prediction = model.predict(queryRow)
-    #st.write(prediction)
+    prediction = model.predict(queryRow)
+    st.write(prediction)
 
 def display_user_input(user_input):
     variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
