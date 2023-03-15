@@ -97,7 +97,7 @@ def testRun(input):
     initialModelPrediction = initialModel.predict(queryRow)[0]
 
     st.subheader("Best Prediction")
-    st.write("Prediction: Depression)
+    st.write("Prediction: Depression")
     st.write("R Score: 0.503")
 
     st.subheader("Other Results")
