@@ -99,8 +99,9 @@ def testRun(input):
     st.subheader("Best Prediction")
     st.write("Prediction: Depression. R Score: 0.503")
 
-
+    st.subheader("Other Results")
     df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, 'Schizophrenia/psychotic', 'Depression'], 'Score': [initialModel.best_score_, '0.502', '0.469']})
+    st.dataframe(df_res)
 
 def display_user_input(user_input):
     variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
