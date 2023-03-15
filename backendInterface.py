@@ -102,7 +102,7 @@ def testRun(input):
 
     #distPred, remPred, modePred = getPklPred(queryRow)
 
-    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Mode Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, -9, -9, -9], 'Score': [initialModel.best_score_, -9, -9, -9, -9]})#, "Parameters": [initialModel.best_params_]})
+    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Mode Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, -9, -9, -9], 'Score': [initialModel.best_score_, -9, -9, -9]})#, "Parameters": [initialModel.best_params_]})
     st.dataframe(df_res)
 
 def display_user_input(user_input):
