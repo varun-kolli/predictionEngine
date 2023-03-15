@@ -97,7 +97,8 @@ def testRun(input):
     initialModelPrediction = initialModel.predict(queryRow)[0]
 
     st.subheader("Best Prediction")
-    st.write("Prediction: Depression. R Score: 0.503")
+    st.write("Prediction: Depression)
+    st.write("R Score: 0.503")
 
     st.subheader("Other Results")
     df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, 'Schizophrenia/psychotic', 'Depression'], 'Score': [initialModel.best_score_, '0.502', '0.469']})
