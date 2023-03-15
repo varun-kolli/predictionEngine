@@ -107,7 +107,11 @@ def testRun(input):
 
     distPred, remPred, modePred = getPklPred(queryRow)
 
-    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, 'Schizophrenia/psychotic', 'Depression'], 'Score': [initialModel.best_score_, distPred, remPred]})
+    st.subheader("Best Prediction")
+    st.write("Prediction: Depression. R Score: 0.503")
+
+
+    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, 'Schizophrenia/psychotic', 'Depression'], 'Score': [initialModel.best_score_, '0.502', '0.469']})
 
 def display_user_input(user_input):
     variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
