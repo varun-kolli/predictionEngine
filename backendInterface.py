@@ -80,6 +80,8 @@ def getModel(df):
 
 @st.cache_data
 def getPklPred(input):
+    import pickle
+
     dist_model = pickle.load(open('pkl_files/dt_dist.sav', 'rb'))
     rem_model = pickle.load(open('pkl_files/dt_nonNull.sav', 'rb'))
     modes_model = pickle.load(open('pkl_files/dt_dist.sav', 'rb'))
