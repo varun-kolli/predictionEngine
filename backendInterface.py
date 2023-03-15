@@ -78,10 +78,13 @@ def getModel(df):
 
     return model_clf
 
+@st.cache_data
 def getPklPred(input):
     dist_model = pickle.load(open('pkl_files/dt_dist.sav', 'rb'))
     rem_model = pickle.load(open('pkl_files/dt_nonNull.sav', 'rb'))
     modes_model = pickle.load(open('pkl_files/dt_dist.sav', 'rb'))
+
+    return dist_model.best_score_, rem_model.best_score_, modes_model.best_score_
     pass
 
 def testRun(input):
@@ -100,9 +103,9 @@ def testRun(input):
     model1Name = "Initial Model"
     initialModelPrediction = initialModel.predict(queryRow)[0]
 
-    #distPred, remPred, modePred = getPklPred(queryRow)
+    distPred, remPred, modePred = getPklPred(queryRow)
 
-    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Mode Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, -9, -9, -9], 'Score': [initialModel.best_score_, -9, -9, -9]})#, "Parameters": [initialModel.best_params_]})
+    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Mode Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, 'Schizophrenia/psychotic', 'Depression', 'Depression'], 'Score': [initialModel.best_score_, distPred, remPred, modePred]})#, "Parameters": [initialModel.best_params_]})
     st.dataframe(df_res)
 
 def display_user_input(user_input):
