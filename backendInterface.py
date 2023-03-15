@@ -78,16 +78,7 @@ def getModel(df):
 
     return model_clf
 
-@st.cache_data
-def getPklPred(input):
-    import pickle
 
-    dist_model = pickle.load(open('pkl_files/dt_dist.sav', 'rb'))
-    rem_model = pickle.load(open('pkl_files/dt_nonNull.sav', 'rb'))
-    modes_model = pickle.load(open('pkl_files/dt_dist.sav', 'rb'))
-
-    return dist_model.best_score_, rem_model.best_score_, modes_model.best_score_
-    pass
 
 def testRun(input):
     fileName = "CSV_files/data.csv"
@@ -104,8 +95,6 @@ def testRun(input):
     queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)[:, :-3]
     model1Name = "Initial Model"
     initialModelPrediction = initialModel.predict(queryRow)[0]
-
-    distPred, remPred, modePred = getPklPred(queryRow)
 
     st.subheader("Best Prediction")
     st.write("Prediction: Depression. R Score: 0.503")
