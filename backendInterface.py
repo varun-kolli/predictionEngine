@@ -107,8 +107,7 @@ def testRun(input):
 
     distPred, remPred, modePred = getPklPred(queryRow)
 
-    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Mode Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, 'Schizophrenia/psychotic', 'Depression', 'Depression'], 'Score': [initialModel.best_score_, distPred, remPred, modePred]})#, "Parameters": [initialModel.best_params_]})
-    st.dataframe(df_res)
+    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, 'Schizophrenia/psychotic', 'Depression'], 'Score': [initialModel.best_score_, distPred, remPred]})
 
 def display_user_input(user_input):
     variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
