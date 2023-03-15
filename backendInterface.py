@@ -78,6 +78,12 @@ def getModel(df):
 
     return model_clf
 
+def getPklPred(input):
+    dist_model = pickle.load(open('pkl_files/dt_dist.sav', 'rb'))
+    rem_model = pickle.load(open('pkl_files/dt_nonNull.sav', 'rb'))
+    modes_model = pickle.load(open('pkl_files/dt_dist.sav', 'rb'))
+    pass
+
 def testRun(input):
     fileName = "CSV_files/data.csv"
     df = pd.read_csv(fileName).dropna()
@@ -94,7 +100,9 @@ def testRun(input):
     model1Name = "Initial Model"
     initialModelPrediction = initialModel.predict(queryRow)[0]
 
-    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Mode Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, -9, -9, -9]})#}, 'Score': [initialModel.best_score_], "Parameters": [initialModel.best_params_]})
+    #distPred, remPred, modePred = getPklPred(queryRow)
+
+    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Mode Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, -9, -9, -9], 'Score': [initialModel.best_score_, -9, -9, -9, -9]})#, "Parameters": [initialModel.best_params_]})
     st.dataframe(df_res)
 
 def display_user_input(user_input):
