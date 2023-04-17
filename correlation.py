@@ -40,10 +40,8 @@ def correlation_main():
         'support': [204486, 194977, 6017]
     }
 
-    # Create a pandas DataFrame from the dictionary
     df = pd.DataFrame(data)
 
-    # Highlight the cell with F1 score of 0.64
     df.style.applymap(lambda x: 'background-color: #007bff; color: #ffffff' if x==0.64 else '')
 
 
@@ -54,7 +52,8 @@ def correlation_main():
                 color: #ffffff;
             }
             </style>""", unsafe_allow_html=True)
-    st.write(df)
+
+    st.dataframe(df)
 
     st.subheader("Confusion Matrix")
     image = Image.open('images/cf_mat.png')
