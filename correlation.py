@@ -48,6 +48,8 @@ def correlation_main():
     top_features = []
     print(len(x))
     print(type(x))
+    st.write(len(x))
+    st.write(type(x))
 
 
 
