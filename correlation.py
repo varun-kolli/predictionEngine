@@ -24,5 +24,5 @@ def correlation_main():
         st.write(df.style.apply(lambda x: ['background-color: lightgreen' if x.equals(max_score_row) else '' for i in x], axis=1))
 
     st.header("Clusters")
-    image = Image.open('images/clusters.jpg')
+    image = Image.open('images/clusters.png')
     st.image(image)
