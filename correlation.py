@@ -29,7 +29,7 @@ def correlation_main():
 
     st.subheader("Decision Tree Implementation")
     st.write("Now that the clusters have been assigned, we will test the input features to predict for the mental health disorder group.")
-    st.markdown("F1 Score: <span style='color:green'>0.62</span>unsafe_allow_html=True")
+    st.markdown("F1 Score: <span style='color:green'>0.62</span>",unsafe_allow_html=True)
 
     st.subheader("Classification Report")
 
@@ -40,13 +40,24 @@ def correlation_main():
         'support': [204486, 194977, 6017]
     }
 
+    # Create a pandas DataFrame from the dictionary
     df = pd.DataFrame(data)
 
+    # Highlight the cell with F1 score of 0.64
+    df.style.applymap(lambda x: 'background-color: #007bff; color: #ffffff' if x==0.64 else '')
+
+    # Hide the indexes of the DataFrame
     df.index = ['']*len(df.index)
 
-    st.table(df)
-    #image = Image.open('images/clf_report.png')
-    #st.image(image)
+    # Display the DataFrame as a Streamlit table
+    m = st.markdown("""
+            <style>
+            table td:nth-child(3) {
+                background-color: #007bff;
+                color: #ffffff;
+            }
+            </style>""", unsafe_allow_html=True)
+    st.write(df)
 
     st.subheader("Confusion Matrix")
     image = Image.open('images/cf_mat.png')
