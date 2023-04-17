@@ -24,7 +24,7 @@ def correlation_main():
     kmeans_model = joblib.load('pkl_files/clustering_model.sav')
 
     #x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
-
+    #The values of 'X_pca[:, 0]' and 'X_pca[:, 1]' are obtained by multiplying the original data by the eigenvectors corresponding to the two largest eigenvalues of the covariance matrix.
     ###
     x = pd.get_dummies(df_corr.drop(columns=['Disorder', 'CLUSTER']), drop_first=True)
     cluster_labels = [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0]
@@ -36,31 +36,13 @@ def correlation_main():
     scatter = ax.scatter(X_pca[:, 0], X_pca[:, 1], c=cluster_labels, cmap='viridis')
     plt.xlabel('PCA Component 1')
     plt.ylabel('PCA Component 2')
-    plt.title('Cluster Visualization')
+    plt.title('Cluster Visualization (Principal Component Analysis) ')
     legend1 = ax.legend(*scatter.legend_elements(),
                         loc="upper right", title="Clusters")
     ax.add_artist(legend1)
     st.pyplot(fig)
 
-    # Identify important features for each cluster using a heatmap
-    fig, ax = plt.subplots()
-    top_n = 3
-    cluster_features = []
-    for cluster in sorted(df_corr['CLUSTER'].unique()):
-        mean_corr = df_corr[df_corr['CLUSTER'] == cluster].mean()
-        top_features = mean_corr.abs().sort_values(ascending=False)[:top_n].index.tolist()
-        cluster_features.append(top_features)
-        print(str(top_features) + "HEY")
-
-    # Create a heatmap of the top 3 important features for each cluster
-    fig, ax = plt.subplots()
-
-    #df_corr = pd.get_dummies(df_corr.copy(), drop_first = True)
-    #heatmap_data = df_corr.groupby('CLUSTER').mean()#.loc[:, cluster_features]
-    #sns.heatmap(heatmap_data, cmap='coolwarm', annot=True, ax=ax)
-    #plt.title('Top 3 Important Features by Cluster'.format(top_n))
-    #st.pyplot(fig)
-    ###
+   ###
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
 
