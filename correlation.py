@@ -17,12 +17,11 @@ def correlation_main():
     df_corr = pd.read_csv("CSV_files/correlation_df.csv")
     x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
     kmeans_model = joblib.load('pkl_files/clustering_model.sav')
-    st.dataframe(df_corr)
 
     ###
-    df.set_index(['Disorder', 'CLUSTER'], inplace=True)
+    df_corr.set_index(['Disorder', 'CLUSTER'], inplace=True)
 
-    corr_df = corr_df.unstack(level=0)['CLUSTER']
+    corr_df = df_corr.unstack(level=0)['CLUSTER']
 
     # Create a heatmap
     fig, ax = plt.subplots(figsize=(10, 8))
