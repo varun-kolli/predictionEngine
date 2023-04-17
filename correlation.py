@@ -25,7 +25,25 @@ def correlation_main():
 
     ###
     cluster_labels = [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0]
-    st.write(cluster_labels)
+    pca = PCA(n_components=2)
+    X_pca = pca.fit_transform(X)
+
+    # Create a scatter plot of the clusters
+    fig, ax = plt.subplots()
+    scatter = ax.scatter(X_pca[:, 0], X_pca[:, 1], c=cluster_labels, cmap='viridis')
+    plt.xlabel('PCA Component 1')
+    plt.ylabel('PCA Component 2')
+    plt.title('Cluster Visualization')
+    legend1 = ax.legend(*scatter.legend_elements(),
+                        loc="upper right", title="Clusters")
+    ax.add_artist(legend1)
+    st.pyplot(fig)
+
+    # Identify important features for each cluster using a heatmap
+    fig, ax = plt.subplots()
+    sns.heatmap(df_corr.groupby('Cluster').mean(), cmap='coolwarm', annot=True, ax=ax)
+    plt.title('Important Features by Cluster')
+    st.pyplot(fig)
     ###
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
