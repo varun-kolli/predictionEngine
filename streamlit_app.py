@@ -22,7 +22,7 @@ def initializeSideBar():
     if selection[4]:
         v4()
     if selection[5]:
-        correlation_main
+        correlation_main()
     if selection[5] or all(value == False for value in selection) :
         interface()
 
