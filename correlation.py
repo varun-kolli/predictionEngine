@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 from PIL import Image
+import seaborn as sns
+import matplotlib.pyplot as plt
 import joblib
 
 
@@ -15,6 +17,14 @@ def correlation_main():
     df_corr = pd.read_csv("CSV_files/correlation_df.csv")
     x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
     kmeans_model = joblib.load('pkl_files/clustering_model.sav')
+
+    ###
+    plt.figure(figsize=(10,8))
+    sns.heatmap(corr_matrix, cmap='coolwarm', annot=True)
+    plt.title('Correlation Matrix of Disorders in the Cluster')
+    plt.show()
+
+    ###
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
 
