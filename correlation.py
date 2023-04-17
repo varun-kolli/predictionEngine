@@ -42,38 +42,23 @@ def correlation_main():
     ax.add_artist(legend1)
     st.pyplot(fig)
 
-    ###
-    df = df_corr.copy()
-    disorders_by_cluster = {}
-    for i, label in enumerate(cluster_labels):
-        if label not in disorders_by_cluster:
-            disorders_by_cluster[label] = []
-        disorders_by_cluster[label].append(df['Disorder'][i])
+    cluster_key = pd.read_csv('CSV_files/cluster_key.csv', index_col='MH')
 
-    # Print the disorders in each cluster
-    for label, disorders in disorders_by_cluster.items():
-        print(f"Cluster {label}: {disorders}")
+    # Create a list of dataframes, with each dataframe containing the disorders for a different cluster
+    cluster_dfs = []
+    for i in range(3):
+        cluster_dfs.append(cluster_key[cluster_key['cluster'] == i])
 
-    # Compute the mean correlation values for each cluster
-    mean_corrs_by_cluster = {}
-    for label in set(cluster_labels):
-        cluster_x = x[cluster_labels == label]
-        mean_corrs = np.mean(cluster_x, axis=0)
-        mean_corrs_by_cluster[label] = mean_corrs
+    # Create a Streamlit container for the tabs
+    with st.container():
+        # Display a title for the container
+        st.title("Cluster Key")
 
-    # Create bar charts of the mean correlation values for each cluster
-    fig, ax = plt.subplots(figsize=(10, 5))
-    for label, mean_corrs in mean_corrs_by_cluster.items():
-        ax.bar(x.columns, mean_corrs, label=f"Cluster {label}")
-    ax.set_xlabel('Features')
-    ax.set_ylabel('Mean correlation values')
-    ax.set_title('Mean Correlation Values by Cluster')
-    ax.legend()
-    plt.show()
-
-
-
-    ###
+        # Create the tabs and display the cluster dataframes as tables
+        with st.tabs('Cluster Assignments', *[{'label': f'Cluster {i}', 'value': f'{i}'} for i in range(3)]):
+            for i, cluster_df in enumerate(cluster_dfs):
+                st.write(f"## Cluster {i}")
+                st.table(cluster_df)
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
 
