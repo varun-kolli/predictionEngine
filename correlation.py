@@ -53,7 +53,8 @@ def correlation_main():
 
     # Create a heatmap of the top 3 important features for each cluster
     fig, ax = plt.subplots()
-    df_corr = pd.get_dummies(df_corr, drop_first = True)
+    st.write(cluster_features)
+    df_corr = pd.get_dummies(df_corr.copy(), drop_first = True)
     heatmap_data = df_corr.groupby('CLUSTER').mean().loc[:, cluster_features]
     sns.heatmap(heatmap_data, cmap='coolwarm', annot=True, ax=ax)
     plt.title('Top 3 Important Features by Cluster'.format(top_n))
