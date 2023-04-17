@@ -43,6 +43,7 @@ def correlation_main():
     st.pyplot(fig)
 
     ###
+    df = df_corr.copy()
     disorders_by_cluster = {}
     for i, label in enumerate(cluster_labels):
         if label not in disorders_by_cluster:
