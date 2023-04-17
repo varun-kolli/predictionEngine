@@ -43,7 +43,7 @@ def correlation_main():
     st.pyplot(fig)
 
     ###
-    centroids = kmeans.cluster_centers
+    centroids = kmeans.cluster_centers_
 
     top_features = []
     for i, centroid in enumerate(centroids):
