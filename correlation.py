@@ -44,7 +44,7 @@ def correlation_main():
 
     ###
     centroids = kmeans.cluster_centers_
-    print(len(centroids)
+    print(len(centroids))
 
     top_features = []
     for i, centroid in enumerate(centroids):
