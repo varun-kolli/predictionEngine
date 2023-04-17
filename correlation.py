@@ -23,3 +23,6 @@ def correlation_main():
         # Create table with highlighted row
         st.write(df.style.apply(lambda x: ['background-color: lightgreen' if x.equals(max_score_row) else '' for i in x], axis=1))
 
+    st.header("Clusters")
+    image = Image.open('images/clusters.jpg')
+    st.image(image)
