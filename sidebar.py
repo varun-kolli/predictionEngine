@@ -16,7 +16,7 @@ def sideBar():
         }
         </style>""", unsafe_allow_html=True)
 
-    tabs1 = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balancing"]
+    tabs1 = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balancing", "Correlation"]
     tabs2 = ["Backend Interface"]
 
     # Create a sidebar with buttons for each tab

@@ -7,6 +7,7 @@ from dataCleaning import v2
 from handlingNull import v3
 from dataBalancing import v4
 from backendInterface import interface
+from correlation import correlation_main
 
 def initializeSideBar():
     selection = sideBar()
@@ -20,6 +21,8 @@ def initializeSideBar():
         v3()
     if selection[4]:
         v4()
+    if selection[5]:
+        correlation_main
     if selection[5] or all(value == False for value in selection) :
         interface()
 
