@@ -18,7 +18,7 @@ def correlation_main():
 
     st.header("Clustering")
 
-    df_corr = pd.read_csv("CSV_files/correlation_df.csv")
+    df_corr = pd.read_csv("CSV_files/correlation_df.csv").reset_index(drop=True)
     kmeans_model = joblib.load('pkl_files/clustering_model.sav')
 
     #x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
