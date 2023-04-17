@@ -14,7 +14,7 @@ def correlation_main():
 
     df_corr = pd.read_csv("CSV_files/correlation_df.csv")
     x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
-    kmeans_model = joblib.load('pkl_files/kmeans_model.sav')
+    kmeans_model = joblib.load('pkl_files/clustering_model.sav')
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
 
