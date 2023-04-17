@@ -21,7 +21,7 @@ def correlation_main():
     st.header("Clustering")
 
     df_corr = pd.read_csv("CSV_files/correlation_df.csv").reset_index(drop=True)
-    kmeans_model = joblib.load('pkl_files/clustering_model.sav')
+    kmeans = joblib.load('pkl_files/clustering_model.sav')
 
     #x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
     #The values of 'X_pca[:, 0]' and 'X_pca[:, 1]' are obtained by multiplying the original data by the eigenvectors corresponding to the two largest eigenvalues of the covariance matrix.
@@ -42,6 +42,18 @@ def correlation_main():
     ax.add_artist(legend1)
     st.pyplot(fig)
 
+   ###
+   centroids = kmeans.cluster_centers_
+   top_features = []
+   for i, centroid in enumerate(centroids):
+       distances = np.linalg.norm(x - centroid, axis=1)
+       indices = np.argsort(distances)[:10]
+       features = x.columns[indices].tolist()
+       top_features.append(features)
+
+   # Create a dataframe with each cluster and its top features
+   df_clusters = pd.DataFrame({'Cluster': range(kmeans.n_clusters), 'Top Features': top_features})
+   print(df_clusters)
    ###
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
