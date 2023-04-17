@@ -42,21 +42,25 @@ def correlation_main():
     ax.add_artist(legend1)
     st.pyplot(fig)
 
-    cluster_key = pd.read_csv("CSV_files/cluster_key.csv", index_col = "MH")
+    cluster_key = pd.read_csv('CSV_files/cluster_key.csv', index_col='MH')
+
+    # Create a list of dataframes, with each dataframe containing the disorders for a different cluster
     cluster_dfs = []
     for i in range(3):
         cluster_dfs.append(cluster_key[cluster_key['cluster'] == i])
 
-    # Create a Streamlit container for the tabs
-    with st.container():
-        # Display a title for the container
-        st.title("Cluster Key")
+    # Create Streamlit tabs for each cluster dataframe
+    tab1, tab2, tab3 = st.tabs(["0", "1", "2"])
 
-        # Create the tabs and display the cluster dataframes as tables
-        with st.tabs('Cluster Assignments', 'Cluster 0', 'Cluster 1', 'Cluster 2'):
-            for i, cluster_df in enumerate(cluster_dfs):
-                st.write(f"## Cluster {i}")
-                st.table(cluster_df)
+    # Display each cluster dataframe in its respective tab
+    with tab1:
+        st.dataframe(cluster_dfs[0])
+
+    with tab2:
+        st.dataframe(cluster_dfs[1])
+
+    with tab3:
+        st.dataframe(cluster_dfs[2])
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
 
