@@ -43,9 +43,10 @@ def correlation_main():
     st.pyplot(fig)
 
    ###
-   centroids = kmeans.cluster_centers_
-   top_features = []
-   for i, centroid in enumerate(centroids):
+    centroids = kmeans.cluster_centers
+
+    top_features = []
+    for i, centroid in enumerate(centroids):
        distances = np.linalg.norm(x - centroid, axis=1)
        indices = np.argsort(distances)[:10]
        features = x.columns[indices].tolist()
