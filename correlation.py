@@ -42,7 +42,7 @@ def correlation_main():
 
     df = pd.DataFrame(data)
 
-    st.dataframe(df)
+    st.write(df.style.apply(lambda x: ['background-color: lightgreen' if x.equals(0.64) else '' for i in x], axis=1))
 
     st.subheader("Confusion Matrix")
     image = Image.open('images/cf_mat.png')
