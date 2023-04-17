@@ -47,6 +47,7 @@ def correlation_main():
     top_n = 3
     cluster_features = []
     for cluster in sorted(df_corr['CLUSTER'].unique()):
+        st.write("HEYY")
         mean_corr = df_corr[df_corr['CLUSTER'] == cluster].mean()
         top_features = mean_corr.abs().sort_values(ascending=False)[:top_n].index.tolist()
         cluster_features.append(top_features)
