@@ -54,18 +54,16 @@ def correlation_main():
 
     # Display each cluster dataframe in its respective tab
     with tab1:
-        st.dataframe(cluster_dfs[0])
-
+        st.dataframe(cluster_dfs[0]).drop(df.columns[-1], axis=1)
     with tab2:
-        st.dataframe(cluster_dfs[1])
-
+        st.dataframe(cluster_dfs[1]).drop(df.columns[-1], axis=1)
     with tab3:
-        st.dataframe(cluster_dfs[2])
+        st.dataframe(cluster_dfs[2]).drop(df.columns[-1], axis=1)
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
 
     # Create data
-    data = {'N Clusters': [2, 3, 4, 5, 6, 7],
+    data = {'# Clusters': [2, 3, 4, 5, 6, 7],
             'Silhouette Score': [0.355, 0.243, 0.209, 0.212, 0.265, 0.295]}
     df = pd.DataFrame(data)
 
