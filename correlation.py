@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 from PIL import Image
+import numpy as np
 
 import joblib
 
@@ -18,7 +19,7 @@ def correlation_main():
     kmeans_model = joblib.load('pkl_files/clustering_model.sav')
 
     ###
-    corr_matrix = df_corr.groupby('Mental Disorder')['Cluster']
+    corr_matrix = df_corr['Cluster']
 
     # Extract the correlation coefficients between each disorder and its assigned cluster
     corr_df = corr_matrix.unstack(level=0)['Cluster']
