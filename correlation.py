@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
