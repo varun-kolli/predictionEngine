@@ -1,12 +1,20 @@
 import pandas as pd
 import streamlit as st
 from PIL import Image
+import joblib
+
 
 def correlation_main():
     st.title("Correlation")
     st.write("After attempting a random forest model, found that training it would be computationally expensive with the current data organization. We then decided to train an unsupervised learning models to create clusters of patients with similar disorders to simply the target variable any model will interpret.")
 
     st.caption("Data selected is from 2019 where all null values were dropped")
+
+    st.header("Clustering")
+
+    df_corr = pd.read_csv("correlation_df.csv")
+    x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
+    kmeans_model = joblib.load('kmeans_model.sav')
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
 
@@ -23,9 +31,8 @@ def correlation_main():
         # Create table with highlighted row
         st.write(df.style.apply(lambda x: ['background-color: lightgreen' if x.equals(max_score_row) else '' for i in x], axis=1))
 
-    st.header("Clusters")
-    image = Image.open('images/clusters.png')
-    st.image(image)
+    #image = Image.open('images/clusters.png')
+    #st.image(image)
 
     st.subheader("Decision Tree Implementation")
     st.write("Now that the clusters have been assigned, we will test the input features to predict for the mental health disorder group.")
@@ -42,7 +49,7 @@ def correlation_main():
 
     df = pd.DataFrame(data)
 
-    st.write(df.style.apply(lambda x: ['background-color: lightgreen' if x.equals(0.64) else '' for i in x], axis=1))
+    st.dataframe(df)
 
     st.subheader("Confusion Matrix")
     image = Image.open('images/cf_mat.png')
