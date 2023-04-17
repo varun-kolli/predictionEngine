@@ -42,21 +42,21 @@ def correlation_main():
     ax.add_artist(legend1)
     st.pyplot(fig)
 
-   ###
-   centroids = kmeans.cluster_centers
+    ###
+    centroids = kmeans.cluster_centers
 
-   top_features = []
-   for i, centroid in enumerate(centroids):
+    top_features = []
+    for i, centroid in enumerate(centroids):
        distances = np.linalg.norm(x - centroid, axis=1)
        indices = np.argsort(distances)[:10]
        features = x.columns[indices].tolist()
        top_features.append(features)
 
-   # Create a dataframe with each cluster and its top features
-   st.write("HDBFLJKHGBL")
-   df_clusters = pd.DataFrame({'Cluster': range(kmeans.n_clusters), 'Top Features': top_features})
-   st.write(df_clusters)
-   ###
+    # Create a dataframe with each cluster and its top features
+    st.write("HDBFLJKHGBL")
+    df_clusters = pd.DataFrame({'Cluster': range(kmeans.n_clusters), 'Top Features': top_features})
+    st.write(df_clusters)
+    ###
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
 
