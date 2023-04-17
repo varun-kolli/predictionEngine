@@ -24,10 +24,9 @@ def correlation_main():
     #x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
 
     ###
-    X = pd.get_dummies(df_corr.drop(['Disorder', 'CLUSTER'], axis=1), drop_first = True)
-    cluster_labels = [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0]
-
-
+    X = df_corr.drop(['Disorder', 'CLUSTER'], axis=1)
+    cluster_labels = kmeans_model.predict(X)
+    st.write(cluster_labels)
     ###
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
