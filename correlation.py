@@ -52,8 +52,9 @@ def correlation_main():
        top_features.append(features)
 
    # Create a dataframe with each cluster and its top features
+   st.write("HDBFLJKHGBL")
    df_clusters = pd.DataFrame({'Cluster': range(kmeans.n_clusters), 'Top Features': top_features})
-   print(df_clusters)
+   st.write(df_clusters)
    ###
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
