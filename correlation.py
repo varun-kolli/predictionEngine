@@ -18,7 +18,7 @@ def correlation_main():
     kmeans_model = joblib.load('pkl_files/clustering_model.sav')
 
     ###
-    corr_matrix = df.groupby('Mental Disorder')['Cluster']
+    corr_matrix = df_corr.groupby('Mental Disorder')['Cluster']
 
     # Extract the correlation coefficients between each disorder and its assigned cluster
     corr_df = corr_matrix.unstack(level=0)['Cluster']
