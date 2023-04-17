@@ -46,10 +46,7 @@ def correlation_main():
     # Highlight the cell with F1 score of 0.64
     df.style.applymap(lambda x: 'background-color: #007bff; color: #ffffff' if x==0.64 else '')
 
-    # Hide the indexes of the DataFrame
-    df.index = ['']*len(df.index)
 
-    # Display the DataFrame as a Streamlit table
     m = st.markdown("""
             <style>
             table td:nth-child(3) {
