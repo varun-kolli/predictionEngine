@@ -46,12 +46,15 @@ def correlation_main():
     centroids = kmeans.cluster_centers_
 
     top_features = []
+    print(len(x))
+    print(type(x))
+    """
     for i, centroid in enumerate(centroids):
-       print(len(centroids))
        distances = np.linalg.norm(x - centroid, axis=1)
        indices = np.argsort(distances)[:10]
        features = x.columns[indices].tolist()
        top_features.append(features)
+    """
 
     # Create a dataframe with each cluster and its top features
     st.write("HDBFLJKHGBL")
