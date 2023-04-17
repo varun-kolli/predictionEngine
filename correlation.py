@@ -29,7 +29,7 @@ def correlation_main():
 
     st.header("Decision Tree Implementation")
     st.write("Now that the clusters have been assigned, we will test the input features to predict for the mental health disorder group.")
-    st.write("F1 Score: <span style='color:green'>0.62</span>")
+    st.markdown("F1 Score: <span style='color:green'>0.62</span>")
 
     image = Image.open('images/clf_report.png')
     st.image(image)
