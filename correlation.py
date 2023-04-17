@@ -42,12 +42,9 @@ def correlation_main():
     ax.add_artist(legend1)
     st.pyplot(fig)
 
-    cluster_key = pd.read_csv('CSV_files/cluster_key.csv', index_col='MH')
-
-    # Create a list of dataframes, with each dataframe containing the disorders for a different cluster
     cluster_dfs = []
     for i in range(3):
-        cluster_dfs.append(cluster_key[cluster_key['cluster'] == i])
+        cluster_dfs.append(cluster_key[cluster_key['Cluster'] == i])
 
     # Create a Streamlit container for the tabs
     with st.container():
@@ -55,7 +52,7 @@ def correlation_main():
         st.title("Cluster Key")
 
         # Create the tabs and display the cluster dataframes as tables
-        with st.tabs('Cluster Assignments', *[{'label': f'Cluster {i}', 'value': f'{i}'} for i in range(3)]):
+        with st.tabs('Cluster Assignments', 'Cluster 0', 'Cluster 1', 'Cluster 2'):
             for i, cluster_df in enumerate(cluster_dfs):
                 st.write(f"## Cluster {i}")
                 st.table(cluster_df)
