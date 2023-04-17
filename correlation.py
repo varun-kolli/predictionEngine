@@ -9,3 +9,17 @@ def correlation_main():
     st.caption("Data selected is from 2019 where all null values were dropped")
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
+
+    # Create data
+    data = {'N Clusters': [2, 3, 4, 5, 6, 7],
+            'Silhouette Score': [0.355, 0.243, 0.209, 0.212, 0.265, 0.295]}
+    df = pd.DataFrame(data)
+
+    # Find row with highest score
+    max_score_row = df.loc[df['Silhouette Score'].idxmax()]
+
+    # Create expander
+    with st.expander("New Results"):
+        # Create table with highlighted row
+        st.write(df.style.apply(lambda x: ['background-color: lightgreen' if x.equals(max_score_row) else '' for i in x], axis=1))
+
