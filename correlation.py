@@ -2,6 +2,10 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
 
 import joblib
 
@@ -15,35 +19,13 @@ def correlation_main():
     st.header("Clustering")
 
     df_corr = pd.read_csv("CSV_files/correlation_df.csv")
-    x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
     kmeans_model = joblib.load('pkl_files/clustering_model.sav')
 
+    #x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
+
     ###
-    df_corr.set_index(['Disorder', 'CLUSTER'], inplace=True)
-
-    corr_df = df_corr.unstack(level=0)['CLUSTER']
-
-    # Create a heatmap
-    fig, ax = plt.subplots(figsize=(10, 8))
-    im = ax.imshow(corr_df, cmap='coolwarm')
-
-    # Set axis labels
-    ax.set_xticks(np.arange(len(corr_df.columns)))
-    ax.set_yticks(np.arange(len(corr_df.index)))
-    ax.set_xticklabels(corr_df.columns, rotation=45, ha='right')
-    ax.set_yticklabels(corr_df.index)
-
-    # Display the correlation values in the heatmap
-    for i in range(len(corr_df.index)):
-        for j in range(len(corr_df.columns)):
-            text = ax.text(j, i, '{:.2f}'.format(corr_df.iloc[i, j]),
-                           ha='center', va='center', color='w')
-
-    # Set plot title and color bar
-    plt.title('Correlation between Mental Disorders and Assigned Clusters')
-    plt.colorbar(im)
-
-    plt.show()
+    X = df_corr.drop(['Disorder', 'CLUSTER'], axis=1)
+    cluster_labels = kmeans_model.predict(X)
 
     ###
 
