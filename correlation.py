@@ -19,10 +19,10 @@ def correlation_main():
     kmeans_model = joblib.load('pkl_files/clustering_model.sav')
 
     ###
-    corr_matrix = df_corr['Cluster']
+    corr_matrix = df_corr['CLUSTER']
 
     # Extract the correlation coefficients between each disorder and its assigned cluster
-    corr_df = corr_matrix.unstack(level=0)['Cluster']
+    corr_df = corr_matrix.unstack(level=0)['CLUSTER']
 
     # Create a heatmap
     fig, ax = plt.subplots(figsize=(10, 8))
