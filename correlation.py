@@ -34,3 +34,8 @@ def correlation_main():
     image = Image.open('images/clf_report.png')
     st.image(image)
 
+    st.header("Confusion Matrix")
+    image = Image.open('images/cf_mat.png')
+    st.image(image)
+
+
