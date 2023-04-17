@@ -43,13 +43,32 @@ def correlation_main():
     st.pyplot(fig)
 
     ###
-    centroids = kmeans.cluster_centers_
+    disorders_by_cluster = {}
+    for i, label in enumerate(cluster_labels):
+        if label not in disorders_by_cluster:
+            disorders_by_cluster[label] = []
+        disorders_by_cluster[label].append(df['Disorder'][i])
 
-    top_features = []
-    print(len(x))
-    print(type(x))
-    st.write(len(x))
-    st.write(type(x))
+    # Print the disorders in each cluster
+    for label, disorders in disorders_by_cluster.items():
+        print(f"Cluster {label}: {disorders}")
+
+    # Compute the mean correlation values for each cluster
+    mean_corrs_by_cluster = {}
+    for label in set(cluster_labels):
+        cluster_x = x[cluster_labels == label]
+        mean_corrs = np.mean(cluster_x, axis=0)
+        mean_corrs_by_cluster[label] = mean_corrs
+
+    # Create bar charts of the mean correlation values for each cluster
+    fig, ax = plt.subplots(figsize=(10, 5))
+    for label, mean_corrs in mean_corrs_by_cluster.items():
+        ax.bar(x.columns, mean_corrs, label=f"Cluster {label}")
+    ax.set_xlabel('Features')
+    ax.set_ylabel('Mean correlation values')
+    ax.set_title('Mean Correlation Values by Cluster')
+    ax.legend()
+    plt.show()
 
 
 
