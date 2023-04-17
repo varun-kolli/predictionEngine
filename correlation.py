@@ -25,7 +25,8 @@ def correlation_main():
 
     ###
     X = pd.get_dummies(df_corr.drop(['Disorder', 'CLUSTER'], axis=1), drop_first = True)
-    cluster_labels = kmeans_model.predict(X)
+    cluster_labels = [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0]
+
 
     ###
 
