@@ -24,9 +24,10 @@ def correlation_main():
     #x = pd.get_dummies(df_corr.drop(columns = 'Disorder'), drop_first = True)
 
     ###
+    x = pd.get_dummies(frame.drop(columns=['Disorder', 'CLUSTER']), drop_first=True)
     cluster_labels = [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0]
     pca = PCA(n_components=2)
-    X_pca = pca.fit_transform(X)
+    X_pca = pca.fit_transform(x)
 
     # Create a scatter plot of the clusters
     fig, ax = plt.subplots()
