@@ -42,17 +42,6 @@ def correlation_main():
 
     df = pd.DataFrame(data)
 
-    df.style.applymap(lambda x: 'background-color: #007bff; color: #ffffff' if x==0.64 else '')
-
-
-    m = st.markdown("""
-            <style>
-            table td:nth-child(3) {
-                background-color: #007bff;
-                color: #ffffff;
-            }
-            </style>""", unsafe_allow_html=True)
-
     st.dataframe(df)
 
     st.subheader("Confusion Matrix")
