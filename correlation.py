@@ -40,13 +40,10 @@ def correlation_main():
         'support': [204486, 194977, 6017]
     }
 
-    # Create a pandas DataFrame from the dictionary
     df = pd.DataFrame(data)
 
-    # Hide the indexes of the DataFrame
     df.index = ['']*len(df.index)
 
-    # Display the DataFrame as a Streamlit table
     st.table(df)
     #image = Image.open('images/clf_report.png')
     #st.image(image)
