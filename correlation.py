@@ -46,6 +46,7 @@ def correlation_main():
     centroids = kmeans.cluster_centers_
     print(len(centroids))
 
+    """
     top_features = []
     for i, centroid in enumerate(centroids):
        distances = np.linalg.norm(x - centroid, axis=1)
@@ -57,6 +58,7 @@ def correlation_main():
     st.write("HDBFLJKHGBL")
     df_clusters = pd.DataFrame({'Cluster': range(kmeans.n_clusters), 'Top Features': top_features})
     st.write(df_clusters)
+    """
     ###
 
     st.markdown("Highest silhouette score: <span style='color:green'>0.66</span> with 3 clusters", unsafe_allow_html=True)
