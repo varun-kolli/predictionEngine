@@ -42,9 +42,10 @@ def correlation_main():
     ax.add_artist(legend1)
     st.pyplot(fig)
 
+    cluster_key = pd.read_csv("CSV_files/cluster_key.csv", index_col = "MH")
     cluster_dfs = []
     for i in range(3):
-        cluster_dfs.append(cluster_key[cluster_key['Cluster'] == i])
+        cluster_dfs.append(cluster_key[cluster_key['cluster'] == i])
 
     # Create a Streamlit container for the tabs
     with st.container():
