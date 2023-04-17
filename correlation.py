@@ -27,14 +27,31 @@ def correlation_main():
     image = Image.open('images/clusters.png')
     st.image(image)
 
-    st.header("Decision Tree Implementation")
+    st.subheader("Decision Tree Implementation")
     st.write("Now that the clusters have been assigned, we will test the input features to predict for the mental health disorder group.")
-    st.markdown("F1 Score: <span style='color:green'>0.62</span>")
+    st.markdown("F1 Score: <span style='color:green'>0.62</span>unsafe_allow_html=True")
 
-    image = Image.open('images/clf_report.png')
-    st.image(image)
+    st.subheader("Classification Report")
 
-    st.header("Confusion Matrix")
+    data = {
+        'precision': [0.63, 0.62, 0.54],
+        'recall': [0.66, 0.61, 0.02],
+        'f1-score': [0.64, 0.62, 0.04],
+        'support': [204486, 194977, 6017]
+    }
+
+    # Create a pandas DataFrame from the dictionary
+    df = pd.DataFrame(data)
+
+    # Hide the indexes of the DataFrame
+    df.index = ['']*len(df.index)
+
+    # Display the DataFrame as a Streamlit table
+    st.table(df)
+    #image = Image.open('images/clf_report.png')
+    #st.image(image)
+
+    st.subheader("Confusion Matrix")
     image = Image.open('images/cf_mat.png')
     st.image(image)
 
