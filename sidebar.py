@@ -5,7 +5,6 @@ def sideBar():
 
     # Create a sidebar with buttons
 
-
     tabs1 = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balancing", "Correlation", "Model Tracker"]
     tabs2 = ["Backend Interface"]
 
