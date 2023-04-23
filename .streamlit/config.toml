@@ -18,6 +18,3 @@ warningTextColor = "#ffffff"
 box_shadow = true
 border_radius = 4
 
-[menu]
-backgroundColor = "#1b2838"
-textColor = "#ffffff"
