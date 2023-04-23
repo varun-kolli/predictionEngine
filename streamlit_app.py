@@ -28,7 +28,6 @@ def initializeSideBar():
 
 
 def main():
-    st.set_page_config(layout="wide")
     st.set_page_config(
         page_title="Ex-stream-ly Cool App",
         page_icon="🧊",
