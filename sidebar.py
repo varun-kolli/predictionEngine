@@ -4,17 +4,7 @@ import streamlit as st
 def sideBar():
 
     # Create a sidebar with buttons
-    m = st.markdown("""
-        <style>
-        div.stButton > button.primary {
-            background-color: #0077c2;
-            color: #ffffff;
-        }
-        div.stButton > button.secondary {
-            background-color: #6495ED;
-            color: #ffffff;
-        }
-        </style>""", unsafe_allow_html=True)
+
 
     tabs1 = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balancing", "Correlation", "Model Tracker"]
     tabs2 = ["Backend Interface"]

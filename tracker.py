@@ -2,16 +2,6 @@ import pandas as pd
 import streamlit as st
 
 def report():
-    custom_css = f"""
-        <style>
-            body {{
-                background-color: #1B2437;
-                color: #fff;
-            }}
-        </style>
-    """
-
-    st.markdown(custom_css, unsafe_allow_html=True)
 
     st.markdown(
         f"""
