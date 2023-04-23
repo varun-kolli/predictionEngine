@@ -35,8 +35,8 @@ def report():
     # Display the bullet points using a div element with the 'bullet-points' class
     with st.container():
         st.write("Here are some bullet points:")
-        with st.markdown(tag="div", className="bullet-points"):
+        with st.markdown(""):
             for bullet_point in bullet_points:
-                st.markdown(f"* {bullet_point}")
+                st.markdown(f"<div class='bullet-points'>• {bullet_point}</div>", unsafe_allow_html=True)
 
     st.subheader("")
