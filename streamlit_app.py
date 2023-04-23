@@ -28,10 +28,7 @@ def initializeSideBar():
 
 
 def main():
-    #initializeSideBar()
-    with st.sidebar:
-        st.radio('Select one:', [1, 2])
-
+    initializeSideBar()
 
 if __name__ == '__main__':
     main()
