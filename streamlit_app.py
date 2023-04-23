@@ -30,11 +30,16 @@ def initializeSideBar():
 def main():
     st.set_page_config(layout="wide")
     st.set_page_config(
-                page_title="Something",
-                page_icon=":rocket:",
-                layout="centered",
-                initial_sidebar_state="expanded",
-            )
+        page_title="Ex-stream-ly Cool App",
+        page_icon="🧊",
+        layout="wide",
+        initial_sidebar_state="expanded",
+        menu_items={
+            'Get Help': 'https://www.extremelycoolapp.com/help',
+            'Report a bug': "https://www.extremelycoolapp.com/bug",
+            'About': "# This is a header. This is an *extremely* cool app!"
+        }
+    )
     #initializeSideBar()
 
 if __name__ == '__main__':
