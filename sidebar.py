@@ -7,7 +7,7 @@ def sideBar():
     m = st.markdown("""
         <style>
         div.stButton > button.primary {
-            background-color: #007bff;
+            background-color: #0077c2;
             color: #ffffff;
         }
         div.stButton > button.secondary {

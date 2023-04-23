@@ -1,21 +1,20 @@
 [theme]
 base = "light"
-primaryColor = "#2962FF"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F5F5F5"
+primaryColor = "#0077c2"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f2f2f2"
 textColor = "#333333"
-font = "Arial"
-font_size = 16
+font = "Helvetica"
+font_size = 14
 font_weight = "normal"
 lineHeight = 1.5
-pageWidth = 960
-pageBackgroundColor = "#FFFFFF"
-sidebarBackgroundColor = "#F5F5F5"
-headerColor = "#2962FF"
-buttonBackgroundColor = "#2962FF"
-buttonTextColor = "#FFFFFF"
-warningBackgroundColor = "#FFE082"
+pageWidth = 1000
+pageBackgroundColor = "#ffffff"
+sidebarBackgroundColor = "#0077c2"
+headerColor = "#0077c2"
+buttonBackgroundColor = "#0077c2"
+buttonTextColor = "#ffffff"
+warningBackgroundColor = "#FFDAB9"
 warningTextColor = "#333333"
 box_shadow = true
 border_radius = 4
-
