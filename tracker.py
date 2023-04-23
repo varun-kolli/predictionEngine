@@ -25,7 +25,14 @@ def report():
         "Converted relevant input column data to categorical variables"
     ]
 
+    st.markdown("""
+        <style>
+        .markdown-text-container ul { margin-bottom: 0px; }
+        .markdown-text-container ul > li { margin-top: 5px; }
+        </style>
+    """, unsafe_allow_html=True)
+
     for bullet_point in bullet_points:
-        st.markdown(f"* {bullet_point}")
+        st.markdown(f"      * {bullet_point}")
 
     st.subheader("")
