@@ -18,7 +18,6 @@ def report():
 
     st.header("Data Processing")
 
-    st.write("Methods:")
     bullet_points = [
         "Filtering disorders to **Bipolar, Trauma, Depression**",
         "3 different approaches to handling null values: Remove Null Values, Replace with Distribution, Replace with Mode",
@@ -34,7 +33,7 @@ def report():
 
     # Display the bullet points using a div element with the 'bullet-points' class
     with st.container():
-        st.write("Here are some bullet points:")
+        st.write("Methods:")
         with st.markdown(""):
             for bullet_point in bullet_points:
                 st.markdown(f"<div class='bullet-points'>• {bullet_point}</div>", unsafe_allow_html=True)
