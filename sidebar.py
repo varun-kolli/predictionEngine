@@ -16,15 +16,13 @@ def sideBar():
         }
         </style>""", unsafe_allow_html=True)
 
-    tabs1 = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balancing", "Correlation"]
+    tabs1 = ["Introduction", "Initial Modelling", "Data Cleaning", "Handling Null Values", "Data Balancing", "Correlation", "Model Tracker"]
     tabs2 = ["Backend Interface"]
 
     # Create a sidebar with buttons for each tab
     st.sidebar.markdown("Navigation")
     selection = [st.sidebar.button(tab, key=tab, help=tab, type='primary') for tab in tabs1]
     selection += [st.sidebar.button(tab, key=tab, help=tab, type='secondary') for tab in tabs2]
-
-
 
     return selection
 

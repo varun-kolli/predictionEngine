@@ -8,6 +8,7 @@ from handlingNull import v3
 from dataBalancing import v4
 from backendInterface import interface
 from correlation import correlation_main
+from tracker import report
 
 def initializeSideBar():
     selection = sideBar()
@@ -23,7 +24,9 @@ def initializeSideBar():
         v4()
     if selection[5]:
         correlation_main()
-    if selection[6] or all(value == False for value in selection) :
+    if selection[6]:
+        report()
+    if selection[7] or all(value == False for value in selection) :
         introduction()
 
 
