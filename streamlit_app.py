@@ -28,6 +28,12 @@ def initializeSideBar():
 
 
 def main():
+    st.set_page_config(
+        page_title="Prototype",
+        page_icon="🧊",
+        layout="wide",
+        initial_sidebar_state="expanded",
+    )
     initializeSideBar()
 
 if __name__ == '__main__':
