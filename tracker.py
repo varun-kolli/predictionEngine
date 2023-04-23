@@ -14,15 +14,10 @@ def report():
     st.subheader("Initial Decision Tree")
 
     st.write("First Attempt with the partially cleaned SAMDHA data resulted in a low F1 score of <span style='color:red'>0.493</span>.", unsafe_allow_html=True)
-    with st.expander("Click to expand"):
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.write("5 Fold Cross Validation")
-
-        with col2:
-            st.write("Training Size: 70%")
-            st.write("Test Size: 30%")
+    with st.expander("Model Details"):
+        st.write("5 Fold Cross Validation")
+        st.write("Training Size: 70%")
+        st.write("Test Size:     30%")
 
     st.header("Data Cleaning")
 
