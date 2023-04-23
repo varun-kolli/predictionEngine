@@ -8,48 +8,6 @@ def report():
                 background-color: #1B2437;
                 color: #fff;
             }}
-
-            .streamlit-container {{
-                max-width: 800px;
-                padding: 2rem 1rem;
-                background-color: #2A3E60;
-                border-radius: 10px;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            }}
-
-            .streamlit-header {{
-                font-size: 2rem;
-                color: #fff;
-                font-weight: bold;
-                margin-bottom: 1.5rem;
-            }}
-
-            .streamlit-markdown {{
-                font-size: 1.1rem;
-                line-height: 1.6;
-                color: #fff;
-            }}
-
-            .streamlit-expanderHeader {{
-                font-size: 1.2rem;
-                color: #fff;
-                font-weight: bold;
-            }}
-
-            .streamlit-expanderContent {{
-                font-size: 1.1rem;
-                line-height: 1.6;
-                color: #fff;
-                margin-top: 1rem;
-            }}
-
-            .bullet-points {{
-                margin-left: 20px;
-            }}
-
-            .bullet-points > * {{
-                margin-top: 0.25rem;
-            }}
         </style>
     """
 
