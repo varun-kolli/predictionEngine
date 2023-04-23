@@ -39,7 +39,7 @@ def main():
             'About': "# This is a header. This is an *extremely* cool app!"
         }
     )
-    #initializeSideBar()
+    initializeSideBar()
 
 if __name__ == '__main__':
     main()
