@@ -31,11 +31,14 @@ def report():
         </style>
     """, unsafe_allow_html=True)
 
-    # Display the bullet points using a div element with the 'bullet-points' class
+    # Concatenate the bullet points into a single string
+    bullet_points_str = ""
+    for bullet_point in bullet_points:
+        bullet_points_str += f"<div class='bullet-points'>• {bullet_point}</div>"
+
+    # Display the bullet points using a single st.markdown call
     with st.container():
-        st.write("Methods:")
-        with st.markdown(""):
-            for bullet_point in bullet_points:
-                st.markdown(f"<div class='bullet-points'>• {bullet_point}</div>", unsafe_allow_html=True)
+        st.write("Here are some bullet points:")
+        st.markdown(bullet_points_str, unsafe_allow_html=True)
 
     st.subheader("")
