@@ -27,12 +27,16 @@ def report():
 
     st.markdown("""
         <style>
-        .markdown-text-container ul { margin-bottom: 0px; }
-        .markdown-text-container ul > li { margin-top: 5px; }
+        .bullet-points { margin-left: 20px; }
+        .bullet-points > * { margin-top: 0.25rem; }
         </style>
     """, unsafe_allow_html=True)
 
-    for bullet_point in bullet_points:
-        st.markdown(f"      * {bullet_point}")
+    # Display the bullet points using a div element with the 'bullet-points' class
+    with st.container():
+        st.write("Here are some bullet points:")
+        with st.markdown(tag="div", className="bullet-points"):
+            for bullet_point in bullet_points:
+                st.markdown(f"* {bullet_point}")
 
     st.subheader("")
