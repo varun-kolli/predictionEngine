@@ -15,9 +15,7 @@ def report():
 
     st.write("First Attempt with the partially cleaned SAMDHA data resulted in a low F1 score of <span style='color:red'>0.493</span>.", unsafe_allow_html=True)
     with st.expander("Model Details"):
-        st.write("5 Fold Cross Validation")
-        st.write("Training Size: 70%")
-        st.write("Test Size:     30%")
+        st.write("5 Fold Cross Validation       Training Size: 70%      Test Size: 30%")
 
     st.header("Data Cleaning")
 
