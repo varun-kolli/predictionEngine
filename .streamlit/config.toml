@@ -16,5 +16,5 @@ buttonBackgroundColor = "#2c3e50"
 buttonTextColor = "#ffffff"
 warningBackgroundColor = "#f6b93b"
 warningTextColor = "#ffffff"
-box_shadow = True
+box_shadow = true
 border_radius = 4
