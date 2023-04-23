@@ -28,6 +28,7 @@ def initializeSideBar():
 
 
 def main():
+    st.set_page_config(layout="wide")
     initializeSideBar()
 
 if __name__ == '__main__':
