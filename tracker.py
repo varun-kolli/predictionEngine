@@ -12,12 +12,12 @@ def report():
         unsafe_allow_html=True
     )
 
-    st.subheader("Initial Decision Tree")
+    st.header("Initial Decision Tree")
 
     st.write("First Attempt with the partially cleaned SAMDHA data resulted in a low F1 score of <span style='color:red'>0.493</span>.", unsafe_allow_html=True)
     st.caption("5 Fold Cross Validation       Training Size: 70%      Test Size: 30%")
 
-    st.header("Data Processing")
+    st.subheader("Data Processing")
 
     bullet_points = [
         "Filtering disorders to **Bipolar, Trauma, Depression**",
@@ -39,7 +39,12 @@ def report():
 
     # Display the bullet points using a single st.markdown call
     with st.container():
-        st.write("Here are some bullet points:")
+        st.write("Methods:")
         st.markdown(bullet_points_str, unsafe_allow_html=True)
 
-    st.subheader("")
+    st.subheader("Results")
+
+    with st.container():
+        col1, col2, col3 = st.beta_columns(3)
+
+
