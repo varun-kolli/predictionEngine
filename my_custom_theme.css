@@ -8,10 +8,10 @@ div.css-1me30nu.e1tzin5v2{
 }
 
 div.css-1wivap2.e16fv1kl3{
-    background-color: #f5f5f5;
-    border: 2px solid; /* #900c3f */
-    border-radius: 10px;
-    padding: 20px 20px 20px 70px;
-    color: green;
-    box-shadow: 10px;
+    background-color: rgba(28, 131, 225, 0.1);
+    border: 1px solid rgba(28, 131, 225, 0.1);
+    padding: 5% 5% 5% 10%;
+    border-radius: 5px;
+    color: rgb(30, 103, 119);
+    overflow-wrap: break-word;
 }
