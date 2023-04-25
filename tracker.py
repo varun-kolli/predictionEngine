@@ -44,6 +44,9 @@ def report():
 
     st.subheader("Results")
 
+    with open("my_custom_theme.css") as f:
+     st.markdown(f"<style>{f.read()}</style>" , unsafe_allow_html = True)
+
     with st.container():
        col2, col3, col1 = st.beta_columns(3)
        with col1:
@@ -55,7 +58,6 @@ def report():
        with col3:
            st.metric(label="Distribution", value=0.502, delta=round(0.009, 4))
 
-    with open("my_custom_theme.css") as f:
-     st.markdown(f"<style>{f.read()}</style>" , unsafe_allow_html = True)
+
 
 
