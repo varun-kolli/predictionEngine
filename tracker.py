@@ -20,7 +20,7 @@ def report():
     st.header("Data Processing")
 
     bullet_points = [
-        "Filtering disorders to **Bipolar, Trauma, Depression**",
+        "Filtering disorders to Bipolar, Trauma, Depression",
         "3 different approaches to handling null values: Remove Null Values, Replace with Distribution, Replace with Mode",
         "Converted relevant input column data to categorical variables"
     ]
