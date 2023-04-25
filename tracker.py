@@ -45,14 +45,14 @@ def report():
     st.subheader("Results")
 
     with st.container():
-        col1, col2, col3 = st.beta_columns(3)
+        col2, col1, col3 = st.beta_columns(3)
         with col1:
-            st.metric(label="Metric 1", value=5)
+            st.metric(label="Removing", value=0.469, delta = 0.469 - 0.493)
 
         with col2:
-            st.metric(label="Metric 2", value=5)
+            st.metric(label="Distribution", value=0.502, delta = 0.502  - 0.493)
 
         with col3:
-            st.metric(label="Metric 3", value=5)
+            st.metric(label="Mode", value=0.502, delta = 0.502  - 0.493)
 
 
