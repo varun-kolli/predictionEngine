@@ -8,5 +8,11 @@ div.css-1me30nu.e1tzin5v2{
 }
 
 div.css-1wivap2.e16fv1kl3{
-    font-weight: 900;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
 }
