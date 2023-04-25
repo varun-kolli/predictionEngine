@@ -17,7 +17,7 @@ def report():
     st.write("First Attempt with the partially cleaned SAMDHA data resulted in a low F1 score of <span style='color:red'>0.493</span>.", unsafe_allow_html=True)
     st.caption("5 Fold Cross Validation       Training Size: 70%      Test Size: 30%")
 
-    st.subheader("Data Processing")
+    st.header("Data Processing")
 
     bullet_points = [
         "Filtering disorders to **Bipolar, Trauma, Depression**",
