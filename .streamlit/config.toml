@@ -8,4 +8,6 @@ font_size = 14
 font_weight = "normal"
 lineHeight = 1.5
 pageWidth = 1000
+backgroundColor = "#F8EFE6"
+secondaryBackgroundColor = "#f2f2f2"
 
