@@ -44,9 +44,6 @@ def report():
 
     st.subheader("Results")
 
-    with open("my_custom_theme.css") as f:
-     st.markdown(f"<style>{f.read()}</style>" , unsafe_allow_html = True)
-
     with st.container():
        col2, col3, col1 = st.columns(3)
        with col1:
