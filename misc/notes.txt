@@ -24,3 +24,17 @@ Version 3: revisions to models
 Used SMOTE to balance the dataset
 Used balanced dataset as training set, unbalanced for testing set
 Slightly improved performance
+
+
+div.css-z5fc14.egzxvld5{
+    background-color: #f5f5f5;
+    border: 2px solid;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    color: #ffc300;
+    box-shadow: 10px;
+}
+
+div.css-1wivap2.e16fv1kl3{
+    font-weight: 800;
+}
