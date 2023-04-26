@@ -46,7 +46,7 @@ def report():
     st.subheader("Results")
 
     with st.container():
-       col2, col3, col1 = st.columns(3)
+       col2, col3, col1, r, t, y = st.columns(6)
        with col1:
            st.metric(label="Removing", value=0.469, delta=round(-0.024, 4))
 
