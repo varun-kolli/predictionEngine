@@ -39,7 +39,7 @@ def report():
 
     # Display the bullet points using a single st.markdown call
     with st.container():
-        st.write("Methods:")
+        st.subheader("Methods:")
         st.markdown(bullet_points_str, unsafe_allow_html=True)
 
     st.subheader("Results")
