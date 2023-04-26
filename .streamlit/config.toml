@@ -2,3 +2,9 @@
 base = "light"
 buttonBackgroundColor = "#0077c2"
 buttonTextColor = "#ffffff"
+textColor = "0F0C0C"
+font_size = 14
+font_weight = "normal"
+lineHeight = 1.5
+pageWidth = 1000
+
