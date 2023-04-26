@@ -1,3 +1,4 @@
 [theme]
 base = "light"
-
+buttonBackgroundColor = "#0077c2"
+buttonTextColor = "#ffffff"
