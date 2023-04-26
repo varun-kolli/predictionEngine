@@ -6,6 +6,6 @@ def sideBar():
     tabs.append("Backend Interface")
 
     st.sidebar.subheader("Navigation")
-    selection = [st.sidebar.button(tab, key=tab, help=tab, type ="secondary") for tab in tabs]
+    selection = [st.sidebar.button(tab, key=tab, help=tab, type ="primary") for tab in tabs]
 
     return selection
