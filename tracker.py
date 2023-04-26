@@ -42,6 +42,7 @@ def report():
         st.subheader("Methods:")
         st.markdown(bullet_points_str, unsafe_allow_html=True)
 
+    st.write("")
     st.subheader("Results")
 
     with st.container():
