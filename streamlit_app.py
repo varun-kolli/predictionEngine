@@ -27,7 +27,7 @@ def initializeSideBar():
     if selection[6]:
         report()
     if selection[7] or all(value == False for value in selection) :
-        backendInterface()
+        interface()
 
 
 def main():
