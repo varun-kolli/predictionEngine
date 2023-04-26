@@ -8,5 +8,13 @@ def sideBar():
     st.sidebar.subheader("Navigation")
     selection = [st.sidebar.button(tab, key=tab, help=tab) for tab in tabs]
 
+    st.sidebar.css(
+        """
+        .sidebar-content {
+            border: 1px solid gray;
+            padding: 10px;
+        }
+        """
+    )
 
     return selection
