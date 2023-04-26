@@ -7,7 +7,7 @@ font = "Helvetica"
 font_size = 14
 font_weight = "normal"
 lineHeight = 1.5
-pageWidth = 1000
-backgroundColor = "#FBF8F5"
+pageWidth = 1200
+backgroundColor = "#F8F8F8"
 secondaryBackgroundColor = "#f2f2f2"
 
