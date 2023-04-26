@@ -18,8 +18,15 @@ div.css-1pd56a0.e1tzin5v0{
 div.css-629wbf.edgvbvh10{
     background-color: #DEE7F1;
     color: #033267;
-
 }
 
-
+/*tracker metric*/
+div.css-ocqkz7.e1tzin5v2{
+    background-color: #f5f5f5;
+    border: 2px solid;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    color: #ffc300;
+    box-shadow: 10px;
+}
 
