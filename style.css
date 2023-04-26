@@ -2,21 +2,23 @@
 
 /*container*/
 div.css-6qob1r.e1fqkh3o3{
-    background-color: #D6BDA5;
+    background-color: #E9E3DD;
 }
 
 /*text*/
 div.css-1pd56a0.e1tzin5v0{
     background-color: #EEE7E0;
     color: #033267;
+    border: 2px solid black;
+    border-radius: 10px;
+
 }
 
 /*tabs*/
 div.css-629wbf.edgvbvh10{
     background-color: #DEE7F1;
     color: #033267;
-    border: 2px solid;
-    border-radius: 10px;
+
 }
 
 
