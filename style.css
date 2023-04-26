@@ -21,8 +21,11 @@ div.css-629wbf.edgvbvh10{
 }
 
 /*tracker metric*/
-div.css-1wivap2.e16fv1kl3{
-    background-color: #75491B;
-
+div.css-1r6slb0.e1tzin5v2{
+    background-color: #f5f5f5;
+    border: 2px solid; /* #900c3f */
+    border-radius: 10px;
+    padding: 20px 20px 20px 70px;
+    color: green;
 }
 
