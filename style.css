@@ -3,14 +3,21 @@
 /*container*/
 div.css-6qob1r.e1fqkh3o3{
     background-color: #DEE7F1;
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 20px auto;
 }
 
 /*text*/
 div.css-1pd56a0.e1tzin5v0{
     background-color: #DEE7F1;
     color: #033267;
+}
+
+/*tabs*/
+div.css-629wbf.edgvbvh10{
+    background-color: #DEE7F1;
+    color: #033267;
+    border: 2px solid;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
 }
 
 
