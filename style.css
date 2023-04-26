@@ -15,8 +15,8 @@ div.css-1pd56a0.e1tzin5v0{
 div.css-629wbf.edgvbvh10{
     background-color: #DEE7F1;
     color: #033267;
-    border-style: solid;
-    border-color: green;
+    border: 1px solid gray;
+    padding: 10px;
 }
 
 
