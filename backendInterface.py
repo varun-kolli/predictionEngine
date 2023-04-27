@@ -51,65 +51,6 @@ def convertAge(age):
 
     return age_group_str
 
-@st.cache_data
-def getModel(df):
-
-    x = pd.get_dummies(df.drop(columns = ['MH1', 'Unnamed: 0']), drop_first = True)
-    y = df['MH1']
-    train_x, test_x, train_y, test_y = train_test_split(x, y, test_size = 0.4, random_state = 1)
-    folds = KFold(n_splits = 5, shuffle = True, random_state = 1)
-    clf = DecisionTreeClassifier(random_state = 42)
-
-    hyper_params_new = {
-        'max_depth': list(range(50, 55)),
-        'min_samples_split': list(range(1, 7)),
-        'min_samples_leaf': list(range(42, 47))
-    }
-
-    # Call GridSearchCV()
-    model_clf = GridSearchCV(estimator = clf,
-                            param_grid = hyper_params_new,
-                            scoring = 'f1_weighted', # Use a suitable regression metric
-                            cv = folds,
-                            verbose = 1,
-                            n_jobs = -1) # Will utilize all available CPUs
-
-    model_clf.fit(train_x, train_y)
-
-    return model_clf
-
-
-
-def testRun(input):
-    fileName = "CSV_files/data.csv"
-    df = pd.read_csv(fileName).dropna()
-    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-    df_copy = df.copy()
-    initialModel = getModel(df_copy)
-    df = df.drop(columns = ['MH1', 'Unnamed: 0'])
-    print(len(input))
-    print(len(df.columns))
-    cols =  ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
-    df.iloc[0] = input
-    df_dummies = pd.get_dummies(df, drop_first = True)
-    queryRow = np.array(df_dummies.iloc[0]).reshape(1, -1)[:, :-3]
-    model1Name = "Initial Model"
-    initialModelPrediction = initialModel.predict(queryRow)[0]
-
-    st.subheader("Best Prediction")
-    st.write("Prediction: Depression")
-    st.write("R Score: 0.503")
-
-    st.subheader("Other Results")
-    df_res = pd.DataFrame({'Model': ['Initial Model', 'Distribution Nulls', 'Remove Nulls'], 'Prediction': [initialModelPrediction, 'Schizophrenia/psychotic', 'Depression'], 'Score': [initialModel.best_score_, '0.502', '0.469']})
-    st.dataframe(df_res)
-
-def display_user_input(user_input):
-    variable_names = ['Age', 'Education', 'Ethnicity', 'Race', 'Gender', 'Marital Status', 'SAP', 'Employment Status', 'Living Arrangement', 'Veteran Status', 'State']
-    df = pd.DataFrame({'Variable': variable_names, 'Value': user_input})
-    st.dataframe(df)
-
-    testRun(user_input)
 
 def prompt():
     if "user" not in st.session_state:
@@ -119,27 +60,35 @@ def prompt():
         user = []
         age = st.number_input(label='Enter Age')
         ageInput = convertAge(age)
+
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
         educInput = st.selectbox("Select your education level", education_levels)
+
         employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
         employInput = st.selectbox("Select your employment status", employment_statuses)
-        ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
-        ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
+
         genderInput = st.radio("Select your gender", options=["Male", "Female"])
-        marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
-        marStatInput = st.selectbox('Select your marital status:', options=marital_status_options)
-        housing_situations = ["Homeless", "Private residence", "Other"]
-        livArangInput = st.selectbox("Select your living arrangement", housing_situations)
-        racial_groups = ["Native", "Asian", "Black or African American", "Pacific Islander", "White", "Other/Multiple"]
-        raceInput = st.selectbox("Select your racial group", racial_groups)
-        sapInput = st.radio("SAP", options=["Yes", "No"])
 
         stateInput = st.selectbox("Select a state",
-                                      ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-                                       "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-                                       "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-                                       "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-                                       "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
+                                                      ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+                                                       "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+                                                       "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+                                                       "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+                                                       "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
+
+
+        housing_situations = ["Homeless", "Private residence", "Other"]
+        livArangInput = st.selectbox("Select your living arrangement", housing_situations)
+
+        ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
+
+        ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
+
+        marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
+        marStatInput = st.selectbox('Select your marital status:', options=marital_status_options)
+
+        sapInput = st.radio("SAP", options=["Yes", "No"])
+
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
 
         submit_button = st.form_submit_button(label='Run')
@@ -147,7 +96,6 @@ def prompt():
         if submit_button:
             user_input = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput]
             st.session_state.user.append(user_input)
-
 
 
     if st.session_state.user:
