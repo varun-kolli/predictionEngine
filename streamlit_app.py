@@ -11,7 +11,7 @@ def initializeSideBar():
     if selection[0]:
         introduction()
     if selection[1]:
-        v1()
+        interface()
     if selection[2]:
         v2()
     if selection[3]:
@@ -22,8 +22,7 @@ def initializeSideBar():
         correlation_main()
     if selection[6]:
         report()
-    if selection[7] or all(value == False for value in selection) :
-        interface()
+
 
 
 def main():
