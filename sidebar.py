@@ -8,7 +8,7 @@ def sideBar():
     selection = [st.sidebar.button(tab, key=tab, help=tab, type ="secondary") for tab in tabs]
 
 
-    with st.beta_expander("Methodology"):
+    with st.expander("Methodology"):
         methodology_tabs = ["Data Description", "Data Cleaning", "Clustering"]
 
         selection = [st.sidebar.button(tab, key=tab, help=tab, type ="secondary") for tab in methodology_tabs]
