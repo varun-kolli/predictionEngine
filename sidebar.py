@@ -15,4 +15,4 @@ def sideBar():
 
     if methodology[2]:
         st.write("sidebar")
-    return selection
+
