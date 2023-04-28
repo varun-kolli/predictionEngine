@@ -11,8 +11,8 @@ def sideBar():
         selection = [st.sidebar.button(tab, key=tab, help=tab, type ="secondary") for tab in tabs]
         return selection
 
-    methodology = e1()[2]
+    methodology = e1()
 
-    if methodology:
+    if methodology[2]:
         st.write("sidebar")
     return selection
