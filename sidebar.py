@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 def sideBar():
-    tabs = ["Home", "Predictive Dashboard", "Methodology", "    - Data Description", "    - Data Cleaning", "    - Clustering", "Machine Learning", "Results"]
+    tabs = ["Home", "Predictive Dashboard", "Methodology", "Data Description", "Data Cleaning", "Clustering", "Machine Learning", "Results"]
 
     st.sidebar.subheader("Navigation")
     selection = [st.sidebar.button(tab, key=tab, help=tab, type ="secondary") for tab in tabs]
