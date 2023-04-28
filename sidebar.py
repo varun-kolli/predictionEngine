@@ -16,5 +16,4 @@ def sideBar():
            selection = st.sidebar.button(tab, key=tab, help=tab, type="secondary")
 
 
-
     return selection
