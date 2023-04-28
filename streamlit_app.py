@@ -8,22 +8,7 @@ from tracker import report
 
 def initializeSideBar():
     selection = sideBar()
-    """
-    if selection[0]:
-        introduction()
-    if selection[1]:
-        interface()
-    if selection[2]:
-        v2()
-    if selection[3]:
-        v3()
-    if selection[4]:
-        v4()
-    if selection[5]:
-        correlation_main()
-    if selection[6]:
-        report()
-    """
+
 
 
 def main():
