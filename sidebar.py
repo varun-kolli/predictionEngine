@@ -5,7 +5,7 @@ def sideBar():
 
     def e1():
         tabs = ["Home", "Predictive Dashboard", "Methodology", "Results"]
-        methodology_tabs = ["Data Description", "Data Cleaning", "Clustering"]
+
         st.sidebar.subheader("Navigation")
 
         selection = [st.sidebar.button(tab, key=tab, help=tab, type ="secondary") for tab in tabs]
@@ -14,5 +14,8 @@ def sideBar():
     methodology = e1()
 
     if methodology[2]:
+        st.sideBar.empty()
+        tabs = ["Home", "Predictive Dashboard", "Methodology", "Results"]
+        methodology_tabs = ["Data Description", "Data Cleaning", "Clustering"]
         st.write("sidebar")
 
