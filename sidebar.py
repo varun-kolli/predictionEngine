@@ -14,7 +14,7 @@ def sideBar():
     methodology = e1()
 
     if methodology[2]:
-        st.sideBar.empty()
+        st.sideBar.clear()
         tabs = ["Home", "Predictive Dashboard", "Methodology", "Results"]
         methodology_tabs = ["Data Description", "Data Cleaning", "Clustering"]
         st.write("sidebar")
