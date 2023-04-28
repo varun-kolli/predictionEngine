@@ -8,7 +8,10 @@ from tracker import report
 
 def initializeSideBar():
     selection = sideBar()
-
+    if selection[0]:
+        introduction()
+    if selection[2]:
+        backendInterface()
 
 
 def main():
