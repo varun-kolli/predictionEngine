@@ -9,16 +9,10 @@ def sideBar():
         st.sidebar.subheader("Navigation")
 
         selection = [st.sidebar.button(tab, key=tab, help=tab, type ="secondary") for tab in tabs]
+        return selection
 
-    return selection
-
-    methodology = selection[2]
+    methodology = e1[2]
 
     if methodology:
         st.write("sidebar")
-
-
-
-
-
     return selection
