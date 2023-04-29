@@ -5,8 +5,7 @@ import numpy as np
 
 def prompt():
 
-    if "user" not in st.session_state:
-        st.session_state.user = []
+
 
     subgroups = {'0-11': range(0, 12), '12-14': range(12, 15), '15-17': range(15, 18),
                  '18-20': range(18, 21), '21-24': range(21, 25), '25-29': range(25, 30),
@@ -23,6 +22,9 @@ def prompt():
     housing_situations = ["Homeless", "Private residence", "Other"]
     ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
     marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
+
+    if "user" not in st.session_state:
+        st.session_state.user = []
 
     with st.form(key='my_form'):
         selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
@@ -41,6 +43,7 @@ def prompt():
             st.session_state.user.append(user_input)
             st.write(st.session_state.user)
             st.write(user_input)
+            st.experimental_rerun()
 
 
 
