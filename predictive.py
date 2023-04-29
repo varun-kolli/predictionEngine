@@ -5,6 +5,9 @@ import numpy as np
 
 def prompt():
 
+    if "user" not in st.session_state:
+        st.session_state.user = []
+
     subgroups = {'0-11': range(0, 12), '12-14': range(12, 15), '15-17': range(15, 18),
                  '18-20': range(18, 21), '21-24': range(21, 25), '25-29': range(25, 30),
                  '30-34': range(30, 35), '35-39': range(35, 40), '40-44': range(40, 45),
