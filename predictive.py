@@ -2,58 +2,9 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-class SessionState:
-    def __init__(self, **kwargs):
-        self.hash_funcs = {_CodeHasher: lambda _: None}
-        self.__dict__.update(kwargs)
-
-def get_state(hash_funcs=None, **kwargs):
-    """Gets a SessionState object with the same hash as the previous one.
-
-    Example
-    -------
-    >>> import streamlit as st
-    >>>
-    >>> state = get_state()
-    >>>
-    >>> if state.my_button:
-    ...     st.write('Button clicked!')
-    >>>
-    >>> state.my_button = st.button('Click me!')
-    """
-    # Hack to get the session object from Streamlit.
-    ctx = st.report_thread.get_report_ctx()
-
-    this_session = None
-
-    current_server = ctx.environ.get("SERVER_NAME", "")
-    current_server_port = ctx.environ.get("SERVER_PORT", "")
-    current_request_id = ctx.request_id
-
-    session_infos = ctx.session_info.session.get_session_infos()
-
-    for session_info in session_infos:
-        if (
-            session_info.server.get("name", "") == current_server
-            and session_info.server.get("port", "") == current_server_port
-            and session_info.request_id == current_request_id
-        ):
-            this_session = session_info.session
-            break
-
-    if this_session is None:
-        raise RuntimeError("Oh noes. Couldn't get your Streamlit Session object")
-
-    state = this_session.get("my_state", None)
-
-    if state is None:
-        state = SessionState(**kwargs)
-        this_session["my_state"] = state
-
-    return state
-
 
 def prompt():
+
 
 
     subgroups = {'0-11': range(0, 12), '12-14': range(12, 15), '15-17': range(15, 18),
@@ -75,7 +26,6 @@ def prompt():
     if "user" not in st.session_state:
         st.session_state.user = []
 
-
     with st.form(key='my_form'):
         selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
         educInput = st.selectbox("Select your education level", education_levels)
@@ -87,19 +37,15 @@ def prompt():
         marStatInput = st.selectbox('Select your marital status:', options=marital_status_options)
         sapInput = st.radio("SAP", options=["Yes", "No"])
 
-        if st.form_submit_button(label='Predict'):
-            user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput,
-                          employInput, livArangInput, stateInput]
-            state.user.append(user_input)
-            st.write(state.user)
-            st.write(user_input)
+        submitted = st.form_submit_button(label='Predict')
 
+    if submitted:
+        user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput,
+                      employInput, livArangInput, stateInput]
+        st.session_state.user.append(user_input)
+        st.write(st.session_state.user)
+        st.write(user_input)
 
 
 def predict():
-
-    # Initialize state.
-    state = get_state()
-    if not hasattr(state, "user"):
-        state.user = []
     prompt()
