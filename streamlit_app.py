@@ -17,7 +17,6 @@ def initializeSideBar():
 
 
 def main():
-    introduction()
     initializeSideBar()
 
 if __name__ == '__main__':
