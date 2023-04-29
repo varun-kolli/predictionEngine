@@ -70,6 +70,8 @@ def form_callback():
 
 
 def prompt():
+    if "user" not in st.session_state:
+        st.session_state.user = []
 
     st.markdown(
             f"""
@@ -92,10 +94,11 @@ def prompt():
         sapInput = get_user_sap()
 
         submit_button = st.form_submit_button(label='Run', on_click=form_callback)
+
         user_input = []
         if submit_button:
             user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
-            st.write(user_input)
+            st.session_state.user.append(user_input)
 
 
 def predict():
