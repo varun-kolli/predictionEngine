@@ -13,7 +13,9 @@ def initializeSideBar():
     if selection[1]:
         interface()
     else:
-        interface()
+        st.write(st.session_state.counter)
+        introduction()
+
 
 def main():
     initializeSideBar()

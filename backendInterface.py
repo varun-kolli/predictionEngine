@@ -140,6 +140,7 @@ import streamlit as st
 
 
 def show():
+
     st.write(
         """
         ## 💯 Counter
@@ -148,8 +149,7 @@ def show():
         clicked.
         """
     )
-    if "counter" not in st.session_state:
-        st.session_state.counter = 0
+
 
     def increment():
         st.session_state.counter += 1
