@@ -100,6 +100,13 @@ def prompt():
             user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
             st.session_state.user.append(user_input)
 
+        if st.session_state.user:
+                    st.write("User inputs:")
+                    display_user_input(user_input)
+
+        st.session_state.user = []
+        return st.session_state.user
+
 
 def predict():
     prompt()
