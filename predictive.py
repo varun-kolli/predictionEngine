@@ -66,8 +66,15 @@ def get_user_sap():
 
 
 def prompt():
-    if "user" not in st.session_state:
-        st.session_state.user = []
+
+    st.markdown(
+            f"""
+            <div style='text-align:center'>
+                <h1>Predictive Dashboard</h1>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     with st.form(key='my_form'):
         selected_age_group = get_user_age()
@@ -84,14 +91,8 @@ def prompt():
         user_input = []
         if submit_button:
             user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
-            st.session_state.user.append(user_input)
-            st.experimental_set_query_params(user_input=user_input)
+            st.write(user_input)
 
-    if st.session_state.user:
-        st.write("User inputs:")
-        st.write(st.session_state.user[-1])
-
-    return st.session_state.user
 
 
 def predict():
