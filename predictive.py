@@ -64,9 +64,6 @@ def get_user_sap():
     sapInput = st.radio("SAP", options=["Yes", "No"])
     return sapInput
 
-def form_callback():
-    st.write(st.session_state.my_slider)
-    st.write(st.session_state.my_checkbox)
 
 
 def prompt():
@@ -93,7 +90,7 @@ def prompt():
         marStatInput = get_user_marital_status()
         sapInput = get_user_sap()
 
-        submit_button = st.form_submit_button(label='Run', on_click=form_callback)
+        submit_button = st.form_submit_button(label='Run')
 
         user_input = []
         if submit_button:
