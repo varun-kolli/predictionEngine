@@ -16,10 +16,7 @@ def initializeSideBar():
     else:
         introduction()
 
-
-
 def main():
-
     initializeSideBar()
 
 if __name__ == '__main__':

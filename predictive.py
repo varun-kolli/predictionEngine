@@ -17,7 +17,7 @@ def get_user_age():
         '50-54': range(50, 55),
         '55-59': range(55, 60),
         '60-64': range(60, 65),
-        '65 up': range(65, 150)  # use a large upper bound to include all ages 65 and above
+        '65 up': range(65, 150)
     }
     selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
     return selected_age_group
@@ -64,6 +64,10 @@ def get_user_sap():
     sapInput = st.radio("SAP", options=["Yes", "No"])
     return sapInput
 
+def form_callback():
+    st.write(st.session_state.my_slider)
+    st.write(st.session_state.my_checkbox)
+
 
 def prompt():
 
@@ -87,12 +91,11 @@ def prompt():
         marStatInput = get_user_marital_status()
         sapInput = get_user_sap()
 
-        submit_button = st.form_submit_button(label='Run')
+        submit_button = st.form_submit_button(label='Run', on_click=form_callback)
         user_input = []
         if submit_button:
             user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
             st.write(user_input)
-
 
 
 def predict():
