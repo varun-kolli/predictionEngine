@@ -5,13 +5,14 @@ from sidebar import sideBar
 from dataCleaning import v2
 from backendInterface import interface
 from tracker import report
+from predictive import predict
 
 def initializeSideBar():
     selection = sideBar()
     if selection[0]:
         introduction()
     if selection[1]:
-        interface()
+        predict()
     else:
         introduction()
 
