@@ -22,7 +22,7 @@ def prompt():
     marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
 
 
-   with st.form(key='my_form'):
+    with st.form(key='my_form'):
        selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
        educInput = st.selectbox("Select your education level", education_levels)
        employInput = st.selectbox("Select your employment status", employment_statuses)
