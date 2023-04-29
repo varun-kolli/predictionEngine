@@ -69,29 +69,26 @@ def prompt():
         st.session_state.user = []
 
     with st.form(key='my_form'):
-        selected_age_group = age_prompt()
-        educInput = education_prompt()
-        employInput = employment_prompt()
-        genderInput = gender_prompt()
-        stateInput = state_prompt()
-        livArangInput = living_arrangement_prompt()
-        ethnicityInput = ethnicity_prompt()
-        marStatInput = marital_status_prompt()
-        sapInput = sap_prompt()
-        veteranInput = veteran_prompt()
-        numhs = num_hs_prompt()
+        selected_age_group = get_user_age()
+        educInput = get_user_education()
+        employInput = get_user_employment_status()
+        genderInput = get_user_gender()
+        stateInput = get_user_state()
+        livArangInput = get_user_living_arrangement()
+        ethnicityInput = get_user_ethnicity()
+        marStatInput = get_user_marital_status()
+        sapInput = get_user_sap()
 
         submit_button = st.form_submit_button(label='Run')
         user_input = []
         if submit_button:
-            user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput]
+            user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
             st.session_state.user.append(user_input)
 
     if st.session_state.user:
         st.write("User inputs:")
         st.write(user_input)
 
-    st.session_state.user = []
     return st.session_state.user
 
 def predict():
