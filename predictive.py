@@ -26,6 +26,7 @@ def prompt():
     if "user" not in st.session_state:
         st.session_state.user = []
 
+
     with st.form(key='my_form'):
         selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
         educInput = st.selectbox("Select your education level", education_levels)
@@ -42,8 +43,6 @@ def prompt():
                           employInput, livArangInput, stateInput]
             st.session_state.user.append(user_input)
             st.write(st.session_state.user)
-            st.write(user_input)
-            st.experimental_rerun()
 
 
 
