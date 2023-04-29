@@ -21,6 +21,8 @@ def prompt():
     ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
     marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
 
+    if 'query' not in st.session_state:
+            st.session_state.query = []
 
     with st.form(key='my_form'):
        selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
@@ -36,14 +38,11 @@ def prompt():
        if st.form_submit_button(label='Predict'):
            user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput,
                          employInput, livArangInput, stateInput]
-           st.write(user_input)
+           st.session_state.query.append(user_input)
+           st.write(st.session_state)
+
 
 
 def predict():
-    set_session_state
     prompt()
 
-def set_session_state():
-
-    if 'query' not in st.session_state:
-        st.session_state.query = []
