@@ -77,23 +77,25 @@ def prompt():
             unsafe_allow_html=True
         )
 
-    with st.form(key='my_form', clear_on_submit=False):
-        selected_age_group = get_user_age()
-        educInput = get_user_education()
-        employInput = get_user_employment_status()
-        genderInput = get_user_gender()
-        stateInput = get_user_state()
-        livArangInput = get_user_living_arrangement()
-        ethnicityInput = get_user_ethnicity()
-        marStatInput = get_user_marital_status()
-        sapInput = get_user_sap()
+    #with st.form(key='my_form'):
+    selected_age_group = get_user_age()
+    educInput = get_user_education()
+    employInput = get_user_employment_status()
+    genderInput = get_user_gender()
+    stateInput = get_user_state()
+    livArangInput = get_user_living_arrangement()
+    ethnicityInput = get_user_ethnicity()
+    marStatInput = get_user_marital_status()
+    sapInput = get_user_sap()
+
+        """
 
         submit_button = st.form_submit_button(label='Run')
 
         user_input = []
         if submit_button:
             user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
-
+        """
 
 def predict():
     prompt()
