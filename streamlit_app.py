@@ -4,7 +4,7 @@ from introduction import introduction
 from sidebar import sideBar
 from dataCleaning import v2
 from tracker import report
-from predictive import main
+from backendInterface import interface
 
 def initializeSideBar():
     selection = sideBar()
@@ -13,7 +13,7 @@ def initializeSideBar():
     if selection[1]:
         predict()
     else:
-        main()
+        interface()
 
 def main():
     initializeSideBar()
