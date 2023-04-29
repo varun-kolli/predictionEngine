@@ -87,7 +87,7 @@ def prompt():
 
     if st.session_state.user:
         st.write("User inputs:")
-        st.write(user_input)
+        st.write(st.session_state.user[-1])
 
     return st.session_state.user
 
