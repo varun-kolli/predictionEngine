@@ -60,8 +60,11 @@ def smt(input):
         st.session_state.projects.append(input)
 
 def prompt():
+
+    """
     if "user" not in st.session_state:
-            st.session_state.user = []
+        st.session_state.user = []
+
 
     with st.form(key='my_form'):
         user = []
@@ -130,10 +133,12 @@ def prompt():
 
     st.session_state.user = []
     return st.session_state.user
+    """
+    pass
 
 def interface():
     st.title("Backend Interface")
-    seshUser = prompt()
+    #seshUser = prompt()
 
 
 
