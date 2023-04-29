@@ -65,8 +65,6 @@ def get_user_sap():
     return sapInput
 
 
-
-@st.cache(allow_output_mutation=True)
 def prompt():
 
     st.markdown(
