@@ -3,7 +3,7 @@ import streamlit as st
 from introduction import introduction
 from sidebar import sideBar
 from dataCleaning import v2
-from backendInterface import interface
+#from backendInterface import interface
 from tracker import report
 from predictive import predict
 
