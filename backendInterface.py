@@ -58,8 +58,26 @@ def prompt():
 
     with st.form(key='my_form'):
         user = []
-        age = st.number_input(label='Enter Age')
-        ageInput = convertAge(age)
+
+        subgroups = {
+            '0-11': range(0, 12),
+            '12-14': range(12, 15),
+            '15-17': range(15, 18),
+            '18-20': range(18, 21),
+            '21-24': range(21, 25),
+            '25-29': range(25, 30),
+            '30-34': range(30, 35),
+            '35-39': range(35, 40),
+            '40-44': range(40, 45),
+            '45-49': range(45, 50),
+            '50-54': range(50, 55),
+            '55-59': range(55, 60),
+            '60-64': range(60, 65),
+            '65 up': range(65, 150)  # use a large upper bound to include all ages 65 and above
+        }
+
+        selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
+
 
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
         educInput = st.selectbox("Select your education level", education_levels)
@@ -91,6 +109,8 @@ def prompt():
 
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
 
+        numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
+
         submit_button = st.form_submit_button(label='Run')
         user_input = []
         if submit_button:
@@ -100,7 +120,7 @@ def prompt():
 
     if st.session_state.user:
             st.write("User inputs:")
-            display_user_input(user_input)
+            st.write(user_input)
 
     st.session_state.user = []
     return st.session_state.user
