@@ -93,7 +93,7 @@ def prompt():
         user_input = []
         if submit_button:
             user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
-
+            prompt()
 
 
 def predict():
