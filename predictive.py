@@ -5,8 +5,6 @@ import numpy as np
 
 def prompt():
 
-
-
     subgroups = {'0-11': range(0, 12), '12-14': range(12, 15), '15-17': range(15, 18),
                  '18-20': range(18, 21), '21-24': range(21, 25), '25-29': range(25, 30),
                  '30-34': range(30, 35), '35-39': range(35, 40), '40-44': range(40, 45),
@@ -23,29 +21,29 @@ def prompt():
     ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
     marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
 
-    if "user" not in st.session_state:
-        st.session_state.user = []
 
-    with st.form(key='my_form'):
-        selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
-        educInput = st.selectbox("Select your education level", education_levels)
-        employInput = st.selectbox("Select your employment status", employment_statuses)
-        genderInput = st.radio("Select your gender", options=gender_options)
-        stateInput = st.selectbox("Select a state", states)
-        livArangInput = st.selectbox("Select your living arrangement", housing_situations)
-        ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
-        marStatInput = st.selectbox('Select your marital status:', options=marital_status_options)
-        sapInput = st.radio("SAP", options=["Yes", "No"])
+   with st.form(key='my_form'):
+       selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
+       educInput = st.selectbox("Select your education level", education_levels)
+       employInput = st.selectbox("Select your employment status", employment_statuses)
+       genderInput = st.radio("Select your gender", options=gender_options)
+       stateInput = st.selectbox("Select a state", states)
+       livArangInput = st.selectbox("Select your living arrangement", housing_situations)
+       ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
+       marStatInput = st.selectbox('Select your marital status:', options=marital_status_options)
+       sapInput = st.radio("SAP", options=["Yes", "No"])
 
-        submitted = st.form_submit_button(label='Predict')
-
-    if submitted:
-        user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput,
-                      employInput, livArangInput, stateInput]
-        st.session_state.user.append(user_input)
-        st.write(st.session_state.user)
-        st.write(user_input)
+       if st.form_submit_button(label='Predict'):
+           user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput,
+                         employInput, livArangInput, stateInput]
+           st.write(user_input)
 
 
 def predict():
+    set_session_state
     prompt()
+
+def set_session_state():
+
+    if 'query' not in st.session_state:
+        st.session_state.query = []
