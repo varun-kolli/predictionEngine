@@ -13,10 +13,11 @@ def initializeSideBar():
     if selection[1]:
         interface()
     if all(value is None for value in selection):
-      introduction()
+        introduction()
 
 
 def main():
+    introduction()
     initializeSideBar()
 
 if __name__ == '__main__':
