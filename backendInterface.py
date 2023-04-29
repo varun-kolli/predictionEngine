@@ -147,6 +147,7 @@ def promptUser():
 
 def interface():
     st.title("Backend Interface")
+    promptUser()
     #seshUser = prompt()
 
 
