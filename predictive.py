@@ -64,7 +64,6 @@ def get_user_sap():
     sapInput = st.radio("SAP", options=["Yes", "No"])
     return sapInput
 
-import streamlit as st
 
 def prompt():
     if "user" not in st.session_state:
@@ -81,17 +80,19 @@ def prompt():
         marStatInput = get_user_marital_status()
         sapInput = get_user_sap()
 
-        submit_button = st.form_submit_button(label='Run', on_click=hash)
+        submit_button = st.form_submit_button(label='Run')
         user_input = []
         if submit_button:
             user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
             st.session_state.user.append(user_input)
+            st.experimental_set_query_params(user_input=user_input)
 
     if st.session_state.user:
         st.write("User inputs:")
         st.write(st.session_state.user[-1])
 
     return st.session_state.user
+
 
 def predict():
     prompt()
