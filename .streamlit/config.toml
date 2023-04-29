@@ -3,7 +3,6 @@ base = "light"
 buttonBackgroundColor = "#0077c2"
 buttonTextColor = "#ffffff"
 textColor = "272525"
-font = "Helvetica"
 font_size = 14
 font_weight = "normal"
 lineHeight = 1.5

@@ -8,6 +8,7 @@ from tracker import report
 
 def initializeSideBar():
     selection = sideBar()
+    introduction()
     if selection[0]:
         introduction()
     if selection[2]:
