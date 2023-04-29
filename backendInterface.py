@@ -116,8 +116,7 @@ def prompt():
 
         if submit_button:
             st.session_state.user.append(user_input)
-        else:
-            st.write(user_input)
+
 
 
     if st.session_state.user:
