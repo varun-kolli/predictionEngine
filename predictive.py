@@ -91,6 +91,10 @@ def prompt():
     user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
     st.write(user_input)
 
+    if st.button('Predict'):
+        # Make prediction using user input
+        st.write(user_input)
+
     """
 
     submit_button = st.form_submit_button(label='Run')
