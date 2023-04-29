@@ -77,7 +77,7 @@ def prompt():
             unsafe_allow_html=True
         )
 
-    with st.form(key='my_form'):
+    with st.form(key='my_form', clear_on_submit=False):
         selected_age_group = get_user_age()
         educInput = get_user_education()
         employInput = get_user_employment_status()
@@ -93,7 +93,6 @@ def prompt():
         user_input = []
         if submit_button:
             user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
-            prompt()
 
 
 def predict():
