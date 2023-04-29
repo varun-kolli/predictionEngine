@@ -11,9 +11,9 @@ def initializeSideBar():
     if selection[0]:
         introduction()
     if selection[1]:
-        predict()
-    else:
         interface()
+    else:
+        introduction()
 
 def main():
     initializeSideBar()
