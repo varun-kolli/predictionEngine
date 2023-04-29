@@ -88,13 +88,15 @@ def prompt():
     marStatInput = get_user_marital_status()
     sapInput = get_user_sap()
 
+    user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
+    st.write(user_input)
+
     """
 
     submit_button = st.form_submit_button(label='Run')
 
     user_input = []
     if submit_button:
-        user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
     """
 
 def predict():
