@@ -1,24 +1,8 @@
 import pandas as pd
 import streamlit as st
-# Modeling Packages
-import sklearn
-from sklearn.model_selection import train_test_split   # For Data Partitioning
-from sklearn.linear_model import LinearRegression      # To implement Linear Regression
-from sklearn.feature_selection import RFE              # To implement RFE
-from sklearn.model_selection import StratifiedKFold, KFold              # For creating folds
-from sklearn.model_selection import cross_val_score    # For implementing Cross Validation experiments
-from sklearn.model_selection import GridSearchCV       # To implement GridSearch CV
-from sklearn.model_selection import RandomizedSearchCV # To implement Randomized Search CV
-from sklearn.linear_model import Lasso, Ridge          # To implement Lasso and Ridge Regression
-from sklearn.metrics import classification_report
-#from sklearn.metrics import plot_confusion_matrix
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import AdaBoostRegressor
-from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 
 
-#input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
 def convertAge(age):
     # define subgroups with corresponding age ranges
     subgroups = {
@@ -105,7 +89,7 @@ def prompt():
     st.session_state.user = []
     return st.session_state.user
 
-def interface():
+def main():
     st.title("Backend Interface")
     seshUser = prompt()
 
