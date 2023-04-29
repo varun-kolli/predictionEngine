@@ -11,7 +11,7 @@ def initializeSideBar():
     introduction()
     if selection[0]:
         introduction()
-    if selection[2]:
+    if selection[1]:
         backendInterface()
 
 
