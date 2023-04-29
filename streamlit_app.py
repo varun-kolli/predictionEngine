@@ -13,7 +13,7 @@ def initializeSideBar():
     if selection[1]:
         interface()
     else:
-        introduction()
+        interface()
 
 def main():
     initializeSideBar()
