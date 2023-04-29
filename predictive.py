@@ -89,7 +89,6 @@ def prompt():
     sapInput = get_user_sap()
 
     user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
-    st.write(user_input)
 
     if st.button('Predict'):
         # Make prediction using user input
