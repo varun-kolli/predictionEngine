@@ -12,8 +12,8 @@ def initializeSideBar():
         introduction()
     if selection[1]:
         interface()
-    if any(selection):
-        introduction()
+    if all(value is None for value in selection):
+      introduction()
 
 
 def main():
