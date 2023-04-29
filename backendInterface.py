@@ -51,6 +51,13 @@ def convertAge(age):
 
     return age_group_str
 
+def smt(input):
+    """ Callback function during adding a new project. """
+    # display a warning if the user entered an existing name
+    if input in st.session_state.user:
+        st.warning(f'The name "{input}" is already exists.')
+    else:
+        st.session_state.projects.append(input)
 
 def prompt():
     if "user" not in st.session_state:
@@ -110,12 +117,11 @@ def prompt():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        submit_button = st.form_submit_button(label='Run')
+        submit_button = st.form_submit_button(label='Run', on_click=smt, args=([ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs], ))
 
-        if submit_button:
-            user_input = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs]
-            st.session_state.user.append(user_input)
-
+        #if submit_button:
+            #user_input = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs]
+            #st.session_state.user.append(user_input)
 
 
     if st.session_state.user:
