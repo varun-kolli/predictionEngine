@@ -77,6 +77,9 @@ def prompt():
             unsafe_allow_html=True
         )
 
+    if "user" not in st.session_state:
+        st.session_state.user = []
+
     #with st.form(key='my_form'):
     selected_age_group = get_user_age()
     educInput = get_user_education()
@@ -90,8 +93,11 @@ def prompt():
 
     user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput, employInput, livArangInput, stateInput]
 
+
+
     if st.button('Predict'):
-        # Make prediction using user input
+        st.session_state.user.append(user_input)
+        st.write(session_state.user)
         st.write(user_input)
 
     """
