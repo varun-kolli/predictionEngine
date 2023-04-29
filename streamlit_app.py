@@ -12,10 +12,13 @@ def initializeSideBar():
         introduction()
     if selection[1]:
         interface()
+    else:
+        introduction()
+
 
 
 def main():
-    introduction()
+
     initializeSideBar()
 
 if __name__ == '__main__':
