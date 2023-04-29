@@ -32,11 +32,13 @@ def prompt():
         marStatInput = st.selectbox('Select your marital status:', options=marital_status_options)
         sapInput = st.radio("SAP", options=["Yes", "No"])
 
-        user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput,
-                      employInput, livArangInput, stateInput]
-        st.session_state.user.append(user_input)
-        st.write(st.session_state.user)
-        st.write(user_input)
+        if st.form_submit_button(label='Predict'):
+            user_input = [selected_age_group, educInput, ethnicityInput, genderInput, marStatInput, sapInput,
+                          employInput, livArangInput, stateInput]
+            st.session_state.user.append(user_input)
+            st.write(st.session_state.user)
+            st.write(user_input)
+
 
 
 def predict():
