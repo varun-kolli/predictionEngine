@@ -215,7 +215,7 @@ def prompt():
         l = (agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs)
         #st.session_state.input.append(l)
 
-        submit = st.form_submit_button('Submit', on_click = process, args = l)
+        submit = st.form_submit_button('Submit')#, on_click = process, args = l)
 
         if submit:
             form_data = [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]
