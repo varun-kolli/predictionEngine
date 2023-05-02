@@ -166,7 +166,7 @@ def interface():
         #interface()
 
     # Some code
-    st.button('First Button', on_click=set_stage, args=(1,))
+    st.button('First Button', on_click=set_stage, args=(1, 0))
 
     if st.session_state.stage > 0:
         # Some code
@@ -175,8 +175,8 @@ def interface():
 
     if st.session_state.stage > 1:
         # More code, etc
-        st.button('Third Button', on_click=set_stage, args=(3,))
+        st.button('Third Button', on_click=set_stage, args=(3, 0))
     if st.session_state.stage > 2:
         st.write('The end')
-    st.button('Reset', on_click=set_stage, args=(0,))
+    st.button('Reset', on_click=set_stage, args=(0, 0))
     #seshUser = prompt()
