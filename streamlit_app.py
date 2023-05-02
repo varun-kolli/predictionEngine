@@ -13,12 +13,11 @@ def initializeSideBar():
 
     selection = sideBar()
     if selection[0]:
-        st.session_state.counter += 1
-        introduction()
+        introduction(st.session_state.counter)
+        st.session_state.counter = 1
     if selection[1]:
         interface()
-    elif st.session_state.counter == 0:
-        introduction()
+
 
 
 def main():
