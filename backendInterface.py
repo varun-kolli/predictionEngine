@@ -32,8 +32,16 @@ def process(stuff):
     df = modes('NUMMHS', df)
     df = modes('STATEFIP', df)
     st.header("hey")
+
+    headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+
     query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[-1], stuff[4]]
     st.write(query)
+
+    df_query = pd.DataFrame(columns=headers)
+    df_query.loc[0] = query
+
+    st.write(df_query)
 # Load the model from the file
    # loaded_model = joblib.load('pkl_files/dt_clustered_modes.sav')
     #loaded_model.predict(query)
