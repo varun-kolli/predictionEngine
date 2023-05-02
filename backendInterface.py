@@ -2,7 +2,14 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-
+def modes(column, df_modes):
+        new_col = column + '_replaced'
+        df_modes[new_col] = False
+        mode = df_modes[column].mode()
+        #print(mode[0])
+        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
+        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+        return df_modes
 
 def process(stuff):
     stuff = stuff
@@ -11,15 +18,6 @@ def process(stuff):
 
     df_resp = pd.DataFrame({'Question': cols, 'Answer': stuff})
     st.dataframe(df_resp)
-
-    def modes(column, df_modes):
-        new_col = column + '_replaced'
-        df_modes[new_col] = False
-        mode = df_modes[column].mode()
-        #print(mode[0])
-        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
-        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
-        return df_modes
 
     # replace each row with its mode
     df = modes('AGE', df)
@@ -33,7 +31,7 @@ def process(stuff):
     df = modes('LIVARAG', df)
     df = modes('NUMMHS', df)
     df = modes('STATEFIP', df)
-
+    st.header("hey")
     query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
     st.write(query)
 # Load the model from the file
