@@ -36,10 +36,10 @@ def process(stuff):
     headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
 
     query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[-1], stuff[4]]
-    st.write(query)
+    #st.write(query)
 
     df_query = pd.DataFrame(columns=headers)
-    df.loc[0] = query
+    df_query.loc[0] = query
     st.write(df_query)
 # Load the model from the file
    # loaded_model = joblib.load('pkl_files/dt_clustered_modes.sav')
