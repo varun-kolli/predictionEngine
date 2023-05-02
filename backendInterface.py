@@ -3,6 +3,9 @@ import streamlit as st
 import numpy as np
 import joblib
 
+if "input" not in st.session_state:
+        st.session_state.input = []
+        introduction()
 
 def modes(column, df_modes):
         new_col = column + '_replaced'
@@ -14,7 +17,7 @@ def modes(column, df_modes):
         return df_modes
 
 def process(stuff):
-    stuff = stuff
+    stuff = st.session_state.input
     df = pd.read_csv('CSV_files/dummieCodex.csv')
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
 
@@ -138,7 +141,9 @@ def prompt():
         veteranstuff = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        submit = st.form_submit_button('Submit', on_click = process, args = ([agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs], ) )
+        l = [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]
+        st.session_state.input.append(l)
+        submit = st.form_submit_button('Submit', on_click = process, args = (l, ) )
 
         if submit:
             form_data = [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]
