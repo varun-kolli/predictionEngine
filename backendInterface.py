@@ -226,7 +226,7 @@ def prompt():
 
 
 def interface():
-    st.title("Backend Interfacee")
+    st.title("Backend Interface")
     seshUser = prompt()
 
 
