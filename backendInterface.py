@@ -3,8 +3,7 @@ import streamlit as st
 import numpy as np
 import joblib
 
-if "input" not in st.session_state:
-    st.session_state.input = []
+
 
 def modes(column, df_modes):
         new_col = column + '_replaced'
@@ -100,6 +99,9 @@ def process(stuff):
 
 def prompt():
 
+    if "input" not in st.session_state:
+        st.session_state.input = []
+
     with st.form(key='my_form'):
         user = []
 
@@ -143,7 +145,7 @@ def prompt():
 
         l = [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]
         st.session_state.input.append(l)
-        submit = st.form_submit_button('Submit', on_click = process, args = (l, ) )
+        submit = st.form_submit_button('Submit', on_click = process, args = (st.session_state.input, ) )
 
         if submit:
             form_data = [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]
