@@ -85,11 +85,14 @@ def prompt():
         livArangInput = st.selectbox("Select your living arrangement", housing_situations)
 
         ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
+        race_options = ['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple']
+        raceInput = st.selectbox('Select your ethnicity:', options=ethnicity_options)
 
         ethnicityInput = st.selectbox("Select your Ethnicity", ethnicities)
 
         marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
         marStatInput = st.selectbox('Select your marital status:', options=marital_status_options)
+
 
         sapInput = st.radio("SAP", options=["Yes", "No"])
 
