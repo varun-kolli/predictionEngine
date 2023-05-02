@@ -5,8 +5,8 @@ import numpy as np
 def compute():
     df = pd.read_csv('CSV_files/dummieCodex.csv')
 
-def smt(input):
-    st.write(input)
+def hi():
+    st.write('hi')
 
 def prompt():
 
@@ -54,6 +54,7 @@ def prompt():
         submit = st.form_submit_button('Submit', on_click = prompt)
 
         if submit:
+            hi()
             form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
             st.write(form_data)
 
