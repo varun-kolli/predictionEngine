@@ -31,6 +31,8 @@ def process(input):
     modes('NUMMHS', df)
     modes('STATEFIP', df)
 
+    st.write(df)
+
 
 
 
