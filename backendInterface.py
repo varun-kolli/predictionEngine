@@ -4,28 +4,7 @@ import numpy as np
 import joblib
 
 """
-
-if "input" not in st.session_state:
-    st.session_state.input = None
-
-def modes(column, df_modes):
-        new_col = column + '_replaced'
-        df_modes[new_col] = False
-        mode = df_modes[column].mode()
-        #print(mode[0])
-        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
-        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
-        return df_modes
-
-    #display stuff
-    #process through model
-    #probability or smt
-    #prompt()
-
-
-def prompt():
-
-    def process(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12):
+def process(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12):
         st.session_state.input = [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12]
 
         stuff = st.session_state.input
@@ -93,6 +72,25 @@ def prompt():
         cluster = y_predicted[0]
         st.subheader(cluster)
 
+if "input" not in st.session_state:
+    st.session_state.input = None
+
+def modes(column, df_modes):
+        new_col = column + '_replaced'
+        df_modes[new_col] = False
+        mode = df_modes[column].mode()
+        #print(mode[0])
+        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
+        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+        return df_modes
+
+    #display stuff
+    #process through model
+    #probability or smt
+    #prompt()
+
+
+def prompt():
 
     with st.form(key='my_form'):
         user = []
@@ -165,15 +163,50 @@ def interface():
         interface()
 
     # Some code
-    st.button('First Button', on_click=set_stage, args=(1,))
+     with st.form(key='my_form'):
+            ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
+            agestuff = st.selectbox('Select Age Group', ageOptions)
 
+            education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
+            educstuff = st.selectbox("Select your education level", education_levels)
+
+            employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
+            employstuff = st.selectbox("Select your employment status", employment_statuses)
+
+            genderstuff = st.radio("Select your gender", options=["Male", "Female"])
+
+            statestuff = st.selectbox("Select a state",
+                                                          ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+                                                           "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+                                                           "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+                                                           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+                                                           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
+
+
+            housing_situations = ["Homeless", "Private residence", "Other"]
+            livArangstuff = st.selectbox("Select your living arrangement", housing_situations)
+
+            ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
+
+            ethnicitystuff = st.selectbox("Select your Ethnicity", ethnicities)
+
+            race_options = ['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple']
+            racestuff = st.selectbox('Select your Race:', options=race_options)
+
+            marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
+            marStatstuff = st.selectbox('Select your marital status:', options=marital_status_options)
+
+            sapstuff = st.radio("SAP", options=["Yes", "No"])
+
+            veteranstuff = st.radio("Veteran", options=["Yes", "No"])
+            numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
+
+            #l = (agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs)
+            #st.session_state.input.append(l)
+            #st.button('First Button', on_click=set_stage, args=(1,))
+            submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,))
     if st.session_state.stage > 0:
-        # Some code
         st.button('Second Button', on_click=set_stage, args=(2,))
-    if st.session_state.stage > 1:
-        # More code, etc
-        st.button('Third Button', on_click=set_stage, args=(3,))
-    if st.session_state.stage > 2:
-        st.write('The end')
+
     st.button('Reset', on_click=set_stage, args=(0,))
     #seshUser = prompt()
