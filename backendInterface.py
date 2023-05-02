@@ -14,8 +14,9 @@ def process(input):
     df = pd.read_csv('CSV_files/dummieCodex.csv')
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
 
-    df = pd.DataFrame({'Question': cols, 'Answer': input})
-    st.dataframe(df)
+    df_resp = pd.DataFrame({'Question': cols, 'Answer': input})
+    st.dataframe(df_resp)
+
 
     # replace each row with its mode
     modes('AGE', df)
