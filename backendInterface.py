@@ -152,6 +152,9 @@ def show():
         """
     )
 
+    if "counter" not in st.session_state:
+            st.session_state.counter = 0
+
     def increment():
         counter += 1
         st.session_state.counter += 1
@@ -164,7 +167,6 @@ def show():
     elif st.session_state.counter >= 10:
         st.warning("You made it to 10! Keep going to win a prize 🎈")
 
-    return st.session_state.counter
 
 def getCounter():
     return counter
