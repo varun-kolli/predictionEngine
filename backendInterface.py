@@ -160,11 +160,12 @@ def interface():
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
 
-    def set_stage(stage, input):
-        st.session_state.stage = stage
-        st.write(input)
-        if input == 0:
+    def set_stage(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12):
+        st.session_state.stage = [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12]
+
+        if stage == 0:
             interface()
+
 #-----------------------------------------------------------------------------------
     # Some code
     #st.button('First Button', on_click=set_stage, args=(1, 0))
@@ -212,7 +213,7 @@ def interface():
         #st.session_state.input.append(l)
         st.session_state.input = l
 
-        submit = st.form_submit_button('Submit', on_click=set_stage, args=(1, 0))
+        submit = st.form_submit_button('Submit', on_click=set_stage, args=l)
 
 
     if st.session_state.stage > 0:
