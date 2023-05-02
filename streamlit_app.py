@@ -8,14 +8,11 @@ from backendInterface import interface
 
 
 def initializeSideBar():
-
     selection = sideBar()
     if selection[0]:
         introduction()
     if selection[1]:
         interface()
-    else:
-        introduction()
 
 
 def main():
