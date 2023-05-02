@@ -30,8 +30,21 @@ def process(input):
     df = modes('LIVARAG', df)
     df = modes('NUMMHS', df)
     df =modes('STATEFIP', df)
+    
+    df_resp = modes('AGE', df_resp)
+    df_resp = modes('EDUC', df_resp)
+    df_resp = modes('ETHNIC', df_resp)
+    df_resp = modes('RACE', df_resp)
+    df_resp = modes('GENDER', df_resp)
+    df_resp = modes('MARSTAT', df_resp)
+    df_resp = modes('SAP', df_resp)
+    df_resp = modes('EMPLOY', df_resp)
+    df_resp = modes('LIVARAG', df_resp)
+    df_resp = modes('NUMMHS', df_resp)
+    df_resp =modes('STATEFIP', df_resp)
 
-    st.dataframe(df)
+
+    st.dataframe(df_resp)
     x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
 
 
