@@ -54,9 +54,9 @@ def prompt():
         submit = st.form_submit_button('Submit', on_click = prompt)
 
         if submit:
-            hi()
             form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
-            st.write(form_data)
+            compute()
+            #st.write(form_data)
 
 
 
