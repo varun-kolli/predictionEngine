@@ -72,10 +72,11 @@ def process(stuff):
     st.write(df_codex)
 
     x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
+    row = np.array(x.iloc[0]).reshape(1, -1)
 
     loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
 
-    y_predicted = loaded_model.predict(x)
+    y_predicted = loaded_model.predict(row)
     st.write(y_predicted)
 
 
