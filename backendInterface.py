@@ -38,7 +38,6 @@ def process(stuff):
     headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
 
     query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[-1], stuff[4]]
-    #st.write(query)
 
     df_query = pd.DataFrame(columns=headers)
     df_query.loc[0] = query
@@ -63,15 +62,10 @@ def process(stuff):
     df_query = modes('NUMMHS', df_query)
     df_query = modes('STATEFIP', df_query)
 
-    st.write(df_query)
-
-    #st.write(df)
     first_row = df_query.iloc[0].copy()
     df.loc[0] = first_row
     df_codex = df.reset_index(drop=True)
 
-    st.write(df_codex)
-    st.header("sup")
 
     x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
     st.dataframe(x)
