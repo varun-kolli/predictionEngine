@@ -158,9 +158,10 @@ def interface():
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
 
-    def set_stage(stage):
+    def set_stage(stage, input):
         st.session_state.stage = stage
         interface()
+        st.write(input)
 
     # Some code
     with st.form(key='my_form'):
@@ -201,7 +202,8 @@ def interface():
         veteranstuff = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,))
+        submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
+                    [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]))
 
     if st.session_state.stage > 0:
         st.button('Second Button', on_click=set_stage, args=(2,))
