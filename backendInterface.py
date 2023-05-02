@@ -69,6 +69,7 @@ def process(stuff):
     first_row = df_query.iloc[0].copy()
     df.loc[0] = first_row
     df_codex = df.reset_index(drop=True)
+
     st.write(df_codex)
     st.header("suup")
 

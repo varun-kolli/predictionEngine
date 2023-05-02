@@ -12,8 +12,8 @@ AGE,MH1,EDUC,ETHNIC,RACE,GENDER,MARSTAT,SAP,EMPLOY,LIVARAG,NUMMHS,STATEFIP
 60-64,ADHD,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,IN
 21-24,"Delirium, dementia",9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,KY
 25-29,Substance abuse,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,LA
-25-29,Depression,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,MD
-25-29,Depression,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,MA
+0-11,Depression,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,MD
+12-14,Depression,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,MA
 25-29,Depression,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,MI
 25-29,Depression,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,MO
 25-29,Depression,9 to 11,Other Hispanic or Latino origin,White,Female,Now married,No,Unemployed,Other,1,MT
