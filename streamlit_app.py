@@ -5,8 +5,10 @@ from sidebar import sideBar
 from dataCleaning import v2
 from tracker import report
 from backendInterface import interface
+from backendInterface import getCounter
 
 def initializeSideBar():
+
     selection = sideBar()
     if selection[0]:
         introduction()
@@ -14,6 +16,8 @@ def initializeSideBar():
         interface()
     else:
         #st.write(st.session_state.counter)
+        st.write(getCounter)
+
         introduction()
 
 

@@ -17,6 +17,8 @@ from sklearn.ensemble import AdaBoostRegressor
 from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 
+counter = 0
+
 
 #input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
 def convertAge(age):
@@ -150,8 +152,8 @@ def show():
         """
     )
 
-
     def increment():
+        counter += 1
         st.session_state.counter += 1
 
     st.write("Counter:", st.session_state.counter)
@@ -162,9 +164,15 @@ def show():
     elif st.session_state.counter >= 10:
         st.warning("You made it to 10! Keep going to win a prize 🎈")
 
+    return st.session_state.counter
+
+def getCounter():
+    return counter
+
 def interface():
     st.title("Backend Interface")
     show()
+
     #seshUser = prompt()
 
 
