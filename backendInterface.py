@@ -1,7 +1,9 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
-import pickle
+from sklearn.externals import joblib
+
+
 
 def process(stuff):
     stuff = stuff
@@ -34,7 +36,8 @@ def process(stuff):
     df = modes('STATEFIP', df)
 
     query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
-    loaded_model = pickle.load(open("pkl_files/dt_clustered_modes.sav", 'rb'))
+# Load the model from the file
+    loaded_model = joblib.load('pkl_files/dt_clustered_modes.sav')
     loaded_model.predict(query)
 
     #x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
