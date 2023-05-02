@@ -71,7 +71,9 @@ def process(stuff):
     df.loc[0] = first_row
 
     # Reset the index of df to start at 0
-    df = df.reset_index(drop=True)
+    df_codex = df.reset_index(drop=True)
+
+    st.write(df_codex)
 
 
 # Load the model from the file
