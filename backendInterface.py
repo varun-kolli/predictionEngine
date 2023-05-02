@@ -70,9 +70,8 @@ def process(stuff):
     df.loc[0] = first_row
     df_codex = df.reset_index(drop=True)
     st.write(df_codex)
-    st.header("sup")
+    st.header("suup")
 
-    df_codex = df_codex.astype(str)
     x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
     row = np.array(x.iloc[0]).reshape(1, -1)
 
