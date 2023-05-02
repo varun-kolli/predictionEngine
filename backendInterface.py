@@ -34,8 +34,7 @@ def process(input):
 
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
 
-    df_in = pd.DataFrame({'Question': ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP'],
-    'Answer':                         [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]})
+    df_in = pd.DataFrame({'Question': ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP'], 'Answer':  [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]]})
 
     
     df_in = modes('AGE', df_in)
