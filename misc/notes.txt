@@ -59,18 +59,32 @@ box_shadow = true
 border_radius = 4
 
 
-#submit_button = st.form_submit_button(label='Run', on_click=smt, args=([ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs], ))
 
-        form_data = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs]
-        submit_button_label = 'Run'
-        submit_button_on_click = smt
-        submit_button_args = (form_data,)
 
-        submit_button = st.form_submit_button(
-            label=submit_button_label,
-            on_click=submit_button_on_click,
-            args=submit_button_args
-        )
+    cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
 
-        if submit_button:
-            st.write("hii")
+    df_in = pd.DataFrame({'Question': ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP'], 'Answer':  [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]] })
+
+
+    st.dataframe(df_in)
+
+    def change(column, df_modes):
+        new_col = column + '_replaced'
+        df_modes[new_col] = False
+        mode = df_modes[column].mode()
+        return df_modes
+
+
+    df_in = change('AGE', df_in)
+    df_in = change('EDUC', df_in)
+    df_in = change('ETHNIC', df_in)
+    df_in = change('RACE', df_in)
+    df_in = change('GENDER', df_in)
+    df_in = change('MARSTAT', df_in)
+    df_in = change('SAP', df_in)
+    df_in = change('EMPLOY', df_in)
+    df_in = change('LIVARAG', df_in)
+    df_in = change('NUMMHS', df_in)
+    df_in = change('STATEFIP', df_in)
+
+    st.dataframe(df_in)

@@ -31,34 +31,9 @@ def process(input):
     df = modes('NUMMHS', df)
     df = modes('STATEFIP', df)
 
-
-    cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
-
-    df_in = pd.DataFrame({'Question': ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP'], 'Answer':  [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]] })
-
-
-    st.dataframe(df_in)
-    
-    def change(column, df_modes):
-        new_col = column + '_replaced'
-        df_modes[new_col] = False
-        mode = df_modes[column].mode()
-        return df_modes
-
-    
-    df_in = change('AGE', df_in)
-    df_in = change('EDUC', df_in)
-    df_in = change('ETHNIC', df_in)
-    df_in = change('RACE', df_in)
-    df_in = change('GENDER', df_in)
-    df_in = change('MARSTAT', df_in)
-    df_in = change('SAP', df_in)
-    df_in = change('EMPLOY', df_in)
-    df_in = change('LIVARAG', df_in)
-    df_in = change('NUMMHS', df_in)
-    df_in = change('STATEFIP', df_in)
-
-    st.dataframe(df_in)
+    quer = [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]]
+    loaded_model = pickle.load(open("pkl_files/dt_clustered_modes.sav", 'rb'))
+    loaded_model.predict(query)
 
     #x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
 
