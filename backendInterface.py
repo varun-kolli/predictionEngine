@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
+import joblib
+
 
 def modes(column, df_modes):
         new_col = column + '_replaced'
@@ -64,16 +66,13 @@ def process(stuff):
     st.write(df_query)
 
     #st.write(df)
-
     first_row = df_query.iloc[0].copy()
-
-    # Insert the copied row as the first row of df
     df.loc[0] = first_row
-
-    # Reset the index of df to start at 0
     df_codex = df.reset_index(drop=True)
-
     st.write(df_codex)
+
+    x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
+
 
 
 # Load the model from the file
