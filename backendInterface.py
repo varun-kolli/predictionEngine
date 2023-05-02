@@ -144,7 +144,7 @@ def prompt():
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
         l = [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]
-        st.session_state.input.append(l)
+        #st.session_state.input.append(l)
         submit = st.form_submit_button('Submit', on_click = process, args = (st.session_state.input, ) )
 
         if submit:
