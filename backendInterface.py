@@ -159,7 +159,7 @@ def show():
         st.session_state.counter += 1
 
     st.write("Counter:", st.session_state.counter)
-    st.button("Plus one!", on_click=increment)
+    st.button("Plus one!", on_click=show)
 
     if st.session_state.counter >= 50:
         st.success("King of counting there! Your trophy for reaching 50: 🏆")
