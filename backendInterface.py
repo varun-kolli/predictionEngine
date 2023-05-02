@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
+import pickle
 
 def process(input):
     df = pd.read_csv('CSV_files/dummieCodex.csv')
