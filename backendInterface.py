@@ -2,14 +2,6 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-def modes(column, df_modes):
-        new_col = column + '_replaced'
-        df_modes[new_col] = False
-        mode = df_modes[column].mode()
-        #print(mode[0])
-        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
-        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
-
 def process(input):
     df = pd.read_csv('CSV_files/dummieCodex.csv')
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
@@ -17,21 +9,30 @@ def process(input):
     df_resp = pd.DataFrame({'Question': cols, 'Answer': input})
     st.dataframe(df_resp)
 
+    def modes(column, df_modes):
+            new_col = column + '_replaced'
+            df_modes[new_col] = False
+            mode = df_modes[column].mode()
+            #print(mode[0])
+            df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
+            df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+            return df_modes
 
     # replace each row with its mode
-    modes('AGE', df)
-    modes('EDUC', df)
-    modes('ETHNIC', df)
-    modes('RACE', df)
-    modes('GENDER', df)
-    modes('MARSTAT', df)
-    modes('SAP', df)
-    modes('EMPLOY', df)
-    modes('LIVARAG', df)
-    modes('NUMMHS', df)
-    modes('STATEFIP', df)
+    df = modes('AGE', df)
+    df = modes('EDUC', df)
+    df = modes('ETHNIC', df)
+    df = modes('RACE', df)
+    df = modes('GENDER', df)
+    df = modes('MARSTAT', df)
+    df = modes('SAP', df)
+    df = modes('EMPLOY', df)
+    df = modes('LIVARAG', df)
+    df = modes('NUMMHS', df)
+    df =modes('STATEFIP', df)
 
-    st.write(df)
+    st.dataframe(df)
+    x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
 
 
 
