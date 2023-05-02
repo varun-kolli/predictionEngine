@@ -31,7 +31,7 @@ def process(stuff):
     df = modes('LIVARAG', df)
     df = modes('NUMMHS', df)
     df = modes('STATEFIP', df)
-    st.header("hey")
+
 
     headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
 
@@ -40,7 +40,29 @@ def process(stuff):
 
     df_query = pd.DataFrame(columns=headers)
     df_query.loc[0] = query
+
+
+    def more(column, df_query):
+        new_col = column + '_replaced'
+        df_query[new_col] = False
+        
+        df_query[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+        return df_query
+    
+    df_query = modes('AGE', df_query)
+    df_query = modes('EDUC', df_query)
+    df_query = modes('ETHNIC', df_query)
+    df_query = modes('RACE', df_query)
+    df_query = modes('GENDER', df_query)
+    df_query = modes('MARSTAT', df_query)
+    df_query = modes('SAP', df_query)
+    df_query = modes('EMPLOY', df_query)
+    df_query = modes('LIVARAG', df_query)
+    df_query = modes('NUMMHS', df_query)
+    df_query = modes('STATEFIP', df_query)
+
     st.write(df_query)
+
 # Load the model from the file
    # loaded_model = joblib.load('pkl_files/dt_clustered_modes.sav')
     #loaded_model.predict(query)
