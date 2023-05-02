@@ -2,9 +2,10 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-def compute(input):
+def process():
     df = pd.read_csv('CSV_files/dummieCodex.csv')
-    st.write(input)
+    st.write("hello")
+    prompt()
 
 
 def prompt():
@@ -50,11 +51,11 @@ def prompt():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        submit = st.form_submit_button('Submit', on_click = prompt)
+        submit = st.form_submit_button('Submit', on_click = process)
 
         if submit:
             form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
-            compute(form_data)
+            #compute(form_data)
             #st.write(form_data)
 
 
