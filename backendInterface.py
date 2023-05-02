@@ -4,7 +4,7 @@ import numpy as np
 
 def process(input):
     df = pd.read_csv('CSV_files/dummieCodex.csv')
-
+    input = input[0]
     form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
 
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race" 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
