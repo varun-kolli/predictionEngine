@@ -163,14 +163,15 @@ def interface():
     def set_stage(stage, input):
         st.session_state.stage = stage
         st.write(input)
-        #interface()
+        if input == 0:
+            interface()
 
     # Some code
     st.button('First Button', on_click=set_stage, args=(1, 0))
 
     if st.session_state.stage > 0:
         # Some code
-        input = ["yo"]
+        input = 1
         st.button('Second Button', on_click=set_stage, args=(2,input))
 
     if st.session_state.stage > 1:
