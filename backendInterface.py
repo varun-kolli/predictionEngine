@@ -7,7 +7,9 @@ def process(input):
     #input = input[0]
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race" 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
     st.write(input)
-
+    st.write(len(input))
+    st.write(cols)
+    st.write(len(cols))
     df = pd.DataFrame({'Question': cols, 'Answer': input})
     st.dataframe(df)
 
