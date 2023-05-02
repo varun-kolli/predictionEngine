@@ -1,25 +1,7 @@
 import pandas as pd
 import streamlit as st
-# Modeling Packages
-import sklearn
-from sklearn.model_selection import train_test_split   # For Data Partitioning
-from sklearn.linear_model import LinearRegression      # To implement Linear Regression
-from sklearn.feature_selection import RFE              # To implement RFE
-from sklearn.model_selection import StratifiedKFold, KFold              # For creating folds
-from sklearn.model_selection import cross_val_score    # For implementing Cross Validation experiments
-from sklearn.model_selection import GridSearchCV       # To implement GridSearch CV
-from sklearn.model_selection import RandomizedSearchCV # To implement Randomized Search CV
-from sklearn.linear_model import Lasso, Ridge          # To implement Lasso and Ridge Regression
-from sklearn.metrics import classification_report
-#from sklearn.metrics import plot_confusion_matrix
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import AdaBoostRegressor
-from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 
-
-
-#input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
 def convertAge(age):
     # define subgroups with corresponding age ranges
     subgroups = {
@@ -114,7 +96,21 @@ def prompt():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        submit_button = st.form_submit_button(label='Run', on_click=smt, args=([ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs], ))
+        #submit_button = st.form_submit_button(label='Run', on_click=smt, args=([ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs], ))
+
+        form_data = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs]
+        submit_button_label = 'Run'
+        submit_button_on_click = smt
+        submit_button_args = (form_data,)
+
+        submit_button = st.form_submit_button(
+            label=submit_button_label,
+            on_click=submit_button_on_click,
+            args=submit_button_args
+        )
+
+        if submit_button:
+            st.write("hii")
 
 
 
