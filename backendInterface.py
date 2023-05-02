@@ -162,7 +162,6 @@ def interface():
 
     def set_stage(stage):
         st.session_state.stage = stage
-        #interface()
 
     # Some code
     st.button('First Button', on_click=set_stage, args=(1,))
@@ -170,7 +169,6 @@ def interface():
     if st.session_state.stage > 0:
         # Some code
         st.button('Second Button', on_click=set_stage, args=(2,))
-
     if st.session_state.stage > 1:
         # More code, etc
         st.button('Third Button', on_click=set_stage, args=(3,))
