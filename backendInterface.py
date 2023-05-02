@@ -68,7 +68,6 @@ def process(stuff):
 
 
     x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
-    st.dataframe(x)
     row = np.array(x.iloc[0]).reshape(1, -1)
     zeros = np.zeros((1, 10), dtype=int)
     row = np.concatenate((row, zeros), axis=1)
@@ -76,7 +75,8 @@ def process(stuff):
     loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
 
     y_predicted = loaded_model.predict(row)
-    st.write(y_predicted)
+    cluster = y_predicted.iloc[0, 0]
+    st.subheader(cluster)
 
 
 
