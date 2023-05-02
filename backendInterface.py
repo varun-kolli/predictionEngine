@@ -63,7 +63,16 @@ def process(stuff):
 
     st.write(df_query)
 
-    st.write(df)
+    #st.write(df)
+
+    first_row = df_query.iloc[0].copy()
+
+    # Insert the copied row as the first row of df
+    df.loc[0] = first_row
+
+    # Reset the index of df to start at 0
+    df = df.reset_index(drop=True)
+
 
 # Load the model from the file
    # loaded_model = joblib.load('pkl_files/dt_clustered_modes.sav')
