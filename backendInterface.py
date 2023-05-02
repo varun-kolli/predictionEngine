@@ -51,7 +51,7 @@ def prompt():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        submit = st.form_submit_button('Submit', on_click = process, args = ([ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs], )
+        submit = st.form_submit_button('Submit', on_click = process, args = ([ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs], ) )
 
         if submit:
             form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
