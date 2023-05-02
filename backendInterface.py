@@ -207,7 +207,6 @@ def prompt():
         marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
         marStatstuff = st.selectbox('Select your marital status:', options=marital_status_options)
 
-
         sapstuff = st.radio("SAP", options=["Yes", "No"])
 
         veteranstuff = st.radio("Veteran", options=["Yes", "No"])
@@ -220,6 +219,7 @@ def prompt():
 
         if submit:
             form_data = [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]
+            st.write("helli")
             #compute(form_data)
             #st.write(form_data)
 
