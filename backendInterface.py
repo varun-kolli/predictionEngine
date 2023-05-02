@@ -162,17 +162,18 @@ def displayInput(stuff):
         return df_query
 
 def interface():
-    st.title("Backend Interfacee")
+    st.title("Backend Interface")
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
-
+        st.session_state.input = []
 
     def set_stage(stage, input):
         st.session_state.stage = stage
         interface()
-        displayInput(input)
+        #displayInput(input)
 
     # Some code
+
     with st.form(key='my_form'):
         ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
         agestuff = st.selectbox('Select Age Group', ageOptions)
@@ -215,7 +216,7 @@ def interface():
                     [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]))
 
     if st.session_state.stage > 0:
-        st.button('Second Button', on_click=set_stage, args=(2,))
+        st.dataframe(displayInput(st.session_state.input))
 
-    st.button('Reset', on_click=set_stage, args=(0,))
+    st.button('Reset', on_click=set_stage, args=(0, []))
     #seshUser = prompt()
