@@ -2,11 +2,10 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-def compute():
+def compute(input):
     df = pd.read_csv('CSV_files/dummieCodex.csv')
+    st.write(input)
 
-def hi():
-    st.write('hi')
 
 def prompt():
 
@@ -55,7 +54,7 @@ def prompt():
 
         if submit:
             form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
-            compute()
+            compute(form_data)
             #st.write(form_data)
 
 
