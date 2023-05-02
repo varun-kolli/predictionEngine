@@ -163,7 +163,7 @@ def interface():
         interface()
 
     # Some code
-     with st.form(key='my_form'):
+    with st.form(key='my_form'):
         ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
         agestuff = st.selectbox('Select Age Group', ageOptions)
 
@@ -201,10 +201,8 @@ def interface():
         veteranstuff = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        #l = (agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs)
-        #st.session_state.input.append(l)
-        #st.button('First Button', on_click=set_stage, args=(1,))
         submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,))
+
     if st.session_state.stage > 0:
         st.button('Second Button', on_click=set_stage, args=(2,))
 
