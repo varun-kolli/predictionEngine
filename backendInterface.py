@@ -159,19 +159,19 @@ def interface():
     st.title("Backend Interface")
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
-        st.input = []
+        st.session_state.input = []
 
     def set_stage(stage):
         st.session_state.stage = stage
-        st.input = ["yo"]
-        interface()
+        st.write(input)
+        #interface()
 
     # Some code
     st.button('First Button', on_click=set_stage, args=(1,))
 
     if st.session_state.stage > 0:
         # Some code
-        st.write(input)
+        st.session_state.input = ["yo"]
         st.button('Second Button', on_click=set_stage, args=(2,))
 
     if st.session_state.stage > 1:
