@@ -96,7 +96,7 @@ def prompt():
         veteranInput = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        submit = st.form_submit_button('Submit')
+        submit = st.form_submit_button('Submit', on_click = prompt)
 
         if submit:
             st.write(f'hello {name}')
