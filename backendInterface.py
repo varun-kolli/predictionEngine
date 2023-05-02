@@ -76,6 +76,7 @@ def process(stuff):
     loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
 
     y_predicted = loaded_model.predict(x)
+    st.write(y_predicted)
 
 
 
