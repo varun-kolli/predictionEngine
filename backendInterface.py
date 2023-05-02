@@ -101,7 +101,76 @@ def process(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, 
 def prompt():
 
     if "input" not in st.session_state:
-        st.session_state.input = []
+        st.session_state.input = None
+
+    def process(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12):
+        stuff = []
+        if not st.session_state.input:
+            stuff = [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12]
+        st.write(stuff)
+        df = pd.read_csv('CSV_files/dummieCodex.csv')
+        cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
+
+        df_resp = pd.DataFrame({'Question': cols, 'Answer': stuff})
+        st.dataframe(df_resp)
+
+        # replace each row with its mode
+        df = modes('AGE', df)
+        df = modes('EDUC', df)
+        df = modes('ETHNIC', df)
+        df = modes('RACE', df)
+        df = modes('GENDER', df)
+        df = modes('MARSTAT', df)
+        df = modes('SAP', df)
+        df = modes('EMPLOY', df)
+        df = modes('LIVARAG', df)
+        df = modes('NUMMHS', df)
+        df = modes('STATEFIP', df)
+
+
+        headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+
+        query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[-1], stuff[4]]
+
+        df_query = pd.DataFrame(columns=headers)
+        df_query.loc[0] = query
+
+
+        def more(column, df_query):
+            new_col = column + '_replaced'
+            df_query[new_col] = False
+
+            df_query[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+            return df_query
+
+        df_query = modes('AGE', df_query)
+        df_query = modes('EDUC', df_query)
+        df_query = modes('ETHNIC', df_query)
+        df_query = modes('RACE', df_query)
+        df_query = modes('GENDER', df_query)
+        df_query = modes('MARSTAT', df_query)
+        df_query = modes('SAP', df_query)
+        df_query = modes('EMPLOY', df_query)
+        df_query = modes('LIVARAG', df_query)
+        df_query = modes('NUMMHS', df_query)
+        df_query = modes('STATEFIP', df_query)
+
+        first_row = df_query.iloc[0].copy()
+        df.loc[0] = first_row
+        df_codex = df.reset_index(drop=True)
+
+
+        x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
+        row = np.array(x.iloc[0]).reshape(1, -1)
+        zeros = np.zeros((1, 10), dtype=int)
+        row = np.concatenate((row, zeros), axis=1)
+
+        loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
+
+        y_predicted = loaded_model.predict(row)
+        cluster = y_predicted[0]
+        st.subheader(cluster)
+
 
     with st.form(key='my_form'):
         user = []
