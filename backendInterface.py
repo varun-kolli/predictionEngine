@@ -4,7 +4,7 @@ import numpy as np
 
 def process(input):
     df = pd.read_csv('CSV_files/dummieCodex.csv')
-    st.write("hello")
+    st.write(input)
     #prompt()
 
 
