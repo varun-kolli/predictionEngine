@@ -77,7 +77,7 @@ def process(stuff):
     loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
 
     y_predicted = loaded_model.predict(row)
-    cluster = y_predicted.iloc[0, 0]
+    cluster = y_predicted[0]
     st.subheader(cluster)
 
 
