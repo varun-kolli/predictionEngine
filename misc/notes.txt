@@ -57,3 +57,20 @@ warningBackgroundColor = "#FFDAB9"
 warningTextColor = "#333333"
 box_shadow = true
 border_radius = 4
+
+
+#submit_button = st.form_submit_button(label='Run', on_click=smt, args=([ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs], ))
+
+        form_data = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs]
+        submit_button_label = 'Run'
+        submit_button_on_click = smt
+        submit_button_args = (form_data,)
+
+        submit_button = st.form_submit_button(
+            label=submit_button_label,
+            on_click=submit_button_on_click,
+            args=submit_button_args
+        )
+
+        if submit_button:
+            st.write("hii")
