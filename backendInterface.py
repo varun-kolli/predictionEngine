@@ -162,6 +162,7 @@ def interface():
 
     def set_stage(stage):
         st.session_state.stage = stage
+        interface()
 
     # Some code
     st.button('First Button', on_click=set_stage, args=(1,))
