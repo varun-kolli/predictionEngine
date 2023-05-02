@@ -71,9 +71,10 @@ def process(stuff):
     df_codex = df.reset_index(drop=True)
 
     st.write(df_codex)
-    st.header("suup")
+    st.header("sup")
 
     x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
+    st.dataframe(x)
     row = np.array(x.iloc[0]).reshape(1, -1)
 
     loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
