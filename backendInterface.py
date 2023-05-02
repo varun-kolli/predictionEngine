@@ -38,7 +38,8 @@ def process(input):
 
 
     st.dataframe(df_in)
-    
+
+    """
     df_in = modes('AGE', df_in)
     df_in = modes('EDUC', df_in)
     df_in = modes('ETHNIC', df_in)
@@ -52,7 +53,7 @@ def process(input):
     df_in =modes('STATEFIP', df_in)
 
     x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
-
+    """
 
 
 
