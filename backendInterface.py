@@ -4,7 +4,7 @@ import numpy as np
 
 def process(input):
     df = pd.read_csv('CSV_files/dummieCodex.csv')
-    input = input[0]
+    #input = input[0]
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race" 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
     st.write(input)
 
