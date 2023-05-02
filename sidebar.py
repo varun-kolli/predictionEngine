@@ -5,8 +5,8 @@ def sideBar():
     tabs = ["Home", "Predictive Dashboard", "Methodology", "Data Description", "Data Cleaning", "Clustering", "Machine Learning", "Results"]
 
     st.sidebar.subheader("Navigation")
-    home_button = st.sidebar.button("Home", key="Home", help="Home", type="secondary")
-    dashboard_button = st.sidebar.button("Predictive Dashboard", key="Predictive Dashboard", help="Predictive Dashboard", type="secondary", disabled=True)
+    home_button = st.sidebar.button("Home", key="Home", help="Home", type="secondary", disabled = True)
+    dashboard_button = st.sidebar.button("Predictive Dashboard", key="Predictive Dashboard", help="Predictive Dashboard", type="secondary")
     methodology_button = st.sidebar.button("Methodology", key="Methodology", help="Methodology", type="secondary")
     data_description_button = st.sidebar.button("Data Description", key="Data Description", help="Data Description", type="secondary")
     data_cleaning_button = st.sidebar.button("Data Cleaning", key="Data Cleaning", help="Data Cleaning", type="secondary")
