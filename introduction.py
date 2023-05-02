@@ -1,9 +1,8 @@
 import pandas as pd
 import streamlit as st
 
-def introduction(st.session_state.counter):
-    if st.session_state.counter != 0:
-        return
+def introduction():
+
     st.title("Predictive Analytics Framework for Mental Health Diagnoses")
 
     st.header('Project Goal')
