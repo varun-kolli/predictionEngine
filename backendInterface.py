@@ -2,9 +2,8 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-def compute(input):
+def compute():
     df = pd.read_csv('CSV_files/dummieCodex.csv')
-    st.table(df)
 
 def smt(input):
     st.write(input)
