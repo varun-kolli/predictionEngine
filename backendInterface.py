@@ -39,7 +39,7 @@ def process(stuff):
     st.write(query)
 
     df_query = pd.DataFrame(columns=headers)
-    df_query.loc[0] = query
+    #df_query.loc[0] = query
 
     st.write(df_query)
 # Load the model from the file
