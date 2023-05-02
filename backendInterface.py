@@ -73,6 +73,10 @@ def process(stuff):
 
     x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
 
+    loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
+
+    y_predicted = loaded_model.predict(x)
+
 
 
 # Load the model from the file
