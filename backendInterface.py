@@ -62,7 +62,7 @@ def prompt():
             '65 up': range(65, 150)  # use a large upper bound to include all ages 65 and above
         }
 
-        selected_age_group = st.selectbox('Select Age Group', list(subgroups.keys()))
+        ageInput = st.selectbox('Select Age Group', list(subgroups.keys()))
 
 
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
@@ -101,8 +101,6 @@ def prompt():
         if submit:
             form_data = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs]
             st.write(form_data)
-
-
 
     if st.session_state.user:
             st.write("User inputs:")
