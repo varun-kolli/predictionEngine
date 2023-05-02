@@ -17,7 +17,6 @@ from sklearn.ensemble import AdaBoostRegressor
 from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 
-counter = 0
 
 
 #input = ['2442501', "21-24", "Bipolar" , "12+", "Other Hispanic or Latino origin", "White","Male", "Never married", "Yes", "Part time", "Other", "2", "TN"]
@@ -54,16 +53,10 @@ def convertAge(age):
     return age_group_str
 
 def smt(input):
-    """ Callback function during adding a new project. """
-    # display a warning if the user entered an existing name
-    if input in st.session_state.user:
-        st.warning(f'The name "{input}" is already exists.')
-    else:
-        st.session_state.projects.append(input)
+    st.write(input)
 
 def prompt():
 
-    """
     if "user" not in st.session_state:
         st.session_state.user = []
 
@@ -124,9 +117,6 @@ def prompt():
 
         submit_button = st.form_submit_button(label='Run', on_click=smt, args=([ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs], ))
 
-        #if submit_button:
-            #user_input = [ageInput, educInput, ethnicityInput, raceInput, genderInput, marStatInput, sapInput, employInput, livArangInput, veteranInput, stateInput, numhs]
-            #st.session_state.user.append(user_input)
 
 
     if st.session_state.user:
@@ -135,40 +125,7 @@ def prompt():
 
     st.session_state.user = []
     return st.session_state.user
-    """
-    pass
 
-import streamlit as st
-
-
-def show():
-
-    st.write(
-        """
-        ## 💯 Counter
-
-        The most basic example: Store a count in `st.session_state` and increment when
-        clicked.
-        """
-    )
-
-    if "counter" not in st.session_state:
-            st.session_state.counter = 0
-
-    def increment():
-        st.session_state.counter += 1
-
-    st.write("Counter:", st.session_state.counter)
-    st.button("Plus one!", on_click=show)
-
-    if st.session_state.counter >= 50:
-        st.success("King of counting there! Your trophy for reaching 50: 🏆")
-    elif st.session_state.counter >= 10:
-        st.warning("You made it to 10! Keep going to win a prize 🎈")
-
-
-def getCounter():
-    return counter
 
 def interface():
     st.title("Backend Interface")
