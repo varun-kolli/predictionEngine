@@ -32,7 +32,7 @@ def process(input):
     df = modes('NUMMHS', df)
     df = modes('STATEFIP', df)
 
-    quer = [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]]
+    query = [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]]
     loaded_model = pickle.load(open("pkl_files/dt_clustered_modes.sav", 'rb'))
     loaded_model.predict(query)
 
