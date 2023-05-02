@@ -4,8 +4,7 @@ import numpy as np
 import joblib
 
 if "input" not in st.session_state:
-        st.session_state.input = []
-        introduction()
+    st.session_state.input = []
 
 def modes(column, df_modes):
         new_col = column + '_replaced'
