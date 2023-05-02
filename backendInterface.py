@@ -40,11 +40,10 @@ def process(input):
     st.dataframe(df_in)
     
     def change(column, df_modes):
-            new_col = column + '_replaced'
-            df_modes[new_col] = False
-            mode = df_modes[column].mode()
-           
-            return df_modes
+        new_col = column + '_replaced'
+        df_modes[new_col] = False
+        mode = df_modes[column].mode()
+        return df_modes
 
     
     df_in = change('AGE', df_in)
