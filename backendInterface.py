@@ -213,7 +213,7 @@ def interface():
         numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
         submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
-                    [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]))
+                    [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
 
     if st.session_state.stage > 0:
         st.dataframe(displayInput(st.session_state.input))
