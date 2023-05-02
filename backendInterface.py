@@ -32,7 +32,7 @@ def process(stuff):
     df = modes('NUMMHS', df)
     df = modes('STATEFIP', df)
     st.header("hey")
-    query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+    query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[-1], stuff[4]]
     st.write(query)
 # Load the model from the file
    # loaded_model = joblib.load('pkl_files/dt_clustered_modes.sav')
