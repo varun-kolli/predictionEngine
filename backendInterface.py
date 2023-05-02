@@ -15,7 +15,7 @@ def modes(column, df_modes):
         return df_modes
 
 def process(stuff):
-    stuff = st.session_state.input
+    stuff = stuff
     st.write(stuff)
     df = pd.read_csv('CSV_files/dummieCodex.csv')
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
