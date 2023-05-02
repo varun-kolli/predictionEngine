@@ -56,7 +56,7 @@ def prompt():
 
         if submit:
             form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
-            compute(form_data)
+            compute(0)
             st.write(form_data)
 
 
