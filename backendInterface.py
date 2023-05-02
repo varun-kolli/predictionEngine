@@ -2,20 +2,20 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-def process(input):
-    df = pd.read_csv('CSV_files/dummieCodex.csv')
-    cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
-
-    df = pd.DataFrame({'Question': cols, 'Answer': input})
-    st.dataframe(df)
-
-    def modes(column, df_modes):
+def modes(column, df_modes):
         new_col = column + '_replaced'
         df_modes[new_col] = False
         mode = df_modes[column].mode()
         #print(mode[0])
         df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
         df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+
+def process(input):
+    df = pd.read_csv('CSV_files/dummieCodex.csv')
+    cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
+
+    df = pd.DataFrame({'Question': cols, 'Answer': input})
+    st.dataframe(df)
 
     # replace each row with its mode
     modes('AGE', df)
@@ -30,12 +30,7 @@ def process(input):
     modes('NUMMHS', df)
     modes('STATEFIP', df)
 
-    df.loc[-1] = input
-    df.index = df.index + 1
-    df = df.sort_index()
 
-    x = pd.get_dummies(df.drop(), drop_first = True)
-    st.write(len(x))
 
 
     #display input
