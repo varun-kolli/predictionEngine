@@ -8,8 +8,13 @@ from backendInterface import interface
 
 
 def initializeSideBar():
+    if "counter" not in st.session_state:
+        st.session_state.counter = 0
+    st.write(counter)
+
     selection = sideBar()
     if selection[0]:
+        st.session_state.counter += 1
         introduction()
     if selection[1]:
         interface()
