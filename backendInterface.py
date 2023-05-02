@@ -10,13 +10,13 @@ def process(input):
     st.dataframe(df_resp)
 
     def modes(column, df_modes):
-            new_col = column + '_replaced'
-            df_modes[new_col] = False
-            mode = df_modes[column].mode()
-            #print(mode[0])
-            df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
-            df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
-            return df_modes
+        new_col = column + '_replaced'
+        df_modes[new_col] = False
+        mode = df_modes[column].mode()
+        #print(mode[0])
+        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
+        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+        return df_modes
 
     # replace each row with its mode
     df = modes('AGE', df)
@@ -38,7 +38,30 @@ def process(input):
 
 
     st.dataframe(df_in)
+    
+    def change(column, df_modes):
+            new_col = column + '_replaced'
+            df_modes[new_col] = False
+            mode = df_modes[column].mode()
+           
+            return df_modes
 
+    
+    df_in = change('AGE', df_in)
+    df_in = change('EDUC', df_in)
+    df_in = change('ETHNIC', df_in)
+    df_in = change('RACE', df_in)
+    df_in = change('GENDER', df_in)
+    df_in = change('MARSTAT', df_in)
+    df_in = change('SAP', df_in)
+    df_in = change('EMPLOY', df_in)
+    df_in = change('LIVARAG', df_in)
+    df_in = change('NUMMHS', df_in)
+    df_in = change('STATEFIP', df_in)
+
+    st.dataframe(df_in)
+
+    #x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
 
 
 
