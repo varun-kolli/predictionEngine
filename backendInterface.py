@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 
 def compute():
-
+    pass
 
 def smt(input):
     st.write(input)
