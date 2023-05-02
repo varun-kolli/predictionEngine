@@ -99,7 +99,7 @@ def prompt():
         submit = st.form_submit_button('Submit', on_click = prompt)
 
         if submit:
-            st.write(f'hello {name}')
+            st.write('hello')
 
 
 
