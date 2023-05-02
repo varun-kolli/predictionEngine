@@ -56,7 +56,6 @@ def smt(input):
     st.write(input)
 
 def prompt():
-
     if "user" not in st.session_state:
         st.session_state.user = []
 
@@ -129,9 +128,7 @@ def prompt():
 
 def interface():
     st.title("Backend Interface")
-    show()
-
-    #seshUser = prompt()
+    seshUser = prompt()
 
 
 
