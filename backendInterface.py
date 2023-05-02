@@ -36,6 +36,8 @@ def process(input):
 
     df_in = pd.DataFrame({'Question': ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP'], 'Answer':  [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]]})
 
+
+    st.dataframe(df_in)
     
     df_in = modes('AGE', df_in)
     df_in = modes('EDUC', df_in)
@@ -49,9 +51,6 @@ def process(input):
     df_in = modes('NUMMHS', df_in)
     df_in =modes('STATEFIP', df_in)
 
-    
-
-    st.dataframe(df_in)
     x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
 
 
