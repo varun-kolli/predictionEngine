@@ -158,12 +158,12 @@ def interface():
 def interface():
     st.title("Backend Interface")
     if 'stage' not in st.session_state:
-        st.session_state.stage = 0
+        st.session_state.stage = None
 
     def set_stage(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12):
         st.session_state.stage = [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12]
 
-        if st.session_state.stage == 0:
+        if st.session_state.stage == None:
             interface()
 
 #-----------------------------------------------------------------------------------
@@ -216,15 +216,11 @@ def interface():
         submit = st.form_submit_button('Submit', on_click=set_stage, args=l)
 
 
-    if st.session_state.stage > 0:
+    if st.session_state.stage != None:
         # Some code
         input = 1
         st.button('Second Button', on_click=set_stage, args=(2,input))
 
-    if st.session_state.stage > 1:
-        # More code, etc
-        st.button('Third Button', on_click=set_stage, args=(3, 0))
-    if st.session_state.stage > 2:
-        st.write('The end')
+
     st.button('Reset', on_click=set_stage, args=(0, 0))
     #seshUser = prompt()
