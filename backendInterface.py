@@ -63,6 +63,8 @@ def process(stuff):
 
     st.write(df_query)
 
+    st.write(df)
+
 # Load the model from the file
    # loaded_model = joblib.load('pkl_files/dt_clustered_modes.sav')
     #loaded_model.predict(query)
