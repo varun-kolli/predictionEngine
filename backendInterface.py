@@ -9,12 +9,12 @@ def process(input):
     df = pd.DataFrame({'Question': cols, 'Answer': input})
     st.dataframe(df)
 
-    df.iloc[0] = input
-    df_dummies = pd.get_dummies(df, drop_first = True)
-    queryRow = np.array(df_dummies.iloc[0])
+    df.loc[-1] = input
+    df.index = df.index + 1
+    df = df.sort_index()
 
-    st.write(queryRow)
-    st.write(len(queryRow))
+    x = pd.get_dummies(df.drop(), drop_first = True)
+    st.write(len(x))
 
 
     #display input
