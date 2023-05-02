@@ -156,7 +156,6 @@ def show():
             st.session_state.counter = 0
 
     def increment():
-        counter += 1
         st.session_state.counter += 1
 
     st.write("Counter:", st.session_state.counter)
