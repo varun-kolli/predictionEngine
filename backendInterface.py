@@ -8,10 +8,8 @@ def process(input):
     form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
 
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race" 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
-    st.write(len(cols))
-    st.write(len(input))
     st.write(input)
-    st.write(cols)
+
     df = pd.DataFrame({'Question': cols, 'Answer': input})
     st.dataframe(df)
 
