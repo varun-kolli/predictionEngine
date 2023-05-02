@@ -31,20 +31,24 @@ def process(input):
     df = modes('NUMMHS', df)
     df =modes('STATEFIP', df)
     
-    df_resp = modes('AGE', df_resp)
-    df_resp = modes('EDUC', df_resp)
-    df_resp = modes('ETHNIC', df_resp)
-    df_resp = modes('RACE', df_resp)
-    df_resp = modes('GENDER', df_resp)
-    df_resp = modes('MARSTAT', df_resp)
-    df_resp = modes('SAP', df_resp)
-    df_resp = modes('EMPLOY', df_resp)
-    df_resp = modes('LIVARAG', df_resp)
-    df_resp = modes('NUMMHS', df_resp)
-    df_resp =modes('STATEFIP', df_resp)
+    df_in = pd.DataFrame({'Question': df.columns, 'Answer': input})
 
+    
+    df_in = modes('AGE', df_in)
+    df_in = modes('EDUC', df_in)
+    df_in = modes('ETHNIC', df_in)
+    df_in = modes('RACE', df_in)
+    df_in = modes('GENDER', df_in)
+    df_in = modes('MARSTAT', df_in)
+    df_in = modes('SAP', df_in)
+    df_in = modes('EMPLOY', df_in)
+    df_in = modes('LIVARAG', df_in)
+    df_in = modes('NUMMHS', df_in)
+    df_in =modes('STATEFIP', df_in)
 
-    st.dataframe(df_resp)
+    
+
+    st.dataframe(df_in)
     x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
 
 
