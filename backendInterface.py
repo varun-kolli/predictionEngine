@@ -8,8 +8,10 @@ def process(input):
     #form_data = [ageInput, educInput, employInput, genderInput, stateInput, livArangInput, ethnicityInput, raceInput, marStatInput, sapInput, veteranInput, numhs]
 
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
-    df = pd.DataFrame({'Question': cols, 'Answer': input})
-    st.dataframe(df)
+    print(len(cols))
+    print(len(input))
+    #df = pd.DataFrame({'Question': cols, 'Answer': input})
+    #st.dataframe(df)
     #display input
     #process through model
     #probability or smt
