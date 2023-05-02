@@ -20,4 +20,4 @@ def sideBar():
     # Return the list of buttons
     return selection
 
-    return selection
+
