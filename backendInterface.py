@@ -29,31 +29,17 @@ def process(input):
     df = modes('EMPLOY', df)
     df = modes('LIVARAG', df)
     df = modes('NUMMHS', df)
-    df =modes('STATEFIP', df)
+    df = modes('STATEFIP', df)
 
 
     cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
 
-    df_in = pd.DataFrame({'Question': ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP'], 'Answer':  [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]]})
+    df_in = pd.DataFrame({'Question': ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP'], 'Answer':  [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]] })
 
 
     st.dataframe(df_in)
 
-    """
-    df_in = modes('AGE', df_in)
-    df_in = modes('EDUC', df_in)
-    df_in = modes('ETHNIC', df_in)
-    df_in = modes('RACE', df_in)
-    df_in = modes('GENDER', df_in)
-    df_in = modes('MARSTAT', df_in)
-    df_in = modes('SAP', df_in)
-    df_in = modes('EMPLOY', df_in)
-    df_in = modes('LIVARAG', df_in)
-    df_in = modes('NUMMHS', df_in)
-    df_in =modes('STATEFIP', df_in)
 
-    x = pd.get_dummies(df_modes.drop(columns = ['MH1']), drop_first = True)
-    """
 
 
 
