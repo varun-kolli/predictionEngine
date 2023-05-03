@@ -81,6 +81,8 @@ def process(query):
         cluster = y_predicted[0]
 
         displayPrediction(cluster)
+        smt = loaded_model.predict_proba(row)
+        st.write(smt)
 
 
 def prompt():
