@@ -162,13 +162,7 @@ def displayInput(stuff):
         df_transposed = df_query.transpose().reset_index()
         df_transposed.columns = df_transposed.iloc[0]
         df_transposed = df_transposed.iloc[1:]
-        df_transposed = df_transposed.reset_index(drop=True)
-        header_row = df_transposed.iloc[0]
-        df_transposed = df_transposed[1:]
-        df_transposed = df_transposed.reset_index(drop=True)
-        df_transposed.loc[-1] = header_row
-        df_transposed = df_transposed.reset_index(drop=True)
-        df_transposed.columns = ['Question', 'Answer']
+
         st.table(df_transposed)
 
 def interface():
