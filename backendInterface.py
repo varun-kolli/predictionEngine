@@ -89,7 +89,7 @@ def prompt():
         user = []
 
         ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-        agestuff = st.selectbox('Age Group', ageOptions)
+        agestuff = st.selectbox('Age group', ageOptions)
 
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
         educstuff = st.selectbox("Highest completed education level", education_levels, help = "highest education level completed")
