@@ -4,14 +4,14 @@ import numpy as np
 import joblib
 
 
-def modes(column, df_modes):
+def more(column, df_more):
         new_col = column + '_replaced'
-        df_modes[new_col] = False
-        mode = df_modes[column].mode()
+        df_more[new_col] = False
+        mode = df_more[column].mode()
         #print(mode[0])
-        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
-        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
-        return df_modes
+        df_more[column] = df_more.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
+        df_more[new_col] = df_more.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+        return df_more
 
 def process(query):
 
@@ -19,28 +19,24 @@ def process(query):
 
         st.write(stuff)
         df = pd.read_csv('CSV_files/dummieCodex.csv')
-        cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
-
-        df_resp = pd.DataFrame({'Question': cols, 'Answer': stuff})
-        st.dataframe(df_resp)
+      
 
         # replace each row with its mode
-        df = modes('AGE', df)
-        df = modes('EDUC', df)
-        df = modes('ETHNIC', df)
-        df = modes('RACE', df)
-        df = modes('GENDER', df)
-        df = modes('MARSTAT', df)
-        df = modes('SAP', df)
-        df = modes('EMPLOY', df)
-        df = modes('LIVARAG', df)
-        df = modes('NUMMHS', df)
-        df = modes('STATEFIP', df)
+        df = more('AGE', df)
+        df = more('EDUC', df)
+        df = more('ETHNIC', df)
+        df = more('RACE', df)
+        df = more('GENDER', df)
+        df = more('MARSTAT', df)
+        df = more('SAP', df)
+        df = more('EMPLOY', df)
+        df = more('LIVARAG', df)
+        df = more('NUMMHS', df)
+        df = more('STATEFIP', df)
 
 
         headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
 
-        query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[-1], stuff[4]]
 
         df_query = pd.DataFrame(columns=headers)
         df_query.loc[0] = query
@@ -49,20 +45,20 @@ def process(query):
             new_col = column + '_replaced'
             df_query[new_col] = False
 
-            df_query[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+            df_query[new_col] = df_query.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
             return df_query
 
-        df_query = modes('AGE', df_query)
-        df_query = modes('EDUC', df_query)
-        df_query = modes('ETHNIC', df_query)
-        df_query = modes('RACE', df_query)
-        df_query = modes('GENDER', df_query)
-        df_query = modes('MARSTAT', df_query)
-        df_query = modes('SAP', df_query)
-        df_query = modes('EMPLOY', df_query)
-        df_query = modes('LIVARAG', df_query)
-        df_query = modes('NUMMHS', df_query)
-        df_query = modes('STATEFIP', df_query)
+        df_query = more('AGE', df_query)
+        df_query = more('EDUC', df_query)
+        df_query = more('ETHNIC', df_query)
+        df_query = more('RACE', df_query)
+        df_query = more('GENDER', df_query)
+        df_query = more('MARSTAT', df_query)
+        df_query = more('SAP', df_query)
+        df_query = more('EMPLOY', df_query)
+        df_query = more('LIVARAG', df_query)
+        df_query = more('NUMMHS', df_query)
+        df_query = more('STATEFIP', df_query)
 
         first_row = df_query.iloc[0].copy()
         df.loc[0] = first_row
@@ -74,7 +70,7 @@ def process(query):
         zeros = np.zeros((1, 10), dtype=int)
         row = np.concatenate((row, zeros), axis=1)
 
-        loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
+        loaded_model = joblib.load("pkl_files/dt_clustered_more.sav")
 
         y_predicted = loaded_model.predict(row)
         cluster = y_predicted[0]
