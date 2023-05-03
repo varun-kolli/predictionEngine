@@ -92,7 +92,7 @@ def prompt():
         agestuff = st.selectbox('Select Age Group', ageOptions)
 
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
-        educstuff = st.selectbox("Select your education level", education_levels)
+        educstuff = st.selectbox("Select your education level", education_levels, help = "highest education level completed")
 
         employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
         employstuff = st.selectbox("Select your employment status", employment_statuses)
