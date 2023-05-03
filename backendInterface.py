@@ -160,7 +160,7 @@ def displayInput(stuff):
         df_query = pd.DataFrame(columns=headers)
         df_query.loc[0] = query
         df_transposed = df_query.transpose().reset_index()
-        df_transposed.columns = ["Question", "Answer"] + list(df_transposed.columns[2:])
+        df_transposed.columns = ["Question", "Answer"] + list(df_transposed.columns[1:])
         df_transposed = df_transposed.iloc[1:]
         st.table(df_transposed)
 
