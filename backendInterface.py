@@ -162,7 +162,7 @@ def displayInput(stuff):
         return df_query
 
 def interface():
-    st.title("Backend Interface")
+    st.title("Backend Interfacee")
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
         st.session_state.input = []
@@ -217,7 +217,7 @@ def interface():
 
 
     if st.session_state.stage > 0:
-        st.write(st.session_state.input)
+        displayInput(st.session_state.input)
 
     st.button('Reset', on_click=set_stage, args=(0, []))
     #seshUser = prompt()
