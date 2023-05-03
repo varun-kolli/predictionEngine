@@ -5,6 +5,7 @@ from sidebar import sideBar
 from dataCleaning import v2
 from tracker import report
 from backendInterface import interface
+from methodology import methMain
 
 
 def initializeSideBar():
@@ -18,6 +19,8 @@ def initializeSideBar():
         st.session_state.counter = 1
     if selection[1]:
         interface()
+    if selection[2]:
+        methMain()
 
 
 
