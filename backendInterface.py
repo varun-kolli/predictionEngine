@@ -174,47 +174,47 @@ def interface():
         #displayInput(input)
 
     # Some code
+    if st.session_state.stage == 0:
+        with st.form(key='my_form'):
+            ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
+            agestuff = st.selectbox('Select Age Group', ageOptions)
 
-    with st.form(key='my_form'):
-        ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-        agestuff = st.selectbox('Select Age Group', ageOptions)
+            education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
+            educstuff = st.selectbox("Select your education level", education_levels)
 
-        education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
-        educstuff = st.selectbox("Select your education level", education_levels)
+            employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
+            employstuff = st.selectbox("Select your employment status", employment_statuses)
 
-        employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
-        employstuff = st.selectbox("Select your employment status", employment_statuses)
+            genderstuff = st.radio("Select your gender", options=["Male", "Female"])
 
-        genderstuff = st.radio("Select your gender", options=["Male", "Female"])
-
-        statestuff = st.selectbox("Select a state",
-                                                      ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-                                                       "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-                                                       "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-                                                       "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-                                                       "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
+            statestuff = st.selectbox("Select a state",
+                                                          ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+                                                           "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+                                                           "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+                                                           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+                                                           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
 
 
-        housing_situations = ["Homeless", "Private residence", "Other"]
-        livArangstuff = st.selectbox("Select your living arrangement", housing_situations)
+            housing_situations = ["Homeless", "Private residence", "Other"]
+            livArangstuff = st.selectbox("Select your living arrangement", housing_situations)
 
-        ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
+            ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
 
-        ethnicitystuff = st.selectbox("Select your Ethnicity", ethnicities)
+            ethnicitystuff = st.selectbox("Select your Ethnicity", ethnicities)
 
-        race_options = ['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple']
-        racestuff = st.selectbox('Select your Race:', options=race_options)
+            race_options = ['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple']
+            racestuff = st.selectbox('Select your Race:', options=race_options)
 
-        marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
-        marStatstuff = st.selectbox('Select your marital status:', options=marital_status_options)
+            marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
+            marStatstuff = st.selectbox('Select your marital status:', options=marital_status_options)
 
-        sapstuff = st.radio("SAP", options=["Yes", "No"])
+            sapstuff = st.radio("SAP", options=["Yes", "No"])
 
-        veteranstuff = st.radio("Veteran", options=["Yes", "No"])
-        numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
+            veteranstuff = st.radio("Veteran", options=["Yes", "No"])
+            numhs =  st.selectbox("Select the number of mental health disorders you have been diagnosed with", options = [1, 2, 3])
 
-        submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
-                    [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
+            submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
+                        [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
 
     if st.session_state.stage > 0:
         st.write(st.session_state.input)
