@@ -13,6 +13,10 @@ def modes(column, df_modes):
         df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
         return df_modes
 
+def displayPrediction(cluster):
+    cluster = str(cluster)
+    st.subheader("Predicted Cluster: " + cluster)
+
 def process(query):
 
         stuff = query
@@ -68,7 +72,8 @@ def process(query):
 
         y_predicted = loaded_model.predict(row)
         cluster = y_predicted[0]
-        st.subheader(str(cluster))
+
+        displayPrediction(cluster)
 
 
 def prompt():
@@ -205,7 +210,7 @@ def interface():
 
     def executeQuery(stuff):
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
-        st.write("Prediction Results")
+        st.header("Prediction Results")
         with st.container():
             displayInput(query)
         process(query)
