@@ -157,9 +157,12 @@ def displayInput(stuff):
 
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
 
-        df_query = pd.DataFrame(columns=headers)
-        df_query.loc[0] = query
-        return df_query
+        for i in range(len(headers)):
+            if headers[i] in query:
+                with st.beta_columns(2):
+                    st.write(f"## {headers[i]}")
+                    st.write(query[i])
+
 
 def interface():
     st.title("Backend Interface")
@@ -216,12 +219,12 @@ def interface():
                     [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
 
     if st.session_state.stage > 0:
-        st.table(displayInput(st.session_state.input))
+        displayInput(st.session_state.input)
 
     def executeQuery(query):
-        st.write("executing")
+        st.write("Prediction Results")
         st.write(query)
 
     if st.session_state.stage > 0:
-        st.button('View Results', on_click=executeQuery, args=(st.session_state.input, ))
+        st.button('View Prediction', on_click=executeQuery, args=(st.session_state.input, ))
     #seshUser = prompt()
