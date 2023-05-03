@@ -13,11 +13,16 @@ def modes(column, df_modes):
         df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
         return df_modes
 
+def bullet_points(items):
+    st.write("- " + "\n- ".join(items))
+
 def displayPrediction(cluster):
     cluster = str(int(float(cluster)))
     st.subheader("Predicted Cluster: " + cluster)
     keys = {0: ['ADHD', 'Anxiety', 'Conduct disorder', 'Delirium, dementia', 'Oppositional defiant disorder', 'Other', 'Personality disorder', 'Pervasive developmental disorder', 'Trauma-related'], 1: ['Bipolar', 'Depression'], 2: ['Schizophrenia/psychotic', 'Substance abuse']}
-    st.write(keys[0])
+    st.write("Here are the disorders in this cluster": )
+    bullet_points(keys[cluster])
+
 
 def process(query):
 
