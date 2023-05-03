@@ -217,7 +217,7 @@ def interface():
 
 
     if st.session_state.stage > 0:
-        displayInput(st.session_state.input)
+        st.dataframe(displayInput(st.session_state.input))
 
     st.button('Reset', on_click=set_stage, args=(0, []))
     #seshUser = prompt()
