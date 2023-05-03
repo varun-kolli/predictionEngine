@@ -4,14 +4,14 @@ import numpy as np
 import joblib
 
 
-def more(column, df_more):
+def modes(column, df_modes):
         new_col = column + '_replaced'
-        df_more[new_col] = False
-        mode = df_more[column].mode()
+        df_modes[new_col] = False
+        mode = df_modes[column].mode()
         #print(mode[0])
-        df_more[column] = df_more.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
-        df_more[new_col] = df_more.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
-        return df_more
+        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
+        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+        return df_modes
 
 def process(query):
 
@@ -22,17 +22,17 @@ def process(query):
       
 
         # replace each row with its mode
-        df = more('AGE', df)
-        df = more('EDUC', df)
-        df = more('ETHNIC', df)
-        df = more('RACE', df)
-        df = more('GENDER', df)
-        df = more('MARSTAT', df)
-        df = more('SAP', df)
-        df = more('EMPLOY', df)
-        df = more('LIVARAG', df)
-        df = more('NUMMHS', df)
-        df = more('STATEFIP', df)
+        df = modes('AGE', df)
+        df = modes('EDUC', df)
+        df = modes('ETHNIC', df)
+        df = modes('RACE', df)
+        df = modes('GENDER', df)
+        df = modes('MARSTAT', df)
+        df = modes('SAP', df)
+        df = modes('EMPLOY', df)
+        df = modes('LIVARAG', df)
+        df = modes('NUMMHS', df)
+        df = modes('STATEFIP', df)
 
 
         headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
@@ -70,7 +70,7 @@ def process(query):
         zeros = np.zeros((1, 10), dtype=int)
         row = np.concatenate((row, zeros), axis=1)
 
-        loaded_model = joblib.load("pkl_files/dt_clustered_more.sav")
+        loaded_model = joblib.load("pkl_files/dt_clustered_modes.sav")
 
         y_predicted = loaded_model.predict(row)
         cluster = y_predicted[0]
