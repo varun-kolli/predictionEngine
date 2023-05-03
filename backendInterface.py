@@ -16,10 +16,7 @@ def modes(column, df_modes):
 def process(query):
 
         stuff = query
-
-        st.write(stuff)
         df = pd.read_csv('CSV_files/dummieCodex.csv')
-      
 
         # replace each row with its mode
         df = modes('AGE', df)
@@ -34,9 +31,7 @@ def process(query):
         df = modes('NUMMHS', df)
         df = modes('STATEFIP', df)
 
-
         headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
-
 
         df_query = pd.DataFrame(columns=headers)
         df_query.loc[0] = query
@@ -63,7 +58,6 @@ def process(query):
         first_row = df_query.iloc[0].copy()
         df.loc[0] = first_row
         df_codex = df.reset_index(drop=True)
-
 
         x = pd.get_dummies(df_codex.drop(columns = ['MH1']), drop_first = True)
         row = np.array(x.iloc[0]).reshape(1, -1)
