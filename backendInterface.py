@@ -217,7 +217,12 @@ def interface():
 
 
     if st.session_state.stage > 0:
-        st.dataframe(displayInput(st.session_state.input))
+        st.table(displayInput(st.session_state.input))
 
-    st.button('Reset', on_click=set_stage, args=(0, []))
+    def executeQuery(query):
+        st.write("executing")
+        st.write(query)
+
+
+    st.button('Confirm Input', on_click=executeQuery, args=(st.session_state.input, ))
     #seshUser = prompt()
