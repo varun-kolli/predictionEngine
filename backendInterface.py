@@ -162,7 +162,7 @@ def displayInput(stuff):
         return df_query
 
 def interface():
-    st.title("Backend Interfacee")
+    st.title("Backend Interface")
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
         st.session_state.input = []
