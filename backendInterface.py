@@ -157,17 +157,10 @@ def displayInput(stuff):
 
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
 
-
         df_query = pd.DataFrame(columns=headers)
         df_query.loc[0] = query
-        st.table(df_query)
-
         df_transposed = df_query.transpose().reset_index()
-
-        # set the first column as the headers
-        df_transposed.columns = df_transposed.iloc[0]
-
-        # remove the original header row (now the first row)
+        df_transposed.columns = ["Question", "Answer"] + list(df_transposed.columns[2:])
         df_transposed = df_transposed.iloc[1:]
         st.table(df_transposed)
 
