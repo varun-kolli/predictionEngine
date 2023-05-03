@@ -153,7 +153,7 @@ def displayInput(stuff):
         df_transposed.columns = headers
         df_transposed = df_transposed.iloc[0:]
 
-        st.dataframe(df_transposed)
+        st.table(df_transposed)
 
 
 def interface():
