@@ -215,7 +215,6 @@ def interface():
         submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
                     [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
 
-
     if st.session_state.stage > 0:
         st.table(displayInput(st.session_state.input))
 
@@ -223,6 +222,6 @@ def interface():
         st.write("executing")
         st.write(query)
 
-
-    st.button('Confirm Input', on_click=executeQuery, args=(st.session_state.input, ))
+    if st.session_state.stage > 0:
+        st.button('View Results', on_click=executeQuery, args=(st.session_state.input, ))
     #seshUser = prompt()
