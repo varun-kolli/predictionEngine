@@ -14,7 +14,7 @@ def modes(column, df_modes):
         return df_modes
 
 def displayPrediction(cluster):
-    cluster = str(cluster)
+    cluster = str(int(float(cluster)))
     st.subheader("Predicted Cluster: " + cluster)
 
 def process(query):
