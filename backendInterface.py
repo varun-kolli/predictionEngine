@@ -157,12 +157,13 @@ def displayInput(stuff):
 
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
 
-        cols = st.columns(10)
+        with st.container():
+            cols = st.columns(10)
 
-        for i in range(10):
-            with cols[i]:
-                st.subheader(headers[i])
-                st.write(query[i])
+            for i in range(10):
+                with cols[i]:
+                    st.subheader(headers[i])
+                    st.write(query[i])
 
 
 def interface():
