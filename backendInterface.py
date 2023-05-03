@@ -3,11 +3,19 @@ import streamlit as st
 import numpy as np
 import joblib
 
-"""
-def process(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12):
-        st.session_state.input = [arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12]
 
-        stuff = st.session_state.input
+def modes(column, df_modes):
+        new_col = column + '_replaced'
+        df_modes[new_col] = False
+        mode = df_modes[column].mode()
+        #print(mode[0])
+        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
+        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
+        return df_modes
+
+def process(query):
+
+        stuff = query
 
         st.write(stuff)
         df = pd.read_csv('CSV_files/dummieCodex.csv')
@@ -70,24 +78,7 @@ def process(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, 
 
         y_predicted = loaded_model.predict(row)
         cluster = y_predicted[0]
-        st.subheader(cluster)
-
-if "input" not in st.session_state:
-    st.session_state.input = None
-
-def modes(column, df_modes):
-        new_col = column + '_replaced'
-        df_modes[new_col] = False
-        mode = df_modes[column].mode()
-        #print(mode[0])
-        df_modes[column] = df_modes.apply(lambda row: mode[0] if pd.isna(row[column]) else row[column], axis = 1)
-        df_modes[new_col] = df_modes.apply(lambda row: True if pd.isna(row[column]) else False, axis = 1)
-        return df_modes
-
-    #display stuff
-    #process through model
-    #probability or smt
-    #prompt()
+        st.subheader(str(cluster))
 
 
 def prompt():
@@ -146,12 +137,7 @@ def prompt():
 
 
 
-def interface():
-    st.title("Backend Interface")
-    seshUser = prompt()
 
-
-"""
 def displayInput(stuff):
         headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
 
@@ -229,6 +215,7 @@ def interface():
         st.write("Prediction Results")
         with st.container():
             displayInput(query)
+        process(query)
 
 
     if st.session_state.stage > 0:
