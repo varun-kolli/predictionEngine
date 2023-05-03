@@ -150,8 +150,8 @@ def displayInput(stuff):
         df_query = pd.DataFrame(columns=headers)
         df_query.loc[0] = stuff
         df_transposed = df_query.transpose().reset_index()
-        df_transposed.columns = df_transposed.iloc[0]
-        df_transposed = df_transposed.iloc[1:]
+        df_transposed.columns = headers
+        df_transposed = df_transposed.iloc[0:]
 
         st.dataframe(df_transposed)
 
