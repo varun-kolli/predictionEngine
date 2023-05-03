@@ -27,4 +27,8 @@ def introduction():
     st.header('Expected Outcomes')
     st.write('The resulting framework will implement a data-driven approach in utilizing temporal and spatial data analytics as well as machine learning techniques to identify risk factors as well as visualize the problem in the United States.')
 
+    import streamlit as st
 
+   st.markdown("<p style='text-align: center;'>Project Advisor: Tali Freed</p>", unsafe_allow_html=True)
+   st.markdown("<p style='text-align: center;'>Project Sponsor: Puneet Agarwal</p>", unsafe_allow_html=True)
+   st.markdown("<p style='text-align: center;'>Team: Varun Kolli, Eliza Badiozamani, Kerry Fung, Om Kumar</p>", unsafe_allow_html=True)
