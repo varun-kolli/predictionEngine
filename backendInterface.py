@@ -155,16 +155,21 @@ def interface():
 def displayInput(stuff):
         headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
 
-        query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], str(stuff[10]), stuff[4]]
+        query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
 
-        with st.container():
-            cols = st.columns(10)
 
-            for i in range(10):
-                with cols[i]:
-                    st.write(f"<span style='font-size:1.2em;'><b>{headers[i]}</b></span>", unsafe_allow_html=True)
-                    st.write(query[i])
+        df_query = pd.DataFrame(columns=headers)
+        df_query.loc[0] = query
+        st.table(df_query)
 
+        df_transposed = df_query.transpose().reset_index()
+
+        # set the first column as the headers
+        df_transposed.columns = df_transposed.iloc[0]
+
+        # remove the original header row (now the first row)
+        df_transposed = df_transposed.iloc[1:]
+        st.table(df_transposed)
 
 def interface():
     st.title("Backend Interface")
@@ -221,7 +226,7 @@ def interface():
                     [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
 
     if st.session_state.stage > 0:
-        displayInput(st.session_state.input)
+        displayInput(st.session_state.input))
 
     def executeQuery(query):
         st.write("Prediction Results")
