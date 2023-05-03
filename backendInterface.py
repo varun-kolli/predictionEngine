@@ -162,7 +162,7 @@ def displayInput(stuff):
 
             for i in range(10):
                 with cols[i]:
-                    st.subheader(headers[i])
+                    st.write(f"<span style='font-size:1.2em;'><b>{headers[i]}</b></span>", unsafe_allow_html=True)
                     st.write(query[i])
 
 
