@@ -16,12 +16,8 @@ def modes(column, df_modes):
 def displayPrediction(cluster):
     cluster = str(int(float(cluster)))
     st.subheader("Predicted Cluster: " + cluster)
-    def get_disorders_by_cluster(disorders, cluster_num):
-        return [k for k, v in disorders.items() if v == cluster_num]
-    disorders = {'ADHD': 0, 'Anxiety': 0, 'Bipolar': 1, 'Conduct disorder': 0, 'Delirium, dementia': 0, 'Depression': 1, 'Oppositional defiant disorder': 0, 'Other': 0, 'Schizophrenia/psychotic': 2, 'Substance abuse': 2, 'Personality disorder': 0, 'Pervasive developmental disorder': 0, 'Trauma-related': 0}
-    disorders_in_cluster = get_disorders_by_cluster(disorders, cluster)
-
-    st.write(disorders_in_cluster)
+    keys = {0: ['ADHD', 'Anxiety', 'Conduct disorder', 'Delirium, dementia', 'Oppositional defiant disorder', 'Other', 'Personality disorder', 'Pervasive developmental disorder', 'Trauma-related'], 1: ['Bipolar', 'Depression'], 2: ['Schizophrenia/psychotic', 'Substance abuse']}
+    st.write(keys[0])
 
 def process(query):
 
