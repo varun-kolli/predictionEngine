@@ -6,6 +6,9 @@ from dataCleaning import v2
 from tracker import report
 from backendInterface import interface
 from methodology import methMain
+from dataDescription import dataDesc
+from clustering import clustMain
+from results import resultMain
 
 
 def initializeSideBar():
@@ -21,6 +24,15 @@ def initializeSideBar():
         interface()
     if selection[2]:
         methMain()
+    if selection[3]:
+        dataDesc()
+    if selection[4]:
+        v2()
+    if selection[5]:
+        clustMain()
+    if selection[6]:
+        resultMain()
+
 
 
 
