@@ -226,7 +226,7 @@ def interface():
                     [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
 
     if st.session_state.stage > 0:
-        displayInput(st.session_state.input))
+        displayInput(st.session_state.input)
 
     def executeQuery(query):
         st.write("Prediction Results")
