@@ -16,14 +16,12 @@ def modes(column, df_modes):
 def bullet_points(items):
     st.write("- " + "\n- ".join(items))
 
-def displayPrediction(cluster, query, row):
+def displayPrediction(cluster, query, probs):
     st.title("Prediction Results")
     st.write(cluster)
 
     with st.expander("View Input"):
         displayInput(query)
-
-    probs = loaded_model.predict_proba(row)
 
     st.subheader("Prediction Probabilities")
     st.table(probs)
@@ -92,8 +90,9 @@ def process(query):
 
         y_predicted = loaded_model.predict(row)
         cluster = y_predicted[0]
+        probs = loaded_model.predict_proba(row)
 
-        displayPrediction(cluster, query, row)
+        displayPrediction(cluster, query, probs)
 
 
 
