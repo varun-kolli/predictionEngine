@@ -156,11 +156,11 @@ def interface():
 
     if st.session_state.stage > 0:
         stuff = st.session_state.input
-        smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
-        dispHeaders = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
-        data = list(zip(dispHeaders, smt))
-        with st.container():
-            st.subheader("Survey Input")
+        smt = ["Answer", stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+        headers = ["Question", 'AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+        data = {}
+        for i in range(len(headers)):
+            data[headers[i]] = smt[i]
             st.table(data)
 
 
