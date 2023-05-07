@@ -44,10 +44,8 @@ def displayPrediction(cluster, query, probs):
     cluster_values = cluster_values[0]
     df['Probability'] = cluster_values
 
-    df['Probabilities'] = df['Probabilities'].apply(lambda x: float(x) * 100)
-
-    # format percentages to display only three decimal places
-    df['Probabilities'] = df['Probabilities'].apply(lambda x: format(x, '.3f'))
+    df['Probability'] = df['Probability'].apply(lambda x: float(x) * 100)
+    df['Probability'] = df['Probability'].apply(lambda x: format(x, '.3f'))
 
 
     st.dataframe(df)
