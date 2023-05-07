@@ -33,9 +33,11 @@ def displayPrediction(cluster, query, probs):
             "1": ['Bipolar', 'Depression'],
             "2": ['Schizophrenia/psychotic', 'Substance Abuse']}
 
+    df = pd.DataFrame([(key, val) for key, values in keys.items() for val in values],
+                      columns=["Cluster", "Disorder"])
 
-    df = pd.DataFrame(data = keys, columns=['Cluster', 'Disorder'])
-    st.dataframe(df)
+    st.write(df)
+
 
 
 def process(query):
