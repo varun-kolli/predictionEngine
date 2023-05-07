@@ -46,7 +46,7 @@ def displayPrediction(cluster, query, probs):
     df['Probability'] = cluster_values
 
     def highlight_green(val):
-        color = 'lightgreen' if val == 20 else ''
+        color = 'lightgreen' if val == cluster else ''
         return f'background-color: {color}'
 
     # apply the function to the dataframe
