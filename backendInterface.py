@@ -38,9 +38,10 @@ def displayPrediction(cluster, query, probs):
     df = pd.DataFrame.from_dict(keys, orient='index', columns=['Disorders'])
     df.index.name = 'Cluster'
     probsDisp = list(ordered_dict.values())
-    df["Probabilities"] = probsDisp
     st.write(probsDisp)
-    st.write("hellio")
+
+    df['Probabilities']= df['Cluster'].map(probsDisp)
+
     st.write(df)
 
     with st.expander("View Input"):
