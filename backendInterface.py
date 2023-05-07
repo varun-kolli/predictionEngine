@@ -19,12 +19,13 @@ def bullet_points(items):
 def displayPrediction(cluster, query, probs):
     st.title("Prediction Results")
     st.write(cluster)
-
-    with st.expander("View Input"):
-        displayInput(query)
+    st.write(type(cluster))
 
     st.subheader("Prediction Probabilities")
     st.table(probs)
+
+    with st.expander("View Input"):
+        displayInput(query)
 
     """
     cluster = str(int(float(cluster)))
