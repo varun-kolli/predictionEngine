@@ -87,63 +87,6 @@ def process(query):
         st.table(smt)
 
 
-def prompt():
-
-    with st.form(key='my_form'):
-        user = []
-
-        ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-        agestuff = st.selectbox('Age group', ageOptions)
- 
-        education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
-        educstuff = st.selectbox("Highest completed education level", education_levels, help = "highest education level completed")
-
-        employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
-        employstuff = st.selectbox("Employment status", employment_statuses)
-
-        genderstuff = st.radio("Sex", options=["Male", "Female"])
-
-        statestuff = st.selectbox("State of Residence",
-                                                      ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-                                                       "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-                                                       "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-                                                       "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-                                                       "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
-
-
-        housing_situations = ["Homeless", "Private residence", "Other"]
-        livArangstuff = st.selectbox("Current Living Arrangement", housing_situations)
-
-        ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
-
-        ethnicitystuff = st.selectbox("Ethnicity", ethnicities)
-
-        race_options = ['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple']
-        racestuff = st.selectbox('Race:', options=race_options)
-
-        marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
-        marStatstuff = st.selectbox('Marital status:', options=marital_status_options)
-
-        sapstuff = st.radio("Substance Abuse History", options=["Yes", "No"])
-
-        veteranstuff = st.radio("Veteran Status", options=["Yes, I am or have been an active duty member of the United States armed forces", "No"])
-        numhs =  st.selectbox("Select number of mental health disorder diagnoses", options = [1, 2, 3])
-
-        l = (agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs)
-        #st.session_state.input.append(l)
-        st.session_state.input = l
-
-        submit = st.form_submit_button('Submit', on_click = process, args = l)
-
-        if submit:
-            form_data = [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, veteranstuff, numhs]
-
-            #compute(form_data)
-            #st.write(form_data)
-
-
-
-
 def displayInput(stuff):
         headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
 
