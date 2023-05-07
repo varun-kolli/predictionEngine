@@ -145,7 +145,7 @@ def interface():
         marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
         marStatstuff = st.selectbox('Marital Status:', options=marital_status_options)
 
-        sapstuff = st.radio("Substance Abuse History", options=["Yes", "No"])
+        sapstuff = st.radio("Substance Abuse History", options=["Yes", "No"], help = "Please select 'yes' if you have experienced issues with substance abuse")
 
         #veteranstuff = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
@@ -157,6 +157,7 @@ def interface():
     if st.session_state.stage > 0:
         stuff = st.session_state.input
         smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+        headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
         data = list(zip(headers, smt))
         with st.container():
             st.subheader("Survey Input")
