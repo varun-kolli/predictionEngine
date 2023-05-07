@@ -38,13 +38,7 @@ def displayPrediction(cluster, query, probs):
             data.append([cluster, disorder, 0])
 
     df = pd.DataFrame(data, columns=['Cluster', 'Disorders', 'Probability']
-
-    """
-    cluster = str(int(float(cluster)))
-    st.subheader("Predicted Cluster: " + cluster)
-    st.write("Here are the disorders in this cluster: ")
-    bullet_points(keys[cluster])
-    """
+    st.dataframe(df)
 
 
 def process(query):
