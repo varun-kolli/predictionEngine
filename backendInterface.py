@@ -40,7 +40,7 @@ def displayPrediction(cluster, query, probs):
     probsDisp = list(ordered_dict.values())
     st.write(probsDisp)
 
-    df['Probabilities']= df['Cluster'].map(probsDisp)
+    df['Probabilities'] = df.index.map(probsDisp)
 
     st.write(df)
 
