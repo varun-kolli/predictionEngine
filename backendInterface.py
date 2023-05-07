@@ -18,7 +18,7 @@ def bullet_points(items):
 
 def displayPrediction(cluster, query, row):
     st.title("Prediction Results")
-    st.subheader("Predicted Cluster: " + cluster)
+    st.write(cluster)
 
     with st.expander("View Input"):
         displayInput(query)
