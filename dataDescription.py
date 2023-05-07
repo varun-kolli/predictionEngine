@@ -6,10 +6,6 @@ def about():
 
 def display_dataframe(file_path):
     df = pd.read_csv(file_path, index_col=0)
-    #df = df.rename(columns={df.columns[0]: "", df.columns[1]: "Value"})
-    new_columns = ['Value']
-    df.columns = new_columns
-
     st.dataframe(df)
 
 def dataCols():
