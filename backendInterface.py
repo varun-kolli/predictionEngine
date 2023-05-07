@@ -27,10 +27,20 @@ def displayPrediction(cluster, query, probs):
     with st.expander("View Input"):
         displayInput(query)
 
+    keys = {"0": ['ADHD', 'Anxiety', 'Conduct disorder', 'Delirium, dementia', 'Oppositional defiant disorder', 'Other', 'Personality disorder', 'Pervasive developmental disorder', 'Trauma-related'],
+            "1": ['Bipolar', 'Depression'],
+            "2": ['Schizophrenia/psychotic', 'Substance abuse']}
+
+    data = []
+    for cluster, disorders in keys.items():
+        for disorder in disorders:
+            data.append([cluster, disorder, 0])
+
+    df = pd.DataFrame(data, columns=['Cluster', 'Disorders', 'Probability']
+    st.dataframe(df)
     """
     cluster = str(int(float(cluster)))
     st.subheader("Predicted Cluster: " + cluster)
-    keys = {"0": ['ADHD', 'Anxiety', 'Conduct disorder', 'Delirium, dementia', 'Oppositional defiant disorder', 'Other', 'Personality disorder', 'Pervasive developmental disorder', 'Trauma-related'], "1": ['Bipolar', 'Depression'], "2": ['Schizophrenia/psychotic', 'Substance abuse']}
     st.write("Here are the disorders in this cluster: ")
     bullet_points(keys[cluster])
     """
