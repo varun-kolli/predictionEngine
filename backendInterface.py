@@ -21,7 +21,6 @@ def displayPrediction(cluster, query, probs):
     cluster = str(int(float(cluster)))
     st.write("Decision Tree Classification: Cluster " + cluster)
 
-
     st.subheader("Prediction Probabilities")
     st.table(probs)
 
@@ -31,14 +30,6 @@ def displayPrediction(cluster, query, probs):
     keys = {"0": ['ADHD', 'Anxiety', 'Conduct disorder', 'Delirium, dementia', 'Oppositional defiant disorder', 'Other', 'Personality disorder', 'Pervasive developmental disorder', 'Trauma-related'],
             "1": ['Bipolar', 'Depression'],
             "2": ['Schizophrenia/psychotic', 'Substance abuse']}
-
-    data = []
-    for cluster, disorders in keys.items():
-        for disorder in disorders:
-            data.append([cluster, disorder, 0])
-
-    df = pd.DataFrame(data, columns=['Cluster', 'Disorders', 'Probability']
-    st.dataframe(df)
 
 
 def process(query):
