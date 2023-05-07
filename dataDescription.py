@@ -22,18 +22,16 @@ def display():
     }
 
     df = pd.DataFrame.from_dict(disorders, orient='index', columns=['Count'])
-    df = df.reset_index().rename(columns={'index': 'Mental Health Disorder'})
+        df = df.reset_index().rename(columns={'index': 'Disorder Type'})
 
     # Create vertical bar chart using Altair
-    bars = alt.Chart(df).mark_bar().encode(
+    chart = alt.Chart(df).mark_bar().encode(
         x=alt.X('Disorder Type:N', sort='-y', axis=alt.Axis(labelAngle=90)),
         y='#Cases:Q'
-    )
-
-    chart = (bars + text).properties(
+    ).properties(
         width=700,
         height=500,
-        title='Mental Health Disorders in the United States'
+        title='Mental Health Disorders in 2019'
     )
 
     # Display chart using Streamlit
