@@ -42,7 +42,7 @@ def display():
     chart = (bars + text).properties(
         width=700,
         height=500,
-        title='Mental Health Disorders in the United States'
+        title='Mental Health Disorders in 2019 (US)'
     )
 
     # Display chart using Streamlit
