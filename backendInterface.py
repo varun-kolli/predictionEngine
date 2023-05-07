@@ -161,7 +161,15 @@ def interface():
         data = {}
         for i in range(len(headers)):
             data[headers[i]] = smt[i]
-            st.table(data)
+        st.table(data)
+
+
+    def executeQuery(stuff):
+        query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+        st.header("Prediction Results")
+        with st.container():
+            displayInput(query)
+        process(query)
 
 
     if st.session_state.stage > 0:
