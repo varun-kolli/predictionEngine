@@ -17,10 +17,17 @@ def bullet_points(items):
     st.write("- " + "\n- ".join(items))
 
 def displayPrediction(cluster):
-    col1, col2, col3 = st.columns(3)
-    col1.metric("", "")
-    col2.metric("Cluster", cluster)
-    col3.metric("", "")
+    st.title("Prediction Results")
+    st.subheader("Predicted Cluster: " + cluster)
+
+    with st.expander("View Input"):
+        displayInput(query)
+
+    probs = loaded_model.predict_proba(row)
+
+    st.subheader("Prediction Probabilities")
+    st.table(smt)
+
     """
     cluster = str(int(float(cluster)))
     st.subheader("Predicted Cluster: " + cluster)
@@ -86,11 +93,8 @@ def process(query):
         y_predicted = loaded_model.predict(row)
         cluster = y_predicted[0]
 
-        displayPrediction(cluster)
-        smt = loaded_model.predict_proba(row)
+        displayPrediction(cluster, query, row)
 
-        st.subheader("prediction Probabilities")
-        st.table(smt)
 
 
 def displayInput(stuff):
@@ -174,9 +178,7 @@ def interface():
 
     def executeQuery(stuff):
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
-        st.header("Prediction Results")
-        with st.expander("View Input"):
-            displayInput(query)
+
         process(query)
 
 
