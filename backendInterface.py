@@ -161,7 +161,7 @@ def interface():
         data = list(zip(dispHeaders, smt))
         with st.container():
             st.subheader("Survey Input")
-            st.table(data, headers=["Question", "Answer"])
+            st.table(data)
 
 
     if st.session_state.stage > 0:
