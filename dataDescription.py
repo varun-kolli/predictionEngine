@@ -26,20 +26,19 @@ def display():
 
     # Create vertical bar chart using Altair
     bars = alt.Chart(df).mark_bar().encode(
-        x=alt.X('Mental Health Disorder:N', sort='-y', axis=alt.Axis(labelAngle=0)),
+        x=alt.X('Mental Health Disorder:N', sort='-y', axis=alt.Axis(labelAngle=90)),
         y='Count:Q'
     )
 
-    # Add text labels to bars
+    # Combine bars and text labels
     text = bars.mark_text(
-        align='left',
-        baseline='middle',
-        dy=-5  # Shift text above bar
+        align='center',
+        baseline='bottom',
+        dy=-5
     ).encode(
         text='Count:Q'
     )
 
-    # Combine bars and text labels
     chart = (bars + text).properties(
         width=700,
         height=500,
