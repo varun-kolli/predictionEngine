@@ -65,7 +65,7 @@ def displayPrediction(cluster, query, probs):
     df['Probability'] = cluster_values
 
     df['Probability'] = df['Probability'].apply(lambda x: float(x) * 100)
-    df['Probabilities'] = df['Probabilities'].apply(lambda x: format(x, '.3f') + '%')
+    df['Probability'] = df['Probability'].apply(lambda x: format(x, '.3f') + '%')
 
 
     #st.dataframe(df)
