@@ -22,7 +22,7 @@ def display():
     }
 
     df = pd.DataFrame.from_dict(disorders, orient='index', columns=['Count'])
-        df = df.reset_index().rename(columns={'index': 'Disorder Type'})
+    df = df.reset_index().rename(columns={'index': 'Disorder Type'})
 
     # Create vertical bar chart using Altair
     chart = alt.Chart(df).mark_bar().encode(
