@@ -38,7 +38,7 @@ def displayPrediction(cluster, query, probs):
             data.append([cluster, disorder, 0])
 
     df = pd.DataFrame(data, columns=['Cluster', 'Disorders', 'Probability']
-    st.dataframe(df)
+    #st.dataframe(df)
 
 
 def process(query):
