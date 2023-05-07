@@ -23,14 +23,12 @@ def initializeSideBar():
     if selection[1]:
         interface()
     if selection[2]:
-        methMain()
-    if selection[3]:
         dataDesc()
-    if selection[4]:
+    if selection[3]:
         v2()
-    if selection[5]:
+    if selection[4]:
         clustMain()
-    if selection[6]:
+    if selection[5]:
         resultMain()
 
 

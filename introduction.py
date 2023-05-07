@@ -24,8 +24,8 @@ def introduction():
     st.write('Visualizing this into heat maps and time series plots will allow us to examine how the variables we study change over time and by region, as well as get a better insight into which areas of our data our model should focus on.')
 
     # Expected Outcomes
-    st.header('Expected Outcomes')
-    st.write('The resulting framework will implement a data-driven approach in utilizing temporal and spatial data analytics as well as machine learning techniques to identify risk factors as well as visualize the problem in the United States.')
+    st.header('Solution Approach')
+    st.write("In investigating our problem, we have divided our approach into two focuses: Descriptive and Predictive Analytics. Using Tableau, we will explore the relationships between demographic factors and mental health disorders in the United States and learn insights to help develop our machine learning models. The Predictive Analytics team will develop and evaluate various machine learning models from the SAMDHA datasets to identify risk factors")
 
     st.write(" ")
     st.markdown("<p style='text-align: center;'>Project Advisor: Tali Freed</p>", unsafe_allow_html=True)
