@@ -30,22 +30,12 @@ def display():
         y='#Cases:Q'
     )
 
-    # Combine bars and text labels
-    text = bars.mark_text(
-        align='center',
-        baseline='bottom',
-        dy=-5
-    ).encode(
-        text='#Cases:Q'
-    )
-
-    chart = (bars + text).properties(
+    chart = (bars).properties(
         width=700,
         height=500,
-        title='Mental Health Disorders in 2019 (US)'
+        title='Mental Health Disorders in 2019'
     )
 
-    # Display chart using Streamlit
     st.altair_chart(chart, use_container_width=True)
 
 
