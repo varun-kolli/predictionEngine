@@ -25,7 +25,7 @@ def initializeSideBar():
     if selection[2]:
         dataDesc()
     if selection[3]:
-        v2()
+        methMain()
     if selection[4]:
         clustMain()
     if selection[5]:
