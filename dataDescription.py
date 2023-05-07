@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 
-def show():
+def display():
     disorders = {
         "Trauma- and stressor-related disorders": 887413,
         "Schizophrenia or other psychotic disorders": 669384,
@@ -33,7 +33,7 @@ def about():
     st.write('The datasets used to train the machine learning models are from the Substance Abuse and Mental Health Data Archive (SAMHDA) Client-Level data which is specific to facilities in the United States that produce reports about diagnoses and associated demographic information from the years 2013 to 2019. Each row of the dataset corresponds to a patient and their demographic information as well as their mental health diagnosis.')
     st.write("")
     st.write("The machine learning models will be trained on the year 2019 in accounting for computational limitations of processing the data from all years.")
-    show()
+    display()
 
 def display_dataframe(file_path):
     df = pd.read_csv(file_path, index_col=0)
