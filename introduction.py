@@ -4,7 +4,7 @@ import streamlit as st
 def introduction():
 
     st.title("Predictive Analytics Framework for Mental Health Diagnoses")
-    image = Image.open('images/mhImage.jpg')
+    image = Image.open('images/mhImage.png')
     st.image(image, use_column_width = auto)
 
     st.header('Project Goal')
