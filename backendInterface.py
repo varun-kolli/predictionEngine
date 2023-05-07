@@ -32,8 +32,11 @@ def displayPrediction(cluster, query, probs):
         "2": 'Schizophrenia/psychotic, Substance Abuse'
     }
 
-    df = pd.DataFrame.from_dict(keys, orient='index', columns=['disorders'])
-    df.index.name = 'cluster'
+    df = pd.DataFrame.from_dict(keys, orient='index', columns=['Disorders'])
+    df.index.name = 'Cluster'
+
+    new_col = pd.Series(probs, name='Probabilities')
+    df = pd.concat([df, new_col], axis=1)
 
     st.write(df)
 
