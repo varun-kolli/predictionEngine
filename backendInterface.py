@@ -31,10 +31,10 @@ def highlight_row(df, index):
     styled_df = df.style
 
     # highlight the specified row with a background color
-    styled_df = styled_df.apply(lambda x: ['background-color: yellow' if x.name == index else '' for i in x], axis=1)
+    styled_df = styled_df.apply(lambda x: ['background-color: lightgreen' if x.name == index else '' for i in x], axis=1)
 
     # display the styled DataFrame in Streamlit
-    st.dataframe(styled_df, height=500)
+    st.dataframe(styled_df)
 
 def displayPrediction(cluster, query, probs):
     st.title("Prediction Results")
