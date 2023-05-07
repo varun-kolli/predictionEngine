@@ -4,33 +4,22 @@ import matplotlib.pyplot as plt
 
 def display():
     disorders = {
+        "Depressive disorders": 1471993,
+        "Anxiety disorders": 707078,
         "Trauma- and stressor-related disorders": 887413,
         "Schizophrenia or other psychotic disorders": 669384,
-        "Pervasive developmental disorders": 58396,
-        "Personality disorders": 47905,
-        "Other disorders/conditions": 498034,
-        "Oppositional defiant disorders": 109143,
-        "Depressive disorders": 1471993,
-        "Delirium, dementia": 16873,
-        "Conduct disorders": 86239,
         "Bipolar disorders": 595334,
         "Attention deficit/hyperactivity disorder (ADHD)": 443138,
-        "Anxiety disorders": 707078,
-        "Alcohol or substance use disorders": 187839
+        "Alcohol or substance use disorders": 187839,
+        "Other disorders/conditions": 498034,
+        "Oppositional defiant disorders": 109143,
+        "Conduct disorders": 86239,
+        "Pervasive developmental disorders": 58396,
+        "Personality disorders": 47905,
+        "Delirium, dementia": 16873
     }
 
-    # plot the dictionary as a bar chart using Matplotlib
-    fig, ax = plt.subplots()
-    ax.bar(disorders.keys(), disorders.values())
-    ax.set_xticklabels(disorders.keys(), rotation=90)
-    ax.set_title("Number of cases for each disorder")
-    ax.set_xlabel("Disorder")
-    ax.set_ylabel("Number of cases")
-
-    # show the Matplotlib chart on Streamlit using st.pyplot()
-    st.pyplot(fig)
-
-
+    st.bar_chart(disorders, x = "Disorder Type", y = "#Cases")
 
 
 def about():
