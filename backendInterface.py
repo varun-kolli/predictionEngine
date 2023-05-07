@@ -163,7 +163,8 @@ def interface():
             data['Question'] = headers
             data['Answer'] = smt
         df = pd.DataFrame(data)
-        st.dataframe(df.set_index('Question'))
+        with st.container():
+            st.dataframe(df.set_index('Question'))
 
     def executeQuery(stuff):
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
