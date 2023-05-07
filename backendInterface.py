@@ -38,21 +38,27 @@ def displayPrediction(cluster, query, probs):
     df = pd.DataFrame.from_dict(keys, orient='index', columns=['Disorders'])
     df.index.name = 'Cluster'
 
-    st.write(df)
+    #st.write(df)
 
     sorted_probs = sorted(map(int, probs_dict.keys()))
     ordered_probs = {str(key): probs_dict[str(key)] for key in sorted_probs}
 
     cluster_values = [ordered_probs[str(i)] for i in range(len(ordered_probs))]
     cluster_values = cluster_values[0]
-    st.write(cluster_values)
     df['Probability'] = cluster_values
 
     pd.set_option('display.max_colwidth', -1)
 
-    with st.beta_container():
-        st.write(df.style.set_table_styles([{"selector": "td", "props": [("max-width", "300px")]}]).set_properties(**{'text-align': 'left'}).set_table_attributes("style='overflow-x: scroll;'"))
+    def highlight_row(num):
+        return ['background-color: lightgreen' if i==num else '' for i in range(len(df))]
 
+    # display the dataframe with expanded row height and highlighted row
+    with st.beta_container():
+        st.write(df.style
+                 .set_table_styles([{"selector": "td", "props": [("max-width", "300px")]}])
+                 .set_properties(**{'text-align': 'left'})
+                 .set_table_attributes("style='overflow-x: scroll;'")
+                 .apply(lambda x: highlight_row(cluster), axis=1)) # replace 1 with the integer value of the row you want to highlight
 
     with st.expander("View Input"):
         displayInput(query)
