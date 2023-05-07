@@ -48,9 +48,7 @@ def displayPrediction(cluster, query, probs):
     st.write(cluster_values)
     df['Probability'] = cluster_values
 
-    with st.beta_container():
-        st.write(df.style.set_table_styles([{"selector": "td", "props": [("max-width", "300px")]}]).set_properties(**{'text-align': 'left'}).set_table_attributes("style='overflow-x: scroll;'"))
-
+    st.dataframe(df)
 
     with st.expander("View Input"):
         displayInput(query)
