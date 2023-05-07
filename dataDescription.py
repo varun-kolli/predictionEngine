@@ -1,12 +1,52 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
-from PIL import Image
-
 
 def display():
-    image = Image.open('CSV_files/DataAnalyticsDashboard-1.png')
-    st.image(image)
+    disorders = {
+        "Depressive disorders": 1471993,
+        "Anxiety disorders": 707078,
+        "Trauma- and stressor-related disorders": 887413,
+        "Schizophrenia or other psychotic disorders": 669384,
+        "Bipolar disorders": 595334,
+        "Attention deficit/hyperactivity disorder (ADHD)": 443138,
+        "Alcohol or substance use disorders": 187839,
+        "Other disorders/conditions": 498034,
+        "Oppositional defiant disorders": 109143,
+        "Conduct disorders": 86239,
+        "Pervasive developmental disorders": 58396,
+        "Personality disorders": 47905,
+        "Delirium, dementia": 16873
+    }
+
+    df = pd.DataFrame.from_dict(disorders, orient='index', columns=['count'])
+    df = df.reset_index().rename(columns={'index': 'disorder'})
+
+    # Create bar chart using Altair
+    bars = alt.Chart(df).mark_bar().encode(
+        x='count:Q',
+        y=alt.Y('disorder:N', sort='-x')
+    )
+
+    # Add text labels to bars
+    text = bars.mark_text(
+        align='left',
+        baseline='middle',
+        dx=3  # Shift text to right of bar
+    ).encode(
+        text='count:Q'
+    )
+
+    # Combine bars and text labels
+    chart = (bars + text).properties(
+        width=700,
+        height=500,
+        title='Mental Health Disorders in the United States'
+    )
+
+    # Display chart using Streamlit
+    st.altair_chart(chart, use_container_width=True)
+
 
 def about():
     st.subheader("About the Data")
