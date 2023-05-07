@@ -29,9 +29,9 @@ def displayPrediction(cluster, query, probs):
     with st.expander("View Input"):
         displayInput(query)
 
-    keys = {"0": ['ADHD', 'Anxiety', 'Conduct disorder', 'Delirium, dementia', 'Oppositional defiant disorder', 'Other', 'Personality disorder', 'Pervasive developmental disorder', 'Trauma-related'],
+    keys = {"0": ['ADHD', 'Anxiety', 'Conduct Disorder', 'Delirium", "Dementia', 'Oppositional Defiant Disorder', 'Other', 'Personality Disorder', 'Pervasive Developmental Disorder', 'Trauma-Related'],
             "1": ['Bipolar', 'Depression'],
-            "2": ['Schizophrenia/psychotic', 'Substance abuse']}
+            "2": ['Schizophrenia/psychotic', 'Substance Abuse']}
 
 
     df = pd.DataFrame(data = keys, columns=['Cluster', 'Disorder'])
