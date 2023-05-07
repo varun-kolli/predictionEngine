@@ -24,9 +24,9 @@ def displayPrediction(cluster, query, probs):
     st.subheader("Decision Tree Classification: Cluster " + cluster)
 
     st.subheader("Prediction Probabilities")
-    st.write(type(probs))
-    st.write(probs)
-    st.table(probs)
+    probs_dict = {f"{i}": p for i, p in enumerate(probs.tolist())}
+    st.write(probs_dict)
+    #st.table(probs)
 
     keys = {
         "0": 'ADHD, Anxiety, Conduct Disorder, Delirium, Dementia, Oppositional Defiant Disorder, Other, Personality Disorder, Pervasive Developmental Disorder, Trauma-Related',
