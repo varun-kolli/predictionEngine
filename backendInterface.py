@@ -25,8 +25,6 @@ def displayPrediction(cluster, query, probs):
 
     st.subheader("Prediction Probabilities")
     probs_dict = {f"{i}": p for i, p in enumerate(probs.tolist())}
-    #st.write(probs_dict)
-    #st.table(probs)
 
     keys = {
         "0": 'ADHD, Anxiety, Conduct Disorder, Delirium, Dementia, Oppositional Defiant Disorder, Other, Personality Disorder, Pervasive Developmental Disorder, Trauma-Related',
@@ -42,7 +40,7 @@ def displayPrediction(cluster, query, probs):
     probsDisp = list(ordered_dict.values())
     df["Probabilities"] = probsDisp
     st.write(probsDisp)
-
+    st.write("hellio")
     st.write(df)
 
     with st.expander("View Input"):
