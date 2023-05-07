@@ -23,7 +23,6 @@ def displayPrediction(cluster, query, probs):
     st.write("")
     st.subheader("Decision Tree Classification: Cluster " + cluster)
 
-    st.subheader("Prediction Probabilities")
     probs_dict = {f"{i}": p for i, p in enumerate(probs.tolist())}
 
     keys = {
@@ -45,14 +44,13 @@ def displayPrediction(cluster, query, probs):
     cluster_values = cluster_values[0]
     df['Probability'] = cluster_values
 
-    def highlight_green(val):
-        color = 'lightgreen' if val == cluster else ''
-        return f'background-color: {color}'
+    df['Probabilities'] = df['Probabilities'].apply(lambda x: float(x) * 100)
 
-    # apply the function to the dataframe
-    styled_df = df.style.applymap(highlight_green)
+    # format percentages to display only three decimal places
+    df['Probabilities'] = df['Probabilities'].apply(lambda x: format(x, '.3f'))
 
-    st.dataframe(styled_df)
+
+    st.dataframe(df)
 
     with st.expander("View Input"):
         displayInput(query)
