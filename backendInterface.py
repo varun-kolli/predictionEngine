@@ -18,8 +18,9 @@ def bullet_points(items):
 
 def displayPrediction(cluster, query, probs):
     st.title("Prediction Results")
-    st.write(cluster)
-    st.write(type(cluster))
+    cluster = str(int(float(cluster)))
+    st.write("Decision Tree Classification: Cluster " + cluster)
+
 
     st.subheader("Prediction Probabilities")
     st.table(probs)
