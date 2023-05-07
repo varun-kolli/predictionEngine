@@ -34,9 +34,17 @@ def displayPrediction(cluster, query, probs):
         "2": 'Schizophrenia/psychotic, Substance Abuse'
     }
 
+    sorted_keys = sorted(map(int, keys.keys()))
+    ordered_dict = {str(key): keys[str(key)] for key in sorted_keys}
+
+    df["Probabilities"] = list(ordered_dict.values())
+
     df = pd.DataFrame.from_dict(keys, orient='index', columns=['Disorders'])
     df.index.name = 'Cluster'
-    df['Probability'] = df.index.map(probs_dict)
+
+
+
+
     st.write(df)
 
     with st.expander("View Input"):
