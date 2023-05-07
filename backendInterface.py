@@ -38,17 +38,21 @@ def displayPrediction(cluster, query, probs):
     df = pd.DataFrame.from_dict(keys, orient='index', columns=['Disorders'])
     df.index.name = 'Cluster'
 
-    st.write(df)
-
     sorted_probs = sorted(map(int, probs_dict.keys()))
     ordered_probs = {str(key): probs_dict[str(key)] for key in sorted_probs}
 
     cluster_values = [ordered_probs[str(i)] for i in range(len(ordered_probs))]
     cluster_values = cluster_values[0]
-    st.write(cluster_values)
     df['Probability'] = cluster_values
 
-    st.dataframe(df)
+    def highlight_green(val):
+        color = 'lightgreen' if val == 20 else ''
+        return f'background-color: {color}'
+
+    # apply the function to the dataframe
+    styled_df = df.style.applymap(highlight_green)
+
+    st.dataframe(styled_df)
 
     with st.expander("View Input"):
         displayInput(query)
