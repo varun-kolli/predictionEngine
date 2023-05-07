@@ -52,11 +52,7 @@ def displayPrediction(cluster, query, probs):
 
     # display the dataframe with expanded row height and highlighted row
     with st.beta_container():
-        st.write(df.style
-                 .set_table_styles([{"selector": "td", "props": [("max-width", "300px")]}])
-                 .set_properties(**{'text-align': 'left'})
-                 .set_table_attributes("style='overflow-x: scroll;'")
-                 .apply(lambda x: highlight_row(cluster), axis=1)) # replace 1 with the integer value of the row you want to highlight
+        st.write(df.apply(lambda x: highlight_row(cluster), axis=1))
 
     with st.expander("View Input"):
         displayInput(query)
