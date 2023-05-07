@@ -1,9 +1,8 @@
 import pandas as pd
 import streamlit as st
 
-def about()
+def about():
     st.subheader("About the Data")
-
 
 def dataCols():
     st.subheader("Features")
