@@ -6,18 +6,18 @@ import altair as alt
 
 def display():
     disorders = {
-        "Depressive disorders": 1471993,
-        "Anxiety disorders": 707078,
-        "Trauma- and stressor-related disorders": 887413,
-        "Schizophrenia or other psychotic disorders": 669384,
-        "Bipolar disorders": 595334,
-        "Attention deficit/hyperactivity disorder (ADHD)": 443138,
-        "Alcohol or substance use disorders": 187839,
-        "Other disorders/conditions": 498034,
-        "Oppositional defiant disorders": 109143,
-        "Conduct disorders": 86239,
-        "Pervasive developmental disorders": 58396,
-        "Personality disorders": 47905,
+        "Depressive ": 1471993,
+        "Anxiety ": 707078,
+        "Trauma/stressor-related ": 887413,
+        "Schizophrenia /psychotic ": 669384,
+        "Bipolar": 595334,
+        "ADHD": 443138,
+        "Substance Abuse": 187839,
+        "Other ": 498034,
+        "Oppositional defiance": 109143,
+        "Conduct ": 86239,
+        "Pervasive developmental": 58396,
+        "Personality": 47905,
         "Delirium, dementia": 16873
     }
 
@@ -26,17 +26,8 @@ def display():
 
     # Create vertical bar chart using Altair
     bars = alt.Chart(df).mark_bar().encode(
-        x=alt.X('Mental Health Disorder:N', sort='-y', axis=alt.Axis(labelAngle=90)),
-        y='Count:Q'
-    )
-
-    # Combine bars and text labels
-    text = bars.mark_text(
-        align='center',
-        baseline='bottom',
-        dy=-5
-    ).encode(
-        text='Count:Q'
+        x=alt.X('Disorder Type:N', sort='-y', axis=alt.Axis(labelAngle=90)),
+        y='#Cases:Q'
     )
 
     chart = (bars + text).properties(
