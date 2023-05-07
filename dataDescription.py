@@ -1,11 +1,32 @@
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
+
 
 def about():
     st.subheader("About the Data")
     st.write("")
     st.write('The datasets used to train the machine learning models are from the Substance Abuse and Mental Health Data Archive (SAMHDA) Client-Level data which is specific to facilities in the United States that produce reports about diagnoses and associated demographic information from the years 2013 to 2019. Each row of the dataset corresponds to a patient and their demographic information as well as their mental health diagnosis.')
+    st.write("")
+    st.write("The machine learning models will be trained on the year 2019 in accounting for computational limitations of processing the data from all years.")
+    df = pd.read_csv('CSV_files/2019.csv')
 
+    # Sort the dataframe by the count of disorders in descending order
+    df = df.sort_values(by=['Count of Disorder'], ascending=False)
+
+    # Create a horizontal bar plot
+    plt.barh(df['Mental Health Diagnosis 1'], df['Count of Disorder'])
+
+    # Set the x-axis tick labels to be vertical
+    plt.xticks(rotation=90)
+
+    # Set the plot title and axis labels
+    plt.title('Mental Health Diagnoses in 2019')
+    plt.xlabel('Count of Disorder')
+    plt.ylabel('Mental Health Diagnosis')
+
+    # Show the plot
+    plt.show()
 
 def display_dataframe(file_path):
     df = pd.read_csv(file_path, index_col=0)

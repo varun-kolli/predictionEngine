@@ -27,7 +27,7 @@ def introduction():
 
     # Expected Outcomes
     st.header('Solution Approach')
-    st.write("In investigating our problem, we have divided our approach into two focuses: Descriptive and Predictive Analytics. Using Tableau, we will explore the relationships between demographic factors and mental health disorders in the United States and learn insights to help develop our machine learning models. The Predictive Analytics team will develop and evaluate various machine learning models from the SAMDHA datasets to identify risk factors")
+    st.write("In investigating our problem, we have divided our approach into two focuses: Descriptive and Predictive Analytics. Using Tableau, we will explore the relationships between demographic factors and mental health disorders in the United States and learn insights to help develop our machine learning models. The Predictive Analytics team will develop and evaluate various machine learning models from the SAMDHA datasets to identify risk factors.")
 
     st.write(" ")
     st.markdown("<p style='text-align: center;'>Project Advisor: Tali Freed</p>", unsafe_allow_html=True)
