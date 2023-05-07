@@ -40,7 +40,7 @@ def displayPrediction(cluster, query, probs):
 
     st.write(df)
 
-    cluster_values = [cluster_dict[str(i)] for i in range(len(cluster_dict))]
+    cluster_values = [ordered_dict[str(i)] for i in range(len(cluster_dict))]
     df['Cluster Value'] = cluster_values
 
     st.write(df)
