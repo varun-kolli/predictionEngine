@@ -1,26 +1,12 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
+from PIL import Image
+
 
 def display():
-    disorders = {
-        "Depressive disorders": 1471993,
-        "Anxiety disorders": 707078,
-        "Trauma- and stressor-related disorders": 887413,
-        "Schizophrenia or other psychotic disorders": 669384,
-        "Bipolar disorders": 595334,
-        "Attention deficit/hyperactivity disorder (ADHD)": 443138,
-        "Alcohol or substance use disorders": 187839,
-        "Other disorders/conditions": 498034,
-        "Oppositional defiant disorders": 109143,
-        "Conduct disorders": 86239,
-        "Pervasive developmental disorders": 58396,
-        "Personality disorders": 47905,
-        "Delirium, dementia": 16873
-    }
-
-    st.bar_chart(disorders)
-
+    image = Image.open('CSV_files/DataAnalyticsDashboard-1.png')
+    st.image(image)
 
 def about():
     st.subheader("About the Data")
