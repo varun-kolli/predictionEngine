@@ -16,6 +16,26 @@ def modes(column, df_modes):
 def bullet_points(items):
     st.write("- " + "\n- ".join(items))
 
+def highlight_row(df, index):
+    """
+    Highlights the row with the specified integer index in a pandas DataFrame.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame to highlight a row in.
+    index (int): The integer index of the row to highlight.
+
+    Returns:
+    pandas.DataFrame: The original DataFrame with the specified row highlighted.
+    """
+    # create a copy of the DataFrame with no highlighting
+    styled_df = df.style
+
+    # highlight the specified row with a background color
+    styled_df = styled_df.apply(lambda x: ['background-color: yellow' if x.name == index else '' for i in x], axis=1)
+
+    # display the styled DataFrame in Streamlit
+    st.dataframe(styled_df, height=500)
+
 def displayPrediction(cluster, query, probs):
     st.title("Prediction Results")
     cluster = str(int(float(cluster)))
@@ -48,7 +68,8 @@ def displayPrediction(cluster, query, probs):
     df['Probabilities'] = df['Probabilities'].apply(lambda x: format(x, '.3f') + '%')
 
 
-    st.dataframe(df)
+    #st.dataframe(df)
+    highlight_row(df, cluster)
 
     with st.expander("View Input"):
         displayInput(query)
