@@ -26,7 +26,7 @@ def display():
 
     # Create vertical bar chart using Altair
     bars = alt.Chart(df).mark_bar().encode(
-        x=alt.X('Disorder Type:N', sort='-y', axis=alt.Axis(labelAngle=90)),
+        x=alt.X('Mental Health Disorder:N', sort='-y', axis=alt.Axis(labelAngle=90)),
         y='#Cases:Q'
     )
 
