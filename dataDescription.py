@@ -25,7 +25,8 @@ def display():
     plt.title("Number of cases for each disorder")
     plt.xlabel("Disorder")
     plt.ylabel("Number of cases")
-    plt.show()
+    st.bar_chart(disorders)
+
 
 def about():
     st.subheader("About the Data")
