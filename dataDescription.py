@@ -21,7 +21,7 @@ def display():
         "Delirium, dementia": 16873
     }
 
-    df = pd.DataFrame.from_dict(disorders, orient='index', columns=['Count'])
+    df = pd.DataFrame.from_dict(disorders, orient='index', columns=['#Cases'])
     df = df.reset_index().rename(columns={'index': 'Mental Health Disorder'})
 
     # Create vertical bar chart using Altair
