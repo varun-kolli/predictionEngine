@@ -46,9 +46,11 @@ def displayPrediction(cluster, query, probs):
     cluster_values = [ordered_probs[str(i)] for i in range(len(ordered_probs))]
     cluster_values = cluster_values[0]
     st.write(cluster_values)
-    df['Cluster Value'] = cluster_values
+    df['Probability'] = cluster_values
 
-    st.write(df)
+    with st.beta_container():
+        st.write(df.style.set_table_styles([{"selector": "td", "props": [("max-width", "300px")]}]).set_properties(**{'text-align': 'left'}).set_table_attributes("style='overflow-x: scroll;'"))
+
 
     with st.expander("View Input"):
         displayInput(query)
