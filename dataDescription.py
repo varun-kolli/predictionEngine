@@ -21,22 +21,22 @@ def display():
         "Delirium, dementia": 16873
     }
 
-    df = pd.DataFrame.from_dict(disorders, orient='index', columns=['count'])
-    df = df.reset_index().rename(columns={'index': 'disorder'})
+    df = pd.DataFrame.from_dict(disorders, orient='index', columns=['Count'])
+    df = df.reset_index().rename(columns={'index': 'Mental Health Disorder'})
 
-    # Create bar chart using Altair
+    # Create vertical bar chart using Altair
     bars = alt.Chart(df).mark_bar().encode(
-        x='count:Q',
-        y=alt.Y('disorder:N', sort='-x')
+        x=alt.X('Mental Health Disorder:N', sort='-y', axis=alt.Axis(labelAngle=0)),
+        y='Count:Q'
     )
 
     # Add text labels to bars
     text = bars.mark_text(
         align='left',
         baseline='middle',
-        dx=3  # Shift text to right of bar
+        dy=-5  # Shift text above bar
     ).encode(
-        text='count:Q'
+        text='Count:Q'
     )
 
     # Combine bars and text labels
