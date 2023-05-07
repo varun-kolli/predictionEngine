@@ -19,7 +19,7 @@ def display():
         "Delirium, dementia": 16873
     }
 
-    st.bar_chart(disorders, x = "Disorder Type", y = "#Cases")
+    st.bar_chart(disorders)
 
 
 def about():
