@@ -22,11 +22,11 @@ def display():
     }
 
     df = pd.DataFrame.from_dict(disorders, orient='index', columns=['#Cases'])
-    df = df.reset_index().rename(columns={'index': 'Mental Health Disorder'})
+    df = df.reset_index().rename(columns={'index': 'Disorder Type'})
 
     # Create vertical bar chart using Altair
     bars = alt.Chart(df).mark_bar().encode(
-        x=alt.X('Mental Health Disorder:N', sort='-y', axis=alt.Axis(labelAngle=90)),
+        x=alt.X('Disorder Type:N', sort='-y', axis=alt.Axis(labelAngle=90)),
         y='#Cases:Q'
     )
 
@@ -37,7 +37,7 @@ def display():
     )
 
     st.altair_chart(chart, use_container_width=True)
-
+    st.caption("Count of Disorder for each Mental Health Diagnosis. Excludes Missing/unknown/notcollected/invalid/deferred diagnosis")
 
 def about():
     st.subheader("About the Data")
