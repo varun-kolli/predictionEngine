@@ -47,8 +47,6 @@ def displayPrediction(cluster, query, probs):
     cluster_values = cluster_values[0]
     df['Probability'] = cluster_values
 
-    pd.set_option('display.max_colwidth', -1)
-
     def highlight_row(num):
         return ['background-color: lightgreen' if i==num else '' for i in range(len(df))]
 
