@@ -25,7 +25,7 @@ def displayPrediction(cluster, query, probs):
 
     st.subheader("Prediction Probabilities")
     probs_dict = {f"{i}": p for i, p in enumerate(probs.tolist())}
-    st.write(probs_dict)
+    #st.write(probs_dict)
     #st.table(probs)
 
     keys = {
@@ -37,13 +37,11 @@ def displayPrediction(cluster, query, probs):
     sorted_keys = sorted(map(int, keys.keys()))
     ordered_dict = {str(key): keys[str(key)] for key in sorted_keys}
 
-
     df = pd.DataFrame.from_dict(keys, orient='index', columns=['Disorders'])
     df.index.name = 'Cluster'
-    df["Probabilities"] = list(ordered_dict.values())
-
-
-
+    probsDisp = list(ordered_dict.values())
+    df["Probabilities"] = probsDisp
+    st.write(probsDisp)
 
     st.write(df)
 
