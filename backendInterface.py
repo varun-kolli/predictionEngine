@@ -24,6 +24,8 @@ def displayPrediction(cluster, query, probs):
     st.subheader("Decision Tree Classification: Cluster " + cluster)
 
     st.subheader("Prediction Probabilities")
+    st.write(type(probs))
+    st.write(probs)
     st.table(probs)
 
     keys = {
@@ -34,9 +36,6 @@ def displayPrediction(cluster, query, probs):
 
     df = pd.DataFrame.from_dict(keys, orient='index', columns=['Disorders'])
     df.index.name = 'Cluster'
-
-    new_col = pd.Series(probs, name='Probabilities')
-    df = pd.concat([df, new_col], axis=1)
 
     st.write(df)
 
