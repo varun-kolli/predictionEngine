@@ -26,7 +26,8 @@ def dataCols():
     with tab8:
         display_dataframe("CSV_files/livarag_key.csv")
     with tab9:
-        display_dataframe("CSV_files/marstat_key.csv")
+        #display_dataframe("CSV_files/marstat_key.csv")
+        st.write("hello")
     with tab10:
         display_dataframe("CSV_files/race_key.csv")
     with tab11:
