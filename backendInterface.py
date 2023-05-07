@@ -26,19 +26,19 @@ def displayPrediction(cluster, query, probs):
     st.subheader("Prediction Probabilities")
     st.table(probs)
 
-    with st.expander("View Input"):
-        displayInput(query)
+    keys = {
+        "0": 'ADHD, Anxiety, Conduct Disorder, Delirium, Dementia, Oppositional Defiant Disorder, Other, Personality Disorder, Pervasive Developmental Disorder, Trauma-Related',
+        "1": 'Bipolar, Depression',
+        "2": 'Schizophrenia/psychotic, Substance Abuse'
+    }
 
-    keys = {"0": ['ADHD', 'Anxiety', 'Conduct Disorder', 'Delirium", "Dementia', 'Oppositional Defiant Disorder', 'Other', 'Personality Disorder', 'Pervasive Developmental Disorder', 'Trauma-Related'],
-            "1": ['Bipolar', 'Depression'],
-            "2": ['Schizophrenia/psychotic', 'Substance Abuse']}
-
-    df = pd.DataFrame([(key, val) for key, values in keys.items() for val in values],
-                      columns=["Cluster", "Disorder"])
+    df = pd.DataFrame.from_dict(keys, orient='index', columns=['disorders'])
+    df.index.name = 'cluster'
 
     st.write(df)
 
-
+    with st.expander("View Input"):
+        displayInput(query)
 
 def process(query):
     stuff = query
