@@ -19,7 +19,9 @@ def bullet_points(items):
 def displayPrediction(cluster, query, probs):
     st.title("Prediction Results")
     cluster = str(int(float(cluster)))
-    st.write("Decision Tree Classification: Cluster " + cluster)
+    st.write("")
+    st.write("")
+    st.subheader("Decision Tree Classification: Cluster " + cluster)
 
     st.subheader("Prediction Probabilities")
     st.table(probs)
@@ -30,6 +32,10 @@ def displayPrediction(cluster, query, probs):
     keys = {"0": ['ADHD', 'Anxiety', 'Conduct disorder', 'Delirium, dementia', 'Oppositional defiant disorder', 'Other', 'Personality disorder', 'Pervasive developmental disorder', 'Trauma-related'],
             "1": ['Bipolar', 'Depression'],
             "2": ['Schizophrenia/psychotic', 'Substance abuse']}
+
+
+    df = pd.DataFrame(data = keys, columns=['Cluster', 'Disorder'])
+    st.dataframe(df)
 
 
 def process(query):
