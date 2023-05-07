@@ -17,11 +17,17 @@ def bullet_points(items):
     st.write("- " + "\n- ".join(items))
 
 def displayPrediction(cluster):
+    col1, col2, col3 = st.columns(3)
+    col1.metric("", "")
+    col2.metric("Cluster", cluster)
+    col3.metric("", "")
+    """
     cluster = str(int(float(cluster)))
     st.subheader("Predicted Cluster: " + cluster)
     keys = {"0": ['ADHD', 'Anxiety', 'Conduct disorder', 'Delirium, dementia', 'Oppositional defiant disorder', 'Other', 'Personality disorder', 'Pervasive developmental disorder', 'Trauma-related'], "1": ['Bipolar', 'Depression'], "2": ['Schizophrenia/psychotic', 'Substance abuse']}
     st.write("Here are the disorders in this cluster: ")
     bullet_points(keys[cluster])
+    """
 
 
 def process(query):
@@ -169,7 +175,7 @@ def interface():
     def executeQuery(stuff):
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
         st.header("Prediction Results")
-        with st.container():
+        with st.expander("View Input"):
             displayInput(query)
         process(query)
 
