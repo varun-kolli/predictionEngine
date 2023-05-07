@@ -115,15 +115,15 @@ def interface():
     # Some code
     with st.form(key='my_form'):
         ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-        agestuff = st.selectbox('Age Group', ageOptions)
+        agestuff = st.selectbox('Age Group', ageOptions, help = "Select most appropriate age group")
 
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
-        educstuff = st.selectbox("Highest Completed Education Level", education_levels)
+        educstuff = st.selectbox("Highest Completed Education Level", education_levels, help = "Select the highest level of education you have completed")
 
         employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
         employstuff = st.selectbox("Employment Status", employment_statuses)
 
-        genderstuff = st.radio("Sex", options=["Male", "Female"])
+        genderstuff = st.radio("Sex", options=["Male", "Female"], help = "Sex assigned at birth")
 
         statestuff = st.selectbox("State of Residence",
                                                       ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
@@ -148,7 +148,7 @@ def interface():
         sapstuff = st.radio("Substance Abuse History", options=["Yes", "No"])
 
         #veteranstuff = st.radio("Veteran", options=["Yes", "No"])
-        numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [1, 2, 3], help = "hiii")
+        numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
         veteranstuff = "No"
 
         submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
@@ -158,7 +158,12 @@ def interface():
         st.subheader("Survey Input")
         stuff = st.session_state.input
         smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
-        displayInput(smt)
+        headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+        data = {'Question': headers, 'Answer': smt}
+        df = pd.DataFrame(data)
+
+        with st.container():
+            st.write(df)
 
 
     def executeQuery(stuff):
