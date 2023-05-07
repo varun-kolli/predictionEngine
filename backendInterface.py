@@ -48,6 +48,8 @@ def displayPrediction(cluster, query, probs):
     st.write(cluster_values)
     df['Probability'] = cluster_values
 
+    pd.set_option('display.max_colwidth', -1)
+
     with st.beta_container():
         st.write(df.style.set_table_styles([{"selector": "td", "props": [("max-width", "300px")]}]).set_properties(**{'text-align': 'left'}).set_table_attributes("style='overflow-x: scroll;'"))
 
