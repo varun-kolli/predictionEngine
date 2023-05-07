@@ -20,12 +20,17 @@ def display():
     }
 
     # plot the dictionary as a bar chart using Matplotlib
-    plt.bar(disorders.keys(), disorders.values())
-    plt.xticks(rotation=90)
-    plt.title("Number of cases for each disorder")
-    plt.xlabel("Disorder")
-    plt.ylabel("Number of cases")
-    st.bar_chart(disorders)
+    fig, ax = plt.subplots()
+    ax.bar(disorders.keys(), disorders.values())
+    ax.set_xticklabels(disorders.keys(), rotation=90)
+    ax.set_title("Number of cases for each disorder")
+    ax.set_xlabel("Disorder")
+    ax.set_ylabel("Number of cases")
+
+    # show the Matplotlib chart on Streamlit using st.pyplot()
+    st.pyplot(fig)
+
+
 
 
 def about():
