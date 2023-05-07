@@ -15,7 +15,7 @@ def methMain():
 
     st.subheader("Why Encode?")
     st.write(" ")
-    st.write("In order to use continuous data as input to a classification model, it needs to be discretized or categorized. This is because classification models are designed to predict the probability of a given input belonging to each possible output category, but continuous data doesn't have distinct categories. Categorical encoding involves converting the continuous data into a set of discrete categories that can be used as input features in the classification model.")"
+    st.write("In order to use continuous data as input to a classification model, it needs to be discretized or categorized. This is because classification models are designed to predict the probability of a given input belonging to each possible output category, but continuous data doesn't have distinct categories. Categorical encoding involves converting the continuous data into a set of discrete categories that can be used as input features in the classification model.")
     st.write("")
 
     st.subheader("Handling Null Values")
