@@ -13,13 +13,13 @@ def clustMain():
         2: ["Schizophrenia/psychotic disorder"]
     }
 
-
+    st.caption(" 'Cluster #' % represents proportion of total cases")
+    st.caption(" 'Disorder' % represents proportion of cases within cluster")
     col1, col2, col3 = st.columns(3)
     st.write(" ")
     st.write(" ")
 
-    st.caption(" 'Cluster #' % represents proportion of total cases")
-    st.caption(" 'Disorder' % represents proportion of cases within cluster")
+
 
     st.write(" ")
 
