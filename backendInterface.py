@@ -146,7 +146,7 @@ def displayInput(stuff):
         df_transposed = df_transposed.T
 
         # create a Streamlit table from the transposed dataframe
-        st.table(df)
+        st.table(df_transposed)
         #st.dataframe(df_transposed)
 
 def interface():
