@@ -30,9 +30,10 @@ def resultMain():
 
     # create a Pandas dataframe from the dictionary
     df = pd.DataFrame(data)
+    df.reset_index(inplace=True, level=['Feature'])
 
     # create a Streamlit table from the dataframe
-    st.table(df)
+    st.dataframe(df)
 
     st.write(" ")
 
