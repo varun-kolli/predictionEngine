@@ -10,7 +10,7 @@ def methMain():
     columns = 'AGE, MH1, EDUC, ETHNIC, RACE, GENDER, MARSTAT, SAP, EMPLOY, LIVARAG, NUMMHS, STATEFIP'
     st.write("      Columns included: " + columns)
     st.write("      Columns dropped: VETERAN, DETNLF")
-st.caption("        More columns dropped due to high level of nulls, irrelenvant info about the medical center, or redundancy")
+    st.caption("        More columns dropped due to high level of nulls, irrelenvant info about the medical center, or redundancy")
     st.write("")
 
     st.subheader("  B. Why Encode?")
