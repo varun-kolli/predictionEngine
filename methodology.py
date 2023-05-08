@@ -16,7 +16,7 @@ def methMain():
         st.write('' + columns_included)
 
     with col2:
-        st.subheader('**Dropped**')
+        st.write('**Dropped**')
         st.write('' + columns_dropped)
     st.caption("        More columns dropped due to high level of nulls, irrelenvant info about the medical center, or redundancy")
     st.write("")
