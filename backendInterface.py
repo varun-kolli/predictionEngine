@@ -154,57 +154,65 @@ def interface():
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
         st.session_state.input = []
+        st.session_state.ret = []
 
     def set_stage(stage, input):
         st.session_state.stage = stage
         st.session_state.input= input
+
         interface()
         #displayInput(input)
+    alpha = 0
 
     # Some code
-    with st.form(key='my_form'):
-        ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-        agestuff = st.selectbox('Age Group', ageOptions, help = "Select most appropriate age group")
+    if alpha == 0:
+        with st.form(key='my_form'):
+            ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
+            agestuff = st.selectbox('Age Group', ageOptions, help = "Select most appropriate age group")
 
-        education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
-        educstuff = st.selectbox("Highest Completed Education Level", education_levels, help = "Select the highest level of education you have completed")
+            education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
+            educstuff = st.selectbox("Highest Completed Education Level", education_levels, help = "Select the highest level of education you have completed")
 
-        employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
-        employstuff = st.selectbox("Employment Status", employment_statuses)
+            employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
+            employstuff = st.selectbox("Employment Status", employment_statuses)
 
-        genderstuff = st.radio("Sex", options=["Male", "Female"], help = "Sex assigned at birth")
+            genderstuff = st.radio("Sex", options=["Male", "Female"], help = "Sex assigned at birth")
 
-        statestuff = st.selectbox("State of Residence",
-                                                      ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-                                                       "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-                                                       "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-                                                       "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-                                                       "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
+            statestuff = st.selectbox("State of Residence",
+                                                          ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+                                                           "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+                                                           "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+                                                           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+                                                           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
 
 
-        housing_situations = ["Homeless", "Private residence", "Other"]
-        livArangstuff = st.selectbox("Living Arrangement", housing_situations)
+            housing_situations = ["Homeless", "Private residence", "Other"]
+            livArangstuff = st.selectbox("Living Arrangement", housing_situations)
 
-        ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
-        ethnicitystuff = st.selectbox("Ethnicity", ethnicities)
+            ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
+            ethnicitystuff = st.selectbox("Ethnicity", ethnicities)
 
-        race_options = ['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple']
-        racestuff = st.selectbox('Race:', options=race_options)
+            race_options = ['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple']
+            racestuff = st.selectbox('Race:', options=race_options)
 
-        marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
-        marStatstuff = st.selectbox('Marital Status:', options=marital_status_options)
+            marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
+            marStatstuff = st.selectbox('Marital Status:', options=marital_status_options)
 
-        sapstuff = st.radio("Substance Abuse History", options=["Yes", "No"], help = "Please select 'yes' if you have experienced issues with substance abuse")
+            sapstuff = st.radio("Substance Abuse History", options=["Yes", "No"], help = "Please select 'yes' if you have experienced issues with substance abuse")
 
-        #veteranstuff = st.radio("Veteran", options=["Yes", "No"])
-        numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
-        veteranstuff = "No"
+            #veteranstuff = st.radio("Veteran", options=["Yes", "No"])
+            numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
+            veteranstuff = "No"
 
-        submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
-                    [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
+            submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
+                        [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
+            alpha = 1
+
+    if alpha == 1:
+        st.session_state.ret = st.session_state.input
 
     if st.session_state.stage > 0:
-        stuff = st.session_state.input
+        stuff = st.session_state.ret
         smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
         headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
         data = {}
