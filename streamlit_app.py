@@ -9,6 +9,7 @@ from methodology import methMain
 from dataDescription import dataDesc
 from clustering import clustMain
 from results import resultMain
+from ml import mlMain
 
 
 def initializeSideBar():
@@ -28,6 +29,8 @@ def initializeSideBar():
         methMain()
     if selection[4]:
         clustMain()
+    if selection[5]:
+        mlMain()
     if selection[5]:
         resultMain()
 
