@@ -143,9 +143,11 @@ def displayInput(stuff):
         df_transposed = df_query.transpose().reset_index()
         df_transposed.columns = df_transposed.iloc[0]
         df_transposed = df_transposed.iloc[1:]
+        df = df.T
 
-        st.dataframe(df_transposed)
-
+        # create a Streamlit table from the transposed dataframe
+        st.table(df)
+        #st.dataframe(df_transposed)
 
 def interface():
     st.title("Backend Interface")

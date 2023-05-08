@@ -14,7 +14,7 @@ def introduction():
     st.header('Background')
     st.write('Mental health issues are a growing problem in the United States, with 1 in 5 Americans experiencing a mental illness in a given year and over 50% being diagnosed with a mental disorder at some point in their lifetimes.')
     st.write('Current research addressing this problem is largely qualitative, but we will be using a data-driven analysis to study this problem.')
-    st.write('The model will evaluate machine learning techniques to train our model such as Decision Tree Classifier, Random Forest Classifier, and AdaBoost Classifier.')
+    st.write('This project will evaluate machine learning techniques to train our model such as Decision Tree Classifier, Random Forest Classifier, and AdaBoost Classifier.')
 
     # Data Sources
     st.header('Data Sources')
