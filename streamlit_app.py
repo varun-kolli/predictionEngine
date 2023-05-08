@@ -31,7 +31,7 @@ def initializeSideBar():
         clustMain()
     if selection[5]:
         mlMain()
-    if selection[5]:
+    if selection[6]:
         resultMain()
 
 

@@ -14,7 +14,7 @@ def mlMain():
     st.write("Algorithm: Decision Tree Classifier")
     st.write("- K-fold Cross Validation: **k** = 5")
     st.write("- Training/Testing split: 70/30")
-    st.write("In training our model we tuned our hyperparamters to yield the hghest F1 score")
+    st.write("- Additional hyperparameter tuning")
 
     st.write(" ")
     st.subheader("AWS EC2 Instance")
