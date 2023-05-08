@@ -21,7 +21,7 @@ def clustMain():
     st.caption(" 'Cluster #' % represents proportion of total cases")
     st.caption(" 'Disorder' % represents proportion of cases within cluster")
 
-        st.write(" ")
+    st.write(" ")
 
 
     # Display the disorders in cluster 0 in the first column
@@ -58,5 +58,4 @@ def clustMain():
     # Display the disorders in cluster 2 in the third column
     with col3:
         st.write("**Cluster 2: 11.7%**")
-
         st.write("- " + "\n- ".join(clusters[2]))
