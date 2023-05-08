@@ -39,8 +39,8 @@ def clustMain():
             "Pervasive developmental disorder": 0.023,
             "Trauma-related disorders": 0.3508
         }
-        cluster_0_dict = dict(sorted(cluster_0_dict.values(), key=lambda x: x[0], reverse=True))
-        for disorder, percentage in cluster_0_dict.items():
+        sorted_dict_0 = dict(sorted(cluster_0_dict.items(), reverse=True))
+        for disorder, percentage in sorted_dict_0.items():
             st.write(f"- {disorder}: {percentage:.2%}")
 
 
@@ -51,8 +51,8 @@ def clustMain():
             "Bipolar": 0.2881,
             "Depression": 0.712
         }
-        cluster_1_dict = dict(sorted(cluster_1_dict.values(), key=lambda x: x[0], reverse=True))
-        for disorder, percentage in cluster_1_dict.items():
+        sorted_dict_1 = dict(sorted(cluster_1_dict.items(), reverse=True))
+        for disorder, percentage in sorted_dict_1.items():
                 st.write(f"- {disorder}: {percentage:.2%}")
 
     # Display the disorders in cluster 2 in the third column
