@@ -6,19 +6,19 @@ def methMain():
     st.write(" ")
     st.header("I. Categorical Encoding")
     st.write(" ")
-    st.subheader("  A. Filtering")
+    st.subheader("  A. Feature Filtering")
     columns_included = 'AGE, MH1, EDUC, ETHNIC, RACE, GENDER, MARSTAT, SAP, EMPLOY, LIVARAG, NUMMHS, STATEFIP'
     columns_dropped = 'VETERAN, DETNLF'
 
     col1, col2 = st.columns(2)
 
     with col1:
-        st.write('Included')
-        st.write('Columns: ' + columns_included)
+        st.subheader('Included')
+        st.write('' + columns_included)
 
     with col2:
-        st.write('Dropped')
-        st.write('Columns: ' + columns_dropped)
+        st.subheader('Dropped')
+        st.write('' + columns_dropped)
     st.caption("        More columns dropped due to high level of nulls, irrelenvant info about the medical center, or redundancy")
     st.write("")
 
