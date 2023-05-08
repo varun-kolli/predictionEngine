@@ -39,7 +39,7 @@ def clustMain():
                 "Conduct disorder": 0.034,
                 "Delirium/dementia": 0.0067
         }
-        for disorder, percentage in sorted_dict_0.items():
+        for disorder, percentage in cluster_0_dict.items():
             st.write(f"- {disorder}: {percentage:.2%}")
 
 
@@ -50,8 +50,7 @@ def clustMain():
             "Depression": 0.712,
             "Bipolar": 0.2881
         }
-        sorted_dict_1 = dict(sorted(cluster_1_dict.items(), reverse=True))
-        for disorder, percentage in sorted_dict_1.items():
+        for disorder, percentage in cluster_1_dict.items():
                 st.write(f"- {disorder}: {percentage:.2%}")
 
     # Display the disorders in cluster 2 in the third column
