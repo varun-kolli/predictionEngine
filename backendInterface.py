@@ -46,9 +46,9 @@ def displayPrediction(cluster, query, probs):
     probs_dict = {f"{i}": p for i, p in enumerate(probs.tolist())}
 
     keys = {
-        "0": 'ADHD, Anxiety, Conduct Disorder, Delirium, Dementia, Oppositional Defiant Disorder, Other, Personality Disorder, Pervasive Developmental Disorder, Trauma-Related',
+        "0": 'ADHD, Anxiety, Conduct Disorder, Delirium, Substance Abuse, Dementia, Oppositional Defiant Disorder, Other, Personality Disorder, Pervasive Developmental Disorder, Trauma-Related',
         "1": 'Bipolar, Depression',
-        "2": 'Schizophrenia/psychotic, Substance Abuse'
+        "2": 'Schizophrenia/psychotic'
     }
 
     sorted_keys = sorted(map(int, keys.keys()))
