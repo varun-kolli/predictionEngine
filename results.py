@@ -29,8 +29,7 @@ def resultMain():
     }
 
     # create a Pandas dataframe from the dictionary
-    df = pd.DataFrame(data)
-    df['Feature'] = df.index
+    df = pd.DataFrame(data).set_index("Feature")
 
     # create a Streamlit table from the dataframe
     st.dataframe(df)
