@@ -29,7 +29,7 @@ def methMain():
 
     st.header("II. Handling Null Values")
     st.write(" ")
-    st.markdown("**To determine which approach to take in dealing with null values in the dataset, we trained our machine learning model on data with the null value rows *dropped* and a dataset with the null values replaced by the *mode*.**")
+    st.markdown("To determine which approach to take in dealing with null values in the dataset, we trained our machine learning model on data with the null value rows **dropped** and a dataset with the null values replaced by the **mode**.")
     st.write(" ")
     st.subheader("  Methods: ")
     st.write("  ")
