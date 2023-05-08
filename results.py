@@ -19,8 +19,11 @@ def resultMain():
     st.dataframe(df)
 
     st.subheader("Confusion Matrix")
-    image = Image.open('images/cf_mat.png', use_column_width=True)
-    st.image(image)
+
+
+    img_path = "images/cf_mat.png"
+    img = open(img_path, "rb").read()
+    st.image(img, use_column_width=True)
 
     st.subheader("Feature Importance")
     data = {
@@ -37,5 +40,6 @@ def resultMain():
     st.write(" ")
 
     st.subheader("Decision Tree")
-    image = Image.open('images/modes_decision_tree-1.png', use_column_width=True)
-    st.image(image)
+    img_path = "images/modes_decision_tree-1.png"
+    img = open(img_path, "rb").read()
+    st.image(img, use_column_width=True)

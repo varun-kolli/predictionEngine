@@ -8,7 +8,7 @@ def mlMain():
     st.write(" ")
     img_path = "images/mlChart.png"
     img = open(img_path, "rb").read()
-    st.image(img, use_column_width=True)\
+    st.image(img, use_column_width=True)
 
     st.subheader("Model Information")
     st.write("Algorithm: Decision Tree Classifier")
