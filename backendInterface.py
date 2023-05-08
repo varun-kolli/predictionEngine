@@ -143,7 +143,7 @@ def displayInput(stuff):
         df_transposed = df_query.transpose().reset_index()
         df_transposed.columns = df_transposed.iloc[0]
         df_transposed = df_transposed.iloc[1:]
-        df_transposed = df.T
+        df_transposed = df_transposed.T
 
         # create a Streamlit table from the transposed dataframe
         st.table(df)
