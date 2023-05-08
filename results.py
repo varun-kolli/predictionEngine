@@ -1,5 +1,4 @@
 import pandas as pd
-from PIL import Image
 import streamlit as st
 
 def resultMain():
@@ -19,7 +18,6 @@ def resultMain():
     st.dataframe(df)
 
     st.subheader("Confusion Matrix")
-
 
     img_path = "images/cf_mat.png"
     img = open(img_path, "rb").read()
