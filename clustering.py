@@ -29,17 +29,16 @@ def clustMain():
         st.write("**Cluster 0: 46.8%**")
         # Cluster 0 dictionary
         cluster_0_dict = {
-            "ADHD": 0.1751,
-            "Anxiety": 0.2792,
-            "Conduct disorder": 0.034,
-            "Delirium/dementia": 0.0067,
-            "Oppositional defiant disorder": 0.0431,
-            "Substance abuse disorder": 0.0741,
-            "Personality disorders": 0.0189,
-            "Pervasive developmental disorder": 0.023,
-            "Trauma-related disorders": 0.3508
+                "Trauma-related disorders": 0.3508,
+                "Anxiety": 0.2792,
+                "ADHD": 0.1751,
+                "Substance abuse disorder": 0.0741,
+                "Oppositional defiant disorder": 0.0431,
+                "Pervasive developmental disorder": 0.023,
+                "Personality disorders": 0.0189,
+                "Conduct disorder": 0.034,
+                "Delirium/dementia": 0.0067
         }
-        sorted_dict_0 = dict(sorted(cluster_0_dict.items(), reverse=True))
         for disorder, percentage in sorted_dict_0.items():
             st.write(f"- {disorder}: {percentage:.2%}")
 
@@ -48,8 +47,8 @@ def clustMain():
     with col2:
         st.write("**Cluster 1: 36.3%**")
         cluster_1_dict = {
-            "Bipolar": 0.2881,
-            "Depression": 0.712
+            "Depression": 0.712,
+            "Bipolar": 0.2881
         }
         sorted_dict_1 = dict(sorted(cluster_1_dict.items(), reverse=True))
         for disorder, percentage in sorted_dict_1.items():
