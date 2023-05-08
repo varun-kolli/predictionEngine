@@ -8,4 +8,18 @@ def mlMain():
     st.write(" ")
     img_path = "images/mlChart.png"
     img = open(img_path, "rb").read()
-    st.image(img, use_column_width=True)
+    st.image(img, use_column_width=True)\
+
+    st.subheader("Model Information")
+    st.write("Algorithm: Decision Tree Classifier")
+    st.write("- K-fold Cross Validation: **k** = 5")
+    st.write("- Training/Testing split: 70/30")
+    st.write("In training our model we tuned our hyperparamters to yield the hghest F1 score")
+
+    st.write(" ")
+    st.subheader("AWS EC2 Instance")
+    st.write("- instance type: c5.9xlarge")
+    st.write("- 36 vCPU")
+    st.write("- 72 GiB memory")
+    st.caption("$750 dollar funding allocation")
+
