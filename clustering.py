@@ -17,28 +17,41 @@ def clustMain():
     col1, col2, col3 = st.columns(3)
     st.write("")
     st.write("")
-
+    st.caption("Percentage")
 
     # Display the disorders in cluster 0 in the first column
     with col1:
-        st.write("**Cluster 0**")
-        st.write(" ")
-        st.write("Percent of Total Cases: **46.8%**")
-        st.write("")
-        st.write("- " + "\n- ".join(clusters[0]))
+        st.write("**Cluster 0: 46.8%**")
+        # Cluster 0 dictionary
+        cluster_0_dict = {
+            "ADHD": 0.1751,
+            "Anxiety": 0.2792,
+            "Conduct disorder": 0.034,
+            "Delirium/dementia": 0.0067,
+            "Oppositional defiant disorder": 0.0431,
+            "Substance abuse disorder": 0.0741,
+            "Personality disorders": 0.0189,
+            "Pervasive developmental disorder": 0.023,
+            "Trauma-related disorders": 0.3508
+        }
+        cluster_0_dict = dict(sorted(cluster_0_dict.items(), key=lambda x: x[0], reverse=True))
+        for disorder, percentage in cluster_0_dict.items():
+            st.write(f"- {disorder}: {percentage:.2%}")
+
 
     # Display the disorders in cluster 1 in the second column
     with col2:
-        st.write("**Cluster 1**")
-        st.write(" ")
-        st.write("Percent of Total Cases: **36.3%**")
-        st.write("")
-        st.write("- " + "\n- ".join(clusters[1]))
+        st.write("**Cluster 1: 36.3%**")
+        cluster_1_dict = {
+            "Bipolar": 0.2881,
+            "Depression": 0.712
+        }
+        cluster_1_dict = dict(sorted(cluster_1_dict.items(), key=lambda x: x[0], reverse=True))
+        for disorder, percentage in cluster_1_dict.items():
+                st.write(f"- {disorder}: {percentage:.2%}")
 
     # Display the disorders in cluster 2 in the third column
     with col3:
-        st.write("**Cluster 2**")
-        st.write(" ")
-        st.write("Percent of Total Cases: **11.7%**")
-        st.write("")
+        st.write("**Cluster 2: 11.7%**")
+
         st.write("- " + "\n- ".join(clusters[2]))
