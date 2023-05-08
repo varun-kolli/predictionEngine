@@ -9,7 +9,7 @@ def display():
         "Depressive ": 1471993,
         "Anxiety ": 707078,
         "Trauma/stressor-related ": 887413,
-        "Schizophrenia /psychotic ": 669384,
+        "Schizophrenia/psychotic ": 669384,
         "Bipolar": 595334,
         "ADHD": 443138,
         "Substance Abuse": 187839,
