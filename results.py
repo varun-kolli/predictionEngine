@@ -30,18 +30,28 @@ def resultMain():
 
     st.subheader("Feature Importance")
     data = {
-        "Feature": ["STATEFIP", "AGE", "MARSTAT", "GENDER", "EDUC", "EMPLOY", "NUMMHS", "SAP", "LIVARAG", "RACE", "ETHNIC"],
-        "Importance": [0.247583, 0.239926, 0.14362, 0.090526, 0.079785, 0.07844, 0.037469, 0.033961, 0.021968, 0.021573, 0.00515]
-    }
+            "Feature": ["STATEFIP", "AGE", "MARSTAT", "GENDER", "EDUC", "EMPLOY", "NUMMHS", "SAP", "LIVARAG", "RACE", "ETHNIC"],
+            "Importance": [0.247583, 0.239926, 0.14362, 0.090526, 0.079785, 0.07844, 0.037469, 0.033961, 0.021968, 0.021573, 0.00515]
+        }
 
-    # create a Pandas dataframe from the dictionary
-    df = pd.DataFrame(data).set_index("Feature")
+    # Convert the data to a Pandas DataFrame
+    df = pd.DataFrame(data)
 
-    # transpose the dataframe
-    df = df.T
+    # Sort the DataFrame by importance in descending order
+    df = df.sort_values(by="Importance", ascending=False)
 
-    # create a Streamlit table from the transposed dataframe
-    st.table(df)
+    # Create the bar chart using Altair
+    chart = alt.Chart(df).mark_bar().encode(
+        x=alt.X("Feature", sort=alt.EncodingSortField(field="Importance", op="sum", order="descending")),
+        y="Importance",
+        tooltip=["Feature", "Importance"]
+    ).properties(
+        width=700,
+        height=400
+    )
+
+    # Display the chart in Streamlit
+    st.altair_chart(chart, use_container_width=True)
 
     st.write(" ")
 
