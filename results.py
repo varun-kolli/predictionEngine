@@ -32,7 +32,7 @@ def resultMain():
 
     st.subheader("Feature Importance")
     data = {
-            "Feature": ["STATEFIP", "AGE", "MARSTAT", "GENDER", "EDUC", "EMPLOY", "NUMMHS", "SAP", "LIVARAG", "RACE", "ETHNIC"],
+            "Feature": ["State", "Age", "Marital Status", "Sex", "Education", "Employment Status", "#Mental Health Disorders", "Substance Abuse", "Living Arrangement", "Race", "Ethnicity"],
             "Importance": [0.247583, 0.239926, 0.14362, 0.090526, 0.079785, 0.07844, 0.037469, 0.033961, 0.021968, 0.021573, 0.00515]
         }
 
