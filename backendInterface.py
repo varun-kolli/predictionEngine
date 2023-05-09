@@ -160,7 +160,7 @@ def interface():
         st.session_state.stage = stage
         st.session_state.input= input
 
-
+        st.write(input)
         #displayInput(input)
 
     # Some code
