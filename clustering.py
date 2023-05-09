@@ -35,8 +35,8 @@ def clustMain():
                 "Substance abuse ": 0.0741,
                 "Oppositional defiant": 0.0431,
                 "Pervasive developmental": 0.023,
-                "Personality disorders": 0.0189,
-                "Conduct disorder": 0.034,
+                "Personality": 0.0189,
+                "Conduct ": 0.034,
                 "Delirium/dementia": 0.0067
         }
         for disorder, percentage in cluster_0_dict.items():
