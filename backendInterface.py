@@ -205,17 +205,20 @@ def interface():
         submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
                     [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
 
-    if st.session_state.stage > 0 and st.session_state.input != ['15-17', '0 to 8', 'Full time', 'Male', 'AL', 'Homeless', 'Mexican', 'Native', 'Never married', 'Yes', 1]:
+    #if st.session_state.stage > 0 and st.session_state.input != ['15-17', '0 to 8', 'Full time', 'Male', 'AL', 'Homeless', 'Mexican', 'Native', 'Never married', 'Yes', 1]:
+    if st.session_state.stage == 1:
         stuff = st.session_state.input
-        smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
-        headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
-        data = {}
-        for i in range(len(headers)):
-            data['Question'] = headers
-            data['Answer'] = smt
-        df = pd.DataFrame(data)
-        with st.container():
-            st.table(df.set_index('Question').T)
+    else:
+        stuff = [""]*11
+    smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+    headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+    data = {}
+    for i in range(len(headers)):
+        data['Question'] = headers
+        data['Answer'] = smt
+    df = pd.DataFrame(data)
+    with st.container():
+        st.table(df.set_index('Question').T)
 
     def executeQuery(stuff):
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
