@@ -151,6 +151,7 @@ def displayInput(stuff):
 
 def interface():
     st.title("Backend Interface")
+    st.button("hi")
     if 'stage' not in st.session_state:
         st.session_state.stage = 0
         st.session_state.input = []
@@ -158,17 +159,7 @@ def interface():
 
     def set_stage(stage, input):
         st.session_state.stage = stage
-        if st.session_state.stage > 0:
-            stuff = input
-            smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
-            headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
-            data = {}
-            for i in range(len(headers)):
-                data['Question'] = headers
-                data['Answer'] = smt
-                df = pd.DataFrame(data)
-            with st.container():
-                st.table(df.set_index('Question').T)
+        st.session_state.input= input
 
         interface()
         #displayInput(input)
@@ -217,6 +208,17 @@ def interface():
 
     #if st.session_state.stage > 0 and st.session_state.input != ['15-17', '0 to 8', 'Full time', 'Male', 'AL', 'Homeless', 'Mexican', 'Native', 'Never married', 'Yes', 1]:
 
+    if st.session_state.stage > 0:
+        stuff = st.session_state.input
+        smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+        headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+        data = {}
+        for i in range(len(headers)):
+            data['Question'] = headers
+            data['Answer'] = smt
+            df = pd.DataFrame(data)
+        with st.container():
+            st.table(df.set_index('Question').T)
 
     def executeQuery(stuff):
         query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
