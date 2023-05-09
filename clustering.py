@@ -29,12 +29,12 @@ def clustMain():
         st.write("**Cluster 0: 46.8%**")
         # Cluster 0 dictionary
         cluster_0_dict = {
-                "Trauma-related disorders": 0.3508,
+                "Trauma-related": 0.3508,
                 "Anxiety": 0.2792,
                 "ADHD": 0.1751,
-                "Substance abuse disorder": 0.0741,
-                "Oppositional defiant disorder": 0.0431,
-                "Pervasive developmental disorder": 0.023,
+                "Substance abuse ": 0.0741,
+                "Oppositional defiant": 0.0431,
+                "Pervasive developmental": 0.023,
                 "Personality disorders": 0.0189,
                 "Conduct disorder": 0.034,
                 "Delirium/dementia": 0.0067
