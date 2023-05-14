@@ -35,3 +35,12 @@ div.css-p19owj.e16fv1kl2{
     font-weight: 900;
     color: #272525;
 }
+
+/* introduction box*/
+div.css-10q9lov.e1tzin5v0{
+    background-color: #F0F7FF;
+    color: #033267;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+}
