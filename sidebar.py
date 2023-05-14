@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 
-#hyper link samdha
 #advsor + team in box
 #round poredict proba
 #center text align indexes cluster
