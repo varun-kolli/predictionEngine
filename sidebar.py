@@ -1,11 +1,9 @@
 import pandas as pd
 import streamlit as st
 
-#round poredict proba
 #center text align indexes cluster
 #comma separate bars
 #features -> predictors + drop veteran column
-#data cleaningn columns full name
 #clustering image\#new flowchart
 #Machine Learning: Explain what that is
 #details on stuff. data partitioning, which hyperparameters

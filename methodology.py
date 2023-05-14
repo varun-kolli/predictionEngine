@@ -6,8 +6,10 @@ def methMain():
     st.write(" ")
     st.header("Categorical Encoding")
     st.write("")
-    columns_included = 'AGE, MH1, EDUC, ETHNIC, RACE, GENDER, MARSTAT, SAP, EMPLOY, LIVARAG, NUMMHS, STATEFIP'
-    columns_dropped = 'VETERAN, DETNLF'
+    columns_included = "Age, Mental Health Disorder History, Education, Ethnicity, Race, Sex, Marital Status, Substance Abuse Problem, Employment, Living Arrangement, Mental Health History, State"
+
+    #columns_included = 'AGE, MH1, EDUC, ETHNIC, RACE, GENDER, MARSTAT, SAP, EMPLOY, LIVARAG, NUMMHS, STATEFIP'
+    columns_dropped = 'Veteran Status, Miscellaneous Descriptors of Hospital'
 
     col1, col2 = st.columns(2)
 
