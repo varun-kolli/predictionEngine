@@ -32,7 +32,7 @@ def introduction():
 
 
     st.markdown("""
-        <div style='border:1px solid black; padding:1px 1px 1px 1px; width: 1000px;'>
+        <div style='border:1px solid black; padding:1px 1px 1px 1px; width: 500px;'>
             <p style='text-align: center;'>Project Advisor: Tali Freed</p>
             <p style='text-align: center;'>Project Sponsor: Puneet Agarwal</p>
             <p style='text-align: center;'>Team: Varun Kolli, Eliza Badiozamani, Kerry Fung, Om Kumar</p>
