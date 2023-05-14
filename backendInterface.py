@@ -65,14 +65,22 @@ def displayPrediction(cluster, query, probs):
     df['Probability'] = cluster_values
 
     df['Probability'] = df['Probability'].apply(lambda x: float(x) * 100)
-    df['Probability'] = df['Probability'].apply(lambda x: format(x, '.3f') + '%')
+    df['Probability'] = df['Probability'].apply(lambda x: format(x, '.2f') + '%')
 
 
     #st.dataframe(df)
     highlight_row(df, cluster)
 
     with st.expander("View Input"):
-        displayInput(query)
+        smt = query
+        headers = ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP']
+        data = {}
+        for i in range(len(headers)):
+            data['Question'] = headers
+            data['Answer'] = smt
+            df = pd.DataFrame(data)
+        with st.container():
+            st.table(df.set_index('Question').T)
 
 def process(query):
     stuff = query
