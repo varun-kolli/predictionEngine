@@ -11,7 +11,6 @@ from clustering import clustMain
 from results import resultMain
 from ml import mlMain
 
-
 def initializeSideBar():
     if "counter" not in st.session_state:
         st.session_state.counter = 0
@@ -33,10 +32,6 @@ def initializeSideBar():
         mlMain()
     if selection[6]:
         resultMain()
-
-
-
-
 
 def main():
     initializeSideBar()
