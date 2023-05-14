@@ -30,10 +30,10 @@ def introduction():
     st.write("In investigating our problem, we have divided our approach into two focuses: Descriptive and Predictive Analytics. Using Tableau, we will explore the relationships between demographic factors and mental health disorders in the United States and learn insights to help develop our machine learning models. The Predictive Analytics team will develop and evaluate various machine learning models from the SAMDHA datasets to identify risk factors.")
 
     with st.container():
-      st.markdown("""
-          <div style='border:1px solid black; padding:10px'>
-              <p style='text-align: center;'>Project Advisor: Tali Freed</p>
-              <p style='text-align: center;'>Project Sponsor: Puneet Agarwal</p>
-              <p style='text-align: center;'>Team: Varun Kolli, Eliza Badiozamani, Kerry Fung, Om Kumar</p>
-          </div>
-      """, unsafe_allow_html=True)
+        st.markdown("""
+            <div style='border:1px solid black; padding:5px 5px 5px 5px'>
+                <p style='text-align: center;'>Project Advisor: Tali Freed</p>
+                <p style='text-align: center;'>Project Sponsor: Puneet Agarwal</p>
+                <p style='text-align: center;'>Team: Varun Kolli, Eliza Badiozamani, Kerry Fung, Om Kumar</p>
+            </div>
+        """, unsafe_allow_html=True)
