@@ -18,7 +18,7 @@ def introduction():
 
     # Data Sources
     st.header('Data Sources')
-    st.write('We will leverage the datasets from the Substance Abuse and Mental Health Data Archive (SAMHDA) Client-Level data which is specific to facilities in the United States that produce reports about diagnoses and associated demographic information from the years 2013 to 2019.')
+    st.write('We will leverage the datasets from the Substance Abuse and Mental Health Data Archive ([SAMHDA](https://www.samhsa.gov/data/data-we-collect/mh-cld-mental-health-client-level-data)) Client-Level data which is specific to facilities in the United States that produce reports about diagnoses and associated demographic information from the years 2013 to 2019.')
 
     # Methodology
     st.header('Methodology')
