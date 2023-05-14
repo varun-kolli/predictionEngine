@@ -32,9 +32,9 @@ def introduction():
 
 
     st.markdown("""
-        <div style='border:1px solid black; padding:1px 1px 1px 1px; width: 500px;'>
-            <p style='text-align: center;'>Project Advisor: Tali Freed</p>
-            <p style='text-align: center;'>Project Sponsor: Puneet Agarwal</p>
-            <p style='text-align: center;'>Team: Varun Kolli, Eliza Badiozamani, Kerry Fung, Om Kumar</p>
-        </div>
-    """, unsafe_allow_html=True)
+            <div style='border:1px solid black; padding:1px 1px 1px 1px; width: 500px; margin: 0 auto;'>
+                <p style='text-align: center;'>Project Advisor: Tali Freed</p>
+                <p style='text-align: center;'>Project Sponsor: Puneet Agarwal</p>
+                <p style='text-align: center;'>Team: Varun Kolli, Eliza Badiozamani, Kerry Fung, Om Kumar</p>
+            </div>
+        """, unsafe_allow_html=True)
