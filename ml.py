@@ -13,7 +13,7 @@ def mlMain():
     st.image(img, use_column_width=True)
 
     st.subheader("Model Information")
-    st.write("Algorithm: Decision Tree Classifier")
+    st.write("Algorithm: **Decision Tree Classifier**")
     st.write("")
     st.write("A Decision Tree Classifier is a type of supervised learning algorithm used for classification problems. The model uses a tree-like model of decisions, where each internal node represents a test on an attribute, each branch represents the outcome of a test, and each leaf node represents a class label (a decision taken after computing all attributes). The paths from the root to the leaf represent classification rules. The algorithm selects the best attribute using an impurity measure such as Gini impurity or entropy, aiming to partition the data in a way that maximizes homogeneity among class labels in each subset. This model is favored in predictive analytics due to its ability to handle both categorical and numerical data, its interpretability, and its efficient computation.")
     st.write("")

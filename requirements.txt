@@ -7,4 +7,3 @@ scikit-learn
 altair
 imbalanced-learn
 Pillow
-base64
