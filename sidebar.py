@@ -12,7 +12,6 @@ import streamlit as st
 
 #more about feature importance
 #decision tree download
-#hardcode 0 as 1
 
 
 def sideBar():
