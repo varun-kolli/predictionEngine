@@ -1,5 +1,7 @@
 import pandas as pd
 import streamlit as st
+from PIL import Image
+
 
 def mlMain():
     st.title("Machine Learning")
@@ -30,7 +32,10 @@ def mlMain():
     1. **max_depth**: This is the maximum depth of the tree. Essentially, it's the maximum number of levels the tree can have. By limiting this, we can prevent overfitting by ensuring the tree doesn't become overly complex and fit to the noise in the training data.
 
     2. **min_samples_split**: This is the minimum number of samples required to split an internal node. Adjusting this parameter can help control overfitting, as a higher value would require more samples and hence prevent splitting for minor variations.
+
+    3. **min_samples_leaf**: This is the minimum number of samples required to be at a leaf node. A split point at any depth will only be considered if it leaves at least min_samples_leaf training samples in each of the left and right branches. This helps in smoothing the model, especially in regression.
     """)
+
 
     st.write(" ")
     st.header("Model Training Infrastructure")
@@ -43,7 +48,7 @@ def mlMain():
     - **Memory**: 72 GiB
     """)
 
-    with st.expander("What does this mean?", expanded=True):
+    with st.expander("What does this mean?"):
         st.markdown("""
         - **Instance Type**: This refers to the type of EC2 instance we're using. Each instance type offers different compute, memory, and storage capabilities. We used `c5.9xlarge`, which is part of the compute-optimized instances, perfect for compute-intensive tasks.
         - **vCPU**: This stands for virtual central processing unit. A vCPU is a unit of capacity that you can use to compare and configure the amount of computing power of instances. We had 36 vCPUs, allowing us to handle multiple tasks quickly.
