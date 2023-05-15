@@ -53,7 +53,7 @@ def display_dataframe(file_path):
 
 def dataCols():
     st.subheader("Features")
-    tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab13 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States")
+    tab1, tab2, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab13 = st.tabs(["Age", "Disorders", "Education", "Employment","Ethnicity", "Gender", "Living Arrangement", "Marital Status", "Race", "SAP", "States"])
     with tab1:
         display_dataframe("CSV_files/age_key.csv")
     with tab2:
