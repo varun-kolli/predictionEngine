@@ -61,3 +61,14 @@ def resultMain():
     img_path = "images/modes_decision_tree-1.png"
     img = open(img_path, "rb").read()
     st.image(img, use_column_width=True)
+
+    # Define function to create download link
+    def get_image_download_link(img_path, filename):
+      with open(img_path, 'rb') as f:
+          img_data = f.read()
+      b64 = base64.b64encode(img_data).decode()
+      return f'<a href="data:image/png;base64,{b64}" download="{filename}">Download Image</a>'
+
+    # Create download link and display it
+    download_link = get_image_download_link(img_path, "modes_decision_tree-1.png")
+    st.markdown(download_link, unsafe_allow_html=True)
