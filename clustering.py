@@ -24,51 +24,75 @@ def clustMain():
     st.caption(" 'Cluster #' % represents proportion of total cases")
     st.caption(" 'Disorder' % represents proportion of cases within cluster")
 
-    col1, col2, col3 = st.columns(3)
-
-    # Data for clusters
-    cluster_0_dict = {
-        "Trauma-related": 0.3508,
-        "Anxiety": 0.2792,
-        "ADHD": 0.1751,
-        "Substance abuse ": 0.0741,
-        "Oppositional defiant": 0.0431,
-        "Pervasive developmental": 0.023,
-        "Personality": 0.0189,
-        "Conduct ": 0.034,
-        "Delirium/dementia": 0.0067
-    }
-
-    cluster_1_dict = {
-        "Depression": 0.712,
-        "Bipolar": 0.2881
-    }
+    cluster_data = [
+        {
+            "name": "Cluster 0",
+            "percentage": 46.8,
+            "color": "red",
+            "disorders": {
+                "Trauma-related": 0.3508,
+                "Anxiety": 0.2792,
+                "ADHD": 0.1751,
+                "Substance abuse": 0.0741,
+                "Oppositional defiant": 0.0431,
+                "Pervasive developmental": 0.023,
+                "Personality": 0.0189,
+                "Conduct": 0.034,
+                "Delirium/dementia": 0.0067
+            }
+        },
+        {
+            "name": "Cluster 1",
+            "percentage": 36.3,
+            "color": "blue",
+            "disorders": {
+                "Depression": 0.712,
+                "Bipolar": 0.2881
+            }
+        }
+    ]
 
     # Convert the data to pandas DataFrame and normalize it
-    df_cluster_0 = pd.DataFrame(list(cluster_0_dict.items()), columns=['Disorder', 'Percentage'])
-    df_cluster_1 = pd.DataFrame(list(cluster_1_dict.items()), columns=['Disorder', 'Percentage'])
+    cluster_dataframes = [
+        pd.DataFrame(list(cluster["disorders"].items()), columns=["Disorder", "Percentage"])
+        for cluster in cluster_data
+    ]
 
     # Create an Altair bar chart for each cluster
-    chart_cluster_0 = alt.Chart(df_cluster_0).mark_bar().encode(
-        x='Percentage',
-        y='Disorder'
-    )
-
-    chart_cluster_1 = alt.Chart(df_cluster_1).mark_bar().encode(
-        x='Percentage',
-        y='Disorder'
-    )
+    charts = [
+        alt.Chart(df).mark_bar(color=cluster["color"]).encode(
+            x="Percentage", y="Disorder", tooltip=["Disorder", "Percentage"]
+        )
+        for df, cluster in zip(cluster_dataframes, cluster_data)
+    ]
 
     # Display the charts in Streamlit
-    with col1:
-        st.write("**Cluster 0: 46.8%**")
-        st.altair_chart(chart_cluster_0, use_container_width=True)
+    for chart, cluster in zip(charts, cluster_data):
+        st.write(f"**{cluster['name']}: {cluster['percentage']}%**")
+        st.altair_chart(chart, use_container_width=True)
 
-    with col2:
-        st.write("**Cluster 1: 36.3%**")
-        st.altair_chart(chart_cluster_1, use_container_width=True)
+    # Create a pie chart of the distribution of cluster percentages
+    cluster_percentages_df = pd.DataFrame(cluster_data)[["name", "percentage", "color"]]
+    pie_chart = (
+        alt.Chart(cluster_percentages_df)
+        .mark_arc(innerRadius=50, outerRadius=100, cornerRadius=5)
+        .encode(
+            alt.Theta(
+                "percentage",
+                stack=True,
+                scale=alt.Scale(domain=[0, 100]),
+                legend=None,
+            ),
+            color=alt.Color(
+                "color:N",
+                scale=None,
+                legend=None,
+            ),
+            tooltip=["name", "percentage"],
+        )
+        .properties(width=300, height=300)
+    )
 
-    with col3:
-        st.write("**Cluster 2: 11.7%**")
-        st.write("**Schizophrenia/psychotic** is the only disorder in this cluster")
+    st.write("**Pie chart of cluster distribution**")
+    st.altair_chart(pie_chart, use_container_width=True)
 
