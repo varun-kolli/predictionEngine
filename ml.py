@@ -12,24 +12,36 @@ def mlMain():
     img = open(img_path, "rb").read()
     st.image(img, use_column_width=True)
 
-    st.subheader("Model Information")
-    st.write("Algorithm: **Decision Tree Classifier**")
+    st.header("Model Information")
+    st.subheader("Algorithm: **Decision Tree Classifier**")
     st.write("")
+
     st.write("A Decision Tree Classifier is a type of supervised learning algorithm used for classification problems. The model uses a tree-like model of decisions, where each internal node represents a test on an attribute, each branch represents the outcome of a test, and each leaf node represents a class label (a decision taken after computing all attributes). The paths from the root to the leaf represent classification rules. The algorithm selects the best attribute using an impurity measure such as Gini impurity or entropy, aiming to partition the data in a way that maximizes homogeneity among class labels in each subset. This model is favored in predictive analytics due to its ability to handle both categorical and numerical data, its interpretability, and its efficient computation.")
     st.write("")
+
+    st.subheader("Model Validation")
     st.write("K-fold cross-validation is a resampling procedure used in machine learning to evaluate model performance. The method involves dividing the dataset into 'k' groups or folds of approximately equal size. The model is then trained on (k-1) folds while the remaining fold is used for testing, and this process is repeated k times, each time with a different fold used as the test set, to ensure a robust assessment of the model's performance. This Decision Tree Classifier model used: **k = 5**")
     st.write("")
     st.write("This model uses a 70% training and 30% test split, which means 70% of the data is used to train the model and the remaining 30% is used to evaluate its performance. This split is done to ensure that the model learns from a large portion of the data (the training set), and then its ability to generalize to new, unseen data is tested with the remaining portion (the test set).")
 
     st.write("")
+
     st.write("""
-    In machine learning, a **hyperparameter** is a configuration that is external to the model and whose value cannot be estimated from the data. They are often used in processes to help estimate model parameters.
 
     Hyperparameter tuning is the process of choosing a set of optimal hyperparameters for a learning algorithm. The same kind of machine learning model can require different constraints, weights or learning rates to generalize different data patterns.
+    """)
+    #     A **hyperparameter** is a configuration that is external to the model and whose value cannot be estimated from the data. They are often used in processes to help estimate model parameters.
+
+   with st.expander("What is a Hyperparameter?"):
+       st.write("""
+       A **hyperparameter** is a configuration that is external to the model and whose value cannot be estimated from the data. They are often used in processes to help estimate model parameters.
+       """)
+
+    st.write("""
 
     In our Decision Tree Classifier, we tuned several hyperparameters to optimize its performance:
 
-    1. **max_depth**: This is the maximum depth of the tree. Essentially, it's the maximum number of levels the tree can have. By limiting this, we can prevent overfitting by ensuring the tree doesn't become overly complex and fit to the noise in the training data.
+    1. **max_depth**: This is the maximum depth of the tree and the maximum number of levels the tree can have. By limiting this, we can prevent overfitting by ensuring the tree doesn't become overly complex and fit to the noise in the training data.
 
     2. **min_samples_split**: This is the minimum number of samples required to split an internal node. Adjusting this parameter can help control overfitting, as a higher value would require more samples and hence prevent splitting for minor variations.
 
