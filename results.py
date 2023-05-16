@@ -64,10 +64,10 @@ def resultMain():
     img = open(img_path, "rb").read()
     st.image(img, use_column_width=True)
     with open("images/modes_decision_tree-1.png", "rb") as file:
-    btn = st.download_button(
-        label="Download Image",
-        data=file,
-        file_name="modes_decision_tree-1.png",
-        mime="image/png"
-    )
+        btn = st.download_button(
+            label="Download Image",
+            data=file,
+            file_name="modes_decision_tree-1.png",
+            mime="image/png"
+        )
 
