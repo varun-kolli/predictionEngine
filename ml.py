@@ -53,7 +53,7 @@ def mlMain():
     st.header("Model Training Infrastructure")
     st.write("For training our model, we utilized Amazon Web Services' (AWS) Elastic Compute Cloud (EC2) instance. EC2 is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers.")
 
-    st.subheader("Our AWS EC2 Configuration")
+    st.write("**EC2 Configuration**")
     st.markdown("""
     - **Instance Type**: c5.9xlarge
     - **vCPU**: 36 units
