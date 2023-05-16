@@ -59,6 +59,12 @@ def resultMain():
 
     st.subheader("Decision Tree")
 
+    if 'rest' not in st.session_state:
+        st.session_state.rest = 0
+
+    def set_stage():
+        resultMain()
+
 
     img_path = "images/modes_decision_tree-1.png"
     img = open(img_path, "rb").read()
@@ -68,6 +74,6 @@ def resultMain():
             label="Download Image",
             data=file,
             file_name="modes_decision_tree-1.png",
-            mime="image/png"
+            mime="image/png", on_click = set_stage
         )
 
