@@ -7,6 +7,10 @@ def introduction():
 
     st.title("Predictive Analytics Framework for Mental Health Diagnoses")
 
+    img_path = "introImage.png"
+        img = open(img_path, "rb").read()
+        st.image(img, use_column_width=True)
+
     st.header('Project Goal')
     st.write('Develop a predictive analytics framework using data mining, statistical models, and machine learning that can identify risk factors in diagnosing mental health conditions and facilitate early detection of mental health issues.')
 
