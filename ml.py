@@ -67,7 +67,7 @@ def mlMain():
         - **Memory**: This is the physical memory or RAM (Random Access Memory) of the instance. We had 72 GiB (Gibibytes) of memory, which is important for storing and retrieving information quickly while our model is running.
         """)
 
-    st.caption("This setup was made possible by a funding allocation of $750 from the California Polytechnic University, San Luis Obispo Industrial Engineering and Manufacturing Department")
+    st.caption("This setup was made possible by a funding allocation of $750 from the California Polytechnic University, San Luis Obispo Industrial and Manufacturing Engineering Department")
 
 
 
