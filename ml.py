@@ -32,7 +32,7 @@ def mlMain():
     """)
     #     A **hyperparameter** is a configuration that is external to the model and whose value cannot be estimated from the data. They are often used in processes to help estimate model parameters.
 
-   with st.expander("What is a Hyperparameter?"):
+    with st.expander("What is a Hyperparameter?"):
        st.write("""
        A **hyperparameter** is a configuration that is external to the model and whose value cannot be estimated from the data. They are often used in processes to help estimate model parameters.
        """)
