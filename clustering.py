@@ -26,29 +26,30 @@ def clustMain():
     st.subheader("Results: ")
     st.write("")
 
-    source = pd.DataFrame({
-        "Cluster": [0, 1, 2],
-        "% of Total Cases": [46.8, 36.3, 16.9]
-    })
+   source = pd.DataFrame({
+       "Cluster": ['0', '1', '2'],  # Changed to string for better labeling
+       "% of Total Cases": [46.8, 36.3, 16.9]
+   })
 
-    c = alt.Chart(source).mark_arc().encode(
-        theta=alt.Theta('% of Total Cases', stack=True),
-        color=alt.Color('Cluster:N',
-                        scale=alt.Scale(domain=[0, 1, 2],
-                        range=['red', 'blue', 'green'])
+    # Create the base arc
+    arc = alt.Chart(source).mark_arc().encode(
+       theta=alt.Theta('% of Total Cases', stack=True),
+       color=alt.Color('Cluster:N',
+                       scale=alt.Scale(domain=['0', '1', '2'],
+                                       range=['red', 'blue', 'green'])
                        )
     )
-    # Add labels to each section of the pie chart
-    text = alt.Chart(source).mark_text(radius=120, dy=-5).encode(
-        theta=alt.Field('angle', type='quantitative'),
-        text=alt.Text('% of Total Cases')
+
+    # Add a text layer
+    text = arc.mark_text(align='center', baseline='middle', dy=-10).encode(
+       text=alt.Text('% of Total Cases:Q', format='.1f'),  # Display one decimal place
+       theta=alt.Theta('% of Total Cases', stack=True),
     )
 
-    # Combine the chart and labels
-    chart_with_labels = (c + text).properties(width=400, height=400)
+    # Combine both layers
+    chart = arc + text
 
-    st.altair_chart(chart_with_labels, use_container_width=True)
-
+    st.altair_chart(chart, use_container_width=True)
     cluster_data = [
         {
             "name": "Cluster 0",
