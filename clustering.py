@@ -38,8 +38,9 @@ def clustMain():
                         range=['red', 'blue', 'green'])
                        )
     )
-    text = alt.Chart(source).mark_text().encode(
+    text = alt.Chart(source).mark_text(align='center', baseline='middle').encode(
         theta=alt.Theta('% of Total Cases', stack=True),
+        radius=alt.Radius(0.6),  # Adjust the radius to control the label position
         text=alt.Text('% of Total Cases')
     )
 
