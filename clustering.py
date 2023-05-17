@@ -74,10 +74,14 @@ def clustMain():
     # Create a pie chart of the distribution of cluster percentages
     cluster_percentages_df = pd.DataFrame(cluster_data)[["name", "percentage", "color"]]
 
+    st.write("**Cluster 2: 16.9%**")
+    st.write("Schizophrenia/psychotic disorder is the only member of this cluster")
+
     source = pd.DataFrame({"category": [1, 2, 3, 4, 5, 6], "value": [4, 6, 10, 3, 7, 8]})
 
-    alt.Chart(source).mark_arc().encode(
+    c = alt.Chart(source).mark_arc().encode(
         theta="value",
         color="category"
     )
+    st.altair_chart(c, use_container_width=True)
 
