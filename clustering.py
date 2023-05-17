@@ -24,6 +24,20 @@ def clustMain():
     st.caption(" 'Cluster #' % represents proportion of total cases")
     st.caption(" 'Disorder' % represents proportion of cases within cluster")
 
+    source = pd.DataFrame({
+        "Cluster": [0, 1, 2],
+        "Percentage of Total Cases": [46.8, 36.3, 16.9]
+    })
+
+    c = alt.Chart(source).mark_arc().encode(
+        theta=alt.Theta('Percentage of Total Cases', stack=True),
+        color=alt.Color('Cluster:N',
+                        scale=alt.Scale(domain=[0, 1, 2],
+                                        range=['red', 'blue', 'green']),
+                        legend=None)
+    )
+    st.altair_chart(c, use_container_width=True)
+
     cluster_data = [
         {
             "name": "Cluster 0",
@@ -77,11 +91,5 @@ def clustMain():
     st.write("**Cluster 2: 16.9%**")
     st.write("Schizophrenia/psychotic disorder is the only member of this cluster")
 
-    source = pd.DataFrame({"category": [1, 2, 3, 4, 5, 6], "value": [4, 6, 10, 3, 7, 8]})
 
-    c = alt.Chart(source).mark_arc().encode(
-        theta="value",
-        color="category"
-    )
-    st.altair_chart(c, use_container_width=True)
 
