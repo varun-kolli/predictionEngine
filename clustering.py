@@ -30,11 +30,11 @@ def clustMain():
 
     source = pd.DataFrame({
         "Cluster": [0, 1, 2],
-        "Percentage of Total Cases": [46.8, 36.3, 16.9]
+        "% of Total Cases": [46.8, 36.3, 16.9]
     })
 
     c = alt.Chart(source).mark_arc().encode(
-        theta=alt.Theta('%of Total Cases', stack=True),
+        theta=alt.Theta('% of Total Cases', stack=True),
         color=alt.Color('Cluster:N',
                         scale=alt.Scale(domain=[0, 1, 2],
                         range=['red', 'blue', 'green'])
