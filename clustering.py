@@ -37,7 +37,7 @@ def clustMain():
         theta=alt.Theta('%of Total Cases', stack=True),
         color=alt.Color('Cluster:N',
                         scale=alt.Scale(domain=[0, 1, 2],
-                                        range=['red', 'blue', 'green']),
+                        range=['red', 'blue', 'green'])
                        )
     )
     st.altair_chart(c, use_container_width=True)
