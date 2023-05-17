@@ -52,17 +52,17 @@ def clustMain():
         }
     ]
 
-    # Convert the data to pandas DataFrame and normalize it
     cluster_dataframes = [
         pd.DataFrame(list(cluster["disorders"].items()), columns=["Disorder", "Percentage"])
         for cluster in cluster_data
     ]
 
-    # Create an Altair bar chart for each cluster
     charts = [
         alt.Chart(df).mark_bar(color=cluster["color"]).encode(
-            x="Percentage", y="Disorder", tooltip=["Disorder", "Percentage"]
-        )
+            x="Percentage",
+            y=alt.Y("Disorder", axis=alt.Axis(labelLimit=None)),  # adjust labelLimit
+            tooltip=["Disorder", "Percentage"]
+        ).properties(height=300)  # adjust height
         for df, cluster in zip(cluster_dataframes, cluster_data)
     ]
 
@@ -71,8 +71,6 @@ def clustMain():
         st.write(f"**{cluster['name']}: {cluster['percentage']}%**")
         st.altair_chart(chart, use_container_width=True)
 
-    # Create a pie chart of the distribution of cluster percentages
-    cluster_percentages_df = pd.DataFrame(cluster_data)[["name", "percentage", "color"]]
     pie_chart = (
         alt.Chart(cluster_percentages_df)
         .mark_arc(innerRadius=50, outerRadius=100, cornerRadius=5)
@@ -84,8 +82,8 @@ def clustMain():
                 legend=None,
             ),
             color=alt.Color(
-                "color:N",
-                scale=None,
+                "name:N",
+                scale=color_scale,
                 legend=None,
             ),
             tooltip=["name", "percentage"],
