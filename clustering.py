@@ -26,30 +26,21 @@ def clustMain():
     st.subheader("Results: ")
     st.write("")
 
-   source = pd.DataFrame({
-       "Cluster": ['0', '1', '2'],  # Changed to string for better labeling
-       "% of Total Cases": [46.8, 36.3, 16.9]
-   })
+    source = pd.DataFrame({
+        "Cluster": [0, 1, 2],
+        "% of Total Cases": [46.8, 36.3, 16.9]
+    })
 
-    # Create the base arc
-    arc = alt.Chart(source).mark_arc().encode(
-       theta=alt.Theta('% of Total Cases', stack=True),
-       color=alt.Color('Cluster:N',
-                       scale=alt.Scale(domain=['0', '1', '2'],
-                                       range=['red', 'blue', 'green'])
+    c = alt.Chart(source).mark_arc().encode(
+        theta=alt.Theta('% of Total Cases', stack=True),
+        color=alt.Color('Cluster:N',
+                        scale=alt.Scale(domain=[0, 1, 2],
+                        range=['red', 'blue', 'green'])
                        )
     )
 
-    # Add a text layer
-    text = arc.mark_text(align='center', baseline='middle', dy=-10).encode(
-       text=alt.Text('% of Total Cases:Q', format='.1f'),  # Display one decimal place
-       theta=alt.Theta('% of Total Cases', stack=True),
-    )
+    st.altair_chart(c, use_container_width=True)
 
-    # Combine both layers
-    chart = arc + text
-
-    st.altair_chart(chart, use_container_width=True)
     cluster_data = [
         {
             "name": "Cluster 0",
