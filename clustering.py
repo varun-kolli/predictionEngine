@@ -38,14 +38,14 @@ def clustMain():
                         range=['red', 'blue', 'green'])
                        )
     )
-    text = alt.Chart(source).mark_text(align='center', baseline='middle').encode(
-        theta=alt.Theta('% of Total Cases', stack=True),
-        radius=alt.Radius(0.6),  # Adjust the radius to control the label position
+    # Add labels to each section of the pie chart
+    text = alt.Chart(source).mark_text(radius=120, dy=-5).encode(
+        theta=alt.Field('angle', type='quantitative'),
         text=alt.Text('% of Total Cases')
     )
 
     # Combine the chart and labels
-    chart_with_labels = (c + text)
+    chart_with_labels = (c + text).properties(width=400, height=400)
 
     st.altair_chart(chart_with_labels, use_container_width=True)
 
