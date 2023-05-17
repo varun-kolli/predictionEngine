@@ -23,10 +23,8 @@ def clustMain():
     }
 
     st.write("")
-
-
-    st.caption(" 'Cluster #' % represents proportion of total cases")
-    st.caption(" 'Disorder' % represents proportion of cases within cluster")
+    st.subheader("Results: ")
+    st.write("")
 
     source = pd.DataFrame({
         "Cluster": [0, 1, 2],
@@ -40,7 +38,15 @@ def clustMain():
                         range=['red', 'blue', 'green'])
                        )
     )
-    st.altair_chart(c, use_container_width=True)
+    text = alt.Chart(source).mark_text().encode(
+        theta=alt.Theta('% of Total Cases', stack=True),
+        text=alt.Text('% of Total Cases')
+    )
+
+    # Combine the chart and labels
+    chart_with_labels = (c + text)
+
+    st.altair_chart(chart_with_labels, use_container_width=True)
 
     cluster_data = [
         {
