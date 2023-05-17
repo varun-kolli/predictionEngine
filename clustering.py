@@ -9,6 +9,11 @@ def clustMain():
     st.title("Clustering")
 
     st.write(" ")
+
+    image = Image.open('kMeansGraph.png')
+    st.image(image, use_column_width=True, clamp=True, caption='K-Means Clustering Example')
+
+    st.write(" ")
     st.write("In building the classification model, we decided to use a K-means clustering algorithm to identify meaningful groups. To determine the optimal number of clusters, we tested multiple values of 'k' and calculated the silhouette score for each. Based on these results, we chose a model with 3 clusters as it had the highest silhouette score. This indicates that the 3-cluster model was able to identify natural groupings or clusters in the data that were meaningful and distinct from each other. By using clustering as a pre-processing step, we were able to reduce noise or variability in the data and improve the accuracy of our machine learning model. Furthermore, by only classifying for 3 targets instead of multiple targets, we were able to save computational resources, considering the size of the dataset.")
 
     clusters = {
@@ -18,25 +23,40 @@ def clustMain():
     }
 
     st.write("")
-    image = Image.open('kMeansGraph.png')
-    st.image(image, use_column_width=True, clamp=True, caption='K-Means Clustering Example')
+
 
     st.caption(" 'Cluster #' % represents proportion of total cases")
     st.caption(" 'Disorder' % represents proportion of cases within cluster")
 
     source = pd.DataFrame({
-        "Cluster": [0, 1, 2],
+        "Cluster": ["0", "1", "2"],
         "Percentage of Total Cases": [46.8, 36.3, 16.9]
     })
 
-    c = alt.Chart(source).mark_arc().encode(
-        theta=alt.Theta('Percentage of Total Cases', stack=True),
+    # Calculate the mid-point of each arc segment for positioning the text
+    source['mid_point'] = source['Percentage of Total Cases'].cumsum() - source['Percentage of Total Cases']/2
+
+    # Create the pie chart
+    chart = alt.Chart(source).transform_calculate(
+        percentage="datum['% of Total Cases'] / 100"
+    ).mark_arc().encode(
+        theta=alt.Theta('percentage:Q', stack=True),
         color=alt.Color('Cluster:N',
-                        scale=alt.Scale(domain=[0, 1, 2],
+                        scale=alt.Scale(domain=["0", "1", "2"],
                                         range=['red', 'blue', 'green']),
-                        legend=None)
+                        )
     )
-    st.altair_chart(c, use_container_width=True)
+
+    # Create the text labels
+    text = chart.mark_text(align='center', baseline='middle', dx=0, dy=-15).encode(
+        theta=alt.Theta('mid_point', stack='normalize'),
+        text=alt.Text('$ of Total Cases:Q', format='.1f')
+    )
+
+    # Combine the chart and text
+    final_chart = (chart + text).properties(width=300, height=300)
+
+    st.altair_chart(final_chart, use_container_width=True)
 
     cluster_data = [
         {
