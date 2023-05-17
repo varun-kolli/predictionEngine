@@ -29,34 +29,18 @@ def clustMain():
     st.caption(" 'Disorder' % represents proportion of cases within cluster")
 
     source = pd.DataFrame({
-        "Cluster": ["0", "1", "2"],
+        "Cluster": [0, 1, 2],
         "Percentage of Total Cases": [46.8, 36.3, 16.9]
     })
 
-    # Calculate the mid-point of each arc segment for positioning the text
-    source['mid_point'] = source['Percentage of Total Cases'].cumsum() - source['Percentage of Total Cases']/2
-
-    # Create the pie chart
-    chart = alt.Chart(source).transform_calculate(
-        percentage="datum['% of Total Cases'] / 100"
-    ).mark_arc().encode(
-        theta=alt.Theta('percentage:Q', stack=True),
+    c = alt.Chart(source).mark_arc().encode(
+        theta=alt.Theta('%of Total Cases', stack=True),
         color=alt.Color('Cluster:N',
-                        scale=alt.Scale(domain=["0", "1", "2"],
+                        scale=alt.Scale(domain=[0, 1, 2],
                                         range=['red', 'blue', 'green']),
-                        )
+                       )
     )
-
-    # Create the text labels
-    text = chart.mark_text(align='center', baseline='middle', dx=0, dy=-15).encode(
-        theta=alt.Theta('mid_point', stack='normalize'),
-        text=alt.Text('$ of Total Cases:Q', format='.1f')
-    )
-
-    # Combine the chart and text
-    final_chart = (chart + text).properties(width=300, height=300)
-
-    st.altair_chart(final_chart, use_container_width=True)
+    st.altair_chart(c, use_container_width=True)
 
     cluster_data = [
         {
