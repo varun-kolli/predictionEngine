@@ -206,8 +206,14 @@ def interface():
 
         sapstuff = st.radio("Substance Abuse History", options=["Yes", "No"], help = "Please select 'yes' if you have experienced issues with substance abuse")
 
+        if sapstuff == "No":
+            sapstuff = "Yes"
+
         #veteranstuff = st.radio("Veteran", options=["Yes", "No"])
-        numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
+        numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [0, 1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
+
+        if numhs == 0:
+            numhs = 1
 
         veteranstuff = "No"
 
