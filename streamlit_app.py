@@ -3,7 +3,6 @@ import streamlit as st
 from introduction import introduction
 from sidebar import sideBar
 from dataCleaning import v2
-from tracker import report
 from backendInterface import interface
 from methodology import methMain
 from dataDescription import dataDesc
