@@ -208,8 +208,7 @@ def interface():
 
         #veteranstuff = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [0, 1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
-        if numhs == 0:
-            numhs = 1
+
         veteranstuff = "No"
 
         submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
