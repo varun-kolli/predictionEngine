@@ -4,6 +4,14 @@ import altair as alt
 
 from PIL import Image
 
+#arrange in descending order
+#make a green bar
+#ml range of values
+#creat table with range and optimal value
+
+#class report trwo extra rows
+#features decription top 3 b3
+
 
 def clustMain():
     st.title("Clustering")
