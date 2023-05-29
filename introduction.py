@@ -7,7 +7,7 @@ def introduction():
 
     st.title("Predictive Analytics Framework for Mental Health Diagnoses")
 
-    img_path = "introImage.png"
+    img_path = "images/introImage.png"
     img = open(img_path, "rb").read()
     st.image(img, use_column_width=True)
 

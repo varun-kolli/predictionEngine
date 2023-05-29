@@ -18,7 +18,7 @@ def clustMain():
 
     st.write(" ")
 
-    image = Image.open('kMeansGraph.png')
+    image = Image.open('images/kMeansGraph.png')
     st.image(image, use_column_width=True, clamp=True, caption='K-Means Clustering Example')
 
     st.write(" ")
