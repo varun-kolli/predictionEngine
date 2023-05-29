@@ -1,0 +1,14 @@
+Introduction
+
+- Project Goal
+    - problem statement
+    - research reports
+    - where is the data from
+
+Data Cleaning
+
+Prototypes
+
+Results
+
+- visualizations
