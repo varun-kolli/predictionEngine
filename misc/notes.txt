@@ -1,0 +1,96 @@
+SAMDHA Mental Health Client Level Data
+- client level information containing patient demographic and diagnoses from 2004 - 2020
+
+Version 1: Basic Decision Tree
+- Imported data and attempted a basic decision tree model
+  Excluded unnecessary or skewing data columns
+  Subset of 100,000 rows, year 2013, only three most common disorders
+
+F1 weighted score of around 0.3
+
+Version 2: Data cleaning + More Decision Trees
+- Due to lack of categorical variables, null values, and overlapping rows, more cleanup needed to happen to improve performance
+- Combined DETNLF and EMPLOY columns
+  Made all relevant columns categorical
+  Removed null values by three different methods;
+  Replace null values with the mode of each column
+  Replace null values with the distribution of that column
+  Remove all rows with null values
+  Ran three separate models (scores in powerpoint from last week)
+  All years, three most common disorders, subset of 200,000
+  Very good at predicting depression, very low at everything else
+
+Version 3: revisions to models
+Used SMOTE to balance the dataset
+Used balanced dataset as training set, unbalanced for testing set
+Slightly improved performance
+
+
+div.css-z5fc14.egzxvld5{
+    background-color: #f5f5f5;
+    border: 2px solid;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    color: #ffc300;
+    box-shadow: 10px;
+}
+
+div.css-1wivap2.e16fv1kl3{
+    font-weight: 800;
+}
+
+primaryColor = "#0077c2"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f2f2f2"
+textColor = "#333333"
+font = "Helvetica"
+font_size = 14
+font_weight = "normal"
+lineHeight = 1.5
+pageWidth = 1000
+pageBackgroundColor = "#ffffff"
+sidebarBackgroundColor = "#0077c2"
+headerColor = "#0077c2"
+buttonBackgroundColor = "#0077c2"
+buttonTextColor = "#ffffff"
+warningBackgroundColor = "#FFDAB9"
+warningTextColor = "#333333"
+box_shadow = true
+border_radius = 4
+
+
+
+
+    cols = ['Age Group', 'Education Level', 'Employment Status', 'Sex', 'State', 'Living Arrangement', 'Ethnicity', "Race", 'Marital Status', 'Substance Abuse History', 'Veteran Status', 'Mental Health Diagnosis History']
+
+    df_in = pd.DataFrame({'Question': ['AGE', 'EDUC', 'ETHNIC', 'RACE', 'GENDER', 'MARSTAT', 'SAP', 'EMPLOY', 'LIVARAG', 'NUMMHS', 'STATEFIP'], 'Answer':  [input[0], input[1], input[6], input[7], input[3], input[8], input[9], input[2], input[5], input[10], input[4]] })
+
+
+    st.dataframe(df_in)
+
+    def change(column, df_modes):
+        new_col = column + '_replaced'
+        df_modes[new_col] = False
+        mode = df_modes[column].mode()
+        return df_modes
+
+
+    df_in = change('AGE', df_in)
+    df_in = change('EDUC', df_in)
+    df_in = change('ETHNIC', df_in)
+    df_in = change('RACE', df_in)
+    df_in = change('GENDER', df_in)
+    df_in = change('MARSTAT', df_in)
+    df_in = change('SAP', df_in)
+    df_in = change('EMPLOY', df_in)
+    df_in = change('LIVARAG', df_in)
+    df_in = change('NUMMHS', df_in)
+    df_in = change('STATEFIP', df_in)
+
+    st.dataframe(df_in)
+
+
+age (0-11, 12-14)
+
+
+
