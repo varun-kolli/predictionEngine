@@ -3,12 +3,13 @@
 This Python code conducts data preprocessing, transformation, and clustering on a dataset. It focuses on the year 2019, filters relevant columns, categorizes various features for easy understanding and analysis, and finally performs a K-Means clustering on the transformed data.
 
 
-###Data Preparation:
+**Data Preparation**
 <br>This includes filtering data for the year 2019, selecting a specific set of columns that are considered relevant, and merging 'EMPLOY' and 'DETNLF' columns.
-###<br>Categorical Variable Transformation:
+
+**Categorical Variable Transformation:**
 <br>This converts various socio-demographic and health-related variables into categorical variables. This is done using CSV key files which map numerical values to their corresponding categories. Files needed for this step include 'age_key.csv', 'educ_key.csv', 'ethnic_key.csv', 'race_key.csv', 'gender_key.csv', 'marstat_key.csv', 'sap_key.csv', 'employ_key.csv', 'livarag_key.csv', 'Disorders_Key.csv', and 'States_ID.csv'.
 
-###<br>Dummy Variable Creation:
+**Dummy Variable Creation:**
 <br>After all necessary transformations, the data is further prepared for modeling by converting the categorical variable 'Disorder' into dummy/indicator variables.
 <br>K-Means Clustering:
 A K-Means clustering algorithm is applied on the dataset. This step involves running the K-Means algorithm with a different number of clusters (3, 4, and 5 in this code) and calculating the Silhouette score for each. The Silhouette score is a measure of how similar an object is to its own cluster (cohesion) compared to other clusters (separation). The Silhouette score for each cluster configuration is printed, which can be used to determine the optimal number of clusters. Finally, K-Means clustering with 3 clusters is performed.
@@ -18,7 +19,7 @@ pandas for data manipulation.
 sklearn.cluster for K-Means model.
 sklearn.metrics for calculating silhouette score.
 
-###Mode Calculation and Output:
+**Mode Calculation and Output**
 
 This section of the code identifies the modes (most common values) of each feature for each cluster. A function findModes is defined to find the modes of all features for a given cluster. The function filters the relevant dataframe for a particular cluster and then iterates over all columns in the dataframe. For each column, the mode is computed and appended to a list, which is then returned by the function.
 
@@ -30,7 +31,7 @@ Files produced:
 
 'cluster_value_map.csv': Each row corresponds to a cluster and each column corresponds to a feature. The value in each cell is the mode (most common value) of that feature for that cluster.
 
-##Decision Tree Classification: Dropping Null Values
+**Decision Tree Classification: Dropping Null Values**
 
 This section of the code employs a Decision Tree Classifier to predict the 'CLUSTER' category based on the other features. It specifically deals with a version of the dataset where null values have been dropped.
 
@@ -51,9 +52,9 @@ The model is fitted with the training data
 The best score and parameters found by GridSearchCV are printed
 The model makes predictions on the testing set and a classification report (precision, recall, f1-score for each class) is printed
 
-##Decision Tree Classification: Replacing Nulls with Modes
+**Decision Tree Classification: Replacing Nulls with Modes**
 
 In the other version, null values are replaced with the mode (most frequent value) of their respective columns. The code for this approach should be mostly the same, with the difference being in how null values are handled: instead of dropping null values as in the first version, they should be replaced by the mode of their respective column before proceeding with the rest of the steps. The dataframe used for this version should have null values replaced with modes before being passed into the classification procedure.
 
-###How to run:
+**How to run:**
 <br>Ensure you have all the necessary data files and libraries. Load your data into a dataframe named 'df'. Make sure that the dataframe 'df' has the correct structure and columns as expected by the code. Then, run the code sequentially.. write this whole thing optimized and as a readme.md file in markdown format
