@@ -1,4 +1,4 @@
-##Description
+***Description***
 
 This Python code conducts data preprocessing, transformation, and clustering on a dataset. It focuses on the year 2019, filters relevant columns, categorizes various features for easy understanding and analysis, and finally performs a K-Means clustering on the transformed data.
 
@@ -7,6 +7,7 @@ This Python code conducts data preprocessing, transformation, and clustering on 
 <br>This includes filtering data for the year 2019, selecting a specific set of columns that are considered relevant, and merging 'EMPLOY' and 'DETNLF' columns.
 ###<br>Categorical Variable Transformation:
 <br>This converts various socio-demographic and health-related variables into categorical variables. This is done using CSV key files which map numerical values to their corresponding categories. Files needed for this step include 'age_key.csv', 'educ_key.csv', 'ethnic_key.csv', 'race_key.csv', 'gender_key.csv', 'marstat_key.csv', 'sap_key.csv', 'employ_key.csv', 'livarag_key.csv', 'Disorders_Key.csv', and 'States_ID.csv'.
+
 ###<br>Dummy Variable Creation:
 <br>After all necessary transformations, the data is further prepared for modeling by converting the categorical variable 'Disorder' into dummy/indicator variables.
 <br>K-Means Clustering:
