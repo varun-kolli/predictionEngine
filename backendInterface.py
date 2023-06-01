@@ -236,6 +236,7 @@ def interface():
 
 def interface():
     st.title("Backend Interface")
+    survey()
 
 
 def survey():
