@@ -3,6 +3,7 @@ import streamlit as st
 import numpy as np
 import joblib
 
+"""
 
 def modes(column, df_modes):
         new_col = column + '_replaced'
@@ -17,16 +18,6 @@ def bullet_points(items):
     st.write("- " + "\n- ".join(items))
 
 def highlight_row(df, index):
-    """
-    Highlights the row with the specified integer index in a pandas DataFrame.
-
-    Parameters:
-    df (pandas.DataFrame): The DataFrame to highlight a row in.
-    index (int): The integer index of the row to highlight.
-
-    Returns:
-    pandas.DataFrame: The original DataFrame with the specified row highlighted.
-    """
     # create a copy of the DataFrame with no highlighting
     styled_df = df.style
 
@@ -239,6 +230,52 @@ def interface():
 
         process(query)
 
-
     if st.session_state.stage > 0:
         st.button('View Prediction', on_click=executeQuery, args=(st.session_state.input, ))
+"""
+
+def interface():
+    st.title("Backend Interface")
+
+
+def survey():
+    with st.form(key='my_form'):
+
+        age_group = st.selectbox('Age Group', ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up'], help = "Select most appropriate age group")
+        education_level = st.selectbox("Highest Completed Education Level", ["0 to 8", "9 to 11", "12 or GED", "12+"], help = "Select the highest level of education you have completed")
+        employment_status = st.selectbox("Employment Status", ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"])
+        sex = st.radio("Sex", options=["Male", "Female"], help = "Sex assigned at birth")
+        state_of_residence = st.selectbox("State of Residence",
+                                                  ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+                                                   "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+                                                   "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+                                                   "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+                                                   "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
+
+        living_arrangement = st.selectbox("Living Arrangement", ["Homeless", "Private residence", "Other"])
+        ethnicity = st.selectbox("Ethnicity", ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"])
+        race = st.selectbox('Race:', options=['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple'])
+        marital_status = st.selectbox('Marital Status:', options=['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed'])
+        substance_abuse_history = st.radio("Substance Abuse History", options=["Yes", "No"], help = "Please select 'yes' if you have experienced issues with substance abuse")
+        substance_abuse_history = "Yes" if substance_abuse_history == "No" else substance_abuse_history
+        num_mental_health_disorders =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [0, 1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
+        num_mental_health_disorders = 1 if num_mental_health_disorders == 0 else num_mental_health_disorders
+        veteran_status = "No"
+
+
+
+        if st.form_submit_button('Submit'):
+            st.write(
+                f"Age Group: {age_group}\n"
+                f"Education Level: {education_level}\n"
+                f"Employment Status: {employment_status}\n"
+                f"Sex: {sex}\n"
+                f"State: {state_of_residence}\n"
+                f"Living Arrangement: {living_arrangement}\n"
+                f"Ethnicity: {ethnicity}\n"
+                f"Race: {race}\n"
+                f"Marital Status: {marital_status}\n"
+                f"Substance Abuse History: {substance_abuse_history}\n"
+                f"Number of Previously Diagnosed Mental Health Disorders: {num_mental_health_disorders}\n"
+                f"Veteran Status: {veteran_status}\n"
+            )
