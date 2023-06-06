@@ -3,8 +3,6 @@ import streamlit as st
 import numpy as np
 import joblib
 
-"""
-
 def modes(column, df_modes):
         new_col = column + '_replaced'
         df_modes[new_col] = False
@@ -74,7 +72,7 @@ def displayPrediction(cluster, query, probs):
             st.table(df.set_index('Question').T)
 
 def process(query):
-    stuff = query
+    Info = query
     df = pd.read_csv('CSV_files/dummieCodex.csv')
 
     # replace each row with its mode
@@ -132,13 +130,12 @@ def process(query):
     displayPrediction(cluster, query, probs)
 
 
-
-def displayInput(stuff):
+def displayInput(Info):
         headers = ['Age', 'Education', 'Ethnicity', 'Race', 'Sex', 'Marital Status', 'Substance Abuse Problem', 'Employment', 'Living Arrangement', 'Mental Health History', 'State']
-        #query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+        #query = [Info[0], Info[1], Info[6], Info[7], Info[3], Info[8], Info[9], Info[2], Info[5], Info[10], Info[4]]
 
         df_query = pd.DataFrame(columns=headers)
-        df_query.loc[0] = stuff
+        df_query.loc[0] = Info
         df_transposed = df_query.transpose().reset_index()
         df_transposed.columns = df_transposed.iloc[0]
         df_transposed = df_transposed.iloc[1:]
@@ -165,17 +162,17 @@ def interface():
     # Some code
     with st.form(key='my_form'):
         ageOptions = ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up']
-        agestuff = st.selectbox('Age Group', ageOptions, help = "Select most appropriate age group")
+        ageInfo = st.selectbox('Age Group', ageOptions, help = "Select most appropriate age group")
 
         education_levels = ["0 to 8", "9 to 11", "12 or GED", "12+"]
-        educstuff = st.selectbox("Highest Completed Education Level", education_levels, help = "Select the highest level of education you have completed")
+        educInfo = st.selectbox("Highest Completed Education Level", education_levels, help = "Select the highest level of education you have completed")
 
         employment_statuses = ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"]
-        employstuff = st.selectbox("Employment Status", employment_statuses)
+        employInfo = st.selectbox("Employment Status", employment_statuses)
 
-        genderstuff = st.radio("Sex", options=["Male", "Female"], help = "Sex assigned at birth")
+        genderInfo = st.radio("Sex", options=["Male", "Female"], help = "Sex assigned at birth")
 
-        statestuff = st.selectbox("State of Residence",
+        stateInfo = st.selectbox("State of Residence",
                                                       ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
                                                        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
                                                        "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
@@ -184,38 +181,38 @@ def interface():
 
 
         housing_situations = ["Homeless", "Private residence", "Other"]
-        livArangstuff = st.selectbox("Living Arrangement", housing_situations)
+        livArangInfo = st.selectbox("Living Arrangement", housing_situations)
 
         ethnicities = ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"]
-        ethnicitystuff = st.selectbox("Ethnicity", ethnicities)
+        ethnicityInfo = st.selectbox("Ethnicity", ethnicities)
 
         race_options = ['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple']
-        racestuff = st.selectbox('Race:', options=race_options)
+        raceInfo = st.selectbox('Race:', options=race_options)
 
         marital_status_options = ['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed']
-        marStatstuff = st.selectbox('Marital Status:', options=marital_status_options)
+        marStatInfo = st.selectbox('Marital Status:', options=marital_status_options)
 
-        sapstuff = st.radio("Substance Abuse History", options=["Yes", "No"], help = "Please select 'yes' if you have experienced issues with substance abuse")
+        sapInfo = st.radio("Substance Abuse History", options=["Yes", "No"], help = "Please select 'yes' if you have experienced issues with substance abuse")
 
-        if sapstuff == "No":
-            sapstuff = "Yes"
+        if sapInfo == "No":
+            sapInfo = "Yes"
 
-        #veteranstuff = st.radio("Veteran", options=["Yes", "No"])
+        #veteranInfo = st.radio("Veteran", options=["Yes", "No"])
         numhs =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [0, 1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
 
         if numhs == 0:
             numhs = 1
 
-        veteranstuff = "No"
+        veteranInfo = "No"
 
         submit = st.form_submit_button('Submit', on_click=set_stage, args=(1,
-                    [agestuff, educstuff, employstuff, genderstuff, statestuff, livArangstuff, ethnicitystuff, racestuff, marStatstuff, sapstuff, numhs]))
+                    [ageInfo, educInfo, employInfo, genderInfo, stateInfo, livArangInfo, ethnicityInfo, raceInfo, marStatInfo, sapInfo, numhs]))
 
     #if st.session_state.stage > 0 and st.session_state.input != ['15-17', '0 to 8', 'Full time', 'Male', 'AL', 'Homeless', 'Mexican', 'Native', 'Never married', 'Yes', 1]:
 
     if st.session_state.stage > 0:
-        stuff = st.session_state.input
-        smt = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+        Info = st.session_state.input
+        smt = [Info[0], Info[1], Info[6], Info[7], Info[3], Info[8], Info[9], Info[2], Info[5], Info[10], Info[4]]
         headers = ['Age', 'Education', 'Ethnicity', 'Race', 'Sex', 'Marital Status', 'Substance Abuse Problem', 'Employment', 'Living Arrangement', 'Mental Health History', 'State']
         data = {}
         for i in range(len(headers)):
@@ -225,58 +222,10 @@ def interface():
         with st.container():
             st.table(df.set_index('Question').T)
 
-    def executeQuery(stuff):
-        query = [stuff[0], stuff[1], stuff[6], stuff[7], stuff[3], stuff[8], stuff[9], stuff[2], stuff[5], stuff[10], stuff[4]]
+    def executeQuery(Info):
+        query = [Info[0], Info[1], Info[6], Info[7], Info[3], Info[8], Info[9], Info[2], Info[5], Info[10], Info[4]]
 
         process(query)
 
     if st.session_state.stage > 0:
         st.button('View Prediction', on_click=executeQuery, args=(st.session_state.input, ))
-"""
-
-def interface():
-    st.title("Backend Interface")
-    survey()
-
-
-def survey():
-    with st.form(key='my_form'):
-
-        age_group = st.selectbox('Age Group', ['15-17', '18-20', '21-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 up'], help = "Select most appropriate age group")
-        education_level = st.selectbox("Highest Completed Education Level", ["0 to 8", "9 to 11", "12 or GED", "12+"], help = "Select the highest level of education you have completed")
-        employment_status = st.selectbox("Employment Status", ["Full time", "Part time", "Employed non differentiated", "Unemployed", "Not in labor force"])
-        sex = st.radio("Sex", options=["Male", "Female"], help = "Sex assigned at birth")
-        state_of_residence = st.selectbox("State of Residence",
-                                                  ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-                                                   "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-                                                   "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-                                                   "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-                                                   "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])
-
-        living_arrangement = st.selectbox("Living Arrangement", ["Homeless", "Private residence", "Other"])
-        ethnicity = st.selectbox("Ethnicity", ["Mexican", "Puerto Rican", "Other Hispanic or Latino origin", "Not of Hispanic or Latino origin"])
-        race = st.selectbox('Race:', options=['Native', 'Asian', 'Black or African American', 'Pacific Islander', 'White', 'Other/Multiple'])
-        marital_status = st.selectbox('Marital Status:', options=['Never married', 'Now married', 'Separated', 'Divorced', 'Widowed'])
-        substance_abuse_history = st.radio("Substance Abuse History", options=["Yes", "No"], help = "Please select 'yes' if you have experienced issues with substance abuse")
-        substance_abuse_history = "Yes" if substance_abuse_history == "No" else substance_abuse_history
-        num_mental_health_disorders =  st.selectbox("Number of Previously Diagnosed Mental Health Disorders", options = [0, 1, 2, 3], help = "Please enter the number of mental health disorders you have been clinically diagnosed with")
-        num_mental_health_disorders = 1 if num_mental_health_disorders == 0 else num_mental_health_disorders
-        veteran_status = "No"
-
-
-
-        if st.form_submit_button('Submit'):
-            st.write(
-                f"Age Group: {age_group}\n"
-                f"Education Level: {education_level}\n"
-                f"Employment Status: {employment_status}\n"
-                f"Sex: {sex}\n"
-                f"State: {state_of_residence}\n"
-                f"Living Arrangement: {living_arrangement}\n"
-                f"Ethnicity: {ethnicity}\n"
-                f"Race: {race}\n"
-                f"Marital Status: {marital_status}\n"
-                f"Substance Abuse History: {substance_abuse_history}\n"
-                f"Number of Previously Diagnosed Mental Health Disorders: {num_mental_health_disorders}\n"
-                f"Veteran Status: {veteran_status}\n"
-            )
